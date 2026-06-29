@@ -5,8 +5,8 @@ Search window: 2026-06-24 through 2026-06-29 UTC
 Query set: `"seed audio"`, `"Seed-Audio"`, `"SeedAudio"`  
 Accepted sample: 93 deduplicated X/Twitter posts from 182 raw returned posts  
 Candidate review queue: 20  
-Selected public cases after source review: 12  
-Selected cases with downloaded media: 12
+Selected public cases after source review: 11
+Selected cases with downloaded media: 11
 Preset voice list: documentation link only
 
 ## Collection Notes
@@ -37,8 +37,8 @@ The public repository now follows the usecase template:
 | Audio-First Video Workflows | Case 1-3 |
 | Audio Drama And Scene Generation | Case 4-5 |
 | Reference Voice And Character Casting | Case 6, Case 8, Case 10 |
-| Tool And Provider Integrations | Case 7, Case 11 |
-| Social Narration, Foley, And Cost Tests | Case 9, Case 12 |
+| Tool And Provider Integrations | Case 7 |
+| Social Narration, Foley, And Cost Tests | Case 9, Case 11 |
 
 ## Representative Case Set
 
@@ -57,3 +57,7 @@ python3 scripts/validate_repo.py
 ## Public Selection Policy
 
 Medium- and weak-evidence candidates are excluded from the public README set under the final strong-only policy.
+
+## Label Audit
+
+The current public type labels are checked in [case-label-audit.md](case-label-audit.md). This pass also removed the previous provider-access case because it was less useful than the remaining workflow and evaluation cases.

@@ -48,7 +48,7 @@ LOCALIZED_EXPECTED_SNIPPETS = {
     "README_fr.md": ["| Section | Cas |", "| Cas | Ce qu'il montre | Type |", "### Cas 1:", "(par [@"],
     "README_tr.md": ["| Bölüm | Vakalar |", "| Vaka | Neyi gösterir | Tür |", "### Vaka 1:", "(yazar [@"],
     "README_zh-TW.md": ["| 章節 | 案例 |", "| 案例 | 展示重點 | 類型 |", "### 案例 1:", "(作者 [@"],
-    "README_zh-CN.md": ["| 章节 | 案例 |", "| 案例 | 展示重点 | 类型 |", "### 案例 1:", "(作者 [@"],
+    "README_zh-CN.md": ["| 章节 | 案例 |", "| 案例 | 展示重点 | 类型 |", "### 案例 1:", "(作者 [@", "证据来源：", "可复制做法：", "实际流程：", "注意事项：", "打开视频文件"],
     "README_ru.md": ["| Раздел | Кейсы |", "| Кейс | Что показывает | Тип |", "### Кейс 1:", "(автор [@"],
 }
 
@@ -130,6 +130,7 @@ REQUIRED_FILES = [
     "docs/maintenance.md",
     "docs/recent-x-use-cases.md",
     "docs/update-log.md",
+    "docs/case-label-audit.md",
     "scripts/build_readmes.py",
 ]
 
@@ -148,15 +149,19 @@ REQUIRED_ENGLISH_SNIPPETS = [
     "Quick API Access",
     "Preset voice docs",
     "Menu",
-    "Case 12: Voice Acting, Foley, And Low-Cost Testing",
+    "Case 11: Voice Acting, Foley, And Low-Cost Testing",
+    "<video controls",
+    "Open video file",
     "https://api.evolink.ai/v1/audios/generations",
     "doubao-seed-audio-1-0",
     "Acknowledge",
 ]
 
+REQUIRED_ZH_CN_NOTE_PARTS = ["证据来源：", "可复制做法：", "实际流程：", "注意事项："]
+
 VALID_TYPES = {"Demo", "Tutorial", "Evaluation", "Integration", "Benchmark", "Limit"}
 EXPECTED_ACCEPTED_COUNT = 93
-EXPECTED_SELECTED_COUNT = 12
+EXPECTED_SELECTED_COUNT = 11
 EXPECTED_REVIEW_QUEUE_COUNT = 20
 PUBLIC_FILES_TO_SCAN = [
     "README.md",
@@ -167,6 +172,7 @@ PUBLIC_FILES_TO_SCAN = [
     "docs/maintenance.md",
     "docs/recent-x-use-cases.md",
     "docs/update-log.md",
+    "docs/case-label-audit.md",
     "CONTRIBUTING.md",
 ]
 
@@ -303,6 +309,12 @@ def main() -> int:
             for key in ["title", "source_url", "author", "author_url", "type", "date", "takeaway", "notes"]:
                 if not case.get(key):
                     errors.append(f"case {case.get('number')} missing {key}")
+            notes = str(case.get("notes", ""))
+            for required_note_part in ["Source evidence:", "What to copy:", "Watch-outs:"]:
+                if required_note_part not in notes:
+                    errors.append(f"case {case.get('number')} notes missing actionable section: {required_note_part}")
+            if len(notes) < 420:
+                errors.append(f"case {case.get('number')} notes are not detailed enough")
             if not str(case.get("source_url", "")).startswith("https://x.com/"):
                 errors.append(f"case {case.get('number')} invalid source_url")
             if not str(case.get("author_url", "")).startswith("https://x.com/"):
@@ -345,6 +357,10 @@ def main() -> int:
                             errors.append(f"case {case.get('number')} video thumbnail too small: {thumb_path}")
                         if thumb_path not in readme_text:
                             errors.append(f"README.md missing media thumbnail for case {case.get('number')}: {thumb_path}")
+                    if "<video controls" not in readme_text:
+                        errors.append("README.md missing inline video controls")
+                    if "Open video file" not in readme_text:
+                        errors.append("README.md missing video fallback link")
         if len(source_urls) != len(set(source_urls)):
             errors.append("use-cases.json contains duplicate source URLs")
         selected_source_urls = set(source_urls)
@@ -422,6 +438,12 @@ def main() -> int:
                             errors.append(f"use-case-translations {locale} case {number} {field} contains generic phrase: {phrase}")
                     if value not in readme_text:
                         errors.append(f"{rel} does not include translated {field} for case {number}")
+                    if locale == "zh-CN" and field == "notes":
+                        for required_note_part in REQUIRED_ZH_CN_NOTE_PARTS:
+                            if required_note_part not in value:
+                                errors.append(f"use-case-translations zh-CN case {number} notes missing actionable section: {required_note_part}")
+                        if len(value) < 180:
+                            errors.append(f"use-case-translations zh-CN case {number} notes are not detailed enough")
 
     source_index = ROOT / "data/source-index.json"
     if source_index.exists():
@@ -452,6 +474,16 @@ def main() -> int:
             for output in row.get("outputs", []):
                 if output.startswith(".codex/") or output.startswith("USECASE_") or output == "data/ingested_tweets.json":
                     errors.append(f"source index exposes internal output: {output}")
+
+    audit_path = ROOT / "docs/case-label-audit.md"
+    if audit_path.exists():
+        audit_text = audit_path.read_text(encoding="utf-8")
+        for number in range(1, expected_case_count + 1):
+            if f"| {number} |" not in audit_text:
+                errors.append(f"case-label-audit missing case {number}")
+        for snippet in ["Changed from Demo to Tutorial", "previous WaveSpeedAI provider-access case was removed", "Public cases: 11"]:
+            if snippet not in audit_text:
+                errors.append(f"case-label-audit missing snippet: {snippet}")
 
     if errors:
         print("FAIL")

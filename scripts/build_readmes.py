@@ -47,7 +47,7 @@ UI = {
         "overview_4": "Use this repo to find practical workflows, compare strengths and limits, discover provider routes, and route implementation work to EvoLink.",
         "note_1": "Localized README files preserve the same case order, links, anchors, and attribution as the English source.",
         "note_2": "The collection favors concrete workflow evidence over hype: demos, setup notes, provider launches, hands-on evaluations, and clearly stated limitations.",
-        "links": "[Update log](docs/update-log.md) | [Maintenance guide](docs/maintenance.md) | [Case data](data/use-cases.json)",
+        "links": "[Update log](docs/update-log.md) | [Maintenance guide](docs/maintenance.md) | [Case label audit](docs/case-label-audit.md) | [Case data](data/use-cases.json)",
         "api_h": "Quick API Access",
         "api_1": "Use Seed-Audio 1.0 through the EvoLink audio generation API. Get an API key from [EvoLink]({url}), then set it as `EVOLINK_API_KEY` before running the request.",
         "api_2": "The response creates an async task. Poll `GET /v1/tasks/{task_id}` until the task reaches `completed`, `failed`, or `cancelled`.",
@@ -63,6 +63,7 @@ UI = {
         "ack_row": "Credits and correction policy",
         "ack_1": "This repository links to public creator and provider posts at the case level. Public sources are credited in each case heading.",
         "ack_2": "Corrections are welcome when a source link breaks, attribution is wrong, or a claim is not supported by the linked source.",
+        "open_video": "Open video file",
         "local_note": "{title}",
         "local_detail": "{notes}",
     },
@@ -80,7 +81,7 @@ UI = {
         "overview_4": "你可以用这个仓库查找真实工作流、比较优势和限制、发现服务商路径，并把实现工作导向 EvoLink。",
         "note_1": "本地化 README 与英文源文件保持相同的案例顺序、链接、锚点和署名。",
         "note_2": "本仓库优先收录具体工作流证据，而不是纯宣传：演示、设置说明、服务商发布、上手评估和明确限制。",
-        "links": "[更新日志](docs/update-log.md) | [维护指南](docs/maintenance.md) | [案例数据](data/use-cases.json)",
+        "links": "[更新日志](docs/update-log.md) | [维护指南](docs/maintenance.md) | [案例标注审计](docs/case-label-audit.md) | [案例数据](data/use-cases.json)",
         "api_h": "API 快速访问",
         "api_1": "通过 EvoLink 音频生成 API 使用 Seed-Audio 1.0。先在 [EvoLink]({url}) 获取 API key，然后在请求前设置 `EVOLINK_API_KEY`。",
         "api_2": "响应会创建一个异步任务。轮询 `GET /v1/tasks/{task_id}`，直到状态变为 `completed`、`failed` 或 `cancelled`。",
@@ -96,6 +97,7 @@ UI = {
         "ack_row": "来源致谢与修正政策",
         "ack_1": "本仓库在案例级别链接公开创作者和服务商内容。每个案例标题都会标注公开来源。",
         "ack_2": "如果来源链接失效、署名错误，或某个说法没有得到链接来源支持，欢迎提交修正。",
+        "open_video": "打开视频文件",
         "local_note": "用这个案例评估：{title}。",
         "local_detail": "该案例来自公开 X/Twitter 来源，适合作为此使用场景的证据。来源链接和作者主页保留在标题中。",
     },
@@ -113,7 +115,7 @@ UI = {
         "overview_4": "你可以用這個倉庫查找真實工作流、比較優勢和限制、發現服務商路徑，並把實作工作導向 EvoLink。",
         "note_1": "本地化 README 與英文源文件保持相同的案例順序、連結、錨點與署名。",
         "note_2": "本倉庫優先收錄具體工作流證據，而不是純宣傳：演示、設定說明、服務商發布、上手評估和明確限制。",
-        "links": "[更新日誌](docs/update-log.md) | [維護指南](docs/maintenance.md) | [案例資料](data/use-cases.json)",
+        "links": "[更新日誌](docs/update-log.md) | [維護指南](docs/maintenance.md) | [案例標註審計](docs/case-label-audit.md) | [案例資料](data/use-cases.json)",
         "api_h": "API 快速存取",
         "api_1": "透過 EvoLink 音訊生成 API 使用 Seed-Audio 1.0。先在 [EvoLink]({url}) 取得 API key，然後在請求前設定 `EVOLINK_API_KEY`。",
         "api_2": "回應會建立一個非同步任務。輪詢 `GET /v1/tasks/{task_id}`，直到狀態變為 `completed`、`failed` 或 `cancelled`。",
@@ -129,6 +131,7 @@ UI = {
         "ack_row": "來源致謝與修正政策",
         "ack_1": "本倉庫在案例層級連結公開創作者和服務商內容。每個案例標題都會標註公開來源。",
         "ack_2": "如果來源連結失效、署名錯誤，或某個說法沒有得到連結來源支持，歡迎提交修正。",
+        "open_video": "打開影片檔案",
         "local_note": "用這個案例評估：{title}。",
         "local_detail": "該案例來自公開 X/Twitter 來源，適合作為此使用場景的證據。來源連結和作者主頁保留在標題中。",
     },
@@ -150,7 +153,7 @@ UI.update(
             "overview_4": "実用ワークフロー、強みと制約、プロバイダー経路、EvoLink での実装導線を確認するために使えます。",
             "note_1": "ローカライズ版 README は英語版と同じケース順、リンク、アンカー、帰属を保持します。",
             "note_2": "このコレクションは宣伝文句ではなく、デモ、設定メモ、プロバイダー公開、実使用評価、明示された制約などの具体的証拠を重視します。",
-            "links": "[更新ログ](docs/update-log.md) | [メンテナンスガイド](docs/maintenance.md) | [ケースデータ](data/use-cases.json)",
+            "links": "[更新ログ](docs/update-log.md) | [メンテナンスガイド](docs/maintenance.md) | [ケースラベル監査](docs/case-label-audit.md) | [ケースデータ](data/use-cases.json)",
             "api_h": "API クイックアクセス",
             "api_1": "EvoLink の音声生成 API から Seed-Audio 1.0 を使用できます。[EvoLink]({url}) で API key を取得し、リクエスト前に `EVOLINK_API_KEY` を設定してください。",
             "api_2": "レスポンスは非同期タスクを作成します。`GET /v1/tasks/{task_id}` をポーリングし、状態が `completed`、`failed`、または `cancelled` になるまで待ちます。",
@@ -183,7 +186,7 @@ UI.update(
             "overview_4": "실제 워크플로, 강점과 한계, 제공자 경로, EvoLink 구현 방향을 확인하는 데 사용할 수 있습니다.",
             "note_1": "현지화 README는 영어 원본과 동일한 사례 순서, 링크, 앵커, 출처 표시를 유지합니다.",
             "note_2": "이 컬렉션은 과장보다 데모, 설정 노트, 제공자 출시, 실제 평가, 명확한 한계 같은 구체적 증거를 우선합니다.",
-            "links": "[업데이트 로그](docs/update-log.md) | [유지관리 가이드](docs/maintenance.md) | [사례 데이터](data/use-cases.json)",
+            "links": "[업데이트 로그](docs/update-log.md) | [유지관리 가이드](docs/maintenance.md) | [사례 라벨 감사](docs/case-label-audit.md) | [사례 데이터](data/use-cases.json)",
             "api_h": "빠른 API 접근",
             "api_1": "EvoLink 오디오 생성 API로 Seed-Audio 1.0을 사용할 수 있습니다. [EvoLink]({url})에서 API key를 받은 뒤 요청 전에 `EVOLINK_API_KEY`를 설정하세요.",
             "api_2": "응답은 비동기 작업을 생성합니다. 상태가 `completed`, `failed`, `cancelled` 중 하나가 될 때까지 `GET /v1/tasks/{task_id}`를 폴링하세요.",
@@ -467,7 +470,7 @@ CASE_BY_NUMBER = {case["number"]: case for case in DATA["cases"]}
 
 
 def tr(locale: str, key: str) -> str:
-    return UI.get(locale, UI["en"])[key]
+    return UI.get(locale, {}).get(key, UI["en"][key])
 
 
 def localized_category_title(locale: str, category: dict, index: int) -> str:
@@ -714,7 +717,11 @@ def build_case_details(locale: str) -> list[str]:
         if media.get("type") == "video" and media.get("thumbnail_path") and media.get("path"):
             lines.extend(
                 [
-                    f"[![{tr(locale, 'case')} {case['number']} media preview]({media['thumbnail_path']})]({media['path']})",
+                    f"<video controls preload=\"metadata\" poster=\"{media['thumbnail_path']}\" width=\"760\">",
+                    f"  <source src=\"{media['path']}\" type=\"video/mp4\">",
+                    f"</video>",
+                    "",
+                    f"[{tr(locale, 'open_video')}]({media['path']})",
                     "",
                 ]
             )

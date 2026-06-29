@@ -25,7 +25,7 @@ Seed-Audio 1.0의 신뢰도 높은 사용 사례 저장소입니다.
 
 ## 개요
 
-- **최근 X/Twitter 샘플 93개에서 Seed-Audio 1.0 사용 사례 12개를 선별했습니다.**
+- **최근 X/Twitter 샘플 93개에서 Seed-Audio 1.0 사용 사례 11개를 선별했습니다.**
 - 포함 범위: 오디오 우선 영상 워크플로, 오디오 드라마와 장면 생성, 참조 음성과 캐릭터 보이스 탐색, 도구 및 제공자 통합, 소셜 내레이션, 폴리, 비용 테스트.
 - 각 사례에는 원본 출처, 작성자 표시, 활용 요점, 증거 유형, 게시일이 포함됩니다.
 - 실제 워크플로, 강점과 한계, 제공자 경로, EvoLink 구현 방향을 확인하는 데 사용할 수 있습니다.
@@ -36,7 +36,7 @@ Seed-Audio 1.0의 신뢰도 높은 사용 사례 저장소입니다.
 > [!NOTE]
 > 이 컬렉션은 과장보다 데모, 설정 노트, 제공자 출시, 실제 평가, 명확한 한계 같은 구체적 증거를 우선합니다.
 
-[업데이트 로그](docs/update-log.md) | [유지관리 가이드](docs/maintenance.md) | [사례 데이터](data/use-cases.json) | [프리셋 음색 문서](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices)
+[업데이트 로그](docs/update-log.md) | [유지관리 가이드](docs/maintenance.md) | [사례 라벨 감사](docs/case-label-audit.md) | [사례 데이터](data/use-cases.json) | [프리셋 음색 문서](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices)
 
 ## 빠른 API 접근
 
@@ -68,8 +68,8 @@ curl --request POST \
 | [오디오 우선 영상 워크플로](#audio-first-video) | 사례 1, 사례 2, 사례 3 |
 | [오디오 드라마와 장면 생성](#audio-drama-scene-generation) | 사례 4, 사례 5 |
 | [참조 음성과 캐릭터 보이스 탐색](#voice-reference-character-casting) | 사례 6, 사례 8, 사례 10 |
-| [도구 및 제공자 통합](#tool-provider-integrations) | 사례 7, 사례 11 |
-| [소셜 내레이션, 폴리, 비용 테스트](#social-narration-foley-cost-tests) | 사례 9, 사례 12 |
+| [도구 및 제공자 통합](#tool-provider-integrations) | 사례 7 |
+| [소셜 내레이션, 폴리, 비용 테스트](#social-narration-foley-cost-tests) | 사례 9, 사례 11 |
 | [감사의 말](#acknowledge) | 크레딧 및 수정 정책 |
 
 <a id="audio-first-video"></a>
@@ -86,7 +86,7 @@ curl --request POST \
 
 | 사례 | 보여주는 점 | 유형 |
 |---|---|---|
-| [사례 4: 환경음이 포함된 2분 대화](#case-4) | 다양한 목소리, 분위기, 배경 음악이 포함된 컴팩트한 오디오 드라마 장면을 위해 Seed-Audio 1.0을 평가해 보세요. | 데모 |
+| [사례 4: 환경음이 포함된 2분 대화](#case-4) | 다양한 목소리, 분위기, 배경 음악이 포함된 컴팩트한 오디오 드라마 장면을 위해 Seed-Audio 1.0을 평가해 보세요. | 튜토리얼 |
 | [사례 5: 박물관 안내 장면 대화](#case-5) | Seed-Audio가 대화, 전달 및 고유한 캐릭터 음성을 생성하는 장면 수준 언어 추론을 테스트합니다. | 데모 |
 
 <a id="voice-reference-character-casting"></a>
@@ -104,7 +104,6 @@ curl --request POST \
 | 사례 | 보여주는 점 | 유형 |
 |---|---|---|
 | [사례 7: Claude MCP 보이스오버 및 다국어 더빙 통합](#case-7) | 음성 해설, 음성 복제 및 더빙을 위한 보조 네이티브 창의적 작업 공간의 일부로 Seed-Audio 1.0을 평가해 보세요. | 통합 |
-| [사례 11: WaveSpeedAI의 텍스트, 음성, 이미지 참조 오디오](#case-11) | 자연스러운 음성, 사전 설정된 음성, 참조 오디오, 이미지 안내 오디오 및 튜닝 컨트롤에 대한 트랙 공급자 지원. | 통합 |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## 소셜 내레이션, 폴리, 비용 테스트
@@ -112,7 +111,7 @@ curl --request POST \
 | 사례 | 보여주는 점 | 유형 |
 |---|---|---|
 | [사례 9: 소셜 스토리 내레이션 엔진](#case-9) | 텍스트 게시물이 오디오 우선 엔터테인먼트가 되는 사회 이야기 내레이션 형식을 테스트합니다. | 데모 |
-| [사례 12: 음성 연기와 폴리의 저비용 테스트](#case-12) | 비디오 생성을 시작하기 전에 성우 및 폴리를 위한 저비용 반복 레이어로 Seed-Audio 1.0을 평가해 보세요. | 평가 |
+| [사례 11: 음성 연기와 폴리의 저비용 테스트](#case-11) | 비디오 생성을 시작하기 전에 성우 및 폴리를 위한 저비용 반복 레이어로 Seed-Audio 1.0을 평가해 보세요. | 평가 |
 
 <a id="case-1"></a>
 ### 사례 1: [6명 음성으로 Seedance 영상 유도](https://x.com/gokayfem/status/2070429287950188547) (작성자 [@gokayfem](https://x.com/gokayfem))
@@ -121,7 +120,11 @@ curl --request POST \
 
 소스에는 구체적인 Seed Audio 및 Seedance 워크플로우와 배경 효과가 있는 6명을 위한 프롬프트 스타일 설정이 포함되어 있습니다.
 
-[![사례 1 media preview](media/cases/case-01.jpg)](media/cases/case-01.mp4)
+<video controls preload="metadata" poster="media/cases/case-01.jpg" width="760">
+  <source src="media/cases/case-01.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-01.mp4)
 
 유형: 튜토리얼 | 날짜: 2026-06-26
 
@@ -132,7 +135,11 @@ curl --request POST \
 
 소스는 생성된 비디오와 API key을 사용하여 다중 클립 스토리 워크플로우를 위한 Seed Audio를 생성하는 방법을 설명합니다.
 
-[![사례 2 media preview](media/cases/case-02.jpg)](media/cases/case-02.mp4)
+<video controls preload="metadata" poster="media/cases/case-02.jpg" width="760">
+  <source src="media/cases/case-02.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-02.mp4)
 
 유형: 평가 | 날짜: 2026-06-25
 
@@ -143,7 +150,11 @@ curl --request POST \
 
 소스는 오디오가 비디오의 음악, 내레이션, 분위기 및 타이밍 방향을 제공하는 간결한 작업 흐름 파이프라인을 제공합니다.
 
-[![사례 3 media preview](media/cases/case-03.jpg)](media/cases/case-03.mp4)
+<video controls preload="metadata" poster="media/cases/case-03.jpg" width="760">
+  <source src="media/cases/case-03.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-03.mp4)
 
 유형: 튜토리얼 | 날짜: 2026-06-27
 
@@ -154,9 +165,13 @@ curl --request POST \
 
 소스는 작가 스타일의 INTENT, AESTHETIC, EXECUTION 구조를 사용한 2분 간의 대화 실험을 보고합니다.
 
-[![사례 4 media preview](media/cases/case-04.jpg)](media/cases/case-04.mp4)
+<video controls preload="metadata" poster="media/cases/case-04.jpg" width="760">
+  <source src="media/cases/case-04.mp4" type="video/mp4">
+</video>
 
-유형: 데모 | 날짜: 2026-06-28
+[Open video file](media/cases/case-04.mp4)
+
+유형: 튜토리얼 | 날짜: 2026-06-28
 
 <a id="case-5"></a>
 ### 사례 5: [박물관 안내 장면 대화](https://x.com/TomLikesRobots/status/2070923534449119424) (작성자 [@TomLikesRobots](https://x.com/TomLikesRobots))
@@ -165,7 +180,11 @@ curl --request POST \
 
 소스는 모델이 자연스러운 대화와 캐릭터 전달을 생성하는 박물관 가이드와 혼란스러운 방문자 프롬프트를 설명합니다.
 
-[![사례 5 media preview](media/cases/case-05.jpg)](media/cases/case-05.mp4)
+<video controls preload="metadata" poster="media/cases/case-05.jpg" width="760">
+  <source src="media/cases/case-05.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-05.mp4)
 
 유형: 데모 | 날짜: 2026-06-27
 
@@ -176,7 +195,11 @@ curl --request POST \
 
 소스에서는 참조 자료에서 약 1분 분량의 MC 음성을 생성한 다음 이를 Seedance 비디오용으로 분할한다고 설명합니다. 또한 실질적인 주의 사항으로 다운스트림 음성 드리프트를 언급합니다.
 
-[![사례 6 media preview](media/cases/case-06.jpg)](media/cases/case-06.mp4)
+<video controls preload="metadata" poster="media/cases/case-06.jpg" width="760">
+  <source src="media/cases/case-06.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-06.mp4)
 
 유형: 튜토리얼 | 날짜: 2026-06-27
 
@@ -187,7 +210,11 @@ curl --request POST \
 
 샘플 중 참여도가 가장 높았던 게시물이며, Claude MCP 워크플로 안에서 Seed Audio를 제시합니다.
 
-[![사례 7 media preview](media/cases/case-07.jpg)](media/cases/case-07.mp4)
+<video controls preload="metadata" poster="media/cases/case-07.jpg" width="760">
+  <source src="media/cases/case-07.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-07.mp4)
 
 유형: 통합 | 날짜: 2026-06-27
 
@@ -198,7 +225,11 @@ curl --request POST \
 
 소스는 안정적인 일본어 출력, 감정 추종, 강력한 기준 오디오 정확성, 목소리가 높을수록 기계적으로 들릴 수 있다는 경고를 보고합니다.
 
-[![사례 8 media preview](media/cases/case-08.jpg)](media/cases/case-08.mp4)
+<video controls preload="metadata" poster="media/cases/case-08.jpg" width="760">
+  <source src="media/cases/case-08.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-08.mp4)
 
 유형: 평가 | 날짜: 2026-06-26
 
@@ -209,7 +240,11 @@ curl --request POST \
 
 소스는 인기 있는 AITA 스타일 스토리를 설명하고 이를 반복 가능한 콘텐츠 엔진 아이디어로 구성합니다.
 
-[![사례 9 media preview](media/cases/case-09.jpg)](media/cases/case-09.mp4)
+<video controls preload="metadata" poster="media/cases/case-09.jpg" width="760">
+  <source src="media/cases/case-09.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-09.mp4)
 
 유형: 데모 | 날짜: 2026-06-29
 
@@ -225,24 +260,17 @@ curl --request POST \
 유형: 평가 | 날짜: 2026-06-26
 
 <a id="case-11"></a>
-### 사례 11: [WaveSpeedAI의 텍스트, 음성, 이미지 참조 오디오](https://x.com/wavespeed_ai/status/2071214531280543772) (작성자 [@wavespeed_ai](https://x.com/wavespeed_ai))
-
-**자연스러운 음성, 사전 설정된 음성, 참조 오디오, 이미지 안내 오디오 및 튜닝 컨트롤에 대한 트랙 공급자 지원.**
-
-소스는 Seed Audio 가용성과 함께 속도, 볼륨, 피치 및 형식 제어를 나열하는 공급자 출시 노트입니다.
-
-[![사례 11 media preview](media/cases/case-11.jpg)](media/cases/case-11.mp4)
-
-유형: 통합 | 날짜: 2026-06-28
-
-<a id="case-12"></a>
-### 사례 12: [음성 연기와 폴리의 저비용 테스트](https://x.com/TomLikesRobots/status/2070288519684108353) (작성자 [@TomLikesRobots](https://x.com/TomLikesRobots))
+### 사례 11: [음성 연기와 폴리의 저비용 테스트](https://x.com/TomLikesRobots/status/2070288519684108353) (작성자 [@TomLikesRobots](https://x.com/TomLikesRobots))
 
 **비디오 생성을 시작하기 전에 성우 및 폴리를 위한 저비용 반복 레이어로 Seed-Audio 1.0을 평가해 보세요.**
 
 소스는 짧은 실험을 위한 저렴한 비용으로 기본 Seedance 오디오보다 음성 연기 및 폴리가 더 좋다고 느꼈던 초기 테스트를 보고합니다.
 
-[![사례 12 media preview](media/cases/case-12.jpg)](media/cases/case-12.mp4)
+<video controls preload="metadata" poster="media/cases/case-11.jpg" width="760">
+  <source src="media/cases/case-11.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-11.mp4)
 
 유형: 평가 | 날짜: 2026-06-25
 

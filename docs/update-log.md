@@ -15,3 +15,4 @@
 - Kept internal source-review artifacts out of the public repository while preserving public source links and case metadata.
 - Updated static validation so the current acceptance target is `case_count=12`, `localized_readmes=11`, full localized case translation coverage, downloaded case media, and a clean public file set.
 - Published the verified update to `cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases` on branch `main`.
+- Removed the previous Case 11 provider-access item, renumbered the final public set to 11 cases, expanded each remaining case into more actionable source-grounded notes, and added `docs/case-label-audit.md`.

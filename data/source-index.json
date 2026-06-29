@@ -18,7 +18,7 @@
     ],
     "raw_post_count": 182,
     "accepted_count": 93,
-    "selected_case_count": 12,
+    "selected_case_count": 11,
     "outputs": [
       "data/use-cases.json",
       "data/voice-list.json",
@@ -27,7 +27,7 @@
     ],
     "review_queue_count": 20,
     "selection_policy": "strong_evidence_public_sources_only",
-    "media_download_count": 12
+    "media_download_count": 11
   },
   {
     "id": "legacy-x-2071255504907891186",

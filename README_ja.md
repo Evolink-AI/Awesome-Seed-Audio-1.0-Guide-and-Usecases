@@ -25,7 +25,7 @@ Seed-Audio 1.0 の高シグナルなユースケース集です。
 
 ## 概要
 
-- **最近の X/Twitter サンプル 93 件から、Seed-Audio 1.0 のユースケース 12 件を選定しました。**
+- **最近の X/Twitter サンプル 93 件から、Seed-Audio 1.0 のユースケース 11 件を選定しました。**
 - 対象領域：音声先行の動画ワークフロー, 音声ドラマとシーン生成, 参照音声とキャラクター音声探索, ツールとプロバイダー統合, SNS ナレーション、フォーリー、コスト検証。
 - 各ケースには、元ソース、作者クレジット、活用ポイント、証拠タイプ、公開日を含めています。
 - 実用ワークフロー、強みと制約、プロバイダー経路、EvoLink での実装導線を確認するために使えます。
@@ -36,7 +36,7 @@ Seed-Audio 1.0 の高シグナルなユースケース集です。
 > [!NOTE]
 > このコレクションは宣伝文句ではなく、デモ、設定メモ、プロバイダー公開、実使用評価、明示された制約などの具体的証拠を重視します。
 
-[更新ログ](docs/update-log.md) | [メンテナンスガイド](docs/maintenance.md) | [ケースデータ](data/use-cases.json) | [プリセット音色ドキュメント](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices)
+[更新ログ](docs/update-log.md) | [メンテナンスガイド](docs/maintenance.md) | [ケースラベル監査](docs/case-label-audit.md) | [ケースデータ](data/use-cases.json) | [プリセット音色ドキュメント](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices)
 
 ## API クイックアクセス
 
@@ -68,8 +68,8 @@ curl --request POST \
 | [音声先行の動画ワークフロー](#audio-first-video) | ケース 1, ケース 2, ケース 3 |
 | [音声ドラマとシーン生成](#audio-drama-scene-generation) | ケース 4, ケース 5 |
 | [参照音声とキャラクター音声探索](#voice-reference-character-casting) | ケース 6, ケース 8, ケース 10 |
-| [ツールとプロバイダー統合](#tool-provider-integrations) | ケース 7, ケース 11 |
-| [SNS ナレーション、フォーリー、コスト検証](#social-narration-foley-cost-tests) | ケース 9, ケース 12 |
+| [ツールとプロバイダー統合](#tool-provider-integrations) | ケース 7 |
+| [SNS ナレーション、フォーリー、コスト検証](#social-narration-foley-cost-tests) | ケース 9, ケース 11 |
 | [謝辞](#acknowledge) | クレジットと修正ポリシー |
 
 <a id="audio-first-video"></a>
@@ -86,7 +86,7 @@ curl --request POST \
 
 | ケース | 注目点 | タイプ |
 |---|---|---|
-| [ケース 4: 環境音付き 2 分間ダイアログ](#case-4) | 複数の音声、アンビエンス、BGM を備えたコンパクトなオーディオ ドラマ シーン用の Seed-Audio 1.0 を評価します。 | デモ |
+| [ケース 4: 環境音付き 2 分間ダイアログ](#case-4) | 複数の音声、アンビエンス、BGM を備えたコンパクトなオーディオ ドラマ シーン用の Seed-Audio 1.0 を評価します。 | チュートリアル |
 | [ケース 5: 博物館ガイド風の場面対話](#case-5) | Seed-Audio が対話、伝達、および明確なキャラクターの声を生成するシーンレベルの言語推論をテストします。 | デモ |
 
 <a id="voice-reference-character-casting"></a>
@@ -104,7 +104,6 @@ curl --request POST \
 | ケース | 注目点 | タイプ |
 |---|---|---|
 | [ケース 7: Claude MCP のボイスオーバーと多言語吹き替え統合](#case-7) | ナレーション、音声クローン、およびダビングのためのアシスタントネイティブのクリエイティブワークスペースの一部として Seed-Audio 1.0 を評価します。 | 統合 |
-| [ケース 11: WaveSpeedAI のテキスト・音声・画像参照オーディオ](#case-11) | 自然な音声、プリセット音声、リファレンスオーディオ、画像ガイド付きオーディオ、およびチューニングコントロールに対するプロバイダーのサポートを追跡します。 | 統合 |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## SNS ナレーション、フォーリー、コスト検証
@@ -112,7 +111,7 @@ curl --request POST \
 | ケース | 注目点 | タイプ |
 |---|---|---|
 | [ケース 9: SNS ストーリー朗読エンジン](#case-9) | テキスト投稿がオーディオファーストのエンターテイメントになるソーシャルストーリーのナレーション形式をテストします。 | デモ |
-| [ケース 12: 声の演技とフォーリーの低コスト検証](#case-12) | ビデオ生成に取り組む前に、音声演技とフォーリー用の低コストの反復レイヤーとして Seed-Audio 1.0 を評価します。 | 評価 |
+| [ケース 11: 声の演技とフォーリーの低コスト検証](#case-11) | ビデオ生成に取り組む前に、音声演技とフォーリー用の低コストの反復レイヤーとして Seed-Audio 1.0 を評価します。 | 評価 |
 
 <a id="case-1"></a>
 ### ケース 1: [6 人の音声で Seedance 動画を誘導](https://x.com/gokayfem/status/2070429287950188547) (作者 [@gokayfem](https://x.com/gokayfem))
@@ -121,7 +120,11 @@ curl --request POST \
 
 ソースには、具体的な Seed Audio と Seedance ワークフロー、および背景効果を備えた 6 人用のプロンプト スタイルのセットアップが含まれています。
 
-[![ケース 1 media preview](media/cases/case-01.jpg)](media/cases/case-01.mp4)
+<video controls preload="metadata" poster="media/cases/case-01.jpg" width="760">
+  <source src="media/cases/case-01.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-01.mp4)
 
 タイプ: チュートリアル | 日付: 2026-06-26
 
@@ -132,7 +135,11 @@ curl --request POST \
 
 このソースでは、生成されたビデオと API key を使用して、マルチクリップ ストーリー ワークフローの Seed Audio を生成することが説明されています。
 
-[![ケース 2 media preview](media/cases/case-02.jpg)](media/cases/case-02.mp4)
+<video controls preload="metadata" poster="media/cases/case-02.jpg" width="760">
+  <source src="media/cases/case-02.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-02.mp4)
 
 タイプ: 評価 | 日付: 2026-06-25
 
@@ -143,7 +150,11 @@ curl --request POST \
 
 このソースは、オーディオが音楽、ナレーション、アンビエンス、ビデオのタイミング指示を提供する簡潔なワークフロー パイプラインを提供します。
 
-[![ケース 3 media preview](media/cases/case-03.jpg)](media/cases/case-03.mp4)
+<video controls preload="metadata" poster="media/cases/case-03.jpg" width="760">
+  <source src="media/cases/case-03.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-03.mp4)
 
 タイプ: チュートリアル | 日付: 2026-06-27
 
@@ -154,9 +165,13 @@ curl --request POST \
 
 情報源は、作者スタイルの INTENT、AESTHETIC、EXECUTION 構造を使用した 2 分間の対話実験を報告しています。
 
-[![ケース 4 media preview](media/cases/case-04.jpg)](media/cases/case-04.mp4)
+<video controls preload="metadata" poster="media/cases/case-04.jpg" width="760">
+  <source src="media/cases/case-04.mp4" type="video/mp4">
+</video>
 
-タイプ: デモ | 日付: 2026-06-28
+[Open video file](media/cases/case-04.mp4)
+
+タイプ: チュートリアル | 日付: 2026-06-28
 
 <a id="case-5"></a>
 ### ケース 5: [博物館ガイド風の場面対話](https://x.com/TomLikesRobots/status/2070923534449119424) (作者 [@TomLikesRobots](https://x.com/TomLikesRobots))
@@ -165,7 +180,11 @@ curl --request POST \
 
 情報源では、モデルが自然な対話とキャラクターの表現を生成した博物館のガイドと混乱した訪問者のプロンプトについて説明しています。
 
-[![ケース 5 media preview](media/cases/case-05.jpg)](media/cases/case-05.mp4)
+<video controls preload="metadata" poster="media/cases/case-05.jpg" width="760">
+  <source src="media/cases/case-05.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-05.mp4)
 
 タイプ: デモ | 日付: 2026-06-27
 
@@ -176,7 +195,11 @@ curl --request POST \
 
 ソースでは、リファレンス素材から約 1 分間の MC 音声を生成し、それを Seedance ビデオ用に分割することが説明されています。また、実際的な注意事項として、下流の音声ドリフトについても言及しています。
 
-[![ケース 6 media preview](media/cases/case-06.jpg)](media/cases/case-06.mp4)
+<video controls preload="metadata" poster="media/cases/case-06.jpg" width="760">
+  <source src="media/cases/case-06.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-06.mp4)
 
 タイプ: チュートリアル | 日付: 2026-06-27
 
@@ -187,7 +210,11 @@ curl --request POST \
 
 これはサンプル内で最もエンゲージメントの高い投稿で、Claude MCP ワークフローの中で Seed Audio を位置付けています。
 
-[![ケース 7 media preview](media/cases/case-07.jpg)](media/cases/case-07.mp4)
+<video controls preload="metadata" poster="media/cases/case-07.jpg" width="760">
+  <source src="media/cases/case-07.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-07.mp4)
 
 タイプ: 統合 | 日付: 2026-06-27
 
@@ -198,7 +225,11 @@ curl --request POST \
 
 情報源は、安定した日本語出力、感情の追従性、強力なリファレンスオーディオの精度、および高い音声はより機械的に聞こえる可能性があるという警告を報告しています。
 
-[![ケース 8 media preview](media/cases/case-08.jpg)](media/cases/case-08.mp4)
+<video controls preload="metadata" poster="media/cases/case-08.jpg" width="760">
+  <source src="media/cases/case-08.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-08.mp4)
 
 タイプ: 評価 | 日付: 2026-06-26
 
@@ -209,7 +240,11 @@ curl --request POST \
 
 ソースでは、人気のある AITA スタイルのストーリーのナレーションについて説明し、それを反復可能なコンテンツ エンジンのアイデアとして組み立てています。
 
-[![ケース 9 media preview](media/cases/case-09.jpg)](media/cases/case-09.mp4)
+<video controls preload="metadata" poster="media/cases/case-09.jpg" width="760">
+  <source src="media/cases/case-09.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-09.mp4)
 
 タイプ: デモ | 日付: 2026-06-29
 
@@ -225,24 +260,17 @@ curl --request POST \
 タイプ: 評価 | 日付: 2026-06-26
 
 <a id="case-11"></a>
-### ケース 11: [WaveSpeedAI のテキスト・音声・画像参照オーディオ](https://x.com/wavespeed_ai/status/2071214531280543772) (作者 [@wavespeed_ai](https://x.com/wavespeed_ai))
-
-**自然な音声、プリセット音声、リファレンスオーディオ、画像ガイド付きオーディオ、およびチューニングコントロールに対するプロバイダーのサポートを追跡します。**
-
-ソースは、速度、音量、ピッチ、フォーマットのコントロールと Seed Audio の可用性をリストしたプロバイダーの起動ノートです。
-
-[![ケース 11 media preview](media/cases/case-11.jpg)](media/cases/case-11.mp4)
-
-タイプ: 統合 | 日付: 2026-06-28
-
-<a id="case-12"></a>
-### ケース 12: [声の演技とフォーリーの低コスト検証](https://x.com/TomLikesRobots/status/2070288519684108353) (作者 [@TomLikesRobots](https://x.com/TomLikesRobots))
+### ケース 11: [声の演技とフォーリーの低コスト検証](https://x.com/TomLikesRobots/status/2070288519684108353) (作者 [@TomLikesRobots](https://x.com/TomLikesRobots))
 
 **ビデオ生成に取り組む前に、音声演技とフォーリー用の低コストの反復レイヤーとして Seed-Audio 1.0 を評価します。**
 
 情報源によると、初期のテストでは音声の演技とフォーリーがネイティブの Seedance オーディオよりも優れていると感じられ、短期間の実験では低コストであったと報告されています。
 
-[![ケース 12 media preview](media/cases/case-12.jpg)](media/cases/case-12.mp4)
+<video controls preload="metadata" poster="media/cases/case-11.jpg" width="760">
+  <source src="media/cases/case-11.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-11.mp4)
 
 タイプ: 評価 | 日付: 2026-06-25
 

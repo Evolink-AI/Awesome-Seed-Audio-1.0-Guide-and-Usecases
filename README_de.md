@@ -25,7 +25,7 @@ Diese deutsche README behält Quellenlinks, Attribution und Anker bei und übers
 
 ## Überblick
 
-- **Aus 93 akzeptierten aktuellen X/Twitter-Beiträgen wurden 12 Seed-Audio 1.0 Fälle ausgewählt.**
+- **Aus 93 akzeptierten aktuellen X/Twitter-Beiträgen wurden 11 Seed-Audio 1.0 Fälle ausgewählt.**
 - Abgedeckte Bereiche: Audio-First-Video-Workflows, Audio-Drama und Szenengenerierung, Referenzstimmen und Character Casting, Tool- und Provider-Integrationen, Social Narration, Foley und Kostentests.
 - Jeder Fall enthält Originalquelle, Creator-Attribution, Nutzungserkenntnis, Evidenztyp und Veröffentlichungsdatum.
 - Nutze dieses Repository, um reale Workflows zu finden, Stärken und Grenzen zu vergleichen, Provider-Routen zu entdecken und Implementierung zu EvoLink zu führen.
@@ -68,8 +68,8 @@ Begleitendes API- und Skill-Repository: [doubao-seed-audio-api-skill](https://gi
 | [Audio-First-Video-Workflows](#audio-first-video) | Fall 1, Fall 2, Fall 3 |
 | [Audio-Drama und Szenengenerierung](#audio-drama-scene-generation) | Fall 4, Fall 5 |
 | [Referenzstimmen und Character Casting](#voice-reference-character-casting) | Fall 6, Fall 8, Fall 10 |
-| [Tool- und Provider-Integrationen](#tool-provider-integrations) | Fall 7, Fall 11 |
-| [Social Narration, Foley und Kostentests](#social-narration-foley-cost-tests) | Fall 9, Fall 12 |
+| [Tool- und Provider-Integrationen](#tool-provider-integrations) | Fall 7 |
+| [Social Narration, Foley und Kostentests](#social-narration-foley-cost-tests) | Fall 9, Fall 11 |
 | [Danksagung](#acknowledge) | Credits und Korrekturrichtlinie |
 
 <a id="audio-first-video"></a>
@@ -86,7 +86,7 @@ Begleitendes API- und Skill-Repository: [doubao-seed-audio-api-skill](https://gi
 
 | Fall | Was er zeigt | Typ |
 |---|---|---|
-| [Fall 4: Zwei-Minuten-Dialog mit Atmosphäre](#case-4) | Evaluieren Sie Seed-Audio 1.0 für kompakte Hörspielszenen mit mehreren Stimmen, Ambiente und Hintergrundmusik. | Demo |
+| [Fall 4: Zwei-Minuten-Dialog mit Atmosphäre](#case-4) | Evaluieren Sie Seed-Audio 1.0 für kompakte Hörspielszenen mit mehreren Stimmen, Ambiente und Hintergrundmusik. | Tutorial |
 | [Fall 5: Szenendialog mit Museumsführer](#case-5) | Testen Sie das sprachliche Denken auf Szenenebene, wobei Seed-Audio Dialoge, Darbietungen und unterschiedliche Charakterstimmen generiert. | Demo |
 
 <a id="voice-reference-character-casting"></a>
@@ -104,7 +104,6 @@ Begleitendes API- und Skill-Repository: [doubao-seed-audio-api-skill](https://gi
 | Fall | Was er zeigt | Typ |
 |---|---|---|
 | [Fall 7: Claude MCP Integration für Voiceover und Synchronisation](#case-7) | Evaluieren Sie Seed-Audio 1.0 als Teil eines Assistenten-nativen kreativen Arbeitsbereichs für Voiceover, Stimmklonen und Synchronisation. | Integration |
-| [Fall 11: Text-, Stimmen- und bildgeführtes Audio bei WaveSpeedAI](#case-11) | Unterstützung des Titelanbieters für natürliche Sprache, voreingestellte Stimmen, Referenzaudio, bildgeführtes Audio und Tuning-Steuerung. | Integration |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## Social Narration, Foley und Kostentests
@@ -112,7 +111,7 @@ Begleitendes API- und Skill-Repository: [doubao-seed-audio-api-skill](https://gi
 | Fall | Was er zeigt | Typ |
 |---|---|---|
 | [Fall 9: Narrationsmaschine für Social Stories](#case-9) | Testen Sie Social-Story-Erzählformate, bei denen Textbeiträge zu Audio-First-Unterhaltung werden. | Demo |
-| [Fall 12: Günstiger Test für Voice Acting und Foley](#case-12) | Evaluieren Sie Seed-Audio 1.0 als kostengünstige Iterationsschicht für Sprachausgabe und Geräusche, bevor Sie sich auf die Videogenerierung festlegen. | Bewertung |
+| [Fall 11: Günstiger Test für Voice Acting und Foley](#case-11) | Evaluieren Sie Seed-Audio 1.0 als kostengünstige Iterationsschicht für Sprachausgabe und Geräusche, bevor Sie sich auf die Videogenerierung festlegen. | Bewertung |
 
 <a id="case-1"></a>
 ### Fall 1: [Sechs Sprecher als Audioführung für Seedance-Video](https://x.com/gokayfem/status/2070429287950188547) (von [@gokayfem](https://x.com/gokayfem))
@@ -121,7 +120,11 @@ Begleitendes API- und Skill-Repository: [doubao-seed-audio-api-skill](https://gi
 
 Die Quelle umfasst einen konkreten Seed Audio plus Seedance-Workflow und ein Setup im Prompt-Stil für sechs Personen mit Hintergrundeffekten.
 
-[![Fall 1 media preview](media/cases/case-01.jpg)](media/cases/case-01.mp4)
+<video controls preload="metadata" poster="media/cases/case-01.jpg" width="760">
+  <source src="media/cases/case-01.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-01.mp4)
 
 Typ: Tutorial | Datum: 2026-06-26
 
@@ -132,7 +135,11 @@ Typ: Tutorial | Datum: 2026-06-26
 
 Die Quelle beschreibt die Verwendung eines generierten Videos und eines API key, um Seed Audio für einen Story-Workflow mit mehreren Clips zu erstellen.
 
-[![Fall 2 media preview](media/cases/case-02.jpg)](media/cases/case-02.mp4)
+<video controls preload="metadata" poster="media/cases/case-02.jpg" width="760">
+  <source src="media/cases/case-02.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-02.mp4)
 
 Typ: Bewertung | Datum: 2026-06-25
 
@@ -143,7 +150,11 @@ Typ: Bewertung | Datum: 2026-06-25
 
 Die Quelle bietet eine prägnante Workflow-Pipeline, in der Audio Musik, Erzählung, Atmosphäre und Timing-Anleitung für das Video liefert.
 
-[![Fall 3 media preview](media/cases/case-03.jpg)](media/cases/case-03.mp4)
+<video controls preload="metadata" poster="media/cases/case-03.jpg" width="760">
+  <source src="media/cases/case-03.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-03.mp4)
 
 Typ: Tutorial | Datum: 2026-06-27
 
@@ -154,9 +165,13 @@ Typ: Tutorial | Datum: 2026-06-27
 
 Die Quelle berichtet von einem zweiminütigen Dialogexperiment mit einer INTENT-, AESTHETIC- und EXECUTION-Struktur im Autorenstil.
 
-[![Fall 4 media preview](media/cases/case-04.jpg)](media/cases/case-04.mp4)
+<video controls preload="metadata" poster="media/cases/case-04.jpg" width="760">
+  <source src="media/cases/case-04.mp4" type="video/mp4">
+</video>
 
-Typ: Demo | Datum: 2026-06-28
+[Open video file](media/cases/case-04.mp4)
+
+Typ: Tutorial | Datum: 2026-06-28
 
 <a id="case-5"></a>
 ### Fall 5: [Szenendialog mit Museumsführer](https://x.com/TomLikesRobots/status/2070923534449119424) (von [@TomLikesRobots](https://x.com/TomLikesRobots))
@@ -165,7 +180,11 @@ Typ: Demo | Datum: 2026-06-28
 
 Die Quelle beschreibt einen Museumsführer und eine verwirrte Besucheraufforderung, bei der das Modell natürliche Dialoge und Charakterdarstellungen hervorbrachte.
 
-[![Fall 5 media preview](media/cases/case-05.jpg)](media/cases/case-05.mp4)
+<video controls preload="metadata" poster="media/cases/case-05.jpg" width="760">
+  <source src="media/cases/case-05.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-05.mp4)
 
 Typ: Demo | Datum: 2026-06-27
 
@@ -176,7 +195,11 @@ Typ: Demo | Datum: 2026-06-27
 
 Die Quelle beschreibt die Generierung von etwa einer Minute MC-Sprache aus Referenzmaterial und die anschließende Aufteilung für Seedance-Video. Als praktischer Vorbehalt wird auch die Downstream-Voice-Drift erwähnt.
 
-[![Fall 6 media preview](media/cases/case-06.jpg)](media/cases/case-06.mp4)
+<video controls preload="metadata" poster="media/cases/case-06.jpg" width="760">
+  <source src="media/cases/case-06.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-06.mp4)
 
 Typ: Tutorial | Datum: 2026-06-27
 
@@ -187,7 +210,11 @@ Typ: Tutorial | Datum: 2026-06-27
 
 Dies war der Beitrag mit der höchsten Interaktion in der Stichprobe und positioniert Seed Audio innerhalb eines Claude MCP-Workflows.
 
-[![Fall 7 media preview](media/cases/case-07.jpg)](media/cases/case-07.mp4)
+<video controls preload="metadata" poster="media/cases/case-07.jpg" width="760">
+  <source src="media/cases/case-07.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-07.mp4)
 
 Typ: Integration | Datum: 2026-06-27
 
@@ -198,7 +225,11 @@ Typ: Integration | Datum: 2026-06-27
 
 Die Quelle berichtet von stabiler japanischer Ausgabe, Emotionsverfolgung, hoher Referenz-Audio-Präzision und einem Vorbehalt, dass höhere Stimmen mechanischer klingen können.
 
-[![Fall 8 media preview](media/cases/case-08.jpg)](media/cases/case-08.mp4)
+<video controls preload="metadata" poster="media/cases/case-08.jpg" width="760">
+  <source src="media/cases/case-08.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-08.mp4)
 
 Typ: Bewertung | Datum: 2026-06-26
 
@@ -209,7 +240,11 @@ Typ: Bewertung | Datum: 2026-06-26
 
 Die Quelle beschreibt das Erzählen einer beliebten Geschichte im AITA-Stil und formuliert sie als wiederholbare Content-Engine-Idee.
 
-[![Fall 9 media preview](media/cases/case-09.jpg)](media/cases/case-09.mp4)
+<video controls preload="metadata" poster="media/cases/case-09.jpg" width="760">
+  <source src="media/cases/case-09.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-09.mp4)
 
 Typ: Demo | Datum: 2026-06-29
 
@@ -225,24 +260,17 @@ Die Quelle berichtet, dass ein Charakterbild eine Stimmrichtung vorschlagen kann
 Typ: Bewertung | Datum: 2026-06-26
 
 <a id="case-11"></a>
-### Fall 11: [Text-, Stimmen- und bildgeführtes Audio bei WaveSpeedAI](https://x.com/wavespeed_ai/status/2071214531280543772) (von [@wavespeed_ai](https://x.com/wavespeed_ai))
-
-**Unterstützung des Titelanbieters für natürliche Sprache, voreingestellte Stimmen, Referenzaudio, bildgeführtes Audio und Tuning-Steuerung.**
-
-Die Quelle ist eine Einführungsnotiz des Anbieters, in der Geschwindigkeits-, Lautstärke-, Tonhöhen- und Formatsteuerungen sowie die Verfügbarkeit von Seed Audio aufgeführt sind.
-
-[![Fall 11 media preview](media/cases/case-11.jpg)](media/cases/case-11.mp4)
-
-Typ: Integration | Datum: 2026-06-28
-
-<a id="case-12"></a>
-### Fall 12: [Günstiger Test für Voice Acting und Foley](https://x.com/TomLikesRobots/status/2070288519684108353) (von [@TomLikesRobots](https://x.com/TomLikesRobots))
+### Fall 11: [Günstiger Test für Voice Acting und Foley](https://x.com/TomLikesRobots/status/2070288519684108353) (von [@TomLikesRobots](https://x.com/TomLikesRobots))
 
 **Evaluieren Sie Seed-Audio 1.0 als kostengünstige Iterationsschicht für Sprachausgabe und Geräusche, bevor Sie sich auf die Videogenerierung festlegen.**
 
 Die Quelle berichtet von frühen Tests, bei denen sich Sprachausgabe und Geräuschkulisse besser anfühlten als natives Seedance-Audio, wobei die Kosten für kurze Experimente gering waren.
 
-[![Fall 12 media preview](media/cases/case-12.jpg)](media/cases/case-12.mp4)
+<video controls preload="metadata" poster="media/cases/case-11.jpg" width="760">
+  <source src="media/cases/case-11.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-11.mp4)
 
 Typ: Bewertung | Datum: 2026-06-25
 

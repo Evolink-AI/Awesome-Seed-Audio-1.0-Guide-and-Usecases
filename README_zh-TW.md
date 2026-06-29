@@ -25,7 +25,7 @@
 
 ## 總覽
 
-- **從近期 X/Twitter 樣本中篩選出 12 個 Seed-Audio 1.0 使用案例，原始可用樣本為 93 則。**
+- **從近期 X/Twitter 樣本中篩選出 11 個 Seed-Audio 1.0 使用案例，原始可用樣本為 93 則。**
 - 涵蓋方向：音訊優先影片工作流, 音訊劇與場景生成, 參考聲音與角色配音探索, 工具與服務商整合, 社群旁白、擬音與成本測試。
 - 每個案例都包含原始來源、創作者署名、使用結論、證據類型與發布日期。
 - 你可以用這個倉庫查找真實工作流、比較優勢和限制、發現服務商路徑，並把實作工作導向 EvoLink。
@@ -36,7 +36,7 @@
 > [!NOTE]
 > 本倉庫優先收錄具體工作流證據，而不是純宣傳：演示、設定說明、服務商發布、上手評估和明確限制。
 
-[更新日誌](docs/update-log.md) | [維護指南](docs/maintenance.md) | [案例資料](data/use-cases.json) | [預設音色文件](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices)
+[更新日誌](docs/update-log.md) | [維護指南](docs/maintenance.md) | [案例標註審計](docs/case-label-audit.md) | [案例資料](data/use-cases.json) | [預設音色文件](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices)
 
 ## API 快速存取
 
@@ -68,8 +68,8 @@ curl --request POST \
 | [音訊優先影片工作流](#audio-first-video) | 案例 1, 案例 2, 案例 3 |
 | [音訊劇與場景生成](#audio-drama-scene-generation) | 案例 4, 案例 5 |
 | [參考聲音與角色配音探索](#voice-reference-character-casting) | 案例 6, 案例 8, 案例 10 |
-| [工具與服務商整合](#tool-provider-integrations) | 案例 7, 案例 11 |
-| [社群旁白、擬音與成本測試](#social-narration-foley-cost-tests) | 案例 9, 案例 12 |
+| [工具與服務商整合](#tool-provider-integrations) | 案例 7 |
+| [社群旁白、擬音與成本測試](#social-narration-foley-cost-tests) | 案例 9, 案例 11 |
 | [致謝](#acknowledge) | 來源致謝與修正政策 |
 
 <a id="audio-first-video"></a>
@@ -86,7 +86,7 @@ curl --request POST \
 
 | 案例 | 展示重點 | 類型 |
 |---|---|---|
-| [案例 4: 帶環境聲的兩分鐘對白](#case-4) | 評估 Seed-Audio 1.0 在多聲音、環境聲和背景音樂並存的短音訊劇場景中的表現。 | 演示 |
+| [案例 4: 帶環境聲的兩分鐘對白](#case-4) | 評估 Seed-Audio 1.0 在多聲音、環境聲和背景音樂並存的短音訊劇場景中的表現。 | 教學 |
 | [案例 5: 博物館導覽式場景對白](#case-5) | 測試場景級語言推理能力：由 Seed-Audio 生成對白、語氣和不同角色聲音。 | 演示 |
 
 <a id="voice-reference-character-casting"></a>
@@ -104,7 +104,6 @@ curl --request POST \
 | 案例 | 展示重點 | 類型 |
 |---|---|---|
 | [案例 7: Claude MCP 旁白與多語配音整合](#case-7) | 評估 Seed-Audio 1.0 在面向助手的創意工作區中，承擔旁白、聲音克隆和多語配音的價值。 | 整合 |
-| [案例 11: WaveSpeedAI 文字、聲音與圖像引導音訊](#case-11) | 追蹤服務商對自然語音、預設聲音、參考音訊、圖像引導音訊和調參控制的支援。 | 整合 |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## 社群旁白、擬音與成本測試
@@ -112,7 +111,7 @@ curl --request POST \
 | 案例 | 展示重點 | 類型 |
 |---|---|---|
 | [案例 9: 社群故事旁白內容引擎](#case-9) | 測試把文字貼文轉成音訊優先娛樂內容的社群故事旁白格式。 | 演示 |
-| [案例 12: 低成本測試聲音表演與擬音](#case-12) | 在投入影片生成前，把 Seed-Audio 1.0 作為聲音表演和擬音的低成本迭代層來評估。 | 評估 |
+| [案例 11: 低成本測試聲音表演與擬音](#case-11) | 在投入影片生成前，把 Seed-Audio 1.0 作為聲音表演和擬音的低成本迭代層來評估。 | 評估 |
 
 <a id="case-1"></a>
 ### 案例 1: [用六人音訊引導 Seedance 影片](https://x.com/gokayfem/status/2070429287950188547) (作者 [@gokayfem](https://x.com/gokayfem))
@@ -121,7 +120,11 @@ curl --request POST \
 
 來源給出了 Seed Audio 加 Seedance 的具體流程，並包含六人對話和背景音效的提示詞式設定。
 
-[![案例 1 media preview](media/cases/case-01.jpg)](media/cases/case-01.mp4)
+<video controls preload="metadata" poster="media/cases/case-01.jpg" width="760">
+  <source src="media/cases/case-01.mp4" type="video/mp4">
+</video>
+
+[打開影片檔案](media/cases/case-01.mp4)
 
 類型: 教學 | 日期: 2026-06-26
 
@@ -132,7 +135,11 @@ curl --request POST \
 
 來源描述了用已生成影片和 API key 為多片段故事流程製作 Seed Audio。
 
-[![案例 2 media preview](media/cases/case-02.jpg)](media/cases/case-02.mp4)
+<video controls preload="metadata" poster="media/cases/case-02.jpg" width="760">
+  <source src="media/cases/case-02.mp4" type="video/mp4">
+</video>
+
+[打開影片檔案](media/cases/case-02.mp4)
 
 類型: 評估 | 日期: 2026-06-25
 
@@ -143,7 +150,11 @@ curl --request POST \
 
 來源給出了一條簡潔流程：音訊提供音樂、旁白、環境聲和時間節奏方向，再進入影片生成。
 
-[![案例 3 media preview](media/cases/case-03.jpg)](media/cases/case-03.mp4)
+<video controls preload="metadata" poster="media/cases/case-03.jpg" width="760">
+  <source src="media/cases/case-03.mp4" type="video/mp4">
+</video>
+
+[打開影片檔案](media/cases/case-03.mp4)
 
 類型: 教學 | 日期: 2026-06-27
 
@@ -154,9 +165,13 @@ curl --request POST \
 
 來源報告了一個兩分鐘對白實驗，使用了作者式的 INTENT、AESTHETIC、EXECUTION 結構。
 
-[![案例 4 media preview](media/cases/case-04.jpg)](media/cases/case-04.mp4)
+<video controls preload="metadata" poster="media/cases/case-04.jpg" width="760">
+  <source src="media/cases/case-04.mp4" type="video/mp4">
+</video>
 
-類型: 演示 | 日期: 2026-06-28
+[打開影片檔案](media/cases/case-04.mp4)
+
+類型: 教學 | 日期: 2026-06-28
 
 <a id="case-5"></a>
 ### 案例 5: [博物館導覽式場景對白](https://x.com/TomLikesRobots/status/2070923534449119424) (作者 [@TomLikesRobots](https://x.com/TomLikesRobots))
@@ -165,7 +180,11 @@ curl --request POST \
 
 來源描述了博物館導覽員和困惑遊客的提示詞，模型生成了自然對白和角色化表達。
 
-[![案例 5 media preview](media/cases/case-05.jpg)](media/cases/case-05.mp4)
+<video controls preload="metadata" poster="media/cases/case-05.jpg" width="760">
+  <source src="media/cases/case-05.mp4" type="video/mp4">
+</video>
+
+[打開影片檔案](media/cases/case-05.mp4)
 
 類型: 演示 | 日期: 2026-06-27
 
@@ -176,7 +195,11 @@ curl --request POST \
 
 來源描述了用參考素材生成約一分鐘 MC 聲音，再切分給 Seedance 影片使用；同時指出下游聲音漂移是實際限制。
 
-[![案例 6 media preview](media/cases/case-06.jpg)](media/cases/case-06.mp4)
+<video controls preload="metadata" poster="media/cases/case-06.jpg" width="760">
+  <source src="media/cases/case-06.mp4" type="video/mp4">
+</video>
+
+[打開影片檔案](media/cases/case-06.mp4)
 
 類型: 教學 | 日期: 2026-06-27
 
@@ -187,7 +210,11 @@ curl --request POST \
 
 這是樣本中互動最高的貼文，把 Seed Audio 放在 Claude MCP 工作流裡來展示。
 
-[![案例 7 media preview](media/cases/case-07.jpg)](media/cases/case-07.mp4)
+<video controls preload="metadata" poster="media/cases/case-07.jpg" width="760">
+  <source src="media/cases/case-07.mp4" type="video/mp4">
+</video>
+
+[打開影片檔案](media/cases/case-07.mp4)
 
 類型: 整合 | 日期: 2026-06-27
 
@@ -198,7 +225,11 @@ curl --request POST \
 
 來源報告日語輸出穩定、能跟隨情緒、參考音訊精度強，同時提醒較高聲線可能聽起來更機械。
 
-[![案例 8 media preview](media/cases/case-08.jpg)](media/cases/case-08.mp4)
+<video controls preload="metadata" poster="media/cases/case-08.jpg" width="760">
+  <source src="media/cases/case-08.mp4" type="video/mp4">
+</video>
+
+[打開影片檔案](media/cases/case-08.mp4)
 
 類型: 評估 | 日期: 2026-06-26
 
@@ -209,7 +240,11 @@ curl --request POST \
 
 來源描述了給一則熱門 AITA 風格故事做旁白，並把它設想為可重複的內容引擎。
 
-[![案例 9 media preview](media/cases/case-09.jpg)](media/cases/case-09.mp4)
+<video controls preload="metadata" poster="media/cases/case-09.jpg" width="760">
+  <source src="media/cases/case-09.mp4" type="video/mp4">
+</video>
+
+[打開影片檔案](media/cases/case-09.mp4)
 
 類型: 演示 | 日期: 2026-06-29
 
@@ -225,24 +260,17 @@ curl --request POST \
 類型: 評估 | 日期: 2026-06-26
 
 <a id="case-11"></a>
-### 案例 11: [WaveSpeedAI 文字、聲音與圖像引導音訊](https://x.com/wavespeed_ai/status/2071214531280543772) (作者 [@wavespeed_ai](https://x.com/wavespeed_ai))
-
-**追蹤服務商對自然語音、預設聲音、參考音訊、圖像引導音訊和調參控制的支援。**
-
-來源是服務商上線說明，列出了速度、音量、音高和格式控制，並說明 Seed Audio 已可用。
-
-[![案例 11 media preview](media/cases/case-11.jpg)](media/cases/case-11.mp4)
-
-類型: 整合 | 日期: 2026-06-28
-
-<a id="case-12"></a>
-### 案例 12: [低成本測試聲音表演與擬音](https://x.com/TomLikesRobots/status/2070288519684108353) (作者 [@TomLikesRobots](https://x.com/TomLikesRobots))
+### 案例 11: [低成本測試聲音表演與擬音](https://x.com/TomLikesRobots/status/2070288519684108353) (作者 [@TomLikesRobots](https://x.com/TomLikesRobots))
 
 **在投入影片生成前，把 Seed-Audio 1.0 作為聲音表演和擬音的低成本迭代層來評估。**
 
 來源報告早期測試中，聲音表演和擬音比 Seedance 原生音訊更好，而且短實驗成本較低。
 
-[![案例 12 media preview](media/cases/case-12.jpg)](media/cases/case-12.mp4)
+<video controls preload="metadata" poster="media/cases/case-11.jpg" width="760">
+  <source src="media/cases/case-11.mp4" type="video/mp4">
+</video>
+
+[打開影片檔案](media/cases/case-11.mp4)
 
 類型: 評估 | 日期: 2026-06-25
 

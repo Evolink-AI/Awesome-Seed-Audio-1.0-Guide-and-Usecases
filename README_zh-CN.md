@@ -25,7 +25,7 @@
 
 ## 概览
 
-- **从近期 X/Twitter 样本中筛选出 12 个 Seed-Audio 1.0 使用案例，原始可用样本为 93 条。**
+- **从近期 X/Twitter 样本中筛选出 11 个 Seed-Audio 1.0 使用案例，原始可用样本为 93 条。**
 - 覆盖方向：音频优先视频工作流, 音频剧与场景生成, 参考声音与角色配音探索, 工具与服务商集成, 社交旁白、拟音与成本测试。
 - 每个案例都包含原始来源、创作者署名、使用结论、证据类型和发布日期。
 - 你可以用这个仓库查找真实工作流、比较优势和限制、发现服务商路径，并把实现工作导向 EvoLink。
@@ -36,7 +36,7 @@
 > [!NOTE]
 > 本仓库优先收录具体工作流证据，而不是纯宣传：演示、设置说明、服务商发布、上手评估和明确限制。
 
-[更新日志](docs/update-log.md) | [维护指南](docs/maintenance.md) | [案例数据](data/use-cases.json) | [预设音色文档](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices)
+[更新日志](docs/update-log.md) | [维护指南](docs/maintenance.md) | [案例标注审计](docs/case-label-audit.md) | [案例数据](data/use-cases.json) | [预设音色文档](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices)
 
 ## API 快速访问
 
@@ -68,8 +68,8 @@ curl --request POST \
 | [音频优先视频工作流](#audio-first-video) | 案例 1, 案例 2, 案例 3 |
 | [音频剧与场景生成](#audio-drama-scene-generation) | 案例 4, 案例 5 |
 | [参考声音与角色配音探索](#voice-reference-character-casting) | 案例 6, 案例 8, 案例 10 |
-| [工具与服务商集成](#tool-provider-integrations) | 案例 7, 案例 11 |
-| [社交旁白、拟音与成本测试](#social-narration-foley-cost-tests) | 案例 9, 案例 12 |
+| [工具与服务商集成](#tool-provider-integrations) | 案例 7 |
+| [社交旁白、拟音与成本测试](#social-narration-foley-cost-tests) | 案例 9, 案例 11 |
 | [致谢](#acknowledge) | 来源致谢与修正政策 |
 
 <a id="audio-first-video"></a>
@@ -86,7 +86,7 @@ curl --request POST \
 
 | 案例 | 展示重点 | 类型 |
 |---|---|---|
-| [案例 4: 带环境声的两分钟对白](#case-4) | 用脚本格式编写音频剧 prompt，同时指定环境声、角色声音、背景音乐和逐句表演方向。 | 演示 |
+| [案例 4: 带环境声的两分钟对白](#case-4) | 用脚本格式编写音频剧 prompt，同时指定环境声、角色声音、背景音乐和逐句表演方向。 | 教程 |
 | [案例 5: 博物馆导览式场景对白](#case-5) | 测试场景级对白推理：Seed-Audio 能从紧凑情境 prompt 中生成台词、表达方式和角色声音。 | 演示 |
 
 <a id="voice-reference-character-casting"></a>
@@ -104,7 +104,6 @@ curl --request POST \
 | 案例 | 展示重点 | 类型 |
 |---|---|---|
 | [案例 7: Claude MCP 旁白与多语言配音集成](#case-7) | 通过 Higgsfield MCP 在 Claude 内完成旁白、声音克隆和多语言配音，Seed Audio 1.0 是其中的音频能力之一。 | 集成 |
-| [案例 11: WaveSpeedAI 文本、声音与图像引导音频](#case-11) | 跟踪服务商入口：文本转自然语音、音景生成、预设声音、参考音频、图像引导音频和调参控制。 | 集成 |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## 社交旁白、拟音与成本测试
@@ -112,16 +111,23 @@ curl --request POST \
 | 案例 | 展示重点 | 类型 |
 |---|---|---|
 | [案例 9: 社交故事旁白内容引擎](#case-9) | 把公开文字故事帖转成音频优先娱乐内容，并评估它能否成为可重复的内容引擎。 | 演示 |
-| [案例 12: 低成本测试声音表演与拟音](#case-12) | 在投入下游视频生成前，把 Seed-Audio 作为声音表演和拟音的低成本测试层。 | 评估 |
+| [案例 11: 低成本测试声音表演与拟音](#case-11) | 在投入下游视频生成前，把 Seed-Audio 作为声音表演和拟音的低成本测试层。 | 评估 |
 
 <a id="case-1"></a>
 ### 案例 1: [用六人音频引导 Seedance 视频](https://x.com/gokayfem/status/2070429287950188547) (作者 [@gokayfem](https://x.com/gokayfem))
 
 **构建音频优先的视频工作流：先用公开 Seed Audio prompt 生成六个角色对白和背景音效，再进入图像与 Seedance 视频生成。**
 
-原推公开了雨夜逃亡面包车场景的 Seed Audio prompt，并同时给出 Nano Banana Pro 图像 prompt 和 Seedance 2.0 视频 prompt。这是用生成音频指导后续视频节奏、对白和环境声的强证据。
+- 证据来源：原推公开了实际 Seed Audio 设置：雨夜逃亡面包车场景、六个具名角色、不同声线方向、短对白、发动机怠速、车顶雨声和背景音效，并同时给出后续 Nano Banana Pro 图像 prompt 与 Seedance 2.0 视频 prompt。
+- 可复制做法：当音频需要主导整段视频时，先写清角色表、每个角色的声音质感、短句对白和持续环境声，再把它作为后续视频节奏和情绪的参考。
+- 实际流程：先生成完整多人对白和环境声底，再生成匹配人物轮廓与氛围的关键视觉图，最后把音频和视觉一起交给 Seedance 做最终运动画面。
+- 注意事项：这个来源能证明工作流和 prompt 结构有学习价值，但不能保证长场景里每个角色都永久稳定。正式生产前要专门测试说话人区分、节奏和转场。
 
-[![案例 1 media preview](media/cases/case-01.jpg)](media/cases/case-01.mp4)
+<video controls preload="metadata" poster="media/cases/case-01.jpg" width="760">
+  <source src="media/cases/case-01.mp4" type="video/mp4">
+</video>
+
+[打开视频文件](media/cases/case-01.mp4)
 
 类型: 教程 | 日期: 2026-06-26
 
@@ -130,9 +136,16 @@ curl --request POST \
 
 **评估多片段故事视频中的 agentic soundscape 生成，并保留音效与画面动作仍可能不匹配的限制。**
 
-作者说明 Seedance 多片段故事里的音频一致性很难，于是测试把已有的一分钟低清视频交给 Claude Code 和 Codex，并配合 FAL key 生成音景。同作者后续补充说结果还可以，但部分 SFX 没有准确匹配画面，所以这个案例必须保留限制。
+- 证据来源：作者从一条一分钟多片段低清故事视频出发，明确指出 Seedance 多片段故事里的音频一致性很难，然后测试把视频上下文交给 Claude Code、Codex，并配合 FAL key 生成音景。
+- 可复制做法：把 Seed-Audio 当成已有视频的音频修复或规划层，尤其适合一个视频里包含多个镜头、转场、环境声和动作音效的情况。
+- 实际流程：先让 agent 读取视频情境并产出逐镜头音频计划，再生成背景声、环境声或音效，最后按每个片段核对声音是否跟画面动作对齐。
+- 注意事项：同作者后续说明部分 SFX 仍然没有准确匹配画面动作，所以它是评估案例，不是完整教程。它的价值在于教你如何测试，以及提醒多片段视频仍有错配风险。
 
-[![案例 2 media preview](media/cases/case-02.jpg)](media/cases/case-02.mp4)
+<video controls preload="metadata" poster="media/cases/case-02.jpg" width="760">
+  <source src="media/cases/case-02.mp4" type="video/mp4">
+</video>
+
+[打开视频文件](media/cases/case-02.mp4)
 
 类型: 评估 | 日期: 2026-06-25
 
@@ -141,9 +154,16 @@ curl --request POST \
 
 **采用官方三步流程：先生成 Seed-Audio，再创建关键视觉图，最后把音频和视觉一起作为 Seedance 2 reference-to-video 的参考。**
 
-原推明确说明，音频优先能给视频模型更强的音乐、旁白、环境声和时间节奏方向。同 thread 还说明 Seed-Audio 面向完整音频生成，不只是文本转语音。
+- 证据来源：来源明确给出三步流程：先用 Seed-Audio 1.0 生成音频，再生成关键视觉图，最后把音频和视觉一起作为 Seedance 2 reference-to-video 的参考。
+- 可复制做法：当音乐、旁白、环境声或节奏应该先决定视频走向时，不要先做视频再补声音，而是先把情绪和时间线写进音频 prompt。
+- 实际流程：先确定音频里的情绪弧线、旁白节奏和环境声，再创建匹配场景的图片，最后把两者共同作为参考，让视频模型同时获得时间和视觉方向。
+- 注意事项：这是官方式工作流模板，不是独立 benchmark。它适合作为起点，但仍需要单独检查 lip-sync、镜头节奏，以及视频是否真的跟随音频 cue。
 
-[![案例 3 media preview](media/cases/case-03.jpg)](media/cases/case-03.mp4)
+<video controls preload="metadata" poster="media/cases/case-03.jpg" width="760">
+  <source src="media/cases/case-03.mp4" type="video/mp4">
+</video>
+
+[打开视频文件](media/cases/case-03.mp4)
 
 类型: 教程 | 日期: 2026-06-27
 
@@ -152,20 +172,34 @@ curl --request POST \
 
 **用脚本格式编写音频剧 prompt，同时指定环境声、角色声音、背景音乐和逐句表演方向。**
 
-原推包含一个两分钟幽闭家庭对峙音频剧 prompt，使用 INTENT、AESTHETIC、EXECUTION 结构，并明确灯管嗡鸣、冰箱振动、两个角色声线、情绪表达和完整台词，是最强的可复用 prompt 案例之一。
+- 证据来源：原推给出一个两分钟音频剧 prompt/script，包含 INTENT、AESTHETIC、EXECUTION 结构，并写明环境声、背景音乐、两个角色声线、情绪表达和逐句对白。
+- 可复制做法：需要做音频剧而不是单人旁白时，可以照这个结构写：先定义空间和环境声，再定义角色声音，最后在台词里嵌入短促的表演方向。
+- 实际流程：把场景写成短剧本，控制每句表演指令不要太长，同时保留持续背景音，让模型既能跟随情绪，也能保持场景质感。
+- 注意事项：作者认为结果较好地跟随了 prompt，但长音频仍要检查一致性。生产内容最好把长场景拆成多个 beat，避免角色情绪或背景音乐中途漂移。
 
-[![案例 4 media preview](media/cases/case-04.jpg)](media/cases/case-04.mp4)
+<video controls preload="metadata" poster="media/cases/case-04.jpg" width="760">
+  <source src="media/cases/case-04.mp4" type="video/mp4">
+</video>
 
-类型: 演示 | 日期: 2026-06-28
+[打开视频文件](media/cases/case-04.mp4)
+
+类型: 教程 | 日期: 2026-06-28
 
 <a id="case-5"></a>
 ### 案例 5: [博物馆导览式场景对白](https://x.com/TomLikesRobots/status/2070923534449119424) (作者 [@TomLikesRobots](https://x.com/TomLikesRobots))
 
 **测试场景级对白推理：Seed-Audio 能从紧凑情境 prompt 中生成台词、表达方式和角色声音。**
 
-作者给 Seed-Audio 的 prompt 是让博物馆导览员向困惑访客解释 crossing the Rubicon。模型生成了对白、语气和角色声音；作者随后用 Nano Banana 生成匹配图像，并用 Seedance 2 做成视频。
+- 证据来源：作者给出的紧凑情境是：博物馆导览员向困惑访客解释 crossing the Rubicon 为什么表示越过不可回头的临界点。帖子说明 Seed Audio 生成了对白、表达方式和角色声音。
+- 可复制做法：当你不想逐句写剧本，而是希望模型从一个教育场景中推导短对白时，可以给角色关系、要解释的概念和对话语境。
+- 实际流程：输入角色身份、解释对象、听众困惑点和语气要求；生成后重点检查讲话是否自然，以及解释是否准确。
+- 注意事项：这是演示案例，因为来源证明了场景级语言推理和自然表达，但没有提供完整生产流程。用于教育内容时必须复核事实正确性。
 
-[![案例 5 media preview](media/cases/case-05.jpg)](media/cases/case-05.mp4)
+<video controls preload="metadata" poster="media/cases/case-05.jpg" width="760">
+  <source src="media/cases/case-05.mp4" type="video/mp4">
+</video>
+
+[打开视频文件](media/cases/case-05.mp4)
 
 类型: 演示 | 日期: 2026-06-27
 
@@ -174,9 +208,16 @@ curl --request POST \
 
 **从参考素材生成固定 MC 声音，将音频切分后作为 Seedance 2.0 lip-sync 视频参考。**
 
-原推描述了两步测试：先用素材 voice 作为参考，在 Seed Audio 里生成约一分钟 MC 音频；再把音频切分并交给 Seedance 2.0 视频化。作者也记录了实际限制：进入视频生成后声音会轻微变化，需要后期编辑。
+- 证据来源：原推描述了参考声音工作流：先用来源 voice 作为参考，在 Seed Audio 里生成约一分钟 MC 音频；再把生成音频切分，并交给 Seedance 2.0 做 lip-sync 视频。
+- 可复制做法：当系列内容需要固定主持人、播报员或 MC 声音时，可以先做一段较长的干净参考音频，再切成可复用片段。
+- 实际流程：先生成一分钟左右的主持声音，挑选发音稳定的片段，按视频台词切分，再作为视频生成或 lip-sync 的声音参考。
+- 注意事项：作者明确记录了下游视频生成后声音会轻微变化，因此这个案例是工作流教程，不是声音身份稳定性的保证。最终片段仍需要后期校正。
 
-[![案例 6 media preview](media/cases/case-06.jpg)](media/cases/case-06.mp4)
+<video controls preload="metadata" poster="media/cases/case-06.jpg" width="760">
+  <source src="media/cases/case-06.mp4" type="video/mp4">
+</video>
+
+[打开视频文件](media/cases/case-06.mp4)
 
 类型: 教程 | 日期: 2026-06-27
 
@@ -185,9 +226,16 @@ curl --request POST \
 
 **通过 Higgsfield MCP 在 Claude 内完成旁白、声音克隆和多语言配音，Seed Audio 1.0 是其中的音频能力之一。**
 
-Higgsfield 表示 Claude 可以通过其 MCP 集成生成音频，覆盖 voiceover、voice cloning 和 50 多种语言配音，由 Seed Audio 1.0 与 ElevenLabs v3 驱动。同作者回复给出了 MCP 访问链接，因此这是平台集成案例，不是单独 API 教程。
+- 证据来源：Higgsfield 表示 Claude 可以通过其 MCP 集成生成音频，覆盖旁白、声音克隆和 50 多种语言配音，能力栈中包含 Seed Audio 1.0。
+- 可复制做法：这个案例适合理解 agent 或 no-code 访问路径：创作者不一定直接调用音频 endpoint，也可以在 Claude 里通过 MCP 服务商完成配音任务。
+- 实际流程：从短旁白或配音请求开始，在 Claude 内调用 MCP 生成，再检查输出语言、声音身份和媒体工作流是否满足目标。
+- 注意事项：这是集成案例，不是质量评测。来源证明了可访问路径和产品入口，但不能独立证明 50 多种语言的配音质量都可靠。
 
-[![案例 7 media preview](media/cases/case-07.jpg)](media/cases/case-07.mp4)
+<video controls preload="metadata" poster="media/cases/case-07.jpg" width="760">
+  <source src="media/cases/case-07.mp4" type="video/mp4">
+</video>
+
+[打开视频文件](media/cases/case-07.mp4)
 
 类型: 集成 | 日期: 2026-06-27
 
@@ -196,9 +244,16 @@ Higgsfield 表示 Claude 可以通过其 MCP 集成生成音频，覆盖 voiceov
 
 **基于实际使用评估日语稳定性、情绪跟随、参考音频精度，以及高声线机械感风险。**
 
-原推报告 Seed Audio 的日语输出比 Seedance 2.0 原生音频更稳定，能跟随台词情绪，参考音频精度较高且最长 30 秒。同时也记录限制：音频和图像不能同时 reference，高声线更容易出现机械感。
+- 证据来源：作者报告了日语实测体验：Seed Audio 的日语语音比 Seedance 2.0 原生音频更稳定，能跟随台词情绪，参考音频精度较高，参考音频最长 30 秒，同时记录不能同时使用音频和图像 reference，高声线更机械。
+- 可复制做法：把这个案例当成非英语语音质量检查清单：稳定性、情绪跟随、参考精度、reference 模式限制和高 pitch 风险。
+- 实际流程：分别用普通声线和高声线跑短片段，跟参考音频做对比；如果你还需要图像引导，要单独测，因为来源指出音频和图像 reference 不能合用。
+- 注意事项：这个案例的核心不是宣称 Seed-Audio 永远更好，而是把表现好和需要谨慎的地方都列出来，所以标注为评估。
 
-[![案例 8 media preview](media/cases/case-08.jpg)](media/cases/case-08.mp4)
+<video controls preload="metadata" poster="media/cases/case-08.jpg" width="760">
+  <source src="media/cases/case-08.mp4" type="video/mp4">
+</video>
+
+[打开视频文件](media/cases/case-08.mp4)
 
 类型: 评估 | 日期: 2026-06-26
 
@@ -207,9 +262,16 @@ Higgsfield 表示 Claude 可以通过其 MCP 集成生成音频，覆盖 voiceov
 
 **把公开文字故事帖转成音频优先娱乐内容，并评估它能否成为可重复的内容引擎。**
 
-作者用 Seed Audio 1.0 旁白化了一条热门 AITA 风格帖子，并明确把结果设想为 viral content engine。同作者回复补充了 original post 链接，因此这是有真实文本来源的 text-to-narration 工作流。
+- 证据来源：作者用 Seed Audio 1.0 给一条热门 AITA 风格文字帖做旁白，并把这种形式明确描述为可能的 viral content engine。同作者回复补充了原始故事链接。
+- 可复制做法：当你想测试文字型社交内容能否变成低成本短视频娱乐内容时，可以用它作为 text-to-narration 模板。
+- 实际流程：选择有公开来源的文字故事，拆成旁白段落，生成声音，再搭配简单视觉、字幕或视频素材，最后观察这种格式能否重复生产。
+- 注意事项：这是演示案例，不等于版权或增长已经成立。正式使用时要处理授权和来源标注，也要用真实发布数据验证它是否能成为内容渠道。
 
-[![案例 9 media preview](media/cases/case-09.jpg)](media/cases/case-09.mp4)
+<video controls preload="metadata" poster="media/cases/case-09.jpg" width="760">
+  <source src="media/cases/case-09.mp4" type="video/mp4">
+</video>
+
+[打开视频文件](media/cases/case-09.mp4)
 
 类型: 演示 | 日期: 2026-06-29
 
@@ -218,31 +280,30 @@ Higgsfield 表示 Claude 可以通过其 MCP 集成生成音频，覆盖 voiceov
 
 **用参考图片做早期角色声音 casting，同时把 pitch 和 tone 稳定性视为未解决的生产风险。**
 
-作者测试 image-to-audio：只传入女性角色参考图，生成三条约十秒台词。结果两条声质方向接近，一条明显偏高，所以它支持早期角色声音探索，但不支持直接作为最终锁定角色声的生产流程。
+- 证据来源：作者测试 image-to-audio，只传入女性角色参考图，生成三条约十秒台词；结果两条声质方向接近，一条明显偏高。
+- 可复制做法：把图像引导音频用于早期角色声音 casting：先探索一个角色可能听起来是什么方向，而不是直接锁定最终配音。
+- 实际流程：用同一角色图测试多条短台词，对比 pitch、tone 和角色感是否一致，只保留跨多条台词仍稳定的候选。
+- 注意事项：来源本身指出音高和音色稳定性还不适合固定电影角色声生产，所以它是评估案例，价值在于定义可用的探索阶段和明确风险。
 
 ![案例 10 media](media/cases/case-10.jpg)
 
 类型: 评估 | 日期: 2026-06-26
 
 <a id="case-11"></a>
-### 案例 11: [WaveSpeedAI 文本、声音与图像引导音频](https://x.com/wavespeed_ai/status/2071214531280543772) (作者 [@wavespeed_ai](https://x.com/wavespeed_ai))
-
-**跟踪服务商入口：文本转自然语音、音景生成、预设声音、参考音频、图像引导音频和调参控制。**
-
-WaveSpeedAI 宣布 Seed Audio 1.0 已上线，并列出自然语音、预设声音、参考音频引导、图像引导音频，以及 speed、volume、pitch、format 控制。这是实现路径规划所需的强服务商证据。
-
-[![案例 11 media preview](media/cases/case-11.jpg)](media/cases/case-11.mp4)
-
-类型: 集成 | 日期: 2026-06-28
-
-<a id="case-12"></a>
-### 案例 12: [低成本测试声音表演与拟音](https://x.com/TomLikesRobots/status/2070288519684108353) (作者 [@TomLikesRobots](https://x.com/TomLikesRobots))
+### 案例 11: [低成本测试声音表演与拟音](https://x.com/TomLikesRobots/status/2070288519684108353) (作者 [@TomLikesRobots](https://x.com/TomLikesRobots))
 
 **在投入下游视频生成前，把 Seed-Audio 作为声音表演和拟音的低成本测试层。**
 
-原推报告早期测试中，voice acting 和 foley 比 Seedance 2 原生音频更好，15 秒测试只需几美分。评论也补充了有价值限制：参考声音转换可能失败，生成音频与 Seedance lip-sync 的最佳工作流仍未解决。
+- 证据来源：作者报告早期测试中，voice acting 和 foley 比 Seedance 2 原生音频更好，并提到 15 秒音频测试成本只有几美分。
+- 可复制做法：把 Seed-Audio 用作低成本预生产测试层，在投入视频生成前先验证声音表演、拟音和环境声方向是否值得继续。
+- 实际流程：先生成 10 到 15 秒短音频，对比它和视频模型原生音频的表现；只有当声音方向足够强时，再进入下游视频生成。
+- 注意事项：评论里补充了 reference voice conversion 可能失败，以及生成音频如何最好地进入 Seedance lip-sync 仍未解决。因此它是评估案例，不是完整最终管线。
 
-[![案例 12 media preview](media/cases/case-12.jpg)](media/cases/case-12.mp4)
+<video controls preload="metadata" poster="media/cases/case-11.jpg" width="760">
+  <source src="media/cases/case-11.mp4" type="video/mp4">
+</video>
+
+[打开视频文件](media/cases/case-11.mp4)
 
 类型: 评估 | 日期: 2026-06-25
 

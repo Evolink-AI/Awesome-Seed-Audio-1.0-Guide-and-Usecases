@@ -25,7 +25,7 @@
 
 ## Обзор
 
-- **Из 93 принятых недавних публикаций X/Twitter выбрано 12 кейсов Seed-Audio 1.0.**
+- **Из 93 принятых недавних публикаций X/Twitter выбрано 11 кейсов Seed-Audio 1.0.**
 - Охват: Видео-процессы от аудио, Аудиодрама и генерация сцен, Референсные голоса и подбор голоса персонажа, Интеграции инструментов и провайдеров, Социальная озвучка, foley и тесты стоимости.
 - Каждый кейс содержит исходный источник, атрибуцию автора, вывод по применению, тип доказательства и дату публикации.
 - Используйте репозиторий, чтобы находить реальные рабочие процессы, сравнивать сильные стороны и ограничения, находить маршруты провайдеров и переходить к реализации через EvoLink.
@@ -68,8 +68,8 @@ curl --request POST \
 | [Видео-процессы от аудио](#audio-first-video) | Кейс 1, Кейс 2, Кейс 3 |
 | [Аудиодрама и генерация сцен](#audio-drama-scene-generation) | Кейс 4, Кейс 5 |
 | [Референсные голоса и подбор голоса персонажа](#voice-reference-character-casting) | Кейс 6, Кейс 8, Кейс 10 |
-| [Интеграции инструментов и провайдеров](#tool-provider-integrations) | Кейс 7, Кейс 11 |
-| [Социальная озвучка, foley и тесты стоимости](#social-narration-foley-cost-tests) | Кейс 9, Кейс 12 |
+| [Интеграции инструментов и провайдеров](#tool-provider-integrations) | Кейс 7 |
+| [Социальная озвучка, foley и тесты стоимости](#social-narration-foley-cost-tests) | Кейс 9, Кейс 11 |
 | [Благодарности](#acknowledge) | Кредиты и политика исправлений |
 
 <a id="audio-first-video"></a>
@@ -86,7 +86,7 @@ curl --request POST \
 
 | Кейс | Что показывает | Тип |
 |---|---|---|
-| [Кейс 4: Двухминутный диалог с атмосферой](#case-4) | Оцените Seed-Audio 1.0 для компактных звуковых драматических сцен с несколькими голосами, атмосферой и фоновой музыкой. | Демо |
+| [Кейс 4: Двухминутный диалог с атмосферой](#case-4) | Оцените Seed-Audio 1.0 для компактных звуковых драматических сцен с несколькими голосами, атмосферой и фоновой музыкой. | Руководство |
 | [Кейс 5: Сценический диалог с музейным гидом](#case-5) | Протестируйте языковое мышление на уровне сцены, где Seed-Audio генерирует диалоги, подачу и отдельные голоса персонажей. | Демо |
 
 <a id="voice-reference-character-casting"></a>
@@ -104,7 +104,6 @@ curl --request POST \
 | Кейс | Что показывает | Тип |
 |---|---|---|
 | [Кейс 7: Интеграция озвучки и дубляжа в Claude MCP](#case-7) | Оцените Seed-Audio 1.0 как часть собственного творческого рабочего пространства помощника для озвучивания, клонирования голоса и дублирования. | Интеграция |
-| [Кейс 11: Текстовое, голосовое и image-guided аудио в WaveSpeedAI](#case-11) | Поддержка поставщика треков для естественной речи, предустановленных голосов, эталонного звука, звука с изображением и элементов управления настройкой. | Интеграция |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## Социальная озвучка, foley и тесты стоимости
@@ -112,7 +111,7 @@ curl --request POST \
 | Кейс | Что показывает | Тип |
 |---|---|---|
 | [Кейс 9: Движок озвучки социальных историй](#case-9) | Протестируйте форматы повествования социальных историй, в которых текстовые сообщения становятся аудиоразвлечением. | Демо |
-| [Кейс 12: Недорогой тест озвучки и foley](#case-12) | Оцените Seed-Audio 1.0 как недорогой итерационный слой для озвучки и фоли, прежде чем переходить к созданию видео. | Оценка |
+| [Кейс 11: Недорогой тест озвучки и foley](#case-11) | Оцените Seed-Audio 1.0 как недорогой итерационный слой для озвучки и фоли, прежде чем переходить к созданию видео. | Оценка |
 
 <a id="case-1"></a>
 ### Кейс 1: [Аудио с шестью голосами для управления видео Seedance](https://x.com/gokayfem/status/2070429287950188547) (автор [@gokayfem](https://x.com/gokayfem))
@@ -121,7 +120,11 @@ curl --request POST \
 
 Исходный код включает в себя конкретный рабочий процесс Seed Audio плюс Seedance и настройку в стиле подсказок для шести человек с фоновыми эффектами.
 
-[![Кейс 1 media preview](media/cases/case-01.jpg)](media/cases/case-01.mp4)
+<video controls preload="metadata" poster="media/cases/case-01.jpg" width="760">
+  <source src="media/cases/case-01.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-01.mp4)
 
 Тип: Руководство | Дата: 2026-06-26
 
@@ -132,7 +135,11 @@ curl --request POST \
 
 В источнике описывается использование сгенерированного видео и API key для создания Seed Audio для рабочего процесса с несколькими клипами.
 
-[![Кейс 2 media preview](media/cases/case-02.jpg)](media/cases/case-02.mp4)
+<video controls preload="metadata" poster="media/cases/case-02.jpg" width="760">
+  <source src="media/cases/case-02.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-02.mp4)
 
 Тип: Оценка | Дата: 2026-06-25
 
@@ -143,7 +150,11 @@ curl --request POST \
 
 Источник дает краткий конвейер рабочего процесса, в котором звук обеспечивает музыку, повествование, атмосферу и направление синхронизации для видео.
 
-[![Кейс 3 media preview](media/cases/case-03.jpg)](media/cases/case-03.mp4)
+<video controls preload="metadata" poster="media/cases/case-03.jpg" width="760">
+  <source src="media/cases/case-03.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-03.mp4)
 
 Тип: Руководство | Дата: 2026-06-27
 
@@ -154,9 +165,13 @@ curl --request POST \
 
 Источник сообщает о двухминутном диалоговом эксперименте с использованием структуры INTENT, AESTHETIC, EXECUTION в авторском стиле.
 
-[![Кейс 4 media preview](media/cases/case-04.jpg)](media/cases/case-04.mp4)
+<video controls preload="metadata" poster="media/cases/case-04.jpg" width="760">
+  <source src="media/cases/case-04.mp4" type="video/mp4">
+</video>
 
-Тип: Демо | Дата: 2026-06-28
+[Open video file](media/cases/case-04.mp4)
+
+Тип: Руководство | Дата: 2026-06-28
 
 <a id="case-5"></a>
 ### Кейс 5: [Сценический диалог с музейным гидом](https://x.com/TomLikesRobots/status/2070923534449119424) (автор [@TomLikesRobots](https://x.com/TomLikesRobots))
@@ -165,7 +180,11 @@ curl --request POST \
 
 Источник описывает путеводитель по музею и запутанную подсказку для посетителей, в которой модель воспроизводит естественный диалог и передачу персонажей.
 
-[![Кейс 5 media preview](media/cases/case-05.jpg)](media/cases/case-05.mp4)
+<video controls preload="metadata" poster="media/cases/case-05.jpg" width="760">
+  <source src="media/cases/case-05.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-05.mp4)
 
 Тип: Демо | Дата: 2026-06-27
 
@@ -176,7 +195,11 @@ curl --request POST \
 
 В источнике описывается создание примерно одной минуты голоса MC из справочного материала, а затем разделение его на видео Seedance. В качестве практического предостережения также отмечается дрейф голоса в нисходящем направлении.
 
-[![Кейс 6 media preview](media/cases/case-06.jpg)](media/cases/case-06.mp4)
+<video controls preload="metadata" poster="media/cases/case-06.jpg" width="760">
+  <source src="media/cases/case-06.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-06.mp4)
 
 Тип: Руководство | Дата: 2026-06-27
 
@@ -187,7 +210,11 @@ curl --request POST \
 
 Это была публикация с самым высоким уровнем вовлеченности в выборке; она показывает Seed Audio внутри рабочего процесса Claude MCP.
 
-[![Кейс 7 media preview](media/cases/case-07.jpg)](media/cases/case-07.mp4)
+<video controls preload="metadata" poster="media/cases/case-07.jpg" width="760">
+  <source src="media/cases/case-07.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-07.mp4)
 
 Тип: Интеграция | Дата: 2026-06-27
 
@@ -198,7 +225,11 @@ curl --request POST \
 
 Источник сообщает о стабильном воспроизведении японского звука, следовании эмоциям, высокой точности эталонного звука и предостережении о том, что более высокие голоса могут звучать более механически.
 
-[![Кейс 8 media preview](media/cases/case-08.jpg)](media/cases/case-08.mp4)
+<video controls preload="metadata" poster="media/cases/case-08.jpg" width="760">
+  <source src="media/cases/case-08.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-08.mp4)
 
 Тип: Оценка | Дата: 2026-06-26
 
@@ -209,7 +240,11 @@ curl --request POST \
 
 Источник описывает повествование популярной истории в стиле AITA и представляет ее как идею повторяемого механизма контента.
 
-[![Кейс 9 media preview](media/cases/case-09.jpg)](media/cases/case-09.mp4)
+<video controls preload="metadata" poster="media/cases/case-09.jpg" width="760">
+  <source src="media/cases/case-09.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-09.mp4)
 
 Тип: Демо | Дата: 2026-06-29
 
@@ -225,24 +260,17 @@ curl --request POST \
 Тип: Оценка | Дата: 2026-06-26
 
 <a id="case-11"></a>
-### Кейс 11: [Текстовое, голосовое и image-guided аудио в WaveSpeedAI](https://x.com/wavespeed_ai/status/2071214531280543772) (автор [@wavespeed_ai](https://x.com/wavespeed_ai))
-
-**Поддержка поставщика треков для естественной речи, предустановленных голосов, эталонного звука, звука с изображением и элементов управления настройкой.**
-
-Источником является примечание к запуску поставщика, в котором перечислены элементы управления скоростью, громкостью, высотой тона и форматом, а также доступность Seed Audio.
-
-[![Кейс 11 media preview](media/cases/case-11.jpg)](media/cases/case-11.mp4)
-
-Тип: Интеграция | Дата: 2026-06-28
-
-<a id="case-12"></a>
-### Кейс 12: [Недорогой тест озвучки и foley](https://x.com/TomLikesRobots/status/2070288519684108353) (автор [@TomLikesRobots](https://x.com/TomLikesRobots))
+### Кейс 11: [Недорогой тест озвучки и foley](https://x.com/TomLikesRobots/status/2070288519684108353) (автор [@TomLikesRobots](https://x.com/TomLikesRobots))
 
 **Оцените Seed-Audio 1.0 как недорогой итерационный слой для озвучки и фоли, прежде чем переходить к созданию видео.**
 
 Источник сообщает о первых тестах, в которых озвучка и фоли ощущались лучше, чем родной звук Seedance, при низкой стоимости для коротких экспериментов.
 
-[![Кейс 12 media preview](media/cases/case-12.jpg)](media/cases/case-12.mp4)
+<video controls preload="metadata" poster="media/cases/case-11.jpg" width="760">
+  <source src="media/cases/case-11.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-11.mp4)
 
 Тип: Оценка | Дата: 2026-06-25
 

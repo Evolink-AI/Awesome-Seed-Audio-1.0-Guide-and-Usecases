@@ -25,7 +25,7 @@ This English source README focuses on source-linked cases with concrete workflow
 
 ## Overview
 
-- **12 selected Seed-Audio 1.0 cases from 93 accepted recent X/Twitter posts.**
+- **11 selected Seed-Audio 1.0 cases from 93 accepted recent X/Twitter posts.**
 - Covers Audio-First Video Workflows, Audio Drama And Scene Generation, Reference Voice And Character Casting, Tool And Provider Integrations, Social Narration, Foley, And Cost Tests.
 - Each case includes the original source, creator attribution, concise usage takeaway, evidence type, and publication date.
 - Use this repo to find practical workflows, compare strengths and limits, discover provider routes, and route implementation work to EvoLink.
@@ -36,7 +36,7 @@ This English source README focuses on source-linked cases with concrete workflow
 > [!NOTE]
 > The collection favors concrete workflow evidence over hype: demos, setup notes, provider launches, hands-on evaluations, and clearly stated limitations.
 
-[Update log](docs/update-log.md) | [Maintenance guide](docs/maintenance.md) | [Case data](data/use-cases.json) | [Preset voice docs](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices)
+[Update log](docs/update-log.md) | [Maintenance guide](docs/maintenance.md) | [Case label audit](docs/case-label-audit.md) | [Case data](data/use-cases.json) | [Preset voice docs](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices)
 
 ## Quick API Access
 
@@ -68,8 +68,8 @@ Read the companion API and skill repo: [doubao-seed-audio-api-skill](https://git
 | [Audio-First Video Workflows](#audio-first-video) | Case 1, Case 2, Case 3 |
 | [Audio Drama And Scene Generation](#audio-drama-scene-generation) | Case 4, Case 5 |
 | [Reference Voice And Character Casting](#voice-reference-character-casting) | Case 6, Case 8, Case 10 |
-| [Tool And Provider Integrations](#tool-provider-integrations) | Case 7, Case 11 |
-| [Social Narration, Foley, And Cost Tests](#social-narration-foley-cost-tests) | Case 9, Case 12 |
+| [Tool And Provider Integrations](#tool-provider-integrations) | Case 7 |
+| [Social Narration, Foley, And Cost Tests](#social-narration-foley-cost-tests) | Case 9, Case 11 |
 | [Acknowledge](#acknowledge) | Credits and correction policy |
 
 <a id="audio-first-video"></a>
@@ -86,7 +86,7 @@ Read the companion API and skill repo: [doubao-seed-audio-api-skill](https://git
 
 | Case | What it shows | Type |
 |---|---|---|
-| [Case 4: Two-Minute Dialogue With Ambience](#case-4) | write script-format audio drama prompts with ambience, character voices, background music, and line-level performance direction. | Demo |
+| [Case 4: Two-Minute Dialogue With Ambience](#case-4) | write script-format audio drama prompts with ambience, character voices, background music, and line-level performance direction. | Tutorial |
 | [Case 5: Museum Guide Scene-Level Dialogue](#case-5) | test scene-level dialogue reasoning where Seed-Audio writes delivery and character voices from a compact situational prompt. | Demo |
 
 <a id="voice-reference-character-casting"></a>
@@ -104,7 +104,6 @@ Read the companion API and skill repo: [doubao-seed-audio-api-skill](https://git
 | Case | What it shows | Type |
 |---|---|---|
 | [Case 7: Claude MCP Voiceover And Dubbing Integration](#case-7) | route voiceovers, voice cloning, and multilingual dubbing through Claude via Higgsfield MCP, with Seed Audio 1.0 as part of the audio stack. | Integration |
-| [Case 11: WaveSpeedAI Text, Voice, Image-Guided Audio](#case-11) | track provider access for text-to-speech, soundscape generation, preset voices, reference audio, image-guided audio, and tuning controls. | Integration |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## Social Narration, Foley, And Cost Tests
@@ -112,16 +111,23 @@ Read the companion API and skill repo: [doubao-seed-audio-api-skill](https://git
 | Case | What it shows | Type |
 |---|---|---|
 | [Case 9: Narrated Social Story Engine](#case-9) | turn public text-story posts into narrated social entertainment and evaluate whether the format can become a repeatable content engine. | Demo |
-| [Case 12: Voice Acting, Foley, And Low-Cost Testing](#case-12) | use Seed-Audio as a low-cost test layer for voice acting and foley before committing to downstream video generation. | Evaluation |
+| [Case 11: Voice Acting, Foley, And Low-Cost Testing](#case-11) | use Seed-Audio as a low-cost test layer for voice acting and foley before committing to downstream video generation. | Evaluation |
 
 <a id="case-1"></a>
 ### Case 1: [Six-Speaker Audio To Guide Seedance Video](https://x.com/gokayfem/status/2070429287950188547) (by [@gokayfem](https://x.com/gokayfem))
 
 **build an audio-first video pipeline where a public Seed Audio prompt creates six-character dialogue and background effects before image and Seedance video generation.**
 
-The source publishes the concrete Seed Audio prompt for a rain-soaked getaway van scene, then pairs it with a Nano Banana Pro image prompt and a Seedance 2.0 video prompt. This is strong evidence for using generated audio as timing, dialogue, and ambience guidance for later video generation.
+- Source evidence: The post exposes the actual Seed Audio setup: a getaway-van scene with six named speakers, distinct voice directions, short dialogue lines, engine idle, rain on the roof, and background effects in one generated audio pass. It also shows the downstream image prompt and Seedance 2.0 video prompt, so this is more than a showcase clip.
+- What to copy: Use this pattern when the audio needs to drive the whole scene: cast each speaker, define a voice texture, write short lines, and include continuous ambience that can become timing guidance for the later video model.
+- Practical workflow: first generate the full multi-speaker audio bed, then create a key visual with matching character silhouettes and mood, then feed audio plus visual context into Seedance for final motion.
+- Watch-outs: The evidence supports workflow design and prompt structure; it does not prove perfect speaker separation in every longer scene, so test character identity and timing before using it for production dialogue.
 
-[![Case 1 media preview](media/cases/case-01.jpg)](media/cases/case-01.mp4)
+<video controls preload="metadata" poster="media/cases/case-01.jpg" width="760">
+  <source src="media/cases/case-01.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-01.mp4)
 
 Type: Tutorial | Date: 2026-06-26
 
@@ -130,9 +136,16 @@ Type: Tutorial | Date: 2026-06-26
 
 **evaluate agent-assisted soundscape generation for multi-clip story videos, including the remaining mismatch risk between effects and on-screen action.**
 
-The author explains that consistent audio is difficult in Seedance multi-clip stories, then tests a pipeline where an existing one-minute low-resolution video is handed to Claude Code and Codex with a FAL key. A same-author follow-up says the process was acceptable but some sound effects did not match exactly, so this case should preserve the limitation.
+- Source evidence: The author starts from a one-minute multi-clip low-resolution video, says consistent audio is difficult in Seedance prompts, and tests an agent-assisted audio pass using Claude Code, Codex, and a FAL key.
+- What to copy: Treat Seed-Audio as a repair or planning layer for existing multi-clip video, especially when one prompt has to cover changing shots, transitions, ambience, and effects.
+- Practical workflow: give the agent the video context, ask it to produce a scene-by-scene audio plan, generate the soundtrack or effects pass, then compare the result against each clip rather than judging the full minute as one block.
+- Watch-outs: The same source reports that some effects still miss the exact on-screen action. This is why the case is labeled Evaluation, not Tutorial: it teaches a useful test method and preserves the mismatch risk.
 
-[![Case 2 media preview](media/cases/case-02.jpg)](media/cases/case-02.mp4)
+<video controls preload="metadata" poster="media/cases/case-02.jpg" width="760">
+  <source src="media/cases/case-02.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-02.mp4)
 
 Type: Evaluation | Date: 2026-06-25
 
@@ -141,9 +154,16 @@ Type: Evaluation | Date: 2026-06-25
 
 **use a three-step official workflow: generate Seed-Audio first, create a key visual, then feed both audio and visual references into Seedance 2 reference-to-video.**
 
-The source explicitly states that audio-first generation gives the video model stronger direction for music, narration, ambience, and timing. The surrounding thread also identifies Seed-Audio as full audio generation rather than only text-to-speech.
+- Source evidence: The source states a three-step pipeline: generate audio with Seed-Audio 1.0, generate a key visual, then use both as references in Seedance 2 reference-to-video.
+- What to copy: Use this when music, narration, ambience, or pacing should lead the video instead of being added after the video is done.
+- Practical workflow: decide the emotional rhythm in the audio prompt first, create or choose an image that matches the scene, then use both references so the video model has timing and visual direction at the same time.
+- Watch-outs: This is an official workflow pattern rather than an independent benchmark. It is useful as a starting recipe, but you still need to test lip-sync, cut timing, and whether the generated video follows the audio cues closely enough.
 
-[![Case 3 media preview](media/cases/case-03.jpg)](media/cases/case-03.mp4)
+<video controls preload="metadata" poster="media/cases/case-03.jpg" width="760">
+  <source src="media/cases/case-03.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-03.mp4)
 
 Type: Tutorial | Date: 2026-06-27
 
@@ -152,20 +172,34 @@ Type: Tutorial | Date: 2026-06-27
 
 **write script-format audio drama prompts with ambience, character voices, background music, and line-level performance direction.**
 
-The source includes a two-minute claustrophobic domestic confrontation prompt using INTENT, AESTHETIC, and EXECUTION sections. It specifies fluorescent hum, refrigerator vibration, two character voice profiles, emotional delivery, and full dialogue lines, making it one of the strongest reusable prompt cases.
+- Source evidence: The post includes a concrete two-minute prompt/script using INTENT, AESTHETIC, and EXECUTION sections. It specifies ambience, background music, two character voice profiles, emotional delivery, and line-by-line dialogue.
+- What to copy: Use the script format when you need an audio drama scene rather than a single narration voice. Put the environment first, then define character voices, then write compact performance directions inside the dialogue.
+- Practical workflow: draft the scene as a short script, limit each line direction to a few words, include persistent background sound, and listen for whether the model follows both the emotion and the pacing.
+- Watch-outs: The source says the result followed the prompt closely, but long-form consistency still needs review. For production, split long scenes into smaller beats if character emotion or background music drifts.
 
-[![Case 4 media preview](media/cases/case-04.jpg)](media/cases/case-04.mp4)
+<video controls preload="metadata" poster="media/cases/case-04.jpg" width="760">
+  <source src="media/cases/case-04.mp4" type="video/mp4">
+</video>
 
-Type: Demo | Date: 2026-06-28
+[Open video file](media/cases/case-04.mp4)
+
+Type: Tutorial | Date: 2026-06-28
 
 <a id="case-5"></a>
 ### Case 5: [Museum Guide Scene-Level Dialogue](https://x.com/TomLikesRobots/status/2070923534449119424) (by [@TomLikesRobots](https://x.com/TomLikesRobots))
 
 **test scene-level dialogue reasoning where Seed-Audio writes delivery and character voices from a compact situational prompt.**
 
-The author gives Seed-Audio a museum-guide prompt explaining the phrase crossing the Rubicon to a confused visitor. The model generated the dialogue, delivery, and character voices; the author then generated a matching image in Nano Banana and used Seedance 2 to make a video.
+- Source evidence: The author provides the compact prompt: a museum guide explains why “crossing the Rubicon” means passing a point of no return to a confused visitor. The post says Seed Audio generated the dialogue, delivery, and character voices.
+- What to copy: Use this case when you want Seed-Audio to infer a short educational exchange from a compact situation rather than writing every line manually.
+- Practical workflow: give the model the roles, the concept to explain, and the conversational relationship; then evaluate whether the generated speech sounds natural and whether the explanation remains correct.
+- Watch-outs: This is a Demo because the source demonstrates scene-level language reasoning and natural delivery, but it does not provide a repeatable benchmark. Check factual accuracy if you use the pattern for education.
 
-[![Case 5 media preview](media/cases/case-05.jpg)](media/cases/case-05.mp4)
+<video controls preload="metadata" poster="media/cases/case-05.jpg" width="760">
+  <source src="media/cases/case-05.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-05.mp4)
 
 Type: Demo | Date: 2026-06-27
 
@@ -174,9 +208,16 @@ Type: Demo | Date: 2026-06-27
 
 **generate a recurring MC voice from reference material, split the resulting audio, and use it as a Seedance 2.0 lip-sync reference.**
 
-The source describes a two-step test: reference a source voice to generate about one minute of MC audio in Seed Audio, then split that voice and pass it into Seedance 2.0 for video. It also reports a practical caveat: the voice changes slightly during downstream video generation, creating editing work.
+- Source evidence: The post describes a two-step reference-voice workflow: generate about one minute of MC audio from source voice material, split that generated voice, and pass it into Seedance 2.0 for lip-sync video.
+- What to copy: Use this when a recurring host, announcer, or MC voice needs to carry a series and you want a reusable audio reference before video generation.
+- Practical workflow: generate a longer clean voice sample, cut it into short usable segments, use those segments as references for video, then edit any drift after the video pass.
+- Watch-outs: The author explicitly says the voice changes slightly when Seedance turns it into video. That caveat is central: this is a Tutorial for workflow construction, not a guarantee of stable voice identity.
 
-[![Case 6 media preview](media/cases/case-06.jpg)](media/cases/case-06.mp4)
+<video controls preload="metadata" poster="media/cases/case-06.jpg" width="760">
+  <source src="media/cases/case-06.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-06.mp4)
 
 Type: Tutorial | Date: 2026-06-27
 
@@ -185,9 +226,16 @@ Type: Tutorial | Date: 2026-06-27
 
 **route voiceovers, voice cloning, and multilingual dubbing through Claude via Higgsfield MCP, with Seed Audio 1.0 as part of the audio stack.**
 
-Higgsfield states that Claude can generate audio through its MCP integration, covering voiceovers, voice cloning, and dubbing in 50+ languages powered by Seed Audio 1.0 and ElevenLabs v3. A same-author reply provides the MCP access link, so this is a provider integration case rather than a standalone API tutorial.
+- Source evidence: Higgsfield states that Claude can generate audio through its MCP integration, covering voiceovers, voice cloning, and dubbing in 50+ languages powered partly by Seed Audio 1.0.
+- What to copy: Use this case to understand a no-code or agent-facing access path: instead of calling an audio endpoint directly, creators can route voiceover and dubbing tasks through Claude plus an MCP provider.
+- Practical workflow: start with a short voiceover or dubbing request inside Claude, use the MCP route for generation, then inspect whether the output fits the target language, voice identity, and media workflow.
+- Watch-outs: This is Integration, not a quality evaluation. The post proves availability and workflow surface, but it does not independently verify dubbing quality across all 50+ languages.
 
-[![Case 7 media preview](media/cases/case-07.jpg)](media/cases/case-07.mp4)
+<video controls preload="metadata" poster="media/cases/case-07.jpg" width="760">
+  <source src="media/cases/case-07.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-07.mp4)
 
 Type: Integration | Date: 2026-06-27
 
@@ -196,9 +244,16 @@ Type: Integration | Date: 2026-06-27
 
 **evaluate Japanese speech stability, emotion following, reference-audio precision, and high-pitch mechanical artifacts from hands-on use.**
 
-The source reports that Seed Audio Japanese output was more stable than Seedance 2.0 audio, followed emotion in dialogue, and had strong reference-audio precision with a 30-second maximum. It also records limits: audio and image references cannot be used together, and higher voices can sound more mechanical.
+- Source evidence: The author reports hands-on Japanese usage: more stable Japanese speech than Seedance 2.0 audio, emotion following in dialogue, strong reference-audio precision with a 30-second maximum, no simultaneous audio-plus-image reference, and mechanical artifacts in higher voices.
+- What to copy: Use this as a checklist for evaluating speech quality in Japanese or other non-English production tests: stability, emotion following, reference precision, reference-mode limits, and pitch artifacts.
+- Practical workflow: run short clips across normal and high-pitch voices, compare outputs against the reference audio, and separately test image-guided workflows because this source says audio and image references cannot be combined.
+- Watch-outs: This is an Evaluation because its main value is the limitation map. The strongest lesson is not “Seed-Audio is always better,” but where it behaves well and where it still needs testing.
 
-[![Case 8 media preview](media/cases/case-08.jpg)](media/cases/case-08.mp4)
+<video controls preload="metadata" poster="media/cases/case-08.jpg" width="760">
+  <source src="media/cases/case-08.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-08.mp4)
 
 Type: Evaluation | Date: 2026-06-26
 
@@ -207,9 +262,16 @@ Type: Evaluation | Date: 2026-06-26
 
 **turn public text-story posts into narrated social entertainment and evaluate whether the format can become a repeatable content engine.**
 
-The author narrates a popular AITA-style post with Seed Audio 1.0 and explicitly frames the result as a possible viral content engine. A same-author reply links the original post, grounding the case in a real text-to-narration workflow.
+- Source evidence: The author narrates a popular AITA-style post with Seed Audio 1.0 and frames it as a possible repeatable viral content engine. A same-author reply links the original story source.
+- What to copy: Use this when testing whether text-heavy social posts can become low-friction narrated entertainment for short-form platforms.
+- Practical workflow: choose a public text story, adapt it into narration segments, generate the voice pass, then pair it with simple visuals or captions and measure whether the format works as a repeatable content pipeline.
+- Watch-outs: This is a Demo, not a rights or growth guarantee. You still need permission or proper source handling for the story content, plus audience testing before calling it a scalable channel.
 
-[![Case 9 media preview](media/cases/case-09.jpg)](media/cases/case-09.mp4)
+<video controls preload="metadata" poster="media/cases/case-09.jpg" width="760">
+  <source src="media/cases/case-09.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-09.mp4)
 
 Type: Demo | Date: 2026-06-29
 
@@ -218,31 +280,30 @@ Type: Demo | Date: 2026-06-29
 
 **use reference images for early character voice casting while treating pitch and tone stability as unresolved production risks.**
 
-The author tests image-to-audio by passing only a female character reference image and generating three roughly ten-second lines. Two outputs were directionally close, while one was clearly too high, so the source supports character voice exploration but not final voice-lock production.
+- Source evidence: The author passes only a female character reference image and generates three roughly ten-second voice lines. Two outputs are directionally close, while one is clearly too high.
+- What to copy: Use image-guided audio as an early casting tool: explore what a character might sound like before recording final dialogue or locking a voice model.
+- Practical workflow: test several short lines from the same character image, compare pitch, tone, and personality direction, then keep only candidates that remain stable across multiple lines.
+- Watch-outs: The source itself warns that pitch and tone stability are not ready for fixed film-character voice operation. This is Evaluation because it defines both the useful casting use and the production risk.
 
 ![Case 10 media](media/cases/case-10.jpg)
 
 Type: Evaluation | Date: 2026-06-26
 
 <a id="case-11"></a>
-### Case 11: [WaveSpeedAI Text, Voice, Image-Guided Audio](https://x.com/wavespeed_ai/status/2071214531280543772) (by [@wavespeed_ai](https://x.com/wavespeed_ai))
-
-**track provider access for text-to-speech, soundscape generation, preset voices, reference audio, image-guided audio, and tuning controls.**
-
-WaveSpeedAI announces Seed Audio 1.0 availability and lists natural speech, preset voices, reference audio guidance, image-guided audio, and speed, volume, pitch, and format controls. This is strong provider-route evidence for implementation planning.
-
-[![Case 11 media preview](media/cases/case-11.jpg)](media/cases/case-11.mp4)
-
-Type: Integration | Date: 2026-06-28
-
-<a id="case-12"></a>
-### Case 12: [Voice Acting, Foley, And Low-Cost Testing](https://x.com/TomLikesRobots/status/2070288519684108353) (by [@TomLikesRobots](https://x.com/TomLikesRobots))
+### Case 11: [Voice Acting, Foley, And Low-Cost Testing](https://x.com/TomLikesRobots/status/2070288519684108353) (by [@TomLikesRobots](https://x.com/TomLikesRobots))
 
 **use Seed-Audio as a low-cost test layer for voice acting and foley before committing to downstream video generation.**
 
-The source reports early tests where voice acting and foley felt better than native Seedance 2 audio, with a 15-second test costing only a few cents. Comments add useful caveats: reference voice conversion can fail, and the best workflow for using generated audio with Seedance lip-sync remains unresolved.
+- Source evidence: The author reports early tests where voice acting and foley felt better than native Seedance 2 audio, and says a 15-second audio test cost only a few cents.
+- What to copy: Use Seed-Audio as a cheap pre-production test layer before spending time on final video generation, especially for scenes where voice acting, foley, or ambience determines whether the idea works.
+- Practical workflow: generate short 10-15 second audio tests first, compare them against native video-model audio, and only move to downstream video when the audio direction is strong enough.
+- Watch-outs: Comments add unresolved issues around reference voice conversion and using generated audio with Seedance lip-sync. This remains Evaluation because it validates a low-cost testing role, not a complete final pipeline.
 
-[![Case 12 media preview](media/cases/case-12.jpg)](media/cases/case-12.mp4)
+<video controls preload="metadata" poster="media/cases/case-11.jpg" width="760">
+  <source src="media/cases/case-11.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-11.mp4)
 
 Type: Evaluation | Date: 2026-06-25
 

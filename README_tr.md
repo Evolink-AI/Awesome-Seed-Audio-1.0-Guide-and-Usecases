@@ -25,7 +25,7 @@ Bu Türkçe README kaynak bağlantılarını, atıfları ve ankrajları korur; k
 
 ## Genel bakış
 
-- **Yakın tarihli kabul edilmiş 93 X/Twitter gönderisinden 12 Seed-Audio 1.0 vakası seçildi.**
+- **Yakın tarihli kabul edilmiş 93 X/Twitter gönderisinden 11 Seed-Audio 1.0 vakası seçildi.**
 - Kapsam: Ses öncelikli video iş akışları, Sesli drama ve sahne üretimi, Referans sesler ve karakter sesi seçimi, Araç ve sağlayıcı entegrasyonları, Sosyal anlatım, foley ve maliyet testleri.
 - Her vaka özgün kaynak, üretici atfı, kullanım sonucu, kanıt türü ve yayın tarihi içerir.
 - Bu repoyu gerçek iş akışlarını bulmak, güçlü ve zayıf yönleri karşılaştırmak, sağlayıcı yollarını keşfetmek ve uygulamayı EvoLink'e yönlendirmek için kullanın.
@@ -68,8 +68,8 @@ Eşlik eden API ve skill deposu: [doubao-seed-audio-api-skill](https://github.co
 | [Ses öncelikli video iş akışları](#audio-first-video) | Vaka 1, Vaka 2, Vaka 3 |
 | [Sesli drama ve sahne üretimi](#audio-drama-scene-generation) | Vaka 4, Vaka 5 |
 | [Referans sesler ve karakter sesi seçimi](#voice-reference-character-casting) | Vaka 6, Vaka 8, Vaka 10 |
-| [Araç ve sağlayıcı entegrasyonları](#tool-provider-integrations) | Vaka 7, Vaka 11 |
-| [Sosyal anlatım, foley ve maliyet testleri](#social-narration-foley-cost-tests) | Vaka 9, Vaka 12 |
+| [Araç ve sağlayıcı entegrasyonları](#tool-provider-integrations) | Vaka 7 |
+| [Sosyal anlatım, foley ve maliyet testleri](#social-narration-foley-cost-tests) | Vaka 9, Vaka 11 |
 | [Teşekkür](#acknowledge) | Atıflar ve düzeltme politikası |
 
 <a id="audio-first-video"></a>
@@ -86,7 +86,7 @@ Eşlik eden API ve skill deposu: [doubao-seed-audio-api-skill](https://github.co
 
 | Vaka | Neyi gösterir | Tür |
 |---|---|---|
-| [Vaka 4: Ambiyanslı iki dakikalık diyalog](#case-4) | Çoklu ses, ambiyans ve arka plan müziği içeren kompakt sesli drama sahneleri için Seed-Audio 1.0'u değerlendirin. | Demo |
+| [Vaka 4: Ambiyanslı iki dakikalık diyalog](#case-4) | Çoklu ses, ambiyans ve arka plan müziği içeren kompakt sesli drama sahneleri için Seed-Audio 1.0'u değerlendirin. | Rehber |
 | [Vaka 5: Müze rehberi sahne diyaloğu](#case-5) | Seed-Audio'nun diyalog, sunum ve farklı karakter sesleri ürettiği sahne düzeyinde dil muhakemesini test edin. | Demo |
 
 <a id="voice-reference-character-casting"></a>
@@ -104,7 +104,6 @@ Eşlik eden API ve skill deposu: [doubao-seed-audio-api-skill](https://github.co
 | Vaka | Neyi gösterir | Tür |
 |---|---|---|
 | [Vaka 7: Claude MCP seslendirme ve dublaj entegrasyonu](#case-7) | Seed-Audio 1.0'u seslendirme, ses klonlama ve dublaj için asistan-yerel yaratıcı çalışma alanının parçası olarak değerlendirin. | Entegrasyon |
-| [Vaka 11: WaveSpeedAI'de metin, ses ve görüntü kılavuzlu audio](#case-11) | Doğal konuşma, önceden ayarlanmış sesler, referans ses, görüntü kılavuzlu ses ve ayar kontrolleri için parça sağlayıcı desteği. | Entegrasyon |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## Sosyal anlatım, foley ve maliyet testleri
@@ -112,7 +111,7 @@ Eşlik eden API ve skill deposu: [doubao-seed-audio-api-skill](https://github.co
 | Vaka | Neyi gösterir | Tür |
 |---|---|---|
 | [Vaka 9: Sosyal hikaye anlatım motoru](#case-9) | Metin gönderilerinin önce ses eğlencesine dönüştüğü sosyal hikaye anlatım formatlarını test edin. | Demo |
-| [Vaka 12: Ses oyunculuğu ve foley için düşük maliyetli test](#case-12) | Seed-Audio 1.0'u video oluşturmaya başlamadan önce seslendirme ve foley için düşük maliyetli bir yineleme katmanı olarak değerlendirin. | Değerlendirme |
+| [Vaka 11: Ses oyunculuğu ve foley için düşük maliyetli test](#case-11) | Seed-Audio 1.0'u video oluşturmaya başlamadan önce seslendirme ve foley için düşük maliyetli bir yineleme katmanı olarak değerlendirin. | Değerlendirme |
 
 <a id="case-1"></a>
 ### Vaka 1: [Seedance videosunu yönlendiren altı konuşmacılı ses](https://x.com/gokayfem/status/2070429287950188547) (yazar [@gokayfem](https://x.com/gokayfem))
@@ -121,7 +120,11 @@ Eşlik eden API ve skill deposu: [doubao-seed-audio-api-skill](https://github.co
 
 Kaynak, somut bir Seed Audio artı Seedance iş akışı ve arka plan efektlerine sahip altı kişi için istem tarzı bir kurulum içerir.
 
-[![Vaka 1 media preview](media/cases/case-01.jpg)](media/cases/case-01.mp4)
+<video controls preload="metadata" poster="media/cases/case-01.jpg" width="760">
+  <source src="media/cases/case-01.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-01.mp4)
 
 Tür: Rehber | Tarih: 2026-06-26
 
@@ -132,7 +135,11 @@ Tür: Rehber | Tarih: 2026-06-26
 
 Kaynak, çok klipli bir hikaye iş akışı için Seed Audio üretmek amacıyla oluşturulan bir videonun ve bir API key'in kullanımını açıklamaktadır.
 
-[![Vaka 2 media preview](media/cases/case-02.jpg)](media/cases/case-02.mp4)
+<video controls preload="metadata" poster="media/cases/case-02.jpg" width="760">
+  <source src="media/cases/case-02.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-02.mp4)
 
 Tür: Değerlendirme | Tarih: 2026-06-25
 
@@ -143,7 +150,11 @@ Tür: Değerlendirme | Tarih: 2026-06-25
 
 Kaynak, sesin müzik, anlatım, ambiyans ve video için zamanlama yönünü sağladığı kısa bir iş akışı hattı sağlar.
 
-[![Vaka 3 media preview](media/cases/case-03.jpg)](media/cases/case-03.mp4)
+<video controls preload="metadata" poster="media/cases/case-03.jpg" width="760">
+  <source src="media/cases/case-03.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-03.mp4)
 
 Tür: Rehber | Tarih: 2026-06-27
 
@@ -154,9 +165,13 @@ Tür: Rehber | Tarih: 2026-06-27
 
 Kaynak, auteur tarzı bir INTENT, AESTHETIC, EXECUTION yapısını kullanan iki dakikalık bir diyalog deneyini bildiriyor.
 
-[![Vaka 4 media preview](media/cases/case-04.jpg)](media/cases/case-04.mp4)
+<video controls preload="metadata" poster="media/cases/case-04.jpg" width="760">
+  <source src="media/cases/case-04.mp4" type="video/mp4">
+</video>
 
-Tür: Demo | Tarih: 2026-06-28
+[Open video file](media/cases/case-04.mp4)
+
+Tür: Rehber | Tarih: 2026-06-28
 
 <a id="case-5"></a>
 ### Vaka 5: [Müze rehberi sahne diyaloğu](https://x.com/TomLikesRobots/status/2070923534449119424) (yazar [@TomLikesRobots](https://x.com/TomLikesRobots))
@@ -165,7 +180,11 @@ Tür: Demo | Tarih: 2026-06-28
 
 Kaynak, modelin doğal diyalog ve karakter sunumu ürettiği bir müze rehberini ve kafası karışmış ziyaretçi yönlendirmesini anlatıyor.
 
-[![Vaka 5 media preview](media/cases/case-05.jpg)](media/cases/case-05.mp4)
+<video controls preload="metadata" poster="media/cases/case-05.jpg" width="760">
+  <source src="media/cases/case-05.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-05.mp4)
 
 Tür: Demo | Tarih: 2026-06-27
 
@@ -176,7 +195,11 @@ Tür: Demo | Tarih: 2026-06-27
 
 Kaynak, referans materyalden yaklaşık bir dakikalık MC sesinin üretildiğini ve ardından Seedance videosu için bölündüğünü anlatıyor. Ayrıca pratik bir uyarı olarak akış yönündeki ses kaymasını da not eder.
 
-[![Vaka 6 media preview](media/cases/case-06.jpg)](media/cases/case-06.mp4)
+<video controls preload="metadata" poster="media/cases/case-06.jpg" width="760">
+  <source src="media/cases/case-06.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-06.mp4)
 
 Tür: Rehber | Tarih: 2026-06-27
 
@@ -187,7 +210,11 @@ Tür: Rehber | Tarih: 2026-06-27
 
 Bu, örneklemde en yüksek etkileşime sahip gönderiydi ve Seed Audio'yu Claude MCP iş akışı içinde konumlandırıyor.
 
-[![Vaka 7 media preview](media/cases/case-07.jpg)](media/cases/case-07.mp4)
+<video controls preload="metadata" poster="media/cases/case-07.jpg" width="760">
+  <source src="media/cases/case-07.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-07.mp4)
 
 Tür: Entegrasyon | Tarih: 2026-06-27
 
@@ -198,7 +225,11 @@ Tür: Entegrasyon | Tarih: 2026-06-27
 
 Kaynak, istikrarlı Japonca çıktı, duygu takibi, güçlü referans ses hassasiyeti ve daha yüksek seslerin daha mekanik gelebileceğine dair bir uyarı bildiriyor.
 
-[![Vaka 8 media preview](media/cases/case-08.jpg)](media/cases/case-08.mp4)
+<video controls preload="metadata" poster="media/cases/case-08.jpg" width="760">
+  <source src="media/cases/case-08.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-08.mp4)
 
 Tür: Değerlendirme | Tarih: 2026-06-26
 
@@ -209,7 +240,11 @@ Tür: Değerlendirme | Tarih: 2026-06-26
 
 Kaynak, popüler bir AITA tarzı hikayenin anlatılmasını anlatıyor ve bunu tekrarlanabilir bir içerik motoru fikri olarak çerçeveliyor.
 
-[![Vaka 9 media preview](media/cases/case-09.jpg)](media/cases/case-09.mp4)
+<video controls preload="metadata" poster="media/cases/case-09.jpg" width="760">
+  <source src="media/cases/case-09.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-09.mp4)
 
 Tür: Demo | Tarih: 2026-06-29
 
@@ -225,24 +260,17 @@ Kaynak, bir karakter görüntüsünün bir ses yönü önerebileceğini ancak fi
 Tür: Değerlendirme | Tarih: 2026-06-26
 
 <a id="case-11"></a>
-### Vaka 11: [WaveSpeedAI'de metin, ses ve görüntü kılavuzlu audio](https://x.com/wavespeed_ai/status/2071214531280543772) (yazar [@wavespeed_ai](https://x.com/wavespeed_ai))
-
-**Doğal konuşma, önceden ayarlanmış sesler, referans ses, görüntü kılavuzlu ses ve ayar kontrolleri için parça sağlayıcı desteği.**
-
-Kaynak, Seed Audio kullanılabilirliğinin yanı sıra hız, ses seviyesi, ses tonu ve format kontrollerini listeleyen bir sağlayıcı lansman notudur.
-
-[![Vaka 11 media preview](media/cases/case-11.jpg)](media/cases/case-11.mp4)
-
-Tür: Entegrasyon | Tarih: 2026-06-28
-
-<a id="case-12"></a>
-### Vaka 12: [Ses oyunculuğu ve foley için düşük maliyetli test](https://x.com/TomLikesRobots/status/2070288519684108353) (yazar [@TomLikesRobots](https://x.com/TomLikesRobots))
+### Vaka 11: [Ses oyunculuğu ve foley için düşük maliyetli test](https://x.com/TomLikesRobots/status/2070288519684108353) (yazar [@TomLikesRobots](https://x.com/TomLikesRobots))
 
 **Seed-Audio 1.0'u video oluşturmaya başlamadan önce seslendirme ve foley için düşük maliyetli bir yineleme katmanı olarak değerlendirin.**
 
 Kaynak, kısa deneyler için düşük maliyetle, ses oyunculuğu ve foley'in yerel Seedance sesinden daha iyi hissettirdiği ilk testleri bildirdi.
 
-[![Vaka 12 media preview](media/cases/case-12.jpg)](media/cases/case-12.mp4)
+<video controls preload="metadata" poster="media/cases/case-11.jpg" width="760">
+  <source src="media/cases/case-11.mp4" type="video/mp4">
+</video>
+
+[Open video file](media/cases/case-11.mp4)
 
 Tür: Değerlendirme | Tarih: 2026-06-25
 
