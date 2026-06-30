@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import html
 import re
 from pathlib import Path
 from urllib.parse import quote
@@ -20,6 +21,7 @@ MODEL_DETAIL_BASE = "https://evolink.ai/seed-audio-1-0"
 KEYS_BASE = "https://evolink.ai/dashboard/keys"
 NPM_PACKAGE_BASE = "https://www.npmjs.com/package/evolink-seed-audio"
 REPO_MEDIA_PAGE_BASE = "https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main"
+PAGES_PLAYER_BASE = "https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player"
 
 
 def utm_url(base_url: str, medium: str) -> str:
@@ -72,7 +74,7 @@ UI = {
         "ack_row": "Credits and correction policy",
         "ack_1": "This repository links to public creator and provider posts at the case level. Public sources are credited in each case heading.",
         "ack_2": "Corrections are welcome when a source link breaks, attribution is wrong, or a claim is not supported by the linked source.",
-        "open_video": "Open video file",
+        "open_video": "Open video playback page",
         "local_note": "{title}",
         "local_detail": "{notes}",
     },
@@ -106,7 +108,7 @@ UI = {
         "ack_row": "来源致谢与修正政策",
         "ack_1": "本仓库在案例级别链接公开创作者和服务商内容。每个案例标题都会标注公开来源。",
         "ack_2": "如果来源链接失效、署名错误，或某个说法没有得到链接来源支持，欢迎提交修正。",
-        "open_video": "打开视频文件",
+        "open_video": "打开视频播放页",
         "local_note": "用这个案例评估：{title}。",
         "local_detail": "该案例来自公开 X/Twitter 来源，适合作为此使用场景的证据。来源链接和作者主页保留在标题中。",
     },
@@ -809,7 +811,7 @@ def build_case_details(locale: str) -> list[str]:
         )
         media = case.get("media") or {}
         if media.get("type") == "video" and media.get("thumbnail_path") and media.get("path"):
-            video_url = utm_url(f"{REPO_MEDIA_PAGE_BASE}/{media['path']}", "media")
+            video_url = utm_url(f"{PAGES_PLAYER_BASE}/case-{case['number']:02d}.html", "media")
             lines.extend(
                 [
                     f"[![{tr(locale, 'case')} {case['number']} video preview]({media['thumbnail_path']})]({video_url})",
@@ -886,7 +888,117 @@ def build_readme(locale: str) -> str:
     return "\n".join(lines)
 
 
+def build_player_page(case: dict) -> str:
+    media = case["media"]
+    number = case["number"]
+    title = html.escape(case["title"])
+    source_url = html.escape(case["source_url"], quote=True)
+    author = html.escape(case["author"])
+    author_url = html.escape(case["author_url"], quote=True)
+    video_src = html.escape(f"../../{media['path']}", quote=True)
+    poster_src = html.escape(f"../../{media['thumbnail_path']}", quote=True)
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case {number}: {title} | Seed-Audio 1.0</title>
+  <style>
+    :root {{
+      color-scheme: light dark;
+      --bg: #0f1115;
+      --panel: #181c24;
+      --text: #f5f7fb;
+      --muted: #aab2c0;
+      --link: #77b7ff;
+    }}
+    * {{ box-sizing: border-box; }}
+    body {{
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }}
+    main {{
+      width: min(1120px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 32px 0 40px;
+    }}
+    h1 {{
+      margin: 0 0 16px;
+      font-size: clamp(24px, 4vw, 42px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }}
+    .meta {{
+      margin: 0 0 24px;
+      color: var(--muted);
+    }}
+    .meta a, .links a {{
+      color: var(--link);
+      text-decoration: none;
+    }}
+    .player {{
+      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+    }}
+    video {{
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }}
+    .links {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      margin-top: 18px;
+    }}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Case {number}: {title}</h1>
+    <p class="meta">Source: <a href="{source_url}">original X/Twitter post</a> by <a href="{author_url}">@{author}</a></p>
+    <div class="player">
+      <video controls preload="metadata" poster="{poster_src}" src="{video_src}">
+        <a href="{video_src}">Open the MP4 video</a>
+      </video>
+    </div>
+    <p class="links">
+      <a href="../../README.md#case-{number}">Back to README case</a>
+      <a href="{video_src}">Open MP4 file</a>
+    </p>
+  </main>
+</body>
+</html>
+"""
+
+
+def build_player_pages() -> None:
+    player_dir = ROOT / "docs" / "player"
+    player_dir.mkdir(parents=True, exist_ok=True)
+    for stale in player_dir.glob("case-*.html"):
+        stale.unlink()
+    for case in DATA["cases"]:
+        media = case.get("media") or {}
+        if media.get("type") != "video":
+            continue
+        if not media.get("path") or not media.get("thumbnail_path"):
+            continue
+        path = player_dir / f"case-{case['number']:02d}.html"
+        path.write_text(build_player_page(case), encoding="utf-8")
+        print(f"wrote {path.relative_to(ROOT)}")
+
+
 def main() -> int:
+    (ROOT / ".nojekyll").write_text("", encoding="utf-8")
+    print("wrote .nojekyll")
+    build_player_pages()
     for key, loc in LOCALES.items():
         path = ROOT / loc["file"]
         path.write_text(build_readme(key), encoding="utf-8")

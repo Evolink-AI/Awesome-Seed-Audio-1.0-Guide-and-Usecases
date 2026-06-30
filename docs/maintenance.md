@@ -55,6 +55,16 @@ The repository includes an EvoLink-only Quick Start section in every README. The
 
 Do not replace this section with non-EvoLink provider snippets. All generated external jump links should include GitHub UTM parameters.
 
+## Video Playback
+
+Video thumbnails in README files should link to GitHub Pages player pages under `docs/player/case-XX.html`.
+
+The player pages use standard HTML video controls and load MP4 assets from `../../media/cases/`. Keep GitHub Pages configured to serve the `main` branch root so `docs/player/` and `media/cases/` are both available at:
+
+`https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/`
+
+Do not point README thumbnails directly at GitHub `blob/main/*.mp4` pages or `raw.githubusercontent.com` MP4 URLs. GitHub blob pages do not reliably render a video player for repository MP4 files, and raw MP4 links can download instead of opening a playback page.
+
 ## Suggested GitHub About
 
 Description:

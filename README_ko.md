@@ -111,9 +111,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 소스에는 구체적인 Seed Audio 및 Seedance 워크플로우와 배경 효과가 있는 6명을 위한 프롬프트 스타일 설정이 포함되어 있습니다.
 
-[![사례 1 video preview](media/cases/case-01.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-01.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![사례 1 video preview](media/cases/case-01.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[동영상 재생 페이지 열기](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-01.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[동영상 재생 페이지 열기](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 유형: 튜토리얼 | 날짜: 2026-06-26
 
@@ -124,9 +124,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 소스는 생성된 비디오와 API key을 사용하여 다중 클립 스토리 워크플로우를 위한 Seed Audio를 생성하는 방법을 설명합니다.
 
-[![사례 2 video preview](media/cases/case-02.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-02.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![사례 2 video preview](media/cases/case-02.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[동영상 재생 페이지 열기](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-02.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[동영상 재생 페이지 열기](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 유형: 평가 | 날짜: 2026-06-25
 
@@ -137,9 +137,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 소스는 오디오가 비디오의 음악, 내레이션, 분위기 및 타이밍 방향을 제공하는 간결한 작업 흐름 파이프라인을 제공합니다.
 
-[![사례 3 video preview](media/cases/case-03.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-03.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![사례 3 video preview](media/cases/case-03.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[동영상 재생 페이지 열기](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-03.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[동영상 재생 페이지 열기](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 유형: 튜토리얼 | 날짜: 2026-06-27
 
@@ -150,9 +150,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 소스는 작가 스타일의 INTENT, AESTHETIC, EXECUTION 구조를 사용한 2분 간의 대화 실험을 보고합니다.
 
-[![사례 4 video preview](media/cases/case-04.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-04.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![사례 4 video preview](media/cases/case-04.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[동영상 재생 페이지 열기](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-04.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[동영상 재생 페이지 열기](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 유형: 튜토리얼 | 날짜: 2026-06-28
 
@@ -163,9 +163,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 소스는 모델이 자연스러운 대화와 캐릭터 전달을 생성하는 박물관 가이드와 혼란스러운 방문자 프롬프트를 설명합니다.
 
-[![사례 5 video preview](media/cases/case-05.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-05.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![사례 5 video preview](media/cases/case-05.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[동영상 재생 페이지 열기](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-05.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[동영상 재생 페이지 열기](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 유형: 데모 | 날짜: 2026-06-27
 
@@ -176,9 +176,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 소스에서는 참조 자료에서 약 1분 분량의 MC 음성을 생성한 다음 이를 Seedance 비디오용으로 분할한다고 설명합니다. 또한 실질적인 주의 사항으로 다운스트림 음성 드리프트를 언급합니다.
 
-[![사례 6 video preview](media/cases/case-06.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-06.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![사례 6 video preview](media/cases/case-06.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[동영상 재생 페이지 열기](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-06.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[동영상 재생 페이지 열기](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 유형: 튜토리얼 | 날짜: 2026-06-27
 
@@ -189,9 +189,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 샘플 중 참여도가 가장 높았던 게시물이며, Claude MCP 워크플로 안에서 Seed Audio를 제시합니다.
 
-[![사례 7 video preview](media/cases/case-07.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-07.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![사례 7 video preview](media/cases/case-07.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[동영상 재생 페이지 열기](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-07.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[동영상 재생 페이지 열기](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 유형: 통합 | 날짜: 2026-06-27
 
@@ -202,9 +202,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 소스는 안정적인 일본어 출력, 감정 추종, 강력한 기준 오디오 정확성, 목소리가 높을수록 기계적으로 들릴 수 있다는 경고를 보고합니다.
 
-[![사례 8 video preview](media/cases/case-08.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-08.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![사례 8 video preview](media/cases/case-08.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[동영상 재생 페이지 열기](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-08.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[동영상 재생 페이지 열기](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 유형: 평가 | 날짜: 2026-06-26
 
@@ -215,9 +215,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 소스는 인기 있는 AITA 스타일 스토리를 설명하고 이를 반복 가능한 콘텐츠 엔진 아이디어로 구성합니다.
 
-[![사례 9 video preview](media/cases/case-09.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-09.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![사례 9 video preview](media/cases/case-09.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[동영상 재생 페이지 열기](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-09.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[동영상 재생 페이지 열기](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 유형: 데모 | 날짜: 2026-06-29
 
@@ -239,9 +239,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 소스는 짧은 실험을 위한 저렴한 비용으로 기본 Seedance 오디오보다 음성 연기 및 폴리가 더 좋다고 느꼈던 초기 테스트를 보고합니다.
 
-[![사례 11 video preview](media/cases/case-11.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-11.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![사례 11 video preview](media/cases/case-11.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[동영상 재생 페이지 열기](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-11.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[동영상 재생 페이지 열기](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 유형: 평가 | 날짜: 2026-06-25
 

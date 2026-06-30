@@ -122,6 +122,7 @@ REQUIRED_FILES = [
     ".github/PULL_REQUEST_TEMPLATE.md",
     ".github/ISSUE_TEMPLATE/case-submission.yml",
     ".github/ISSUE_TEMPLATE/correction.yml",
+    ".nojekyll",
     "images/en.png",
     "data/source-index.json",
     "data/use-cases.json",
@@ -145,6 +146,7 @@ MODEL_DETAIL_BASE = "https://evolink.ai/seed-audio-1-0"
 KEYS_BASE = "https://evolink.ai/dashboard/keys"
 NPM_PACKAGE_BASE = "https://www.npmjs.com/package/evolink-seed-audio"
 REPO_MEDIA_PAGE_BASE = "https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main"
+PAGES_PLAYER_BASE = "https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player"
 CAMPAIGN = "awesome-seed-audio-1.0-usecases"
 
 
@@ -166,7 +168,7 @@ REQUIRED_ENGLISH_SNIPPETS = [
     "Case 11: Voice Acting, Foley, And Low-Cost Testing",
     "video preview",
     "Open video playback page",
-    REPO_MEDIA_PAGE_BASE,
+    PAGES_PLAYER_BASE,
     "Acknowledge",
 ]
 
@@ -233,7 +235,7 @@ def main() -> int:
         path = ROOT / rel
         if not path.is_file():
             errors.append(f"missing required file: {rel}")
-        elif path.stat().st_size == 0:
+        elif rel != ".nojekyll" and path.stat().st_size == 0:
             errors.append(f"empty required file: {rel}")
 
     for rel in tracked_files():
@@ -350,12 +352,13 @@ def main() -> int:
                     errors.append(f"case {case.get('number')} missing media path")
                 else:
                     local_media = ROOT / media_path
-                    expected_media_paths.append(media_path)
                     if not local_media.is_file():
                         errors.append(f"case {case.get('number')} missing media file: {media_path}")
                     elif local_media.stat().st_size < 1024:
                         errors.append(f"case {case.get('number')} media file too small: {media_path}")
-                    if media_path not in readme_text:
+                    if media_type == "image":
+                        expected_media_paths.append(media_path)
+                    if media_type == "image" and media_path not in readme_text:
                         errors.append(f"README.md missing media path for case {case.get('number')}: {media_path}")
                 if media_type == "video":
                     thumb_path = media.get("thumbnail_path")
@@ -371,8 +374,24 @@ def main() -> int:
                         if thumb_path not in readme_text:
                             errors.append(f"README.md missing media thumbnail for case {case.get('number')}: {thumb_path}")
                     media_page_url = utm_url(f"{REPO_MEDIA_PAGE_BASE}/{media_path}", "media")
-                    if media_page_url not in readme_text:
-                        errors.append(f"README.md missing GitHub video playback page link for case {case.get('number')}: {media_page_url}")
+                    if media_page_url in readme_text:
+                        errors.append(f"README.md still links to non-playable GitHub blob video page for case {case.get('number')}: {media_page_url}")
+                    player_url = utm_url(f"{PAGES_PLAYER_BASE}/case-{case.get('number'):02d}.html", "media")
+                    if player_url not in readme_text:
+                        errors.append(f"README.md missing GitHub Pages player link for case {case.get('number')}: {player_url}")
+                    player_path = ROOT / "docs" / "player" / f"case-{case.get('number'):02d}.html"
+                    if not player_path.is_file():
+                        errors.append(f"case {case.get('number')} missing player page: {player_path.relative_to(ROOT)}")
+                    else:
+                        player_text = player_path.read_text(encoding="utf-8")
+                        expected_video_src = f"../../{media_path}"
+                        expected_poster_src = f"../../{thumb_path}" if thumb_path else ""
+                        if "<video controls" not in player_text:
+                            errors.append(f"case {case.get('number')} player page missing video controls")
+                        if expected_video_src not in player_text:
+                            errors.append(f"case {case.get('number')} player page missing video src: {expected_video_src}")
+                        if expected_poster_src and expected_poster_src not in player_text:
+                            errors.append(f"case {case.get('number')} player page missing poster src: {expected_poster_src}")
                     if "Open video playback page" not in readme_text:
                         errors.append("README.md missing video playback page fallback link")
         if len(source_urls) != len(set(source_urls)):
