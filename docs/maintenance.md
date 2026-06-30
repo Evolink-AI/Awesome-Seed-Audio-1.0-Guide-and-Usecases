@@ -44,15 +44,16 @@ Exclude:
 8. Rebuild the Menu and all localized README files with `python3 scripts/build_readmes.py`.
 9. Re-run `python3 scripts/validate_repo.py`.
 
-## Quick API Access
+## Quick Start
 
-The repository includes an EvoLink-only Quick API Access section in every README. The example uses the documented EvoLink Seed-Audio 1.0 async audio generation API:
+The repository includes an EvoLink-only Quick Start section in every README. The section should use the Seed-Audio agent skill package rather than a raw API curl snippet:
 
-- API docs: `https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0`
-- Endpoint: `https://api.evolink.ai/v1/audios/generations`
-- Model: `doubao-seed-audio-1-0`
+- Install: `npm i evolink-seed-audio`
+- API key: `https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases`
+- Model page: `https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases`
+- NPM package: `https://www.npmjs.com/package/evolink-seed-audio?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases`
 
-Do not replace this section with non-EvoLink provider snippets.
+Do not replace this section with non-EvoLink provider snippets. All generated external jump links should include GitHub UTM parameters.
 
 ## Suggested GitHub About
 

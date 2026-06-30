@@ -16,7 +16,15 @@ VOICE_DATA = json.loads((ROOT / "data" / "voice-list.json").read_text(encoding="
 VOICE_SOURCES = VOICE_DATA["voices"]
 VOICE_DOCS_URL = VOICE_DATA["metadata"]["source_doc_url"]
 CAMPAIGN = "awesome-seed-audio-1.0-usecases"
-RAW_MEDIA_BASE = "https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main"
+MODEL_DETAIL_BASE = "https://evolink.ai/seed-audio-1-0"
+KEYS_BASE = "https://evolink.ai/dashboard/keys"
+NPM_PACKAGE_BASE = "https://www.npmjs.com/package/evolink-seed-audio"
+REPO_MEDIA_PAGE_BASE = "https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main"
+
+
+def utm_url(base_url: str, medium: str) -> str:
+    separator = "&" if "?" in base_url else "?"
+    return f"{base_url}{separator}utm_source=github&utm_medium={medium}&utm_campaign={CAMPAIGN}"
 
 
 LOCALES = {
@@ -301,6 +309,95 @@ BY_LABELS = {
 for locale, label in BY_LABELS.items():
     UI[locale]["by"] = label
 
+QUICK_START_UI = {
+    "en": {
+        "api_h": "Quick Start",
+        "api_1": "Install the Seed-Audio agent skill, then get an API key from [EvoLink Dashboard Keys]({key_url}) and set it as `EVOLINK_API_KEY`.",
+        "api_2": "The package is published as [evolink-seed-audio]({npm_url}) for agent and local skill workflows.",
+        "api_3": "Use the model page for product details and examples: [Seed-Audio 1.0 on EvoLink]({model_url}).",
+    },
+    "zh-CN": {
+        "api_h": "快速开始",
+        "api_1": "先安装 Seed-Audio agent skill，然后到 [EvoLink Dashboard Keys]({key_url}) 获取 API key，并设置为 `EVOLINK_API_KEY`。",
+        "api_2": "skill 包发布为 [evolink-seed-audio]({npm_url})，用于 agent 和本地 skill 工作流。",
+        "api_3": "模型详情和示例入口：[EvoLink 上的 Seed-Audio 1.0]({model_url})。",
+    },
+    "zh-TW": {
+        "api_h": "快速開始",
+        "api_1": "先安裝 Seed-Audio agent skill，然後到 [EvoLink Dashboard Keys]({key_url}) 取得 API key，並設定為 `EVOLINK_API_KEY`。",
+        "api_2": "skill 套件發布為 [evolink-seed-audio]({npm_url})，用於 agent 和本地 skill 工作流。",
+        "api_3": "模型詳情和範例入口：[EvoLink 上的 Seed-Audio 1.0]({model_url})。",
+    },
+    "ja": {
+        "api_h": "クイックスタート",
+        "api_1": "Seed-Audio agent skill をインストールし、[EvoLink Dashboard Keys]({key_url}) で API key を取得して `EVOLINK_API_KEY` に設定します。",
+        "api_2": "パッケージは agent / ローカル skill ワークフロー向けに [evolink-seed-audio]({npm_url}) として公開されています。",
+        "api_3": "モデル詳細と例：[EvoLink の Seed-Audio 1.0]({model_url})。",
+    },
+    "ko": {
+        "api_h": "빠른 시작",
+        "api_1": "Seed-Audio agent skill을 설치한 뒤 [EvoLink Dashboard Keys]({key_url})에서 API key를 받아 `EVOLINK_API_KEY`로 설정하세요.",
+        "api_2": "이 패키지는 agent 및 로컬 skill 워크플로용 [evolink-seed-audio]({npm_url})로 배포됩니다.",
+        "api_3": "모델 상세와 예시는 [EvoLink의 Seed-Audio 1.0]({model_url})에서 확인하세요.",
+    },
+    "es": {
+        "api_h": "Inicio rápido",
+        "api_1": "Instala el agent skill de Seed-Audio, obtén una API key en [EvoLink Dashboard Keys]({key_url}) y configúrala como `EVOLINK_API_KEY`.",
+        "api_2": "El paquete está publicado como [evolink-seed-audio]({npm_url}) para flujos de agent y skill local.",
+        "api_3": "Detalles y ejemplos del modelo: [Seed-Audio 1.0 en EvoLink]({model_url}).",
+    },
+    "pt": {
+        "api_h": "Início rápido",
+        "api_1": "Instale o agent skill do Seed-Audio, obtenha uma API key em [EvoLink Dashboard Keys]({key_url}) e defina `EVOLINK_API_KEY`.",
+        "api_2": "O pacote é publicado como [evolink-seed-audio]({npm_url}) para fluxos de agent e skill local.",
+        "api_3": "Detalhes e exemplos do modelo: [Seed-Audio 1.0 na EvoLink]({model_url}).",
+    },
+    "de": {
+        "api_h": "Quick Start",
+        "api_1": "Installiere den Seed-Audio agent skill, hole eine API key unter [EvoLink Dashboard Keys]({key_url}) und setze sie als `EVOLINK_API_KEY`.",
+        "api_2": "Das Paket ist als [evolink-seed-audio]({npm_url}) fuer Agent- und lokale Skill-Workflows veroeffentlicht.",
+        "api_3": "Modelldetails und Beispiele: [Seed-Audio 1.0 auf EvoLink]({model_url}).",
+    },
+    "fr": {
+        "api_h": "Démarrage rapide",
+        "api_1": "Installez le agent skill Seed-Audio, obtenez une API key dans [EvoLink Dashboard Keys]({key_url}), puis définissez `EVOLINK_API_KEY`.",
+        "api_2": "Le package est publié sous [evolink-seed-audio]({npm_url}) pour les workflows agent et skill local.",
+        "api_3": "Détails et exemples du modèle : [Seed-Audio 1.0 sur EvoLink]({model_url}).",
+    },
+    "tr": {
+        "api_h": "Hızlı başlangıç",
+        "api_1": "Seed-Audio agent skill paketini kurun, [EvoLink Dashboard Keys]({key_url}) üzerinden API key alın ve `EVOLINK_API_KEY` olarak ayarlayın.",
+        "api_2": "Paket agent ve yerel skill iş akışları için [evolink-seed-audio]({npm_url}) adıyla yayınlanır.",
+        "api_3": "Model ayrıntıları ve örnekler: [EvoLink'te Seed-Audio 1.0]({model_url}).",
+    },
+    "ru": {
+        "api_h": "Быстрый старт",
+        "api_1": "Установите agent skill Seed-Audio, получите API key в [EvoLink Dashboard Keys]({key_url}) и задайте `EVOLINK_API_KEY`.",
+        "api_2": "Пакет опубликован как [evolink-seed-audio]({npm_url}) для agent и локальных skill workflow.",
+        "api_3": "Детали модели и примеры: [Seed-Audio 1.0 на EvoLink]({model_url}).",
+    },
+}
+
+for locale, values in QUICK_START_UI.items():
+    UI[locale].update(values)
+
+VIDEO_LINK_LABELS = {
+    "en": "Open video playback page",
+    "zh-CN": "打开视频播放页",
+    "zh-TW": "打開影片播放頁",
+    "ja": "動画再生ページを開く",
+    "ko": "동영상 재생 페이지 열기",
+    "es": "Abrir página de reproducción de video",
+    "pt": "Abrir página de reprodução de vídeo",
+    "de": "Video-Wiedergabeseite oeffnen",
+    "fr": "Ouvrir la page de lecture vidéo",
+    "tr": "Video oynatma sayfasını aç",
+    "ru": "Открыть страницу воспроизведения видео",
+}
+
+for locale, label in VIDEO_LINK_LABELS.items():
+    UI[locale]["open_video"] = label
+
 VOICE_COPY = {
     "en": {
         "voice_h": "Preset Voice List",
@@ -422,7 +519,7 @@ VOICE_DOC_LABELS = {
 }
 
 for locale, label in VOICE_DOC_LABELS.items():
-    UI[locale]["links"] = f"{UI[locale]['links']} | [{label}]({VOICE_DOCS_URL})"
+    UI[locale]["links"] = f"{UI[locale]['links']} | [{label}]({utm_url(VOICE_DOCS_URL, 'readme')})"
 
 CATEGORY_TITLES = {
     "zh-CN": ["旁白与短视频", "音频优先视频工作流", "音频剧与场景生成", "参考声音与角色配音探索", "工具与服务商集成", "长内容、成本与限制"],
@@ -584,15 +681,18 @@ def category_anchor(category: dict) -> str:
 
 def build_header(locale: str) -> list[str]:
     lang_badges = " ".join(badge(item["label"], item["color"], item["file"]) for item in LOCALES.values())
+    banner_url = utm_url(MODEL_DETAIL_BASE, "banner")
+    badge_url = utm_url(MODEL_DETAIL_BASE, "badge")
+    docs_url = utm_url("https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0", "readme")
     return [
         "<div align=\"center\">",
         "",
-        f"<a href=\"https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=banner&utm_campaign={CAMPAIGN}\"><img src=\"images/en.png\" alt=\"Seed-Audio 1.0 usecase repository banner\" width=\"760\"></a>",
+        f"<a href=\"{banner_url}\"><img src=\"images/en.png\" alt=\"Seed-Audio 1.0 usecase repository banner\" width=\"760\"></a>",
         "",
         "[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](LICENSE)",
-        f"[![Try it on Evolink](https://img.shields.io/badge/Try_it_on-Evolink-black)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign={CAMPAIGN})",
-        f"[![Website](https://img.shields.io/badge/Website-Live-orange)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign={CAMPAIGN})",
-        f"[![Docs](https://img.shields.io/badge/Docs-Read-blue)](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign={CAMPAIGN})",
+        f"[![Try it on Evolink](https://img.shields.io/badge/Try_it_on-Evolink-black)]({badge_url})",
+        f"[![Website](https://img.shields.io/badge/Website-Live-orange)]({badge_url})",
+        f"[![Docs](https://img.shields.io/badge/Docs-Read-blue)]({docs_url})",
         "",
         lang_badges,
         "",
@@ -604,30 +704,23 @@ def build_header(locale: str) -> list[str]:
 
 
 def build_quick_api(locale: str) -> list[str]:
-    url = f"https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign={CAMPAIGN}"
+    key_url = utm_url(KEYS_BASE, "readme")
+    model_url = utm_url(MODEL_DETAIL_BASE, "readme")
+    npm_url = utm_url(NPM_PACKAGE_BASE, "readme")
     return [
         f"## {tr(locale, 'api_h')}",
         "",
-        tr(locale, "api_1").format(url=url),
+        tr(locale, "api_1").format(key_url=key_url, model_url=model_url, npm_url=npm_url),
         "",
         "```bash",
-        "export EVOLINK_API_KEY=\"your_api_key_here\"",
+        "npm i evolink-seed-audio",
         "",
-        "curl --request POST \\",
-        "  --url https://api.evolink.ai/v1/audios/generations \\",
-        "  --header \"Authorization: Bearer ${EVOLINK_API_KEY}\" \\",
-        "  --header \"Content-Type: application/json\" \\",
-        "  --data '{",
-        "    \"model\": \"doubao-seed-audio-1-0\",",
-        "    \"prompt\": \"Create a 15-second calm product video audio bed with soft music, a clean studio ambience, and gentle narration.\",",
-        "    \"format\": \"mp3\",",
-        "    \"sample_rate\": 24000",
-        "  }'",
+        "export EVOLINK_API_KEY=\"your_api_key_here\"",
         "```",
         "",
-        tr(locale, "api_2"),
+        tr(locale, "api_2").format(key_url=key_url, model_url=model_url, npm_url=npm_url),
         "",
-        tr(locale, "api_3"),
+        tr(locale, "api_3").format(key_url=key_url, model_url=model_url, npm_url=npm_url),
         "",
     ]
 
@@ -716,7 +809,7 @@ def build_case_details(locale: str) -> list[str]:
         )
         media = case.get("media") or {}
         if media.get("type") == "video" and media.get("thumbnail_path") and media.get("path"):
-            video_url = f"{RAW_MEDIA_BASE}/{media['path']}"
+            video_url = utm_url(f"{REPO_MEDIA_PAGE_BASE}/{media['path']}", "media")
             lines.extend(
                 [
                     f"[![{tr(locale, 'case')} {case['number']} video preview]({media['thumbnail_path']})]({video_url})",
@@ -744,6 +837,7 @@ def build_case_details(locale: str) -> list[str]:
 def build_readme(locale: str) -> str:
     meta = DATA["metadata"]
     categories = ", ".join(localized_category_title(locale, category, index) for index, category in enumerate(DATA["categories"]))
+    model_url = utm_url(MODEL_DETAIL_BASE, "readme")
     lines = build_header(locale)
     lines.extend(
         [
@@ -755,7 +849,7 @@ def build_readme(locale: str) -> str:
             "",
             tr(locale, "source_note"),
             "",
-            f"[{tr(locale, 'try')}](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign={CAMPAIGN})",
+            f"[{tr(locale, 'try')}]({model_url})",
             "",
             f"## {tr(locale, 'overview')}",
             "",

@@ -36,30 +36,21 @@ Seed-Audio 1.0 の高シグナルなユースケース集です。
 > [!NOTE]
 > このコレクションは宣伝文句ではなく、デモ、設定メモ、プロバイダー公開、実使用評価、明示された制約などの具体的証拠を重視します。
 
-[更新ログ](docs/update-log.md) | [メンテナンスガイド](docs/maintenance.md) | [ケースラベル監査](docs/case-label-audit.md) | [ケースデータ](data/use-cases.json) | [プリセット音色ドキュメント](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices)
+[更新ログ](docs/update-log.md) | [メンテナンスガイド](docs/maintenance.md) | [ケースラベル監査](docs/case-label-audit.md) | [ケースデータ](data/use-cases.json) | [プリセット音色ドキュメント](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-## API クイックアクセス
+## クイックスタート
 
-EvoLink の音声生成 API から Seed-Audio 1.0 を使用できます。[EvoLink](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) で API key を取得し、リクエスト前に `EVOLINK_API_KEY` を設定してください。
+Seed-Audio agent skill をインストールし、[EvoLink Dashboard Keys](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) で API key を取得して `EVOLINK_API_KEY` に設定します。
 
 ```bash
-export EVOLINK_API_KEY="your_api_key_here"
+npm i evolink-seed-audio
 
-curl --request POST \
-  --url https://api.evolink.ai/v1/audios/generations \
-  --header "Authorization: Bearer ${EVOLINK_API_KEY}" \
-  --header "Content-Type: application/json" \
-  --data '{
-    "model": "doubao-seed-audio-1-0",
-    "prompt": "Create a 15-second calm product video audio bed with soft music, a clean studio ambience, and gentle narration.",
-    "format": "mp3",
-    "sample_rate": 24000
-  }'
+export EVOLINK_API_KEY="your_api_key_here"
 ```
 
-レスポンスは非同期タスクを作成します。`GET /v1/tasks/{task_id}` をポーリングし、状態が `completed`、`failed`、または `cancelled` になるまで待ちます。
+パッケージは agent / ローカル skill ワークフロー向けに [evolink-seed-audio](https://www.npmjs.com/package/evolink-seed-audio?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) として公開されています。
 
-関連 API・skill リポジトリ：[doubao-seed-audio-api-skill](https://github.com/EvoLinkAI/doubao-seed-audio-api-skill)。
+モデル詳細と例：[EvoLink の Seed-Audio 1.0](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)。
 
 ## メニュー
 
@@ -120,9 +111,9 @@ curl --request POST \
 
 ソースには、具体的な Seed Audio と Seedance ワークフロー、および背景効果を備えた 6 人用のプロンプト スタイルのセットアップが含まれています。
 
-[![ケース 1 video preview](media/cases/case-01.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-01.mp4)
+[![ケース 1 video preview](media/cases/case-01.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-01.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-01.mp4)
+[動画再生ページを開く](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-01.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: チュートリアル | 日付: 2026-06-26
 
@@ -133,9 +124,9 @@ curl --request POST \
 
 このソースでは、生成されたビデオと API key を使用して、マルチクリップ ストーリー ワークフローの Seed Audio を生成することが説明されています。
 
-[![ケース 2 video preview](media/cases/case-02.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-02.mp4)
+[![ケース 2 video preview](media/cases/case-02.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-02.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-02.mp4)
+[動画再生ページを開く](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-02.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: 評価 | 日付: 2026-06-25
 
@@ -146,9 +137,9 @@ curl --request POST \
 
 このソースは、オーディオが音楽、ナレーション、アンビエンス、ビデオのタイミング指示を提供する簡潔なワークフロー パイプラインを提供します。
 
-[![ケース 3 video preview](media/cases/case-03.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-03.mp4)
+[![ケース 3 video preview](media/cases/case-03.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-03.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-03.mp4)
+[動画再生ページを開く](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-03.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: チュートリアル | 日付: 2026-06-27
 
@@ -159,9 +150,9 @@ curl --request POST \
 
 情報源は、作者スタイルの INTENT、AESTHETIC、EXECUTION 構造を使用した 2 分間の対話実験を報告しています。
 
-[![ケース 4 video preview](media/cases/case-04.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-04.mp4)
+[![ケース 4 video preview](media/cases/case-04.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-04.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-04.mp4)
+[動画再生ページを開く](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-04.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: チュートリアル | 日付: 2026-06-28
 
@@ -172,9 +163,9 @@ curl --request POST \
 
 情報源では、モデルが自然な対話とキャラクターの表現を生成した博物館のガイドと混乱した訪問者のプロンプトについて説明しています。
 
-[![ケース 5 video preview](media/cases/case-05.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-05.mp4)
+[![ケース 5 video preview](media/cases/case-05.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-05.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-05.mp4)
+[動画再生ページを開く](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-05.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: デモ | 日付: 2026-06-27
 
@@ -185,9 +176,9 @@ curl --request POST \
 
 ソースでは、リファレンス素材から約 1 分間の MC 音声を生成し、それを Seedance ビデオ用に分割することが説明されています。また、実際的な注意事項として、下流の音声ドリフトについても言及しています。
 
-[![ケース 6 video preview](media/cases/case-06.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-06.mp4)
+[![ケース 6 video preview](media/cases/case-06.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-06.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-06.mp4)
+[動画再生ページを開く](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-06.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: チュートリアル | 日付: 2026-06-27
 
@@ -198,9 +189,9 @@ curl --request POST \
 
 これはサンプル内で最もエンゲージメントの高い投稿で、Claude MCP ワークフローの中で Seed Audio を位置付けています。
 
-[![ケース 7 video preview](media/cases/case-07.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-07.mp4)
+[![ケース 7 video preview](media/cases/case-07.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-07.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-07.mp4)
+[動画再生ページを開く](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-07.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: 統合 | 日付: 2026-06-27
 
@@ -211,9 +202,9 @@ curl --request POST \
 
 情報源は、安定した日本語出力、感情の追従性、強力なリファレンスオーディオの精度、および高い音声はより機械的に聞こえる可能性があるという警告を報告しています。
 
-[![ケース 8 video preview](media/cases/case-08.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-08.mp4)
+[![ケース 8 video preview](media/cases/case-08.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-08.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-08.mp4)
+[動画再生ページを開く](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-08.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: 評価 | 日付: 2026-06-26
 
@@ -224,9 +215,9 @@ curl --request POST \
 
 ソースでは、人気のある AITA スタイルのストーリーのナレーションについて説明し、それを反復可能なコンテンツ エンジンのアイデアとして組み立てています。
 
-[![ケース 9 video preview](media/cases/case-09.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-09.mp4)
+[![ケース 9 video preview](media/cases/case-09.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-09.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-09.mp4)
+[動画再生ページを開く](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-09.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: デモ | 日付: 2026-06-29
 
@@ -248,9 +239,9 @@ curl --request POST \
 
 情報源によると、初期のテストでは音声の演技とフォーリーがネイティブの Seedance オーディオよりも優れていると感じられ、短期間の実験では低コストであったと報告されています。
 
-[![ケース 11 video preview](media/cases/case-11.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-11.mp4)
+[![ケース 11 video preview](media/cases/case-11.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-11.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-11.mp4)
+[動画再生ページを開く](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-11.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: 評価 | 日付: 2026-06-25
 

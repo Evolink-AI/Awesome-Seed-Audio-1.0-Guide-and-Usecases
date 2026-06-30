@@ -36,30 +36,21 @@ Diese deutsche README behält Quellenlinks, Attribution und Anker bei und übers
 > [!NOTE]
 > Die Sammlung priorisiert konkrete Workflow-Evidenz statt Hype: Demos, Setup-Notizen, Provider-Launches, praktische Bewertungen und klare Grenzen.
 
-[Update-Log](docs/update-log.md) | [Wartungsleitfaden](docs/maintenance.md) | [Falldaten](data/use-cases.json) | [Dokumentation der voreingestellten Stimmen](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices)
+[Update-Log](docs/update-log.md) | [Wartungsleitfaden](docs/maintenance.md) | [Falldaten](data/use-cases.json) | [Dokumentation der voreingestellten Stimmen](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-## Schneller API-Zugang
+## Quick Start
 
-Verwende Seed-Audio 1.0 über die Audio-Generierungs-API von EvoLink. Hole einen API key bei [EvoLink](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) und setze vor der Anfrage `EVOLINK_API_KEY`.
+Installiere den Seed-Audio agent skill, hole eine API key unter [EvoLink Dashboard Keys](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) und setze sie als `EVOLINK_API_KEY`.
 
 ```bash
-export EVOLINK_API_KEY="your_api_key_here"
+npm i evolink-seed-audio
 
-curl --request POST \
-  --url https://api.evolink.ai/v1/audios/generations \
-  --header "Authorization: Bearer ${EVOLINK_API_KEY}" \
-  --header "Content-Type: application/json" \
-  --data '{
-    "model": "doubao-seed-audio-1-0",
-    "prompt": "Create a 15-second calm product video audio bed with soft music, a clean studio ambience, and gentle narration.",
-    "format": "mp3",
-    "sample_rate": 24000
-  }'
+export EVOLINK_API_KEY="your_api_key_here"
 ```
 
-Die Antwort erstellt eine asynchrone Aufgabe. Frage `GET /v1/tasks/{task_id}` ab, bis der Status `completed`, `failed` oder `cancelled` ist.
+Das Paket ist als [evolink-seed-audio](https://www.npmjs.com/package/evolink-seed-audio?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) fuer Agent- und lokale Skill-Workflows veroeffentlicht.
 
-Begleitendes API- und Skill-Repository: [doubao-seed-audio-api-skill](https://github.com/EvoLinkAI/doubao-seed-audio-api-skill).
+Modelldetails und Beispiele: [Seed-Audio 1.0 auf EvoLink](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases).
 
 ## Menü
 
@@ -120,9 +111,9 @@ Begleitendes API- und Skill-Repository: [doubao-seed-audio-api-skill](https://gi
 
 Die Quelle umfasst einen konkreten Seed Audio plus Seedance-Workflow und ein Setup im Prompt-Stil für sechs Personen mit Hintergrundeffekten.
 
-[![Fall 1 video preview](media/cases/case-01.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-01.mp4)
+[![Fall 1 video preview](media/cases/case-01.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-01.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-01.mp4)
+[Video-Wiedergabeseite oeffnen](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-01.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Tutorial | Datum: 2026-06-26
 
@@ -133,9 +124,9 @@ Typ: Tutorial | Datum: 2026-06-26
 
 Die Quelle beschreibt die Verwendung eines generierten Videos und eines API key, um Seed Audio für einen Story-Workflow mit mehreren Clips zu erstellen.
 
-[![Fall 2 video preview](media/cases/case-02.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-02.mp4)
+[![Fall 2 video preview](media/cases/case-02.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-02.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-02.mp4)
+[Video-Wiedergabeseite oeffnen](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-02.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Bewertung | Datum: 2026-06-25
 
@@ -146,9 +137,9 @@ Typ: Bewertung | Datum: 2026-06-25
 
 Die Quelle bietet eine prägnante Workflow-Pipeline, in der Audio Musik, Erzählung, Atmosphäre und Timing-Anleitung für das Video liefert.
 
-[![Fall 3 video preview](media/cases/case-03.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-03.mp4)
+[![Fall 3 video preview](media/cases/case-03.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-03.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-03.mp4)
+[Video-Wiedergabeseite oeffnen](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-03.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Tutorial | Datum: 2026-06-27
 
@@ -159,9 +150,9 @@ Typ: Tutorial | Datum: 2026-06-27
 
 Die Quelle berichtet von einem zweiminütigen Dialogexperiment mit einer INTENT-, AESTHETIC- und EXECUTION-Struktur im Autorenstil.
 
-[![Fall 4 video preview](media/cases/case-04.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-04.mp4)
+[![Fall 4 video preview](media/cases/case-04.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-04.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-04.mp4)
+[Video-Wiedergabeseite oeffnen](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-04.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Tutorial | Datum: 2026-06-28
 
@@ -172,9 +163,9 @@ Typ: Tutorial | Datum: 2026-06-28
 
 Die Quelle beschreibt einen Museumsführer und eine verwirrte Besucheraufforderung, bei der das Modell natürliche Dialoge und Charakterdarstellungen hervorbrachte.
 
-[![Fall 5 video preview](media/cases/case-05.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-05.mp4)
+[![Fall 5 video preview](media/cases/case-05.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-05.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-05.mp4)
+[Video-Wiedergabeseite oeffnen](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-05.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Demo | Datum: 2026-06-27
 
@@ -185,9 +176,9 @@ Typ: Demo | Datum: 2026-06-27
 
 Die Quelle beschreibt die Generierung von etwa einer Minute MC-Sprache aus Referenzmaterial und die anschließende Aufteilung für Seedance-Video. Als praktischer Vorbehalt wird auch die Downstream-Voice-Drift erwähnt.
 
-[![Fall 6 video preview](media/cases/case-06.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-06.mp4)
+[![Fall 6 video preview](media/cases/case-06.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-06.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-06.mp4)
+[Video-Wiedergabeseite oeffnen](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-06.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Tutorial | Datum: 2026-06-27
 
@@ -198,9 +189,9 @@ Typ: Tutorial | Datum: 2026-06-27
 
 Dies war der Beitrag mit der höchsten Interaktion in der Stichprobe und positioniert Seed Audio innerhalb eines Claude MCP-Workflows.
 
-[![Fall 7 video preview](media/cases/case-07.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-07.mp4)
+[![Fall 7 video preview](media/cases/case-07.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-07.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-07.mp4)
+[Video-Wiedergabeseite oeffnen](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-07.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Integration | Datum: 2026-06-27
 
@@ -211,9 +202,9 @@ Typ: Integration | Datum: 2026-06-27
 
 Die Quelle berichtet von stabiler japanischer Ausgabe, Emotionsverfolgung, hoher Referenz-Audio-Präzision und einem Vorbehalt, dass höhere Stimmen mechanischer klingen können.
 
-[![Fall 8 video preview](media/cases/case-08.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-08.mp4)
+[![Fall 8 video preview](media/cases/case-08.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-08.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-08.mp4)
+[Video-Wiedergabeseite oeffnen](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-08.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Bewertung | Datum: 2026-06-26
 
@@ -224,9 +215,9 @@ Typ: Bewertung | Datum: 2026-06-26
 
 Die Quelle beschreibt das Erzählen einer beliebten Geschichte im AITA-Stil und formuliert sie als wiederholbare Content-Engine-Idee.
 
-[![Fall 9 video preview](media/cases/case-09.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-09.mp4)
+[![Fall 9 video preview](media/cases/case-09.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-09.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-09.mp4)
+[Video-Wiedergabeseite oeffnen](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-09.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Demo | Datum: 2026-06-29
 
@@ -248,9 +239,9 @@ Typ: Bewertung | Datum: 2026-06-26
 
 Die Quelle berichtet von frühen Tests, bei denen sich Sprachausgabe und Geräuschkulisse besser anfühlten als natives Seedance-Audio, wobei die Kosten für kurze Experimente gering waren.
 
-[![Fall 11 video preview](media/cases/case-11.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-11.mp4)
+[![Fall 11 video preview](media/cases/case-11.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-11.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-11.mp4)
+[Video-Wiedergabeseite oeffnen](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-11.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Bewertung | Datum: 2026-06-25
 

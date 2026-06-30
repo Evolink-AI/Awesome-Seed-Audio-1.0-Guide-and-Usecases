@@ -48,7 +48,7 @@ LOCALIZED_EXPECTED_SNIPPETS = {
     "README_fr.md": ["| Section | Cas |", "| Cas | Ce qu'il montre | Type |", "### Cas 1:", "(par [@"],
     "README_tr.md": ["| Bölüm | Vakalar |", "| Vaka | Neyi gösterir | Tür |", "### Vaka 1:", "(yazar [@"],
     "README_zh-TW.md": ["| 章節 | 案例 |", "| 案例 | 展示重點 | 類型 |", "### 案例 1:", "(作者 [@"],
-    "README_zh-CN.md": ["| 章节 | 案例 |", "| 案例 | 展示重点 | 类型 |", "### 案例 1:", "(作者 [@", "证据来源：", "可复制做法：", "实际流程：", "注意事项：", "打开视频文件"],
+    "README_zh-CN.md": ["| 章节 | 案例 |", "| 案例 | 展示重点 | 类型 |", "### 案例 1:", "(作者 [@", "证据来源：", "可复制做法：", "实际流程：", "注意事项：", "快速开始", "npm i evolink-seed-audio", "打开视频播放页"],
     "README_ru.md": ["| Раздел | Кейсы |", "| Кейс | Что показывает | Тип |", "### Кейс 1:", "(автор [@"],
 }
 
@@ -141,21 +141,32 @@ PRIVATE_PUBLICATION_PATTERNS = [
     "data/ingested_tweets.json",
     "github-repo-banner-output/",
 ]
-RAW_MEDIA_BASE = "https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main"
+MODEL_DETAIL_BASE = "https://evolink.ai/seed-audio-1-0"
+KEYS_BASE = "https://evolink.ai/dashboard/keys"
+NPM_PACKAGE_BASE = "https://www.npmjs.com/package/evolink-seed-audio"
+REPO_MEDIA_PAGE_BASE = "https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main"
+CAMPAIGN = "awesome-seed-audio-1.0-usecases"
+
+
+def utm_url(base_url: str, medium: str) -> str:
+    separator = "&" if "?" in base_url else "?"
+    return f"{base_url}{separator}utm_source=github&utm_medium={medium}&utm_campaign={CAMPAIGN}"
 
 REQUIRED_ENGLISH_SNIPPETS = [
     "Seed-Audio 1.0 Use Cases",
     "images/en.png",
     "Try_it_on-Evolink",
-    "Quick API Access",
+    "Quick Start",
+    "npm i evolink-seed-audio",
+    KEYS_BASE,
+    NPM_PACKAGE_BASE,
+    MODEL_DETAIL_BASE,
     "Preset voice docs",
     "Menu",
     "Case 11: Voice Acting, Foley, And Low-Cost Testing",
     "video preview",
-    "Open video file",
-    RAW_MEDIA_BASE,
-    "https://api.evolink.ai/v1/audios/generations",
-    "doubao-seed-audio-1-0",
+    "Open video playback page",
+    REPO_MEDIA_PAGE_BASE,
     "Acknowledge",
 ]
 
@@ -359,11 +370,11 @@ def main() -> int:
                             errors.append(f"case {case.get('number')} video thumbnail too small: {thumb_path}")
                         if thumb_path not in readme_text:
                             errors.append(f"README.md missing media thumbnail for case {case.get('number')}: {thumb_path}")
-                    raw_media_url = f"{RAW_MEDIA_BASE}/{media_path}"
-                    if raw_media_url not in readme_text:
-                        errors.append(f"README.md missing raw video link for case {case.get('number')}: {raw_media_url}")
-                    if "Open video file" not in readme_text:
-                        errors.append("README.md missing video fallback link")
+                    media_page_url = utm_url(f"{REPO_MEDIA_PAGE_BASE}/{media_path}", "media")
+                    if media_page_url not in readme_text:
+                        errors.append(f"README.md missing GitHub video playback page link for case {case.get('number')}: {media_page_url}")
+                    if "Open video playback page" not in readme_text:
+                        errors.append("README.md missing video playback page fallback link")
         if len(source_urls) != len(set(source_urls)):
             errors.append("use-cases.json contains duplicate source URLs")
         selected_source_urls = set(source_urls)

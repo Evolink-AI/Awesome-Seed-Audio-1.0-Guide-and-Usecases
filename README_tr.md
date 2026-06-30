@@ -36,30 +36,21 @@ Bu Türkçe README kaynak bağlantılarını, atıfları ve ankrajları korur; k
 > [!NOTE]
 > Koleksiyon abartı yerine somut iş akışı kanıtlarını önceler: demolar, kurulum notları, sağlayıcı duyuruları, pratik değerlendirmeler ve açık sınırlar.
 
-[Güncelleme günlüğü](docs/update-log.md) | [Bakım rehberi](docs/maintenance.md) | [Vaka verisi](data/use-cases.json) | [Hazır ses dokümanı](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices)
+[Güncelleme günlüğü](docs/update-log.md) | [Bakım rehberi](docs/maintenance.md) | [Vaka verisi](data/use-cases.json) | [Hazır ses dokümanı](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-## Hızlı API erişimi
+## Hızlı başlangıç
 
-Seed-Audio 1.0'ı EvoLink ses üretim API'si üzerinden kullanın. [EvoLink](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) üzerinden API key alın ve isteği göndermeden önce `EVOLINK_API_KEY` ayarlayın.
+Seed-Audio agent skill paketini kurun, [EvoLink Dashboard Keys](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) üzerinden API key alın ve `EVOLINK_API_KEY` olarak ayarlayın.
 
 ```bash
-export EVOLINK_API_KEY="your_api_key_here"
+npm i evolink-seed-audio
 
-curl --request POST \
-  --url https://api.evolink.ai/v1/audios/generations \
-  --header "Authorization: Bearer ${EVOLINK_API_KEY}" \
-  --header "Content-Type: application/json" \
-  --data '{
-    "model": "doubao-seed-audio-1-0",
-    "prompt": "Create a 15-second calm product video audio bed with soft music, a clean studio ambience, and gentle narration.",
-    "format": "mp3",
-    "sample_rate": 24000
-  }'
+export EVOLINK_API_KEY="your_api_key_here"
 ```
 
-Yanıt asenkron bir görev oluşturur. Durum `completed`, `failed` veya `cancelled` olana kadar `GET /v1/tasks/{task_id}` adresini yoklayın.
+Paket agent ve yerel skill iş akışları için [evolink-seed-audio](https://www.npmjs.com/package/evolink-seed-audio?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) adıyla yayınlanır.
 
-Eşlik eden API ve skill deposu: [doubao-seed-audio-api-skill](https://github.com/EvoLinkAI/doubao-seed-audio-api-skill).
+Model ayrıntıları ve örnekler: [EvoLink'te Seed-Audio 1.0](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases).
 
 ## Menü
 
@@ -120,9 +111,9 @@ Eşlik eden API ve skill deposu: [doubao-seed-audio-api-skill](https://github.co
 
 Kaynak, somut bir Seed Audio artı Seedance iş akışı ve arka plan efektlerine sahip altı kişi için istem tarzı bir kurulum içerir.
 
-[![Vaka 1 video preview](media/cases/case-01.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-01.mp4)
+[![Vaka 1 video preview](media/cases/case-01.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-01.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-01.mp4)
+[Video oynatma sayfasını aç](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-01.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Rehber | Tarih: 2026-06-26
 
@@ -133,9 +124,9 @@ Tür: Rehber | Tarih: 2026-06-26
 
 Kaynak, çok klipli bir hikaye iş akışı için Seed Audio üretmek amacıyla oluşturulan bir videonun ve bir API key'in kullanımını açıklamaktadır.
 
-[![Vaka 2 video preview](media/cases/case-02.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-02.mp4)
+[![Vaka 2 video preview](media/cases/case-02.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-02.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-02.mp4)
+[Video oynatma sayfasını aç](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-02.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Değerlendirme | Tarih: 2026-06-25
 
@@ -146,9 +137,9 @@ Tür: Değerlendirme | Tarih: 2026-06-25
 
 Kaynak, sesin müzik, anlatım, ambiyans ve video için zamanlama yönünü sağladığı kısa bir iş akışı hattı sağlar.
 
-[![Vaka 3 video preview](media/cases/case-03.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-03.mp4)
+[![Vaka 3 video preview](media/cases/case-03.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-03.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-03.mp4)
+[Video oynatma sayfasını aç](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-03.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Rehber | Tarih: 2026-06-27
 
@@ -159,9 +150,9 @@ Tür: Rehber | Tarih: 2026-06-27
 
 Kaynak, auteur tarzı bir INTENT, AESTHETIC, EXECUTION yapısını kullanan iki dakikalık bir diyalog deneyini bildiriyor.
 
-[![Vaka 4 video preview](media/cases/case-04.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-04.mp4)
+[![Vaka 4 video preview](media/cases/case-04.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-04.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-04.mp4)
+[Video oynatma sayfasını aç](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-04.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Rehber | Tarih: 2026-06-28
 
@@ -172,9 +163,9 @@ Tür: Rehber | Tarih: 2026-06-28
 
 Kaynak, modelin doğal diyalog ve karakter sunumu ürettiği bir müze rehberini ve kafası karışmış ziyaretçi yönlendirmesini anlatıyor.
 
-[![Vaka 5 video preview](media/cases/case-05.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-05.mp4)
+[![Vaka 5 video preview](media/cases/case-05.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-05.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-05.mp4)
+[Video oynatma sayfasını aç](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-05.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Demo | Tarih: 2026-06-27
 
@@ -185,9 +176,9 @@ Tür: Demo | Tarih: 2026-06-27
 
 Kaynak, referans materyalden yaklaşık bir dakikalık MC sesinin üretildiğini ve ardından Seedance videosu için bölündüğünü anlatıyor. Ayrıca pratik bir uyarı olarak akış yönündeki ses kaymasını da not eder.
 
-[![Vaka 6 video preview](media/cases/case-06.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-06.mp4)
+[![Vaka 6 video preview](media/cases/case-06.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-06.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-06.mp4)
+[Video oynatma sayfasını aç](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-06.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Rehber | Tarih: 2026-06-27
 
@@ -198,9 +189,9 @@ Tür: Rehber | Tarih: 2026-06-27
 
 Bu, örneklemde en yüksek etkileşime sahip gönderiydi ve Seed Audio'yu Claude MCP iş akışı içinde konumlandırıyor.
 
-[![Vaka 7 video preview](media/cases/case-07.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-07.mp4)
+[![Vaka 7 video preview](media/cases/case-07.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-07.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-07.mp4)
+[Video oynatma sayfasını aç](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-07.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Entegrasyon | Tarih: 2026-06-27
 
@@ -211,9 +202,9 @@ Tür: Entegrasyon | Tarih: 2026-06-27
 
 Kaynak, istikrarlı Japonca çıktı, duygu takibi, güçlü referans ses hassasiyeti ve daha yüksek seslerin daha mekanik gelebileceğine dair bir uyarı bildiriyor.
 
-[![Vaka 8 video preview](media/cases/case-08.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-08.mp4)
+[![Vaka 8 video preview](media/cases/case-08.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-08.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-08.mp4)
+[Video oynatma sayfasını aç](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-08.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Değerlendirme | Tarih: 2026-06-26
 
@@ -224,9 +215,9 @@ Tür: Değerlendirme | Tarih: 2026-06-26
 
 Kaynak, popüler bir AITA tarzı hikayenin anlatılmasını anlatıyor ve bunu tekrarlanabilir bir içerik motoru fikri olarak çerçeveliyor.
 
-[![Vaka 9 video preview](media/cases/case-09.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-09.mp4)
+[![Vaka 9 video preview](media/cases/case-09.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-09.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-09.mp4)
+[Video oynatma sayfasını aç](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-09.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Demo | Tarih: 2026-06-29
 
@@ -248,9 +239,9 @@ Tür: Değerlendirme | Tarih: 2026-06-26
 
 Kaynak, kısa deneyler için düşük maliyetle, ses oyunculuğu ve foley'in yerel Seedance sesinden daha iyi hissettirdiği ilk testleri bildirdi.
 
-[![Vaka 11 video preview](media/cases/case-11.jpg)](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-11.mp4)
+[![Vaka 11 video preview](media/cases/case-11.jpg)](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-11.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Open video file](https://raw.githubusercontent.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/main/media/cases/case-11.mp4)
+[Video oynatma sayfasını aç](https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main/media/cases/case-11.mp4?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Değerlendirme | Tarih: 2026-06-25
 
