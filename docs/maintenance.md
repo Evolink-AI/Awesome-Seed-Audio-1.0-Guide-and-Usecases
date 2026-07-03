@@ -43,6 +43,7 @@ Exclude:
 7. Add `Type: ... | Date: YYYY-MM-DD`.
 8. Rebuild the Menu and all localized README files with `python3 scripts/build_readmes.py`.
 9. Re-run `python3 scripts/validate_repo.py`.
+10. Confirm generated public links use the canonical repository owner `Evolink-AI`.
 
 ## Quick Start
 
@@ -61,9 +62,15 @@ Video thumbnails in README files should link to GitHub Pages player pages under 
 
 The player pages use standard HTML video controls and load MP4 assets from `../../media/cases/`. Keep GitHub Pages configured to serve the `main` branch root so `docs/player/` and `media/cases/` are both available at:
 
-`https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/`
+`https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/`
 
 Do not point README thumbnails directly at GitHub `blob/main/*.mp4` pages or `raw.githubusercontent.com` MP4 URLs. GitHub blob pages do not reliably render a video player for repository MP4 files, and raw MP4 links can download instead of opening a playback page.
+
+## Rights And Media Policy
+
+Repository-written README text, generated metadata, and maintenance documentation are licensed under CC BY 4.0. Public creator posts, attached media, downloaded thumbnails, and downloaded videos remain attributed to their original creators and source URLs.
+
+See [MEDIA_RIGHTS.md](../MEDIA_RIGHTS.md) before reusing media outside this repository. If a creator, rights holder, or platform representative asks for correction or removal, open a correction issue and remove the affected media promptly.
 
 ## Suggested GitHub About
 

@@ -14,7 +14,7 @@
 - Added banner asset, community files, issue templates, maintenance docs, and public source index.
 - Kept internal source-review artifacts out of the public repository while preserving public source links and case metadata.
 - Updated static validation so the current acceptance target is `case_count=11`, `localized_readmes=11`, full localized case translation coverage, downloaded case media, and a clean public file set.
-- Published the verified update to `cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases` on branch `main`.
+- Published the verified update to `Evolink-AI/Awesome-Seed-Audio-1.0-Guide-and-Usecases` on branch `main`.
 - Removed the previous Case 11 provider-access item, renumbered the final public set to 11 cases, expanded each remaining case into more actionable source-grounded notes, and added `docs/case-label-audit.md`.
 - Changed video presentation to clickable thumbnails that open GitHub Pages player pages under `docs/player/` instead of non-playable GitHub blob pages or raw MP4 download links.
 - Updated README links so key acquisition points to EvoLink Dashboard Keys, banner and model CTAs point to the Seed-Audio model page, and Quick Start uses `npm i evolink-seed-audio`; all generated external links include GitHub UTM parameters.

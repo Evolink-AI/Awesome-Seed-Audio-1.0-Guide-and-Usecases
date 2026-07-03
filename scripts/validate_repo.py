@@ -115,6 +115,7 @@ BANNED_PLACEHOLDERS = [
 REQUIRED_FILES = [
     *LOCALIZED_READMES,
     "LICENSE",
+    "MEDIA_RIGHTS.md",
     "CONTRIBUTING.md",
     "SECURITY.md",
     "CODE_OF_CONDUCT.md",
@@ -122,6 +123,8 @@ REQUIRED_FILES = [
     ".github/PULL_REQUEST_TEMPLATE.md",
     ".github/ISSUE_TEMPLATE/case-submission.yml",
     ".github/ISSUE_TEMPLATE/correction.yml",
+    ".github/workflows/pages.yml",
+    ".github/workflows/validate.yml",
     ".nojekyll",
     "images/en.png",
     "data/source-index.json",
@@ -145,8 +148,10 @@ PRIVATE_PUBLICATION_PATTERNS = [
 MODEL_DETAIL_BASE = "https://evolink.ai/seed-audio-1-0"
 KEYS_BASE = "https://evolink.ai/dashboard/keys"
 NPM_PACKAGE_BASE = "https://www.npmjs.com/package/evolink-seed-audio"
-REPO_MEDIA_PAGE_BASE = "https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main"
-PAGES_PLAYER_BASE = "https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player"
+REPO_OWNER = "Evolink-AI"
+REPO_NAME = "Awesome-Seed-Audio-1.0-Guide-and-Usecases"
+REPO_MEDIA_PAGE_BASE = f"https://github.com/{REPO_OWNER}/{REPO_NAME}/blob/main"
+PAGES_PLAYER_BASE = f"https://evolink-ai.github.io/{REPO_NAME}/docs/player"
 CAMPAIGN = "awesome-seed-audio-1.0-usecases"
 
 
@@ -169,10 +174,55 @@ REQUIRED_ENGLISH_SNIPPETS = [
     "video preview",
     "Open video playback page",
     PAGES_PLAYER_BASE,
+    "https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player",
     "Acknowledge",
 ]
 
 REQUIRED_ZH_CN_NOTE_PARTS = ["证据来源：", "可复制做法：", "实际流程：", "注意事项："]
+REQUIRED_TRANSLATION_NOTE_MARKERS = {
+    "zh-CN": ["证据来源：", "可复制做法：", "实际流程：", "注意事项："],
+    "zh-TW": ["證據來源：", "可複製做法：", "實際流程：", "注意事項："],
+    "es": ["Evidencia de la fuente:", "Qué copiar:", "Flujo práctico:", "Precauciones:"],
+    "pt": ["Evidência da fonte:", "O que copiar:", "Fluxo prático:", "Cuidados:"],
+    "ja": ["ソース証拠:", "コピーすること:", "実用ワークフロー:", "注意点:"],
+    "ko": ["출처 근거:", "복사할 점:", "실제 워크플로:", "주의점:"],
+    "de": ["Quellenbeleg:", "Was zu übernehmen ist:", "Praktischer Workflow:", "Worauf zu achten ist:"],
+    "fr": ["Preuve source :", "À reprendre :", "Flux de travail pratique :", "Points de vigilance :"],
+    "tr": ["Kaynak kanıtı:", "Kopyalanacak yöntem:", "Pratik iş akışı:", "Dikkat noktaları:"],
+    "ru": ["Доказательство источника:", "Что можно перенять:", "Практический workflow:", "На что обратить внимание:"],
+}
+
+ENGLISH_NOTE_FRAGMENTS_FOR_TRANSLATIONS = [
+    "The post exposes",
+    "The author starts",
+    "The public source states",
+    "The post includes",
+    "The author provides",
+    "The post describes",
+    "Higgsfield states",
+    "The author reports",
+    "The author narrates",
+    "The author passes",
+    "Use this pattern",
+    "Treat Seed-Audio",
+    "Apply this case",
+    "Use image-guided audio",
+    "Use Seed-Audio as",
+    "This is a Demo",
+    "This is an Evaluation",
+    "This is Integration",
+    "The evidence supports",
+    "The same source reports",
+    "The public source itself warns",
+]
+
+MIN_NON_ASCII_LETTER_RATIO = {
+    "zh-CN": 0.55,
+    "zh-TW": 0.55,
+    "ja": 0.45,
+    "ko": 0.45,
+    "ru": 0.45,
+}
 
 VALID_TYPES = {"Demo", "Tutorial", "Evaluation", "Integration", "Benchmark", "Limit"}
 EXPECTED_ACCEPTED_COUNT = 93
@@ -189,6 +239,8 @@ PUBLIC_FILES_TO_SCAN = [
     "docs/update-log.md",
     "docs/case-label-audit.md",
     "CONTRIBUTING.md",
+    "LICENSE",
+    "MEDIA_RIGHTS.md",
 ]
 
 
@@ -270,6 +322,19 @@ def main() -> int:
                 errors.append(f"{rel} contains local .codex path")
             if "USECASE_" in text:
                 errors.append(f"{rel} contains internal USECASE audit filename")
+            if "cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases" in text:
+                errors.append(f"{rel} contains stale cheercheung GitHub Pages URL")
+            if "github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases" in text:
+                errors.append(f"{rel} contains stale cheercheung repository URL")
+
+    for workflow in [".github/workflows/pages.yml", ".github/workflows/validate.yml"]:
+        workflow_path = ROOT / workflow
+        if workflow_path.exists():
+            workflow_text = workflow_path.read_text(encoding="utf-8")
+            if "python3 scripts/validate_repo.py" not in workflow_text:
+                errors.append(f"{workflow} does not run scripts/validate_repo.py")
+        else:
+            errors.append(f"missing workflow: {workflow}")
 
     for rel in LOCALIZED_READMES:
         path = ROOT / rel
@@ -471,12 +536,27 @@ def main() -> int:
                             errors.append(f"use-case-translations {locale} case {number} {field} contains generic phrase: {phrase}")
                     if value not in readme_text:
                         errors.append(f"{rel} does not include translated {field} for case {number}")
-                    if locale == "zh-CN" and field == "notes":
-                        for required_note_part in REQUIRED_ZH_CN_NOTE_PARTS:
+                    if field == "notes":
+                        required_markers = REQUIRED_TRANSLATION_NOTE_MARKERS.get(locale, REQUIRED_ZH_CN_NOTE_PARTS)
+                        for required_note_part in required_markers:
                             if required_note_part not in value:
-                                errors.append(f"use-case-translations zh-CN case {number} notes missing actionable section: {required_note_part}")
+                                errors.append(f"use-case-translations {locale} case {number} notes missing actionable section: {required_note_part}")
                         if len(value) < 180:
-                            errors.append(f"use-case-translations zh-CN case {number} notes are not detailed enough")
+                            errors.append(f"use-case-translations {locale} case {number} notes are not detailed enough")
+                        if locale != "zh-CN":
+                            for fragment in ENGLISH_NOTE_FRAGMENTS_FOR_TRANSLATIONS:
+                                if fragment in value:
+                                    errors.append(f"use-case-translations {locale} case {number} notes still contain English source fragment: {fragment}")
+                        min_non_ascii_ratio = MIN_NON_ASCII_LETTER_RATIO.get(locale)
+                        if min_non_ascii_ratio is not None:
+                            letters = [char for char in value if char.isalpha()]
+                            if letters:
+                                non_ascii_ratio = sum(1 for char in letters if ord(char) >= 128) / len(letters)
+                                if non_ascii_ratio < min_non_ascii_ratio:
+                                    errors.append(
+                                        f"use-case-translations {locale} case {number} notes look insufficiently localized "
+                                        f"(non_ascii_letter_ratio={non_ascii_ratio:.2f})"
+                                    )
 
     source_index = ROOT / "data/source-index.json"
     if source_index.exists():

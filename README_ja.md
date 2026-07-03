@@ -109,11 +109,14 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 **マルチスピーカーの対話と背景効果が後のビデオ生成をガイドする、オーディオファーストのビデオワークフローを構築します。**
 
-ソースには、具体的な Seed Audio と Seedance ワークフロー、および背景効果を備えた 6 人用のプロンプト スタイルのセットアップが含まれています。
+- ソース証拠: 投稿には実際の Seed Audio 設定が示されています。逃走用バンの場面、6人の名前付き話者、異なる声の方向性、短い台詞、アイドリング音、屋根に当たる雨、背景効果が1回の音声生成に含まれ、後段の画像 prompt と Seedance 2.0 動画 prompt も確認できます。
+- コピーすること: 音声が場面全体を先導する必要があるときに使います。各話者を配役し、声質を定義し、短い台詞を書き、後段動画のタイミング手掛かりになる連続した環境音を入れます。
+- 実用ワークフロー: まず複数話者の音声ベッドを生成し、次に人物シルエットと雰囲気が合うキービジュアルを作り、最後に音声と視覚コンテキストを Seedance に渡します。
+- 注意点: この証拠は workflow 設計と prompt 構造を支えますが、長い場面で話者分離が常に完璧とは証明しません。本番会話に使う前に、人物識別とタイミングを検証してください。
 
-[![ケース 1 video preview](media/cases/case-01.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 1 video preview](media/cases/case-01.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[動画再生ページを開く](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: チュートリアル | 日付: 2026-06-26
 
@@ -122,11 +125,14 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 **Seed-Audio 1.0 がマルチクリップ ビデオ ストーリーのタイミングと一貫性の問題を軽減できるかどうかをテストします。**
 
-このソースでは、生成されたビデオと API key を使用して、マルチクリップ ストーリー ワークフローの Seed Audio を生成することが説明されています。
+- ソース証拠: 作者は約1分の低解像度・複数クリップ動画から始め、Seedance prompt で一貫した音声を保つのは難しいと述べ、Claude Code、Codex、FAL key を使った agent 支援の音声処理を試しています。
+- コピーすること: Seed-Audio を既存の複数クリップ動画の修復または設計レイヤーとして扱います。1つの prompt がショット変化、転換、環境音、効果音まで覆う場合に特に有効です。
+- 実用ワークフロー: 動画の文脈を agent に渡し、場面ごとの音声計画を作らせ、サウンドトラックや効果音を生成し、全体1分ではなく各クリップ単位で比較します。
+- 注意点: 同じソースは、一部の効果音が画面上の動作とまだ正確に合わないとも述べています。そのためこれは Tutorial ではなく Evaluation であり、有用なテスト方法と mismatch リスクを残しています。
 
-[![ケース 2 video preview](media/cases/case-02.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 2 video preview](media/cases/case-02.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[動画再生ページを開く](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: 評価 | 日付: 2026-06-25
 
@@ -135,11 +141,14 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 **音声の生成、キービジュアルの作成、両方を Seedance リファレンスとして使用するという 3 ステップのワークフローを構築します。**
 
-このソースは、オーディオが音楽、ナレーション、アンビエンス、ビデオのタイミング指示を提供する簡潔なワークフロー パイプラインを提供します。
+- ソース証拠: 公開ソースは3段階の pipeline を説明しています。Seed-Audio 1.0 で音声を生成し、キービジュアルを作り、その両方を Seedance 2 reference-to-video の参照として使います。
+- コピーすること: 音楽、ナレーション、環境音、テンポが動画完成後の追加ではなく、動画を最初から導くべき場合に使います。
+- 実用ワークフロー: まず音声 prompt で感情のリズムを決め、場面に合う画像を作成または選択し、時間方向と視覚方向を同時に動画モデルへ与えます。
+- 注意点: これは公式 workflow パターンであり、独立 benchmark ではありません。出発点として有用ですが、lip-sync、カットのタイミング、音声手掛かりへの追従は別途テストが必要です。
 
-[![ケース 3 video preview](media/cases/case-03.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 3 video preview](media/cases/case-03.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[動画再生ページを開く](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: チュートリアル | 日付: 2026-06-27
 
@@ -148,11 +157,14 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 **複数の音声、アンビエンス、BGM を備えたコンパクトなオーディオ ドラマ シーン用の Seed-Audio 1.0 を評価します。**
 
-情報源は、作者スタイルの INTENT、AESTHETIC、EXECUTION 構造を使用した 2 分間の対話実験を報告しています。
+- ソース証拠: 投稿には INTENT、AESTHETIC、EXECUTION の各セクションを使った具体的な2分間の prompt/script が含まれています。環境音、背景音楽、2人の声のプロフィール、感情表現、行ごとの台詞が指定されています。
+- コピーすること: 単一のナレーションではなく音声ドラマ場面を作るとき、この脚本形式を使います。環境を先に置き、次にキャラクターの声を定義し、台詞内に短い演技指示を入れます。
+- 実用ワークフロー: 場面を短い script として書き、各台詞の演技指示を数語に抑え、持続する背景音を入れ、モデルが感情とテンポの両方を追うか聞きます。
+- 注意点: 公開ソースは結果が prompt によく従ったと述べていますが、長尺の一貫性はまだ確認が必要です。本番では、感情や音楽がずれる場合に備えて長い場面を短い beat に分けてください。
 
-[![ケース 4 video preview](media/cases/case-04.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 4 video preview](media/cases/case-04.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[動画再生ページを開く](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: チュートリアル | 日付: 2026-06-28
 
@@ -161,11 +173,14 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 **Seed-Audio が対話、伝達、および明確なキャラクターの声を生成するシーンレベルの言語推論をテストします。**
 
-情報源では、モデルが自然な対話とキャラクターの表現を生成した博物館のガイドと混乱した訪問者のプロンプトについて説明しています。
+- ソース証拠: 作者は短い prompt を提示しています。博物館ガイドが困惑した来館者に、“crossing the Rubicon” がなぜ後戻りできない地点を越える意味なのかを説明する場面です。投稿では Seed Audio が会話、話し方、キャラクター声を生成したとされています。
+- コピーすること: 各台詞を手書きせず、簡潔な状況から短い教育的対話を Seed-Audio に推論させたいときに使います。
+- 実用ワークフロー: 役割、説明すべき概念、会話関係をモデルに渡し、生成された発話が自然か、説明が正しいかを評価します。
+- 注意点: これは Demo です。場面レベルの言語推論と自然な delivery を示しますが、再現可能な benchmark ではありません。教育用途では事実確認が必要です。
 
-[![ケース 5 video preview](media/cases/case-05.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 5 video preview](media/cases/case-05.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[動画再生ページを開く](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: デモ | 日付: 2026-06-27
 
@@ -174,11 +189,14 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 **ダウンストリームビデオ生成前に、反復的な MC またはシリーズのナレーションのリファレンス音声ワークフローを評価します。**
 
-ソースでは、リファレンス素材から約 1 分間の MC 音声を生成し、それを Seedance ビデオ用に分割することが説明されています。また、実際的な注意事項として、下流の音声ドリフトについても言及しています。
+- ソース証拠: 投稿は2段階の reference-voice workflow を説明しています。元の声素材から約1分の MC 音声を生成し、その音声を短く切り、Seedance 2.0 の lip-sync video に渡します。
+- コピーすること: 継続的なホスト、アナウンサー、MC の声でシリーズを支えたいとき、動画生成前に再利用可能な音声参照を作るために使います。
+- 実用ワークフロー: 長めでクリーンな音声サンプルを作り、短いセグメントに切り、動画参照として使い、動画生成後に生じた drift を編集で直します。
+- 注意点: 作者は Seedance で動画化すると声が少し変わると明言しています。これは中心的な caveat であり、workflow 構築の Tutorial であって、安定した声の同一性の保証ではありません。
 
-[![ケース 6 video preview](media/cases/case-06.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 6 video preview](media/cases/case-06.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[動画再生ページを開く](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: チュートリアル | 日付: 2026-06-27
 
@@ -187,11 +205,14 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 **ナレーション、音声クローン、およびダビングのためのアシスタントネイティブのクリエイティブワークスペースの一部として Seed-Audio 1.0 を評価します。**
 
-これはサンプル内で最もエンゲージメントの高い投稿で、Claude MCP ワークフローの中で Seed Audio を位置付けています。
+- ソース証拠: Higgsfield は、Claude が MCP integration を通じて音声を生成でき、voiceover、voice cloning、50以上の言語での多言語音声作業を Seed Audio 1.0 の一部利用で扱えると述べています。
+- コピーすること: no-code または agent-facing なアクセス経路を理解するために使います。制作者は音声 endpoint を直接呼ばず、Claude と MCP provider を通じて音声タスクを流せます。
+- 実用ワークフロー: Claude 内で短い voiceover や多言語音声の依頼を始め、MCP 経路で生成し、出力が対象言語、声の identity、メディア workflow に合うか確認します。
+- 注意点: これは Integration であり品質評価ではありません。投稿は利用可能性と workflow surface を示しますが、50以上の言語すべての品質を独立検証していません。
 
-[![ケース 7 video preview](media/cases/case-07.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 7 video preview](media/cases/case-07.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[動画再生ページを開く](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: 統合 | 日付: 2026-06-27
 
@@ -200,11 +221,14 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 **日本語の音声、感情の追従性、基準音声の精度、高音の合成音のリスクを評価します。**
 
-情報源は、安定した日本語出力、感情の追従性、強力なリファレンスオーディオの精度、および高い音声はより機械的に聞こえる可能性があるという警告を報告しています。
+- ソース証拠: 作者は日本語での実使用を報告しています。Seedance 2.0 audio より安定した日本語発話、会話内の感情追従、30秒上限の強い参照音声精度、音声と画像の同時参照不可、高い声での機械的アーティファクトが挙げられています。
+- コピーすること: 日本語または非英語音声の production test 用 checklist として使います。安定性、感情追従、参照精度、参照モード制限、pitch artifact を確認します。
+- 実用ワークフロー: 通常声と高い声で短いクリップを作り、参照音声と比較し、画像誘導 workflow は別に試します。ソースは音声参照と画像参照を結合できないと述べています。
+- 注意点: これは Evaluation です。主な価値は制限マップであり、「Seed-Audio は常に優れる」ではなく、どこが強く、どこに追加テストが必要かを示します。
 
-[![ケース 8 video preview](media/cases/case-08.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 8 video preview](media/cases/case-08.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[動画再生ページを開く](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: 評価 | 日付: 2026-06-26
 
@@ -213,11 +237,14 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 **テキスト投稿がオーディオファーストのエンターテイメントになるソーシャルストーリーのナレーション形式をテストします。**
 
-ソースでは、人気のある AITA スタイルのストーリーのナレーションについて説明し、それを反復可能なコンテンツ エンジンのアイデアとして組み立てています。
+- ソース証拠: 作者は人気の AITA 風投稿を Seed Audio 1.0 でナレーションし、反復可能な viral content engine の可能性として位置付けています。同じ作者の返信には元のストーリーへのリンクもあります。
+- コピーすること: テキスト量の多いソーシャル投稿を、短尺プラットフォーム向けの低摩擦なナレーション型エンタメに変換できるか試すときに使います。
+- 実用ワークフロー: 公開テキストストーリーを選び、ナレーション用セグメントへ調整し、音声を生成し、簡単なビジュアルや字幕と組み合わせ、反復可能な pipeline になるか測ります。
+- 注意点: これは Demo であり、権利や成長の保証ではありません。ストーリー内容には許可または適切な source handling が必要で、scalable channel と呼ぶ前に audience test が必要です。
 
-[![ケース 9 video preview](media/cases/case-09.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 9 video preview](media/cases/case-09.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[動画再生ページを開く](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: デモ | 日付: 2026-06-29
 
@@ -226,7 +253,10 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 **最終的なボイスロック制作ではなく、初期のキャラクターボイスキャストとして参照イメージオーディオを評価します。**
 
-情報筋によると、キャラクターの画像は声の方向を示唆する可能性があるが、映画スタイルの固定キャラクターの声についてはピッチとトーンの安定性をまだ検証する必要があるという。
+- ソース証拠: 作者は女性キャラクターの参照画像だけを渡し、約10秒の声の台詞を3つ生成しています。2つは方向性が近く、1つは明らかに高すぎます。
+- コピーすること: 画像誘導音声を初期の声 casting tool として使います。最終台詞を録る前、または voice model を固定する前に、キャラクターがどう聞こえるか探索します。
+- 実用ワークフロー: 同じキャラクター画像で複数の短い台詞を試し、pitch、tone、人格方向を比べ、複数行で安定する候補だけを残します。
+- 注意点: 公開ソース自身が、pitch と tone の安定性は固定映画キャラクター声にはまだ不十分だと警告しています。これは casting の有用性と production risk を定義する Evaluation です。
 
 ![ケース 10 media](media/cases/case-10.jpg)
 
@@ -237,11 +267,14 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 **ビデオ生成に取り組む前に、音声演技とフォーリー用の低コストの反復レイヤーとして Seed-Audio 1.0 を評価します。**
 
-情報源によると、初期のテストでは音声の演技とフォーリーがネイティブの Seedance オーディオよりも優れていると感じられ、短期間の実験では低コストであったと報告されています。
+- ソース証拠: 作者は初期テストで voice acting と foley が Seedance 2 native audio より良く感じられたと報告し、15秒の audio test は数セントだけだったと述べています。
+- コピーすること: Seed-Audio を安価な pre-production test レイヤーとして使います。特に声の演技、foley、ambience がアイデアの成否を左右する場面で有効です。
+- 実用ワークフロー: まず10〜15秒の短い音声テストを生成し、動画モデルの native audio と比較し、音の方向性が十分強い場合だけ後続の動画生成へ進みます。
+- 注意点: コメントには reference voice conversion と、生成音声を Seedance lip-sync に使う際の未解決問題が残っています。これは低コストテストの役割を検証する Evaluation であり、完全な final workflow ではありません。
 
-[![ケース 11 video preview](media/cases/case-11.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 11 video preview](media/cases/case-11.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[動画再生ページを開く](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 タイプ: 評価 | 日付: 2026-06-25
 

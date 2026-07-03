@@ -109,11 +109,14 @@ Modelldetails und Beispiele: [Seed-Audio 1.0 auf EvoLink](https://evolink.ai/see
 
 **Erstellen Sie einen Audio-First-Video-Workflow, bei dem Dialoge mit mehreren Sprechern und Hintergrundeffekte die spätere Videoerstellung leiten.**
 
-Die Quelle umfasst einen konkreten Seed Audio plus Seedance-Workflow und ein Setup im Prompt-Stil für sechs Personen mit Hintergrundeffekten.
+- Quellenbeleg: Der Beitrag zeigt das echte Seed-Audio-Setup: eine Fluchtwagen-Szene mit sechs benannten Sprechern, unterschiedlichen Stimmrichtungen, kurzen Dialogzeilen, laufendem Motor, Regen auf dem Dach und Hintergrundeffekten in einem einzigen Audio-Durchlauf; zusätzlich sind der spätere Bild-Prompt und der Seedance-2.0-Video-Prompt sichtbar.
+- Was zu übernehmen ist: Nutzen Sie dieses Muster, wenn Audio die ganze Szene führen soll: Sprecher besetzen, Stimmtexturen festlegen, kurze Zeilen schreiben und durchgehende Atmosphäre als Timing-Vorgabe für das spätere Video einbauen.
+- Praktischer Workflow: Erzeugen Sie zuerst das vollständige Mehrsprecher-Audio, erstellen Sie danach ein Schlüsselbild mit passenden Silhouetten und passender Stimmung, und geben Sie Audio plus visuellen Kontext an Seedance weiter.
+- Worauf zu achten ist: Der Beleg stützt Workflow-Design und Prompt-Struktur, beweist aber keine perfekte Sprechertrennung in längeren Szenen; testen Sie Identität und Timing vor produktivem Dialogeinsatz.
 
-[![Fall 1 video preview](media/cases/case-01.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Fall 1 video preview](media/cases/case-01.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video-Wiedergabeseite oeffnen](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video-Wiedergabeseite oeffnen](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Tutorial | Datum: 2026-06-26
 
@@ -122,11 +125,14 @@ Typ: Tutorial | Datum: 2026-06-26
 
 **Testen Sie, ob Seed-Audio 1.0 Timing- und Konsistenzprobleme in Videogeschichten mit mehreren Clips reduzieren kann.**
 
-Die Quelle beschreibt die Verwendung eines generierten Videos und eines API key, um Seed Audio für einen Story-Workflow mit mehreren Clips zu erstellen.
+- Quellenbeleg: Der Autor startet mit einem etwa einminütigen, niedrig aufgelösten Mehrclip-Video, sagt, konsistentes Audio sei in Seedance-Prompts schwierig, und testet einen agentengestützten Audio-Durchlauf mit Claude Code, Codex und einer FAL key.
+- Was zu übernehmen ist: Behandeln Sie Seed-Audio als Reparatur- oder Planungsschicht für vorhandene Mehrclip-Videos, besonders wenn ein Prompt Einstellungen, Übergänge, Atmosphäre und Effekte abdecken muss.
+- Praktischer Workflow: Geben Sie dem Agenten den Videokontext, lassen Sie ihn einen Audio-Plan pro Szene erstellen, erzeugen Sie Tonspur oder Effekte und vergleichen Sie danach Clip für Clip statt nur die ganze Minute.
+- Worauf zu achten ist: Die Quelle berichtet auch, dass manche Effekte die genaue Bildschirmaktion verfehlen. Deshalb ist es Evaluation, nicht Tutorial: Es lehrt eine Testmethode und hält das Mismatch-Risiko fest.
 
-[![Fall 2 video preview](media/cases/case-02.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Fall 2 video preview](media/cases/case-02.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video-Wiedergabeseite oeffnen](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video-Wiedergabeseite oeffnen](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Bewertung | Datum: 2026-06-25
 
@@ -135,11 +141,14 @@ Typ: Bewertung | Datum: 2026-06-25
 
 **Strukturieren Sie einen dreistufigen Workflow: Audio generieren, ein Key Visual erstellen und dann beides als Seedance-Referenzen verwenden.**
 
-Die Quelle bietet eine prägnante Workflow-Pipeline, in der Audio Musik, Erzählung, Atmosphäre und Timing-Anleitung für das Video liefert.
+- Quellenbeleg: Die öffentliche Quelle beschreibt eine dreistufige Pipeline: Audio mit Seed-Audio 1.0 erzeugen, ein Schlüsselbild erstellen und beide Referenzen in Seedance 2 reference-to-video nutzen.
+- Was zu übernehmen ist: Verwenden Sie dies, wenn Musik, Erzählung, Atmosphäre oder Rhythmus das Video leiten sollen, statt nachträglich ergänzt zu werden.
+- Praktischer Workflow: Legen Sie zuerst den emotionalen Rhythmus im Audio-Prompt fest, erstellen oder wählen Sie ein passendes Bild und geben Sie beide Referenzen an das Videomodell, damit Timing und visuelle Richtung gleichzeitig vorliegen.
+- Worauf zu achten ist: Es ist ein offizielles Workflow-Muster, kein unabhängiger Benchmark. Es eignet sich als Startrezept, aber Lip-sync, Schnitt-Timing und tatsächliche Audio-Folge müssen weiter getestet werden.
 
-[![Fall 3 video preview](media/cases/case-03.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Fall 3 video preview](media/cases/case-03.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video-Wiedergabeseite oeffnen](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video-Wiedergabeseite oeffnen](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Tutorial | Datum: 2026-06-27
 
@@ -148,11 +157,14 @@ Typ: Tutorial | Datum: 2026-06-27
 
 **Evaluieren Sie Seed-Audio 1.0 für kompakte Hörspielszenen mit mehreren Stimmen, Ambiente und Hintergrundmusik.**
 
-Die Quelle berichtet von einem zweiminütigen Dialogexperiment mit einer INTENT-, AESTHETIC- und EXECUTION-Struktur im Autorenstil.
+- Quellenbeleg: Der Beitrag enthält einen konkreten zweiminütigen Prompt bzw. ein Skript mit INTENT-, AESTHETIC- und EXECUTION-Abschnitten; festgelegt werden Atmosphäre, Hintergrundmusik, zwei Stimmprofile, emotionale Darbietung und Dialog Zeile für Zeile.
+- Was zu übernehmen ist: Nutzen Sie dieses Skriptformat für Audiodrama-Szenen statt für einzelne Erzählstimmen: erst Umgebung, dann Charakterstimmen, dann knappe Regiehinweise in den Dialog.
+- Praktischer Workflow: Schreiben Sie die Szene als kurzes Skript, halten Sie Regiehinweise pro Zeile knapp, behalten Sie ein dauerhaftes Hintergrundgeräusch bei und prüfen Sie, ob Emotion und Tempo folgen.
+- Worauf zu achten ist: Die Quelle sagt, das Ergebnis folgte dem Prompt gut, doch Langform-Konsistenz braucht weiter Review; für Produktion sollten lange Szenen in kleinere Beats geteilt werden, falls Emotion oder Musik driften.
 
-[![Fall 4 video preview](media/cases/case-04.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Fall 4 video preview](media/cases/case-04.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video-Wiedergabeseite oeffnen](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video-Wiedergabeseite oeffnen](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Tutorial | Datum: 2026-06-28
 
@@ -161,11 +173,14 @@ Typ: Tutorial | Datum: 2026-06-28
 
 **Testen Sie das sprachliche Denken auf Szenenebene, wobei Seed-Audio Dialoge, Darbietungen und unterschiedliche Charakterstimmen generiert.**
 
-Die Quelle beschreibt einen Museumsführer und eine verwirrte Besucheraufforderung, bei der das Modell natürliche Dialoge und Charakterdarstellungen hervorbrachte.
+- Quellenbeleg: Der Autor liefert einen kompakten Prompt: Ein Museumsführer erklärt einem verwirrten Besucher, warum “crossing the Rubicon” einen Punkt ohne Rückkehr bedeutet. Der Beitrag sagt, Seed Audio habe Dialog, Vortrag und Charakterstimmen erzeugt.
+- Was zu übernehmen ist: Nutzen Sie den Fall, wenn Seed-Audio aus einer knappen Situation einen kurzen Lern-Dialog ableiten soll, ohne jede Zeile manuell zu schreiben.
+- Praktischer Workflow: Geben Sie Rollen, den zu erklärenden Begriff und die Gesprächsbeziehung vor; prüfen Sie danach, ob die Sprache natürlich wirkt und die Erklärung sachlich stimmt.
+- Worauf zu achten ist: Es ist Demo, weil es szenisches Sprachverständnis und natürliche Darbietung zeigt, aber keinen wiederholbaren Benchmark bietet. Prüfen Sie Fakten, wenn das Muster für Bildung genutzt wird.
 
-[![Fall 5 video preview](media/cases/case-05.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Fall 5 video preview](media/cases/case-05.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video-Wiedergabeseite oeffnen](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video-Wiedergabeseite oeffnen](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Demo | Datum: 2026-06-27
 
@@ -174,11 +189,14 @@ Typ: Demo | Datum: 2026-06-27
 
 **Evaluieren Sie Referenz-Sprachworkflows für wiederkehrende MC- oder Serienkommentare vor der nachgelagerten Videogenerierung.**
 
-Die Quelle beschreibt die Generierung von etwa einer Minute MC-Sprache aus Referenzmaterial und die anschließende Aufteilung für Seedance-Video. Als praktischer Vorbehalt wird auch die Downstream-Voice-Drift erwähnt.
+- Quellenbeleg: Der Beitrag beschreibt einen zweistufigen Referenzstimmen-Workflow: etwa eine Minute MC-Audio aus Quellstimme erzeugen, diese Stimme schneiden und für Seedance 2.0 Lip-sync-Video verwenden.
+- Was zu übernehmen ist: Nutzen Sie dies, wenn ein wiederkehrender Host, Sprecher oder MC eine Serie tragen soll und vor der Videogenerierung eine wiederverwendbare Audioreferenz benötigt wird.
+- Praktischer Workflow: Erzeugen Sie eine längere saubere Stimmprobe, schneiden Sie kurze Segmente, nutzen Sie diese als Videoreferenzen und bearbeiten Sie jede Drift nach dem Videodurchlauf.
+- Worauf zu achten ist: Der Autor sagt ausdrücklich, dass sich die Stimme beim Übergang in Seedance-Video leicht verändert. Das ist zentral: Tutorial für Workflow-Aufbau, keine Garantie stabiler Stimmidentität.
 
-[![Fall 6 video preview](media/cases/case-06.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Fall 6 video preview](media/cases/case-06.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video-Wiedergabeseite oeffnen](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video-Wiedergabeseite oeffnen](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Tutorial | Datum: 2026-06-27
 
@@ -187,11 +205,14 @@ Typ: Tutorial | Datum: 2026-06-27
 
 **Evaluieren Sie Seed-Audio 1.0 als Teil eines Assistenten-nativen kreativen Arbeitsbereichs für Voiceover, Stimmklonen und Synchronisation.**
 
-Dies war der Beitrag mit der höchsten Interaktion in der Stichprobe und positioniert Seed Audio innerhalb eines Claude MCP-Workflows.
+- Quellenbeleg: Higgsfield sagt, Claude könne über die MCP-Integration Audio erzeugen, darunter Voiceover, Voice Cloning und mehrsprachige Stimmarbeit in über 50 Sprachen, teilweise angetrieben von Seed Audio 1.0.
+- Was zu übernehmen ist: Nutzen Sie den Fall als no-code oder agentennahe Zugriffsschicht: Statt ein Audio-Endpoint direkt aufzurufen, können Creator Stimmaufgaben über Claude plus MCP-Anbieter routen.
+- Praktischer Workflow: Starten Sie in Claude mit einer kurzen Voiceover- oder Mehrsprachen-Anfrage, generieren Sie über die MCP-Route und prüfen Sie Sprache, Stimmidentität und Medien-Workflow.
+- Worauf zu achten ist: Es ist Integration, keine Qualitätsbewertung. Der Beitrag beweist Verfügbarkeit und Workflow-Oberfläche, aber nicht unabhängig die Qualität in allen 50+ Sprachen.
 
-[![Fall 7 video preview](media/cases/case-07.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Fall 7 video preview](media/cases/case-07.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video-Wiedergabeseite oeffnen](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video-Wiedergabeseite oeffnen](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Integration | Datum: 2026-06-27
 
@@ -200,11 +221,14 @@ Typ: Integration | Datum: 2026-06-27
 
 **Bewerten Sie die japanische Sprache, die Emotionsverfolgung, die Präzision des Referenzaudios und das Risiko hoher synthetischer Töne.**
 
-Die Quelle berichtet von stabiler japanischer Ausgabe, Emotionsverfolgung, hoher Referenz-Audio-Präzision und einem Vorbehalt, dass höhere Stimmen mechanischer klingen können.
+- Quellenbeleg: Der Autor berichtet praktische japanische Nutzung: stabilere japanische Sprache als Seedance-2.0-Audio, Emotion-Following im Dialog, starke Referenzaudio-Präzision mit 30-Sekunden-Maximum, keine gleichzeitige Audio-plus-Bild-Referenz und mechanische Artefakte bei höheren Stimmen.
+- Was zu übernehmen ist: Nutzen Sie es als Checkliste für japanische oder andere nicht-englische Sprachtests: Stabilität, Emotion, Referenztreue, Grenzen des Referenzmodus und Pitch-Artefakte.
+- Praktischer Workflow: Erzeugen Sie kurze Clips mit normaler und hoher Stimme, vergleichen Sie sie mit dem Referenzaudio und testen Sie bildgeführte Workflows separat, weil die Quelle sagt, Audio- und Bildreferenz lassen sich nicht kombinieren.
+- Worauf zu achten ist: Es ist Evaluation, weil der Hauptwert in der Limit-Karte liegt. Die Lektion ist nicht “Seed-Audio ist immer besser”, sondern wo es gut funktioniert und wo Tests nötig bleiben.
 
-[![Fall 8 video preview](media/cases/case-08.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Fall 8 video preview](media/cases/case-08.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video-Wiedergabeseite oeffnen](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video-Wiedergabeseite oeffnen](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Bewertung | Datum: 2026-06-26
 
@@ -213,11 +237,14 @@ Typ: Bewertung | Datum: 2026-06-26
 
 **Testen Sie Social-Story-Erzählformate, bei denen Textbeiträge zu Audio-First-Unterhaltung werden.**
 
-Die Quelle beschreibt das Erzählen einer beliebten Geschichte im AITA-Stil und formuliert sie als wiederholbare Content-Engine-Idee.
+- Quellenbeleg: Der Autor vertont mit Seed Audio 1.0 einen beliebten AITA-artigen Textbeitrag und rahmt ihn als mögliches wiederholbares Viral-Content-System; eine Antwort desselben Autors verlinkt die Originalgeschichte.
+- Was zu übernehmen ist: Nutzen Sie dies, um zu prüfen, ob textlastige Social-Posts mit geringem Aufwand zu erzähltem Kurzformat-Entertainment werden können.
+- Praktischer Workflow: Wählen Sie eine öffentliche Geschichte, teilen Sie sie in Erzähleinheiten, generieren Sie die Stimme, kombinieren Sie sie mit einfachen Visuals oder Captions und messen Sie, ob das Format wiederholbar trägt.
+- Worauf zu achten ist: Es ist Demo, keine Rechte- oder Wachstumsgarantie. Quelle, Erlaubnis und Publikumstest bleiben nötig, bevor daraus ein skalierbarer Kanal wird.
 
-[![Fall 9 video preview](media/cases/case-09.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Fall 9 video preview](media/cases/case-09.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video-Wiedergabeseite oeffnen](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video-Wiedergabeseite oeffnen](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Demo | Datum: 2026-06-29
 
@@ -226,7 +253,10 @@ Typ: Demo | Datum: 2026-06-29
 
 **Bewerten Sie das Referenzbild-Audio als frühe Charakter-Stimmenbesetzung, nicht als endgültige Stimm-Lock-Produktion.**
 
-Die Quelle berichtet, dass ein Charakterbild eine Stimmrichtung vorschlagen kann, während Tonhöhe und Tonstabilität bei filmähnlichen festen Charakterstimmen noch überprüft werden müssen.
+- Quellenbeleg: Der Autor übergibt nur ein weibliches Charakter-Referenzbild und erzeugt drei etwa zehnsekündige Sprachzeilen; zwei Ausgaben liegen richtungsnah, eine ist klar zu hoch.
+- Was zu übernehmen ist: Verwenden Sie bildgeführtes Audio als frühes Stimm-Casting: Erkunden Sie, wie eine Figur klingen könnte, bevor finaler Dialog aufgenommen oder ein Stimmmodell festgelegt wird.
+- Praktischer Workflow: Testen Sie mehrere kurze Zeilen mit demselben Charakterbild, vergleichen Sie Pitch, Ton und Persönlichkeit und behalten Sie nur Kandidaten, die über mehrere Zeilen stabil bleiben.
+- Worauf zu achten ist: Die Quelle warnt selbst, dass Pitch- und Tonstabilität noch nicht für feste Filmfigurenstimmen reicht. Es ist Evaluation, weil es Nutzen für Casting und Produktionsrisiko zugleich definiert.
 
 ![Fall 10 media](media/cases/case-10.jpg)
 
@@ -237,11 +267,14 @@ Typ: Bewertung | Datum: 2026-06-26
 
 **Evaluieren Sie Seed-Audio 1.0 als kostengünstige Iterationsschicht für Sprachausgabe und Geräusche, bevor Sie sich auf die Videogenerierung festlegen.**
 
-Die Quelle berichtet von frühen Tests, bei denen sich Sprachausgabe und Geräuschkulisse besser anfühlten als natives Seedance-Audio, wobei die Kosten für kurze Experimente gering waren.
+- Quellenbeleg: Der Autor berichtet frühe Tests, bei denen Voice Acting und Foley besser wirkten als natives Seedance-2-Audio, und nennt für einen 15-Sekunden-Audiotest nur wenige Cent Kosten.
+- Was zu übernehmen ist: Nutzen Sie Seed-Audio als günstige Vorproduktionsebene, bevor Sie in finale Videogenerierung gehen, besonders wenn Stimme, Foley oder Atmosphäre über die Idee entscheiden.
+- Praktischer Workflow: Erzeugen Sie zuerst 10- bis 15-sekündige Audiotests, vergleichen Sie diese mit nativem Videomodell-Audio und gehen Sie erst weiter zum Video, wenn die Klangrichtung stark genug ist.
+- Worauf zu achten ist: Kommentare lassen Fragen zu Referenzstimmen-Konvertierung und Seedance-Lip-sync mit generiertem Audio offen. Es bleibt Evaluation: ein günstiger Testschritt, kein vollständiger Final-Workflow.
 
-[![Fall 11 video preview](media/cases/case-11.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Fall 11 video preview](media/cases/case-11.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video-Wiedergabeseite oeffnen](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video-Wiedergabeseite oeffnen](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Typ: Bewertung | Datum: 2026-06-25
 

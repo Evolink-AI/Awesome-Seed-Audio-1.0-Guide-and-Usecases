@@ -109,11 +109,14 @@ Model ayrıntıları ve örnekler: [EvoLink'te Seed-Audio 1.0](https://evolink.a
 
 **Çok hoparlörlü diyaloğun ve arka plan efektlerinin daha sonraki video oluşturmaya rehberlik ettiği, öncelikli ses video iş akışı oluşturun.**
 
-Kaynak, somut bir Seed Audio artı Seedance iş akışı ve arka plan efektlerine sahip altı kişi için istem tarzı bir kurulum içerir.
+- Kaynak kanıtı: Gönderi gerçek Seed Audio kurulumunu gösteriyor: altı isimlendirilmiş konuşmacı, farklı ses yönleri, kısa replikler, rölantide motor, tavana vuran yağmur ve arka plan efektleriyle bir kaçış minibüsü sahnesi; ayrıca sonraki görsel promptu ve Seedance 2.0 video promptu da görülüyor.
+- Kopyalanacak yöntem: Ses tüm sahneyi yönlendirecekse bu kalıbı kullanın: her konuşmacıyı belirleyin, ses dokusunu tanımlayın, kısa replikler yazın ve sonraki videoya zamanlama veren sürekli ambiyans ekleyin.
+- Pratik iş akışı: Önce çok konuşmacılı ses yatağını üretin, ardından uyumlu silüet ve atmosfere sahip ana görseli oluşturun, sonra sesi ve görsel bağlamı Seedance'e verin.
+- Dikkat noktaları: Kanıt, workflow tasarımını ve prompt yapısını destekler; uzun sahnelerde kusursuz konuşmacı ayrımı kanıtlamaz. Prodüksiyon diyaloğundan önce karakter kimliği ve zamanlamayı test edin.
 
-[![Vaka 1 video preview](media/cases/case-01.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Vaka 1 video preview](media/cases/case-01.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video oynatma sayfasını aç](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video oynatma sayfasını aç](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Rehber | Tarih: 2026-06-26
 
@@ -122,11 +125,14 @@ Tür: Rehber | Tarih: 2026-06-26
 
 **Seed-Audio 1.0'un çok klipli video hikayelerinde zamanlama ve tutarlılık sorunlarını azaltıp azaltamayacağını test edin.**
 
-Kaynak, çok klipli bir hikaye iş akışı için Seed Audio üretmek amacıyla oluşturulan bir videonun ve bir API key'in kullanımını açıklamaktadır.
+- Kaynak kanıtı: Yazar yaklaşık bir dakikalık, çok klipli ve düşük çözünürlüklü bir videodan başlıyor; Seedance promptlarında tutarlı sesin zor olduğunu söylüyor ve Claude Code, Codex ve bir FAL key ile agent destekli bir ses geçişi test ediyor.
+- Kopyalanacak yöntem: Seed-Audio'yu mevcut çok klipli video için onarım veya planlama katmanı gibi düşünün; özellikle tek prompt farklı çekimleri, geçişleri, ambiyansı ve efektleri kapsamak zorundaysa.
+- Pratik iş akışı: Videonun bağlamını agente verin, sahne sahne ses planı isteyin, müzik veya efekt katmanını üretin ve sonucu tüm dakika yerine klip bazında karşılaştırın.
+- Dikkat noktaları: Aynı kaynak bazı efektlerin ekrandaki eylemle hâlâ tam örtüşmediğini söylüyor. Bu yüzden Tutorial değil Evaluation: yararlı bir test yöntemi verir ve uyumsuzluk riskini saklar.
 
-[![Vaka 2 video preview](media/cases/case-02.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Vaka 2 video preview](media/cases/case-02.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video oynatma sayfasını aç](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video oynatma sayfasını aç](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Değerlendirme | Tarih: 2026-06-25
 
@@ -135,11 +141,14 @@ Tür: Değerlendirme | Tarih: 2026-06-25
 
 **Üç adımlı bir iş akışı yapılandırın: ses oluşturun, önemli bir görsel oluşturun ve ardından her ikisini de Seedance referansları olarak kullanın.**
 
-Kaynak, sesin müzik, anlatım, ambiyans ve video için zamanlama yönünü sağladığı kısa bir iş akışı hattı sağlar.
+- Kaynak kanıtı: Açık kaynak üç aşamalı akışı anlatıyor: Seed-Audio 1.0 ile ses üretmek, bir ana görsel oluşturmak ve ikisini Seedance 2 reference-to-video için referans olarak kullanmak.
+- Kopyalanacak yöntem: Müzik, anlatım, ambiyans veya tempo videoya sonradan eklenmek yerine baştan yön vermeliyse bu akışı kullanın.
+- Pratik iş akışı: Duygusal ritmi önce ses promptunda belirleyin, sahneye uygun bir görsel seçin veya üretin, sonra video modeline aynı anda zaman ve görsel yön veren iki referansı sağlayın.
+- Dikkat noktaları: Bu resmi bir workflow kalıbı, bağımsız benchmark değil. Başlangıç reçetesi olarak yararlı olsa da lip-sync, kesim zamanlaması ve videonun ses ipuçlarını ne kadar izlediği ayrıca test edilmeli.
 
-[![Vaka 3 video preview](media/cases/case-03.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Vaka 3 video preview](media/cases/case-03.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video oynatma sayfasını aç](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video oynatma sayfasını aç](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Rehber | Tarih: 2026-06-27
 
@@ -148,11 +157,14 @@ Tür: Rehber | Tarih: 2026-06-27
 
 **Çoklu ses, ambiyans ve arka plan müziği içeren kompakt sesli drama sahneleri için Seed-Audio 1.0'u değerlendirin.**
 
-Kaynak, auteur tarzı bir INTENT, AESTHETIC, EXECUTION yapısını kullanan iki dakikalık bir diyalog deneyini bildiriyor.
+- Kaynak kanıtı: Gönderi INTENT, AESTHETIC ve EXECUTION bölümleri olan somut iki dakikalık bir prompt/senaryo içeriyor; ambiyans, arka plan müziği, iki karakter sesi, duygusal performans ve satır satır diyalog belirtilmiş.
+- Kopyalanacak yöntem: Tek anlatıcı yerine sesli drama sahnesi gerektiğinde bu senaryo biçimini kullanın. Önce ortamı, sonra karakter seslerini, sonra diyalog içinde kısa performans yönlerini yazın.
+- Pratik iş akışı: Sahneyi kısa senaryo olarak hazırlayın, her replik yönlendirmesini birkaç kelimeyle sınırlayın, kalıcı arka plan sesi ekleyin ve modelin duygu ile tempoyu takip edip etmediğini dinleyin.
+- Dikkat noktaları: Kaynak sonucun promptu iyi izlediğini söylüyor, fakat uzun biçim tutarlılığı hâlâ kontrol gerektirir. Prodüksiyonda duygu veya müzik kayıyorsa sahneyi küçük beat'lere bölün.
 
-[![Vaka 4 video preview](media/cases/case-04.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Vaka 4 video preview](media/cases/case-04.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video oynatma sayfasını aç](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video oynatma sayfasını aç](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Rehber | Tarih: 2026-06-28
 
@@ -161,11 +173,14 @@ Tür: Rehber | Tarih: 2026-06-28
 
 **Seed-Audio'nun diyalog, sunum ve farklı karakter sesleri ürettiği sahne düzeyinde dil muhakemesini test edin.**
 
-Kaynak, modelin doğal diyalog ve karakter sunumu ürettiği bir müze rehberini ve kafası karışmış ziyaretçi yönlendirmesini anlatıyor.
+- Kaynak kanıtı: Yazar kısa bir prompt veriyor: bir müze rehberi şaşkın ziyaretçiye “crossing the Rubicon” ifadesinin neden geri dönüşsüz bir noktayı geçmek anlamına geldiğini açıklıyor. Gönderi, Seed Audio'nun diyalog, performans ve karakter sesleri ürettiğini söylüyor.
+- Kopyalanacak yöntem: Seed-Audio'nun her satırı elle yazmadan kompakt bir durumdan kısa eğitici konuşma çıkarmasını istediğinizde bu vakayı kullanın.
+- Pratik iş akışı: Modele rolleri, açıklanacak kavramı ve konuşma ilişkisini verin; sonra konuşmanın doğal olup olmadığını ve açıklamanın doğru kalıp kalmadığını değerlendirin.
+- Dikkat noktaları: Bu bir Demo; sahne düzeyi dil akıl yürütmesi ve doğal performans gösterir, ama tekrarlanabilir benchmark sunmaz. Eğitimde kullanıyorsanız olguları kontrol edin.
 
-[![Vaka 5 video preview](media/cases/case-05.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Vaka 5 video preview](media/cases/case-05.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video oynatma sayfasını aç](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video oynatma sayfasını aç](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Demo | Tarih: 2026-06-27
 
@@ -174,11 +189,14 @@ Tür: Demo | Tarih: 2026-06-27
 
 **Aşağı yönde video oluşturmadan önce yinelenen MC veya seri anlatım için referans ses iş akışlarını değerlendirin.**
 
-Kaynak, referans materyalden yaklaşık bir dakikalık MC sesinin üretildiğini ve ardından Seedance videosu için bölündüğünü anlatıyor. Ayrıca pratik bir uyarı olarak akış yönündeki ses kaymasını da not eder.
+- Kaynak kanıtı: Gönderi iki adımlı referans ses workflowunu anlatıyor: kaynak ses materyalinden yaklaşık bir dakikalık MC sesi üretmek, bu sesi parçalara bölmek ve Seedance 2.0 lip-sync videosuna vermek.
+- Kopyalanacak yöntem: Tekrarlayan sunucu, anlatıcı veya MC sesi bir seri taşıyacaksa, video üretiminden önce yeniden kullanılabilir ses referansı oluşturmak için kullanın.
+- Pratik iş akışı: Daha uzun ve temiz bir ses örneği üretin, kısa parçalara kesin, bu parçaları video referansı olarak kullanın ve video geçişinden sonra oluşan drift'i düzenleyin.
+- Dikkat noktaları: Yazar, sesin Seedance ile videoya dönüştüğünde biraz değiştiğini açıkça söylüyor. Bu merkezi uyarıdır: workflow kurma Tutorial'ıdır, sabit ses kimliği garantisi değildir.
 
-[![Vaka 6 video preview](media/cases/case-06.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Vaka 6 video preview](media/cases/case-06.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video oynatma sayfasını aç](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video oynatma sayfasını aç](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Rehber | Tarih: 2026-06-27
 
@@ -187,11 +205,14 @@ Tür: Rehber | Tarih: 2026-06-27
 
 **Seed-Audio 1.0'u seslendirme, ses klonlama ve dublaj için asistan-yerel yaratıcı çalışma alanının parçası olarak değerlendirin.**
 
-Bu, örneklemde en yüksek etkileşime sahip gönderiydi ve Seed Audio'yu Claude MCP iş akışı içinde konumlandırıyor.
+- Kaynak kanıtı: Higgsfield, Claude'un MCP entegrasyonu üzerinden ses üretebildiğini; voiceover, voice cloning ve 50+ dilde çok dilli ses işlerini kısmen Seed Audio 1.0 ile desteklediğini söylüyor.
+- Kopyalanacak yöntem: No-code veya agent odaklı erişim yolunu anlamak için kullanın: yaratıcılar doğrudan ses endpoint'i çağırmak yerine Claude ve MCP sağlayıcısı üzerinden ses görevlerini yönlendirebilir.
+- Pratik iş akışı: Claude içinde kısa bir voiceover veya çok dilli ses isteğiyle başlayın, MCP rotasından üretin ve çıktının hedef dile, ses kimliğine ve medya workflowuna uyup uymadığını inceleyin.
+- Dikkat noktaları: Bu Integration, kalite değerlendirmesi değil. Gönderi erişilebilirliği ve workflow yüzeyini kanıtlar, fakat 50+ dilde kaliteyi bağımsız doğrulamaz.
 
-[![Vaka 7 video preview](media/cases/case-07.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Vaka 7 video preview](media/cases/case-07.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video oynatma sayfasını aç](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video oynatma sayfasını aç](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Entegrasyon | Tarih: 2026-06-27
 
@@ -200,11 +221,14 @@ Tür: Entegrasyon | Tarih: 2026-06-27
 
 **Japonca konuşmayı, duygu takibini, referans ses hassasiyetini ve yüksek perdeli sentetik ses riskini değerlendirin.**
 
-Kaynak, istikrarlı Japonca çıktı, duygu takibi, güçlü referans ses hassasiyeti ve daha yüksek seslerin daha mekanik gelebileceğine dair bir uyarı bildiriyor.
+- Kaynak kanıtı: Yazar Japonca kullanım deneyimini aktarıyor: Seedance 2.0 audio'ya göre daha stabil Japonca konuşma, diyalogda duygu takibi, 30 saniye maksimumla güçlü referans ses doğruluğu, aynı anda ses ve görsel referansı olmaması ve yüksek seslerde mekanik artefaktlar.
+- Kopyalanacak yöntem: Japonca veya İngilizce dışı konuşma testleri için checklist olarak kullanın: stabilite, duygu takibi, referans hassasiyeti, referans modu sınırları ve pitch artefaktları.
+- Pratik iş akışı: Normal ve yüksek ses çizgilerinde kısa klipler üretin, referans sesle karşılaştırın ve görsel yönlendirmeli akışları ayrı test edin; kaynak ses ve görsel referansın birleşmediğini söylüyor.
+- Dikkat noktaları: Bu Evaluation, çünkü ana değeri sınır haritasıdır. Ders “Seed-Audio her zaman daha iyi” değil; nerede iyi çalıştığı ve nerede hâlâ test gerektiğidir.
 
-[![Vaka 8 video preview](media/cases/case-08.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Vaka 8 video preview](media/cases/case-08.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video oynatma sayfasını aç](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video oynatma sayfasını aç](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Değerlendirme | Tarih: 2026-06-26
 
@@ -213,11 +237,14 @@ Tür: Değerlendirme | Tarih: 2026-06-26
 
 **Metin gönderilerinin önce ses eğlencesine dönüştüğü sosyal hikaye anlatım formatlarını test edin.**
 
-Kaynak, popüler bir AITA tarzı hikayenin anlatılmasını anlatıyor ve bunu tekrarlanabilir bir içerik motoru fikri olarak çerçeveliyor.
+- Kaynak kanıtı: Yazar popüler AITA tarzı bir gönderiyi Seed Audio 1.0 ile seslendiriyor ve bunu tekrarlanabilir viral içerik motoru olasılığı olarak çerçeveliyor; aynı yazarın yanıtı orijinal hikâyeye bağlantı veriyor.
+- Kopyalanacak yöntem: Metin ağırlıklı sosyal gönderilerin kısa format platformlar için düşük sürtünmeli anlatımlı eğlenceye dönüşüp dönüşemeyeceğini test ederken kullanın.
+- Pratik iş akışı: Açık bir metin hikâyesi seçin, anlatım bölümlerine uyarlayın, sesi üretin, basit görseller veya altyazılarla eşleştirin ve formatın tekrarlanabilir içerik hattı olup olmadığını ölçün.
+- Dikkat noktaları: Bu Demo; haklar veya büyüme garantisi değil. Hikâye içeriği için izin ya da doğru kaynak yönetimi ve “ölçeklenebilir kanal” demeden önce izleyici testi gerekir.
 
-[![Vaka 9 video preview](media/cases/case-09.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Vaka 9 video preview](media/cases/case-09.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video oynatma sayfasını aç](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video oynatma sayfasını aç](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Demo | Tarih: 2026-06-29
 
@@ -226,7 +253,10 @@ Tür: Demo | Tarih: 2026-06-29
 
 **Referans görüntü sesini, son ses kilidi üretimi olarak değil, erken karakter seslendirmesi olarak değerlendirin.**
 
-Kaynak, bir karakter görüntüsünün bir ses yönü önerebileceğini ancak film tarzı sabit karakter sesleri için perde ve ton stabilitesinin hala doğrulanması gerektiğini bildiriyor.
+- Kaynak kanıtı: Yazar yalnızca bir kadın karakter referans görseli verip yaklaşık on saniyelik üç ses repliği üretiyor; iki çıktı yön olarak yakın, biri belirgin biçimde fazla tiz.
+- Kopyalanacak yöntem: Görsel yönlendirmeli sesi erken karakter sesi castingi için kullanın: final diyalog kaydı veya ses modelini kilitlemeden önce karakterin nasıl duyulabileceğini keşfedin.
+- Pratik iş akışı: Aynı karakter görselinden birkaç kısa replik test edin, pitch, ton ve kişilik yönünü karşılaştırın, yalnızca birden fazla satırda stabil kalan adayları tutun.
+- Dikkat noktaları: Kaynağın kendisi pitch ve ton stabilitesinin sabit film karakteri sesi için hazır olmadığını söylüyor. Bu Evaluation, çünkü hem casting kullanımını hem de prodüksiyon riskini tanımlar.
 
 ![Vaka 10 media](media/cases/case-10.jpg)
 
@@ -237,11 +267,14 @@ Tür: Değerlendirme | Tarih: 2026-06-26
 
 **Seed-Audio 1.0'u video oluşturmaya başlamadan önce seslendirme ve foley için düşük maliyetli bir yineleme katmanı olarak değerlendirin.**
 
-Kaynak, kısa deneyler için düşük maliyetle, ses oyunculuğu ve foley'in yerel Seedance sesinden daha iyi hissettirdiği ilk testleri bildirdi.
+- Kaynak kanıtı: Yazar erken testlerde voice acting ve foley'nin yerel Seedance 2 audio'dan daha iyi hissettirdiğini, 15 saniyelik ses testinin ise sadece birkaç cent tuttuğunu söylüyor.
+- Kopyalanacak yöntem: Seed-Audio'yu final video üretimine zaman harcamadan önce ucuz ön prodüksiyon test katmanı olarak kullanın; özellikle ses oyunculuğu, foley veya ambiyans fikrin çalışıp çalışmadığını belirliyorsa.
+- Pratik iş akışı: Önce 10-15 saniyelik kısa ses testleri üretin, video modelinin yerel sesiyle karşılaştırın ve ancak ses yönü yeterince güçlüyse sonraki video aşamasına geçin.
+- Dikkat noktaları: Yorumlar referans ses dönüşümü ve üretilen sesi Seedance lip-sync ile kullanma konusunda açık sorunlar ekliyor. Bu hâlâ Evaluation: düşük maliyetli test rolünü doğrular, tam final pipeline değil.
 
-[![Vaka 11 video preview](media/cases/case-11.jpg)](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Vaka 11 video preview](media/cases/case-11.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-[Video oynatma sayfasını aç](https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Video oynatma sayfasını aç](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
 
 Tür: Değerlendirme | Tarih: 2026-06-25
 

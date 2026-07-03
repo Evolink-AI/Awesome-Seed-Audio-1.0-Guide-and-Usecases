@@ -20,8 +20,10 @@ CAMPAIGN = "awesome-seed-audio-1.0-usecases"
 MODEL_DETAIL_BASE = "https://evolink.ai/seed-audio-1-0"
 KEYS_BASE = "https://evolink.ai/dashboard/keys"
 NPM_PACKAGE_BASE = "https://www.npmjs.com/package/evolink-seed-audio"
-REPO_MEDIA_PAGE_BASE = "https://github.com/cheercheung/Awesome-Seed-Audio-1.0-Guide-and-Usecases/blob/main"
-PAGES_PLAYER_BASE = "https://cheercheung.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player"
+REPO_OWNER = "Evolink-AI"
+REPO_NAME = "Awesome-Seed-Audio-1.0-Guide-and-Usecases"
+REPO_MEDIA_PAGE_BASE = f"https://github.com/{REPO_OWNER}/{REPO_NAME}/blob/main"
+PAGES_PLAYER_BASE = f"https://evolink-ai.github.io/{REPO_NAME}/docs/player"
 
 
 def utm_url(base_url: str, medium: str) -> str:
