@@ -38,7 +38,8 @@ Seed-Audio 1.0의 신뢰도 높은 사용 사례 저장소입니다.
 
 [업데이트 로그](docs/update-log.md) | [유지관리 가이드](docs/maintenance.md) | [사례 라벨 감사](docs/case-label-audit.md) | [사례 데이터](data/use-cases.json) | [프리셋 음색 문서](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-## 빠른 시작
+<a id="quick-start"></a>
+## ⚡ Quick Start
 
 Seed-Audio agent skill을 설치한 뒤 [EvoLink Dashboard Keys](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)에서 API key를 받아 `EVOLINK_API_KEY`로 설정하세요.
 

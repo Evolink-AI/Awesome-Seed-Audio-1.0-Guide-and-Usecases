@@ -38,7 +38,8 @@ Seed-Audio 1.0 の高シグナルなユースケース集です。
 
 [更新ログ](docs/update-log.md) | [メンテナンスガイド](docs/maintenance.md) | [ケースラベル監査](docs/case-label-audit.md) | [ケースデータ](data/use-cases.json) | [プリセット音色ドキュメント](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-## クイックスタート
+<a id="quick-start"></a>
+## ⚡ Quick Start
 
 Seed-Audio agent skill をインストールし、[EvoLink Dashboard Keys](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) で API key を取得して `EVOLINK_API_KEY` に設定します。
 

@@ -38,7 +38,8 @@ Bu Türkçe README kaynak bağlantılarını, atıfları ve ankrajları korur; k
 
 [Güncelleme günlüğü](docs/update-log.md) | [Bakım rehberi](docs/maintenance.md) | [Vaka verisi](data/use-cases.json) | [Hazır ses dokümanı](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-## Hızlı başlangıç
+<a id="quick-start"></a>
+## ⚡ Quick Start
 
 Seed-Audio agent skill paketini kurun, [EvoLink Dashboard Keys](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) üzerinden API key alın ve `EVOLINK_API_KEY` olarak ayarlayın.
 

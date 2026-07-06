@@ -38,7 +38,8 @@
 
 [更新日誌](docs/update-log.md) | [維護指南](docs/maintenance.md) | [案例標註審計](docs/case-label-audit.md) | [案例資料](data/use-cases.json) | [預設音色文件](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-## 快速開始
+<a id="quick-start"></a>
+## ⚡ Quick Start
 
 先安裝 Seed-Audio agent skill，然後到 [EvoLink Dashboard Keys](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) 取得 API key，並設定為 `EVOLINK_API_KEY`。
 

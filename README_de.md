@@ -38,7 +38,8 @@ Diese deutsche README behält Quellenlinks, Attribution und Anker bei und übers
 
 [Update-Log](docs/update-log.md) | [Wartungsleitfaden](docs/maintenance.md) | [Falldaten](data/use-cases.json) | [Dokumentation der voreingestellten Stimmen](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
 
-## Quick Start
+<a id="quick-start"></a>
+## ⚡ Quick Start
 
 Installiere den Seed-Audio agent skill, hole eine API key unter [EvoLink Dashboard Keys](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) und setze sie als `EVOLINK_API_KEY`.
 
