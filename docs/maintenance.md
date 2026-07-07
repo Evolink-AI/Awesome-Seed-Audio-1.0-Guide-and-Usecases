@@ -7,7 +7,7 @@ This public repository does not store raw X/Twitter exports, private spreadsheet
 Public traceability is maintained through each case heading:
 
 ```md
-### Case X: [Title](source-link) (by [@author](author-link))
+### Case X: Title (source URL, by author profile URL)
 ```
 
 The source link points to the public post or public source, and the author link points to the creator profile.
@@ -50,21 +50,19 @@ Exclude:
 The repository includes an EvoLink-only Quick Start section in every README. The section should use the Seed-Audio agent skill package rather than a raw API curl snippet:
 
 - Install: `npm i evolink-seed-audio`
-- API key: `https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases`
-- Model page: `https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases`
-- NPM package: `https://www.npmjs.com/package/evolink-seed-audio?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases`
+- API key: `https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=quickstart&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=api_key`
+- Model page: `https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=quickstart&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=model_link`
+- NPM package: `https://www.npmjs.com/package/evolink-seed-audio`
 
 Do not replace this section with non-EvoLink provider snippets. All generated external jump links should include GitHub UTM parameters.
 
 ## Video Playback
 
-Video thumbnails in README files should link to GitHub Pages player pages under `docs/player/case-XX.html`.
+Video thumbnails in README files should link directly to the public R2-hosted MP4 URL recorded in `data/use-cases.json` as `media.remote_url`.
 
-The player pages use standard HTML video controls and load MP4 assets from `../../media/cases/`. Keep GitHub Pages configured to serve the `main` branch root so `docs/player/` and `media/cases/` are both available at:
+The repository keeps local preview thumbnails under `media/cases/`, but it does not keep MP4 files in git. R2 video URLs use the public R2 domain plus this object-key prefix: `github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/`.
 
-`https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/`
-
-Do not point README thumbnails directly at GitHub `blob/main/*.mp4` pages or `raw.githubusercontent.com` MP4 URLs. GitHub blob pages do not reliably render a video player for repository MP4 files, and raw MP4 links can download instead of opening a playback page.
+Do not point README thumbnails at GitHub `blob/main/*.mp4` pages, `raw.githubusercontent.com` MP4 URLs, or local `media/cases/*.mp4` paths. If a video changes, upload the new MP4 to R2, update `media.remote_url`, run `python3 scripts/build_readmes.py`, and re-run `python3 scripts/validate_repo.py`.
 
 ## Rights And Media Policy
 
@@ -80,7 +78,7 @@ Description:
 
 Website:
 
-> https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases
+> https://evolink.ai/seed-audio-1-0
 
 Topics:
 

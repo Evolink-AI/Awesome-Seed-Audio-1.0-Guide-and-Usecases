@@ -163,12 +163,12 @@
       },
       "media": {
         "type": "video",
-        "path": "media/cases/case-01.mp4",
         "thumbnail_path": "media/cases/case-01.jpg",
         "source": "x_twitter_tweet",
         "source_tweet_id": "2070429287950188547",
         "source_url": "https://x.com/gokayfem/status/2070429287950188547",
-        "download_url": "https://video.twimg.com/amplify_video/2070427848414744576/vid/avc1/1280x720/dGkKE_H5iHVsvdxR.mp4"
+        "download_url": "https://video.twimg.com/amplify_video/2070427848414744576/vid/avc1/1280x720/dGkKE_H5iHVsvdxR.mp4",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-01.mp4"
       }
     },
     {
@@ -199,12 +199,12 @@
       },
       "media": {
         "type": "video",
-        "path": "media/cases/case-02.mp4",
         "thumbnail_path": "media/cases/case-02.jpg",
         "source": "x_twitter_tweet",
         "source_tweet_id": "2070246132341727506",
         "source_url": "https://x.com/gavinpurcell/status/2070246132341727506",
-        "download_url": "https://video.twimg.com/amplify_video/2070245820671365120/vid/avc1/1280x720/yPIHRpNeILkgd_dz.mp4"
+        "download_url": "https://video.twimg.com/amplify_video/2070245820671365120/vid/avc1/1280x720/yPIHRpNeILkgd_dz.mp4",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-02.mp4"
       }
     },
     {
@@ -235,12 +235,12 @@
       },
       "media": {
         "type": "video",
-        "path": "media/cases/case-03.mp4",
         "thumbnail_path": "media/cases/case-03.jpg",
         "source": "x_twitter_quoted_tweet",
         "source_tweet_id": "2070438167019409582",
         "source_url": "https://x.com/genel_ai/status/2070438167019409582",
-        "download_url": "https://video.twimg.com/amplify_video/2070428838451179520/vid/avc1/1920x1080/s9tJ7bOOwIbqg6xv.mp4"
+        "download_url": "https://video.twimg.com/amplify_video/2070428838451179520/vid/avc1/1920x1080/s9tJ7bOOwIbqg6xv.mp4",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-03.mp4"
       }
     },
     {
@@ -271,12 +271,12 @@
       },
       "media": {
         "type": "video",
-        "path": "media/cases/case-04.mp4",
         "thumbnail_path": "media/cases/case-04.jpg",
         "source": "x_twitter_tweet",
         "source_tweet_id": "2071255504907891186",
         "source_url": "https://x.com/tarumainfo/status/2071255504907891186",
-        "download_url": "https://video.twimg.com/amplify_video/2071252034599387136/vid/avc1/1920x1080/B6dFMCBSu9XTy1kI.mp4"
+        "download_url": "https://video.twimg.com/amplify_video/2071252034599387136/vid/avc1/1920x1080/B6dFMCBSu9XTy1kI.mp4",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-04.mp4"
       }
     },
     {
@@ -307,12 +307,12 @@
       },
       "media": {
         "type": "video",
-        "path": "media/cases/case-05.mp4",
         "thumbnail_path": "media/cases/case-05.jpg",
         "source": "x_twitter_tweet",
         "source_tweet_id": "2070923534449119424",
         "source_url": "https://x.com/TomLikesRobots/status/2070923534449119424",
-        "download_url": "https://video.twimg.com/amplify_video/2070922637551759361/vid/avc1/1280x720/yV5DFaF9BXwgAYwG.mp4"
+        "download_url": "https://video.twimg.com/amplify_video/2070922637551759361/vid/avc1/1280x720/yV5DFaF9BXwgAYwG.mp4",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-05.mp4"
       }
     },
     {
@@ -343,12 +343,12 @@
       },
       "media": {
         "type": "video",
-        "path": "media/cases/case-06.mp4",
         "thumbnail_path": "media/cases/case-06.jpg",
         "source": "x_twitter_tweet",
         "source_tweet_id": "2070842306329227264",
         "source_url": "https://x.com/JPAI_HEAVEN/status/2070842306329227264",
-        "download_url": "https://video.twimg.com/amplify_video/2070840680382119936/vid/avc1/1280x720/kn4Q0ypgFARyGLLL.mp4"
+        "download_url": "https://video.twimg.com/amplify_video/2070840680382119936/vid/avc1/1280x720/kn4Q0ypgFARyGLLL.mp4",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-06.mp4"
       }
     },
     {
@@ -379,12 +379,12 @@
       },
       "media": {
         "type": "video",
-        "path": "media/cases/case-07.mp4",
         "thumbnail_path": "media/cases/case-07.jpg",
         "source": "x_twitter_tweet",
         "source_tweet_id": "2070916672106680360",
         "source_url": "https://x.com/higgsfield/status/2070916672106680360",
-        "download_url": "https://video.twimg.com/amplify_video/2070916180701790210/vid/avc1/1920x1080/ZbbVXCjQ1t3UIZm-.mp4"
+        "download_url": "https://video.twimg.com/amplify_video/2070916180701790210/vid/avc1/1920x1080/ZbbVXCjQ1t3UIZm-.mp4",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-07.mp4"
       }
     },
     {
@@ -415,12 +415,12 @@
       },
       "media": {
         "type": "video",
-        "path": "media/cases/case-08.mp4",
         "thumbnail_path": "media/cases/case-08.jpg",
         "source": "x_twitter_tweet",
         "source_tweet_id": "2070438167019409582",
         "source_url": "https://x.com/genel_ai/status/2070438167019409582",
-        "download_url": "https://video.twimg.com/amplify_video/2070428838451179520/vid/avc1/1920x1080/s9tJ7bOOwIbqg6xv.mp4"
+        "download_url": "https://video.twimg.com/amplify_video/2070428838451179520/vid/avc1/1920x1080/s9tJ7bOOwIbqg6xv.mp4",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-08.mp4"
       }
     },
     {
@@ -451,12 +451,12 @@
       },
       "media": {
         "type": "video",
-        "path": "media/cases/case-09.mp4",
         "thumbnail_path": "media/cases/case-09.jpg",
         "source": "x_twitter_tweet",
         "source_tweet_id": "2071485165390704837",
         "source_url": "https://x.com/deepwhitman/status/2071485165390704837",
-        "download_url": "https://video.twimg.com/amplify_video/2071484888499531776/vid/avc1/1920x1080/LxcuOZA6E0g50PPq.mp4"
+        "download_url": "https://video.twimg.com/amplify_video/2071484888499531776/vid/avc1/1920x1080/LxcuOZA6E0g50PPq.mp4",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-09.mp4"
       }
     },
     {
@@ -522,12 +522,12 @@
       },
       "media": {
         "type": "video",
-        "path": "media/cases/case-11.mp4",
         "thumbnail_path": "media/cases/case-11.jpg",
         "source": "x_twitter_tweet",
         "source_tweet_id": "2070288519684108353",
         "source_url": "https://x.com/TomLikesRobots/status/2070288519684108353",
-        "download_url": "https://video.twimg.com/amplify_video/2070286932232294400/vid/avc1/1280x720/5AP7aNntuIP4Wqf1.mp4"
+        "download_url": "https://video.twimg.com/amplify_video/2070286932232294400/vid/avc1/1280x720/5AP7aNntuIP4Wqf1.mp4",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-11.mp4"
       }
     }
   ]

@@ -18,3 +18,10 @@
 - Removed the previous Case 11 provider-access item, renumbered the final public set to 11 cases, expanded each remaining case into more actionable source-grounded notes, and added `docs/case-label-audit.md`.
 - Changed video presentation to clickable thumbnails that open GitHub Pages player pages under `docs/player/` instead of non-playable GitHub blob pages or raw MP4 download links.
 - Updated README links so key acquisition points to EvoLink Dashboard Keys, banner and model CTAs point to the Seed-Audio model page, and Quick Start uses `npm i evolink-seed-audio`; all generated external links include GitHub UTM parameters.
+
+## July 7, 2026
+
+- Uploaded all public case MP4 videos to Cloudflare R2.
+- Rebuilt README thumbnail links so clicking a preview image opens the corresponding public R2 MP4 URL.
+- Removed local `media/cases/*.mp4` files from the git worktree and added an ignore rule to keep future MP4 downloads out of GitHub.
+- Kept local JPG thumbnails in `media/cases/` for README previews.

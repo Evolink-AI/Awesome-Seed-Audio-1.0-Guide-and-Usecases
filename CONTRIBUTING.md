@@ -35,7 +35,7 @@ Use the existing README format:
 
 ```md
 <a id="case-x"></a>
-### Case X: [Title](source-link) (by [@author](author-link))
+### Case X: Title (source URL, by author profile URL)
 
 **Usage takeaway.**
 

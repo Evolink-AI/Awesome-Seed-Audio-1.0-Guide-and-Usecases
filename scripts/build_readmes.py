@@ -26,9 +26,9 @@ REPO_MEDIA_PAGE_BASE = f"https://github.com/{REPO_OWNER}/{REPO_NAME}/blob/main"
 PAGES_PLAYER_BASE = f"https://evolink-ai.github.io/{REPO_NAME}/docs/player"
 
 
-def utm_url(base_url: str, medium: str) -> str:
+def utm_url(base_url: str, medium: str, content: str) -> str:
     separator = "&" if "?" in base_url else "?"
-    return f"{base_url}{separator}utm_source=github&utm_medium={medium}&utm_campaign={CAMPAIGN}"
+    return f"{base_url}{separator}utm_source=github&utm_medium={medium}&utm_campaign={CAMPAIGN}&utm_content={content}"
 
 
 LOCALES = {
@@ -357,7 +357,7 @@ QUICK_START_UI = {
         "api_3": "Detalhes e exemplos do modelo: [Seed-Audio 1.0 na EvoLink]({model_url}).",
     },
     "de": {
-        "api_h": "Quick Start",
+        "api_h": "Schnellstart",
         "api_1": "Installiere den Seed-Audio agent skill, hole eine API key unter [EvoLink Dashboard Keys]({key_url}) und setze sie als `EVOLINK_API_KEY`.",
         "api_2": "Das Paket ist als [evolink-seed-audio]({npm_url}) fuer Agent- und lokale Skill-Workflows veroeffentlicht.",
         "api_3": "Modelldetails und Beispiele: [Seed-Audio 1.0 auf EvoLink]({model_url}).",
@@ -523,7 +523,7 @@ VOICE_DOC_LABELS = {
 }
 
 for locale, label in VOICE_DOC_LABELS.items():
-    UI[locale]["links"] = f"{UI[locale]['links']} | [{label}]({utm_url(VOICE_DOCS_URL, 'readme')})"
+    UI[locale]["links"] = f"{UI[locale]['links']} | [{label}]({utm_url(VOICE_DOCS_URL, 'docs', 'voice_docs')})"
 
 CATEGORY_TITLES = {
     "zh-CN": ["旁白与短视频", "音频优先视频工作流", "音频剧与场景生成", "参考声音与角色配音探索", "工具与服务商集成", "长内容、成本与限制"],
@@ -685,9 +685,9 @@ def category_anchor(category: dict) -> str:
 
 def build_header(locale: str) -> list[str]:
     lang_badges = " ".join(badge(item["label"], item["color"], item["file"]) for item in LOCALES.values())
-    banner_url = utm_url(MODEL_DETAIL_BASE, "banner")
-    badge_url = utm_url(MODEL_DETAIL_BASE, "badge")
-    docs_url = utm_url("https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0", "readme")
+    banner_url = utm_url(MODEL_DETAIL_BASE, "banner", "readme_banner")
+    badge_url = utm_url(MODEL_DETAIL_BASE, "badge", "top_badge")
+    docs_url = utm_url("https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0", "docs", "docs_link")
     return [
         "<div align=\"center\">",
         "",
@@ -708,11 +708,12 @@ def build_header(locale: str) -> list[str]:
 
 
 def build_quick_api(locale: str) -> list[str]:
-    key_url = utm_url(KEYS_BASE, "readme")
-    model_url = utm_url(MODEL_DETAIL_BASE, "readme")
-    npm_url = utm_url(NPM_PACKAGE_BASE, "readme")
+    key_url = utm_url(KEYS_BASE, "quickstart", "api_key")
+    model_url = utm_url(MODEL_DETAIL_BASE, "quickstart", "model_link")
+    npm_url = NPM_PACKAGE_BASE
     return [
-        f"## {tr(locale, 'api_h')}",
+        '<a id="quick-start"></a>',
+        f"## ⚡ {tr(locale, 'api_h')}",
         "",
         tr(locale, "api_1").format(key_url=key_url, model_url=model_url, npm_url=npm_url),
         "",
@@ -730,7 +731,7 @@ def build_quick_api(locale: str) -> list[str]:
 
 
 def build_menu(locale: str) -> list[str]:
-    lines = [f"## {tr(locale, 'menu')}", "", f"| {tr(locale, 'section')} | {tr(locale, 'cases')} |", "|---|---|"]
+    lines = [f"## 📑 {tr(locale, 'menu')}", "", f"| {tr(locale, 'section')} | {tr(locale, 'cases')} |", "|---|---|"]
     for index, category in enumerate(DATA["categories"]):
         case_list = ", ".join(f"{tr(locale, 'case')} {number}" for number in category["case_numbers"])
         lines.append(f"| [{localized_category_title(locale, category, index)}](#{category_anchor(category)}) | {case_list} |")
@@ -812,8 +813,8 @@ def build_case_details(locale: str) -> list[str]:
             ]
         )
         media = case.get("media") or {}
-        if media.get("type") == "video" and media.get("thumbnail_path") and media.get("path"):
-            video_url = utm_url(f"{PAGES_PLAYER_BASE}/case-{case['number']:02d}.html", "media")
+        if media.get("type") == "video" and media.get("thumbnail_path") and media.get("remote_url"):
+            video_url = media.get("remote_url") or utm_url(f"{PAGES_PLAYER_BASE}/case-{case['number']:02d}.html", "media", f"case_{case['number']:02d}_player")
             lines.extend(
                 [
                     f"[![{tr(locale, 'case')} {case['number']} video preview]({media['thumbnail_path']})]({video_url})",
@@ -841,11 +842,11 @@ def build_case_details(locale: str) -> list[str]:
 def build_readme(locale: str) -> str:
     meta = DATA["metadata"]
     categories = ", ".join(localized_category_title(locale, category, index) for index, category in enumerate(DATA["categories"]))
-    model_url = utm_url(MODEL_DETAIL_BASE, "readme")
+    model_url = utm_url(MODEL_DETAIL_BASE, "readme", "introduction_cta")
     lines = build_header(locale)
     lines.extend(
         [
-            f"## {tr(locale, 'intro_h')}",
+            f"## 🍌 {tr(locale, 'intro_h')}",
             "",
             tr(locale, "intro"),
             "",
@@ -855,7 +856,7 @@ def build_readme(locale: str) -> str:
             "",
             f"[{tr(locale, 'try')}]({model_url})",
             "",
-            f"## {tr(locale, 'overview')}",
+            f"## 📊 {tr(locale, 'overview')}",
             "",
             f"- **{tr(locale, 'overview_1').format(n=meta['selected_case_count'], sample=meta['accepted_count'])}**",
             f"- {tr(locale, 'overview_2').format(categories=categories)}",
@@ -879,7 +880,7 @@ def build_readme(locale: str) -> str:
     lines.extend(
         [
             "<a id=\"acknowledge\"></a>",
-            f"## {tr(locale, 'ack')}",
+            f"## 🙏 {tr(locale, 'ack')}",
             "",
             tr(locale, "ack_1"),
             "",
@@ -897,7 +898,7 @@ def build_player_page(case: dict) -> str:
     source_url = html.escape(case["source_url"], quote=True)
     author = html.escape(case["author"])
     author_url = html.escape(case["author_url"], quote=True)
-    video_src = html.escape(f"../../{media['path']}", quote=True)
+    video_src = html.escape(media["remote_url"], quote=True)
     poster_src = html.escape(f"../../{media['thumbnail_path']}", quote=True)
     return f"""<!doctype html>
 <html lang="en">
@@ -990,7 +991,7 @@ def build_player_pages() -> None:
         media = case.get("media") or {}
         if media.get("type") != "video":
             continue
-        if not media.get("path") or not media.get("thumbnail_path"):
+        if not media.get("remote_url") or not media.get("thumbnail_path"):
             continue
         path = player_dir / f"case-{case['number']:02d}.html"
         path.write_text(build_player_page(case), encoding="utf-8")

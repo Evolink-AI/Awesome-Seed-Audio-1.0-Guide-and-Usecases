@@ -1,6 +1,6 @@
 # Media Rights
 
-This repository is a curated Seed-Audio 1.0 usecase collection. It links to public creator and provider posts and stores selected preview media only to make the cases easier to inspect.
+This repository is a curated Seed-Audio 1.0 usecase collection. It links to public creator and provider posts and stores selected preview thumbnails only to make the cases easier to inspect. Case videos are hosted externally on R2 and linked from the README files.
 
 ## Repository Text
 
@@ -10,7 +10,7 @@ Repository-written README text, generated metadata, maintenance documentation, a
 
 Public posts, creator names, source links, thumbnails, videos, screenshots, and other media remain attributed to their original creators, source platforms, and rights holders.
 
-Media files under `media/cases/` are included as source-linked previews for commentary, research, and educational curation. They are not a blanket relicensing of the original creator's work.
+Thumbnail files under `media/cases/` and R2-hosted video links are included as source-linked previews for commentary, research, and educational curation. They are not a blanket relicensing of the original creator's work.
 
 ## Reuse Boundary
 

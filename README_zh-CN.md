@@ -1,11 +1,11 @@
 <div align="center">
 
-<a href="https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=banner&utm_campaign=awesome-seed-audio-1.0-usecases"><img src="images/en.png" alt="Seed-Audio 1.0 usecase repository banner" width="760"></a>
+<a href="https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=banner&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=readme_banner"><img src="images/en.png" alt="Seed-Audio 1.0 usecase repository banner" width="760"></a>
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](LICENSE)
-[![Try it on Evolink](https://img.shields.io/badge/Try_it_on-Evolink-black)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases)
-[![Website](https://img.shields.io/badge/Website-Live-orange)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases)
-[![Docs](https://img.shields.io/badge/Docs-Read-blue)](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Try it on Evolink](https://img.shields.io/badge/Try_it_on-Evolink-black)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=top_badge)
+[![Website](https://img.shields.io/badge/Website-Live-orange)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=top_badge)
+[![Docs](https://img.shields.io/badge/Docs-Read-blue)](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0?utm_source=github&utm_medium=docs&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=docs_link)
 
 [![English](https://img.shields.io/badge/English-111111)](README.md) [![Español](https://img.shields.io/badge/Espa%C3%B1ol-ffb703)](README_es.md) [![Português](https://img.shields.io/badge/Portugu%C3%AAs-2a9d8f)](README_pt.md) [![日本語](https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-52b788)](README_ja.md) [![한국어](https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-4ea8de)](README_ko.md) [![Deutsch](https://img.shields.io/badge/Deutsch-f4a261)](README_de.md) [![Français](https://img.shields.io/badge/Fran%C3%A7ais-e76f51)](README_fr.md) [![Türkçe](https://img.shields.io/badge/T%C3%BCrk%C3%A7e-d62828)](README_tr.md) [![繁體中文](https://img.shields.io/badge/%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87-8338ec)](README_zh-TW.md) [![简体中文](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-ef476f)](README_zh-CN.md) [![Русский](https://img.shields.io/badge/%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-577590)](README_ru.md)
 
@@ -13,7 +13,7 @@
 
 # Seed-Audio 1.0 使用案例：旁白、音频剧、参考声音与音频优先视频工作流
 
-## 介绍
+## 🍌 介绍
 
 欢迎来到 Seed-Audio 1.0 高信号使用案例仓库。
 
@@ -21,9 +21,9 @@
 
 本简体中文 README 保留公开来源链接、作者署名和锚点，同时翻译用户可见说明文字。
 
-[在 EvoLink 上试用 Seed-Audio 1.0](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
+[在 EvoLink 上试用 Seed-Audio 1.0](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=introduction_cta)
 
-## 概览
+## 📊 概览
 
 - **从近期 X/Twitter 样本中筛选出 11 个 Seed-Audio 1.0 使用案例，原始可用样本为 93 条。**
 - 覆盖方向：音频优先视频工作流, 音频剧与场景生成, 参考声音与角色配音探索, 工具与服务商集成, 社交旁白、拟音与成本测试。
@@ -36,12 +36,12 @@
 > [!NOTE]
 > 本仓库优先收录具体工作流证据，而不是纯宣传：演示、设置说明、服务商发布、上手评估和明确限制。
 
-[更新日志](docs/update-log.md) | [维护指南](docs/maintenance.md) | [案例标注审计](docs/case-label-audit.md) | [案例数据](data/use-cases.json) | [预设音色文档](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
+[更新日志](docs/update-log.md) | [维护指南](docs/maintenance.md) | [案例标注审计](docs/case-label-audit.md) | [案例数据](data/use-cases.json) | [预设音色文档](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices?utm_source=github&utm_medium=docs&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=voice_docs)
 
 <a id="quick-start"></a>
-## ⚡ Quick Start
+## ⚡ 快速开始
 
-先安装 Seed-Audio agent skill，然后到 [EvoLink Dashboard Keys](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) 获取 API key，并设置为 `EVOLINK_API_KEY`。
+先安装 Seed-Audio agent skill，然后到 [EvoLink Dashboard Keys](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=quickstart&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=api_key) 获取 API key，并设置为 `EVOLINK_API_KEY`。
 
 ```bash
 npm i evolink-seed-audio
@@ -49,11 +49,11 @@ npm i evolink-seed-audio
 export EVOLINK_API_KEY="your_api_key_here"
 ```
 
-skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-seed-audio?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)，用于 agent 和本地 skill 工作流。
+skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-seed-audio)，用于 agent 和本地 skill 工作流。
 
-模型详情和示例入口：[EvoLink 上的 Seed-Audio 1.0](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)。
+模型详情和示例入口：[EvoLink 上的 Seed-Audio 1.0](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=quickstart&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=model_link)。
 
-## 目录
+## 📑 目录
 
 | 章节 | 案例 |
 |---|---|
@@ -115,9 +115,9 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 - 实际流程：先生成完整多人对白和环境声底，再生成匹配人物轮廓与氛围的关键视觉图，最后把音频和视觉一起交给 Seedance 做最终运动画面。
 - 注意事项：这个来源能证明工作流和 prompt 结构有学习价值，但不能保证长场景里每个角色都永久稳定。正式生产前要专门测试说话人区分、节奏和转场。
 
-[![案例 1 video preview](media/cases/case-01.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![案例 1 video preview](media/cases/case-01.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-01.mp4)
 
-[打开视频播放页](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[打开视频播放页](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-01.mp4)
 
 类型: 教程 | 日期: 2026-06-26
 
@@ -131,9 +131,9 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 - 实际流程：先让 agent 读取视频情境并产出逐镜头音频计划，再生成背景声、环境声或音效，最后按每个片段核对声音是否跟画面动作对齐。
 - 注意事项：同作者后续说明部分 SFX 仍然没有准确匹配画面动作，所以它是评估案例，不是完整教程。它的价值在于教你如何测试，以及提醒多片段视频仍有错配风险。
 
-[![案例 2 video preview](media/cases/case-02.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![案例 2 video preview](media/cases/case-02.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-02.mp4)
 
-[打开视频播放页](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[打开视频播放页](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-02.mp4)
 
 类型: 评估 | 日期: 2026-06-25
 
@@ -147,9 +147,9 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 - 实际流程：先确定音频里的情绪弧线、旁白节奏和环境声，再创建匹配场景的图片，最后把两者共同作为参考，让视频模型同时获得时间和视觉方向。
 - 注意事项：这是官方式工作流模板，不是独立 benchmark。它适合作为起点，但仍需要单独检查 lip-sync、镜头节奏，以及视频是否真的跟随音频 cue。
 
-[![案例 3 video preview](media/cases/case-03.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![案例 3 video preview](media/cases/case-03.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-03.mp4)
 
-[打开视频播放页](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[打开视频播放页](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-03.mp4)
 
 类型: 教程 | 日期: 2026-06-27
 
@@ -163,9 +163,9 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 - 实际流程：把场景写成短剧本，控制每句表演指令不要太长，同时保留持续背景音，让模型既能跟随情绪，也能保持场景质感。
 - 注意事项：作者认为结果较好地跟随了 prompt，但长音频仍要检查一致性。生产内容最好把长场景拆成多个 beat，避免角色情绪或背景音乐中途漂移。
 
-[![案例 4 video preview](media/cases/case-04.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![案例 4 video preview](media/cases/case-04.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-04.mp4)
 
-[打开视频播放页](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[打开视频播放页](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-04.mp4)
 
 类型: 教程 | 日期: 2026-06-28
 
@@ -179,9 +179,9 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 - 实际流程：输入角色身份、解释对象、听众困惑点和语气要求；生成后重点检查讲话是否自然，以及解释是否准确。
 - 注意事项：这是演示案例，因为来源证明了场景级语言推理和自然表达，但没有提供完整生产流程。用于教育内容时必须复核事实正确性。
 
-[![案例 5 video preview](media/cases/case-05.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![案例 5 video preview](media/cases/case-05.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-05.mp4)
 
-[打开视频播放页](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[打开视频播放页](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-05.mp4)
 
 类型: 演示 | 日期: 2026-06-27
 
@@ -195,9 +195,9 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 - 实际流程：先生成一分钟左右的主持声音，挑选发音稳定的片段，按视频台词切分，再作为视频生成或 lip-sync 的声音参考。
 - 注意事项：作者明确记录了下游视频生成后声音会轻微变化，因此这个案例是工作流教程，不是声音身份稳定性的保证。最终片段仍需要后期校正。
 
-[![案例 6 video preview](media/cases/case-06.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![案例 6 video preview](media/cases/case-06.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-06.mp4)
 
-[打开视频播放页](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[打开视频播放页](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-06.mp4)
 
 类型: 教程 | 日期: 2026-06-27
 
@@ -211,9 +211,9 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 - 实际流程：从短旁白或配音请求开始，在 Claude 内调用 MCP 生成，再检查输出语言、声音身份和媒体工作流是否满足目标。
 - 注意事项：这是集成案例，不是质量评测。来源证明了可访问路径和产品入口，但不能独立证明 50 多种语言的配音质量都可靠。
 
-[![案例 7 video preview](media/cases/case-07.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![案例 7 video preview](media/cases/case-07.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-07.mp4)
 
-[打开视频播放页](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[打开视频播放页](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-07.mp4)
 
 类型: 集成 | 日期: 2026-06-27
 
@@ -227,9 +227,9 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 - 实际流程：分别用普通声线和高声线跑短片段，跟参考音频做对比；如果你还需要图像引导，要单独测，因为来源指出音频和图像 reference 不能合用。
 - 注意事项：这个案例的核心不是宣称 Seed-Audio 永远更好，而是把表现好和需要谨慎的地方都列出来，所以标注为评估。
 
-[![案例 8 video preview](media/cases/case-08.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![案例 8 video preview](media/cases/case-08.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-08.mp4)
 
-[打开视频播放页](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[打开视频播放页](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-08.mp4)
 
 类型: 评估 | 日期: 2026-06-26
 
@@ -243,9 +243,9 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 - 实际流程：选择有公开来源的文字故事，拆成旁白段落，生成声音，再搭配简单视觉、字幕或视频素材，最后观察这种格式能否重复生产。
 - 注意事项：这是演示案例，不等于版权或增长已经成立。正式使用时要处理授权和来源标注，也要用真实发布数据验证它是否能成为内容渠道。
 
-[![案例 9 video preview](media/cases/case-09.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![案例 9 video preview](media/cases/case-09.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-09.mp4)
 
-[打开视频播放页](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[打开视频播放页](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-09.mp4)
 
 类型: 演示 | 日期: 2026-06-29
 
@@ -273,14 +273,14 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 - 实际流程：先生成 10 到 15 秒短音频，对比它和视频模型原生音频的表现；只有当声音方向足够强时，再进入下游视频生成。
 - 注意事项：评论里补充了 reference voice conversion 可能失败，以及生成音频如何最好地进入 Seedance lip-sync 仍未解决。因此它是评估案例，不是完整最终管线。
 
-[![案例 11 video preview](media/cases/case-11.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![案例 11 video preview](media/cases/case-11.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-11.mp4)
 
-[打开视频播放页](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[打开视频播放页](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-11.mp4)
 
 类型: 评估 | 日期: 2026-06-25
 
 <a id="acknowledge"></a>
-## 致谢
+## 🙏 致谢
 
 本仓库在案例级别链接公开创作者和服务商内容。每个案例标题都会标注公开来源。
 

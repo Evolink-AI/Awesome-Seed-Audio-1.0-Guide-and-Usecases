@@ -1,11 +1,11 @@
 <div align="center">
 
-<a href="https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=banner&utm_campaign=awesome-seed-audio-1.0-usecases"><img src="images/en.png" alt="Seed-Audio 1.0 usecase repository banner" width="760"></a>
+<a href="https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=banner&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=readme_banner"><img src="images/en.png" alt="Seed-Audio 1.0 usecase repository banner" width="760"></a>
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](LICENSE)
-[![Try it on Evolink](https://img.shields.io/badge/Try_it_on-Evolink-black)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases)
-[![Website](https://img.shields.io/badge/Website-Live-orange)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases)
-[![Docs](https://img.shields.io/badge/Docs-Read-blue)](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Try it on Evolink](https://img.shields.io/badge/Try_it_on-Evolink-black)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=top_badge)
+[![Website](https://img.shields.io/badge/Website-Live-orange)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=top_badge)
+[![Docs](https://img.shields.io/badge/Docs-Read-blue)](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0?utm_source=github&utm_medium=docs&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=docs_link)
 
 [![English](https://img.shields.io/badge/English-111111)](README.md) [![Español](https://img.shields.io/badge/Espa%C3%B1ol-ffb703)](README_es.md) [![Português](https://img.shields.io/badge/Portugu%C3%AAs-2a9d8f)](README_pt.md) [![日本語](https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-52b788)](README_ja.md) [![한국어](https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-4ea8de)](README_ko.md) [![Deutsch](https://img.shields.io/badge/Deutsch-f4a261)](README_de.md) [![Français](https://img.shields.io/badge/Fran%C3%A7ais-e76f51)](README_fr.md) [![Türkçe](https://img.shields.io/badge/T%C3%BCrk%C3%A7e-d62828)](README_tr.md) [![繁體中文](https://img.shields.io/badge/%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87-8338ec)](README_zh-TW.md) [![简体中文](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-ef476f)](README_zh-CN.md) [![Русский](https://img.shields.io/badge/%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-577590)](README_ru.md)
 
@@ -13,7 +13,7 @@
 
 # Casos de uso de Seed-Audio 1.0: narración, audio drama, voces de referencia y video con audio primero
 
-## Introducción
+## 🍌 Introducción
 
 Repositorio de casos de uso de alta señal para Seed-Audio 1.0.
 
@@ -21,9 +21,9 @@ Repositorio de casos de uso de alta señal para Seed-Audio 1.0.
 
 Este README en español conserva enlaces de fuente, atribución y anclas, y traduce el texto visible para el lector.
 
-[Probar Seed-Audio 1.0 en EvoLink](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Probar Seed-Audio 1.0 en EvoLink](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=introduction_cta)
 
-## Resumen
+## 📊 Resumen
 
 - **Seleccionamos 11 casos de Seed-Audio 1.0 a partir de 93 publicaciones recientes aceptadas de X/Twitter.**
 - Cubre: Flujos de video con audio primero, Audio drama y generación de escenas, Voces de referencia y casting de personajes, Integraciones de herramientas y proveedores, Narración social, foley y pruebas de coste.
@@ -36,12 +36,12 @@ Este README en español conserva enlaces de fuente, atribución y anclas, y trad
 > [!NOTE]
 > La colección prioriza evidencia concreta sobre hype: demos, notas de configuración, lanzamientos de proveedores, evaluaciones prácticas y límites claros.
 
-[Registro de cambios](docs/update-log.md) | [Guía de mantenimiento](docs/maintenance.md) | [Datos de casos](data/use-cases.json) | [Documentación de voces predefinidas](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Registro de cambios](docs/update-log.md) | [Guía de mantenimiento](docs/maintenance.md) | [Datos de casos](data/use-cases.json) | [Documentación de voces predefinidas](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices?utm_source=github&utm_medium=docs&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=voice_docs)
 
 <a id="quick-start"></a>
-## ⚡ Quick Start
+## ⚡ Inicio rápido
 
-Instala el agent skill de Seed-Audio, obtén una API key en [EvoLink Dashboard Keys](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) y configúrala como `EVOLINK_API_KEY`.
+Instala el agent skill de Seed-Audio, obtén una API key en [EvoLink Dashboard Keys](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=quickstart&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=api_key) y configúrala como `EVOLINK_API_KEY`.
 
 ```bash
 npm i evolink-seed-audio
@@ -49,11 +49,11 @@ npm i evolink-seed-audio
 export EVOLINK_API_KEY="your_api_key_here"
 ```
 
-El paquete está publicado como [evolink-seed-audio](https://www.npmjs.com/package/evolink-seed-audio?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) para flujos de agent y skill local.
+El paquete está publicado como [evolink-seed-audio](https://www.npmjs.com/package/evolink-seed-audio) para flujos de agent y skill local.
 
-Detalles y ejemplos del modelo: [Seed-Audio 1.0 en EvoLink](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases).
+Detalles y ejemplos del modelo: [Seed-Audio 1.0 en EvoLink](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=quickstart&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=model_link).
 
-## Menú
+## 📑 Menú
 
 | Sección | Casos |
 |---|---|
@@ -115,9 +115,9 @@ Detalles y ejemplos del modelo: [Seed-Audio 1.0 en EvoLink](https://evolink.ai/s
 - Flujo práctico: Genere primero la cama sonora con todos los hablantes, cree después una imagen clave con siluetas y atmósfera coherentes, y entregue audio más contexto visual a Seedance para producir el movimiento final.
 - Precauciones: La evidencia valida el diseño del flujo y la estructura del prompt, pero no prueba separación perfecta de hablantes en escenas largas; pruebe identidad de personajes y timing antes de usarlo en diálogo de producción.
 
-[![Caso 1 video preview](media/cases/case-01.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Caso 1 video preview](media/cases/case-01.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-01.mp4)
 
-[Abrir página de reproducción de video](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Abrir página de reproducción de video](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-01.mp4)
 
 Tipo: Tutorial | Fecha: 2026-06-26
 
@@ -131,9 +131,9 @@ Tipo: Tutorial | Fecha: 2026-06-26
 - Flujo práctico: Entregue al agente el contexto del vídeo, pídale un plan de audio escena por escena, genere la banda sonora o los efectos, y compare el resultado por clip en lugar de juzgar todo el minuto como un bloque.
 - Precauciones: La misma fuente informa que algunos efectos aún no coinciden con la acción exacta en pantalla. Por eso es Evaluation y no Tutorial: enseña un método útil de prueba y conserva el riesgo de desajuste.
 
-[![Caso 2 video preview](media/cases/case-02.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Caso 2 video preview](media/cases/case-02.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-02.mp4)
 
-[Abrir página de reproducción de video](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Abrir página de reproducción de video](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-02.mp4)
 
 Tipo: Evaluación | Fecha: 2026-06-25
 
@@ -147,9 +147,9 @@ Tipo: Evaluación | Fecha: 2026-06-25
 - Flujo práctico: Defina primero el ritmo emocional en el prompt de audio, cree o elija una imagen que encaje con la escena, y luego entregue ambas referencias para que el modelo de vídeo tenga dirección temporal y visual.
 - Precauciones: Es un patrón oficial de flujo de trabajo, no un benchmark independiente. Sirve como receta inicial, pero aún debe probar lip-sync, cortes y seguimiento real de las señales de audio.
 
-[![Caso 3 video preview](media/cases/case-03.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Caso 3 video preview](media/cases/case-03.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-03.mp4)
 
-[Abrir página de reproducción de video](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Abrir página de reproducción de video](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-03.mp4)
 
 Tipo: Tutorial | Fecha: 2026-06-27
 
@@ -163,9 +163,9 @@ Tipo: Tutorial | Fecha: 2026-06-27
 - Flujo práctico: Redacte la escena como guion corto, limite cada dirección de línea a pocas palabras, mantenga un sonido de fondo persistente y escuche si el modelo sigue emoción y ritmo.
 - Precauciones: La fuente dice que el resultado siguió bien el prompt, pero la consistencia larga aún requiere revisión; para producción, divida escenas largas en beats más pequeños si derivan emoción o música.
 
-[![Caso 4 video preview](media/cases/case-04.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Caso 4 video preview](media/cases/case-04.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-04.mp4)
 
-[Abrir página de reproducción de video](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Abrir página de reproducción de video](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-04.mp4)
 
 Tipo: Tutorial | Fecha: 2026-06-28
 
@@ -179,9 +179,9 @@ Tipo: Tutorial | Fecha: 2026-06-28
 - Flujo práctico: Dé al modelo los roles, el concepto a explicar y la relación conversacional; luego evalúe si el habla suena natural y si la explicación sigue siendo correcta.
 - Precauciones: Es Demo porque muestra razonamiento lingüístico a nivel de escena y entrega natural, pero no ofrece un benchmark repetible. Verifique la exactitud factual si usa este patrón en educación.
 
-[![Caso 5 video preview](media/cases/case-05.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Caso 5 video preview](media/cases/case-05.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-05.mp4)
 
-[Abrir página de reproducción de video](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Abrir página de reproducción de video](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-05.mp4)
 
 Tipo: Demo | Fecha: 2026-06-27
 
@@ -195,9 +195,9 @@ Tipo: Demo | Fecha: 2026-06-27
 - Flujo práctico: Genere una muestra de voz larga y limpia, córtela en segmentos breves, use esos segmentos como referencias de vídeo y corrija cualquier deriva tras la pasada de vídeo.
 - Precauciones: El autor dice explícitamente que la voz cambia ligeramente cuando Seedance la convierte en vídeo. Ese caveat es central: es un Tutorial de construcción de flujo, no una garantía de identidad vocal estable.
 
-[![Caso 6 video preview](media/cases/case-06.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Caso 6 video preview](media/cases/case-06.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-06.mp4)
 
-[Abrir página de reproducción de video](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Abrir página de reproducción de video](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-06.mp4)
 
 Tipo: Tutorial | Fecha: 2026-06-27
 
@@ -211,9 +211,9 @@ Tipo: Tutorial | Fecha: 2026-06-27
 - Flujo práctico: Empiece con una petición corta de locución o voz multilingüe dentro de Claude, genere por la ruta MCP y revise si el resultado encaja con idioma, identidad de voz y flujo multimedia.
 - Precauciones: Es Integration, no una evaluación de calidad. La publicación prueba disponibilidad y superficie de trabajo, pero no verifica de forma independiente la calidad en los más de 50 idiomas.
 
-[![Caso 7 video preview](media/cases/case-07.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Caso 7 video preview](media/cases/case-07.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-07.mp4)
 
-[Abrir página de reproducción de video](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Abrir página de reproducción de video](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-07.mp4)
 
 Tipo: Integración | Fecha: 2026-06-27
 
@@ -227,9 +227,9 @@ Tipo: Integración | Fecha: 2026-06-27
 - Flujo práctico: Genere clips cortos con voces normales y agudas, compárelos con el audio de referencia y pruebe por separado flujos guiados por imagen, porque la fuente dice que audio e imagen no se combinan como referencia.
 - Precauciones: Es Evaluation porque su valor principal es mapear límites. La lección no es “Seed-Audio siempre es mejor”, sino dónde funciona bien y dónde aún necesita pruebas.
 
-[![Caso 8 video preview](media/cases/case-08.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Caso 8 video preview](media/cases/case-08.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-08.mp4)
 
-[Abrir página de reproducción de video](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Abrir página de reproducción de video](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-08.mp4)
 
 Tipo: Evaluación | Fecha: 2026-06-26
 
@@ -243,9 +243,9 @@ Tipo: Evaluación | Fecha: 2026-06-26
 - Flujo práctico: Elija una historia pública, adáptela en segmentos de narración, genere la voz, combínela con visuales simples o subtítulos y mida si el formato funciona como tubería repetible.
 - Precauciones: Es Demo, no una garantía de derechos ni de crecimiento. Aún necesita permiso o manejo correcto de la fuente, además de pruebas de audiencia antes de llamarlo canal escalable.
 
-[![Caso 9 video preview](media/cases/case-09.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Caso 9 video preview](media/cases/case-09.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-09.mp4)
 
-[Abrir página de reproducción de video](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Abrir página de reproducción de video](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-09.mp4)
 
 Tipo: Demo | Fecha: 2026-06-29
 
@@ -273,14 +273,14 @@ Tipo: Evaluación | Fecha: 2026-06-26
 - Flujo práctico: Genere primero pruebas de audio de 10 a 15 segundos, compárelas con el audio nativo del modelo de vídeo y pase a vídeo solo cuando la dirección sonora sea suficientemente fuerte.
 - Precauciones: Los comentarios añaden dudas abiertas sobre conversión de voz de referencia y uso de audio generado con lip-sync de Seedance. Sigue siendo Evaluation: valida un rol de prueba barato, no un flujo final completo.
 
-[![Caso 11 video preview](media/cases/case-11.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Caso 11 video preview](media/cases/case-11.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-11.mp4)
 
-[Abrir página de reproducción de video](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[Abrir página de reproducción de video](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-11.mp4)
 
 Tipo: Evaluación | Fecha: 2026-06-25
 
 <a id="acknowledge"></a>
-## Agradecimientos
+## 🙏 Agradecimientos
 
 Este repositorio enlaza publicaciones públicas de creadores y proveedores en cada caso. La fuente pública aparece en el encabezado del caso.
 

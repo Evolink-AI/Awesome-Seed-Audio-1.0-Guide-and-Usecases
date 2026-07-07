@@ -1,11 +1,11 @@
 <div align="center">
 
-<a href="https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=banner&utm_campaign=awesome-seed-audio-1.0-usecases"><img src="images/en.png" alt="Seed-Audio 1.0 usecase repository banner" width="760"></a>
+<a href="https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=banner&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=readme_banner"><img src="images/en.png" alt="Seed-Audio 1.0 usecase repository banner" width="760"></a>
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](LICENSE)
-[![Try it on Evolink](https://img.shields.io/badge/Try_it_on-Evolink-black)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases)
-[![Website](https://img.shields.io/badge/Website-Live-orange)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases)
-[![Docs](https://img.shields.io/badge/Docs-Read-blue)](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![Try it on Evolink](https://img.shields.io/badge/Try_it_on-Evolink-black)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=top_badge)
+[![Website](https://img.shields.io/badge/Website-Live-orange)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=top_badge)
+[![Docs](https://img.shields.io/badge/Docs-Read-blue)](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0?utm_source=github&utm_medium=docs&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=docs_link)
 
 [![English](https://img.shields.io/badge/English-111111)](README.md) [![Español](https://img.shields.io/badge/Espa%C3%B1ol-ffb703)](README_es.md) [![Português](https://img.shields.io/badge/Portugu%C3%AAs-2a9d8f)](README_pt.md) [![日本語](https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-52b788)](README_ja.md) [![한국어](https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-4ea8de)](README_ko.md) [![Deutsch](https://img.shields.io/badge/Deutsch-f4a261)](README_de.md) [![Français](https://img.shields.io/badge/Fran%C3%A7ais-e76f51)](README_fr.md) [![Türkçe](https://img.shields.io/badge/T%C3%BCrk%C3%A7e-d62828)](README_tr.md) [![繁體中文](https://img.shields.io/badge/%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87-8338ec)](README_zh-TW.md) [![简体中文](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-ef476f)](README_zh-CN.md) [![Русский](https://img.shields.io/badge/%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-577590)](README_ru.md)
 
@@ -13,7 +13,7 @@
 
 # Seed-Audio 1.0 ユースケース：ナレーション、音声ドラマ、参照音声、音声先行の動画制作
 
-## 紹介
+## 🍌 紹介
 
 Seed-Audio 1.0 の高シグナルなユースケース集です。
 
@@ -21,9 +21,9 @@ Seed-Audio 1.0 の高シグナルなユースケース集です。
 
 この日本語 README は公開ソースリンク、作者クレジット、アンカーを保持しつつ、ユーザー向け説明文を翻訳しています。
 
-[EvoLink で Seed-Audio 1.0 を試す](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
+[EvoLink で Seed-Audio 1.0 を試す](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=introduction_cta)
 
-## 概要
+## 📊 概要
 
 - **最近の X/Twitter サンプル 93 件から、Seed-Audio 1.0 のユースケース 11 件を選定しました。**
 - 対象領域：音声先行の動画ワークフロー, 音声ドラマとシーン生成, 参照音声とキャラクター音声探索, ツールとプロバイダー統合, SNS ナレーション、フォーリー、コスト検証。
@@ -36,12 +36,12 @@ Seed-Audio 1.0 の高シグナルなユースケース集です。
 > [!NOTE]
 > このコレクションは宣伝文句ではなく、デモ、設定メモ、プロバイダー公開、実使用評価、明示された制約などの具体的証拠を重視します。
 
-[更新ログ](docs/update-log.md) | [メンテナンスガイド](docs/maintenance.md) | [ケースラベル監査](docs/case-label-audit.md) | [ケースデータ](data/use-cases.json) | [プリセット音色ドキュメント](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)
+[更新ログ](docs/update-log.md) | [メンテナンスガイド](docs/maintenance.md) | [ケースラベル監査](docs/case-label-audit.md) | [ケースデータ](data/use-cases.json) | [プリセット音色ドキュメント](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0-voices?utm_source=github&utm_medium=docs&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=voice_docs)
 
 <a id="quick-start"></a>
-## ⚡ Quick Start
+## ⚡ クイックスタート
 
-Seed-Audio agent skill をインストールし、[EvoLink Dashboard Keys](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) で API key を取得して `EVOLINK_API_KEY` に設定します。
+Seed-Audio agent skill をインストールし、[EvoLink Dashboard Keys](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=quickstart&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=api_key) で API key を取得して `EVOLINK_API_KEY` に設定します。
 
 ```bash
 npm i evolink-seed-audio
@@ -49,11 +49,11 @@ npm i evolink-seed-audio
 export EVOLINK_API_KEY="your_api_key_here"
 ```
 
-パッケージは agent / ローカル skill ワークフロー向けに [evolink-seed-audio](https://www.npmjs.com/package/evolink-seed-audio?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases) として公開されています。
+パッケージは agent / ローカル skill ワークフロー向けに [evolink-seed-audio](https://www.npmjs.com/package/evolink-seed-audio) として公開されています。
 
-モデル詳細と例：[EvoLink の Seed-Audio 1.0](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=readme&utm_campaign=awesome-seed-audio-1.0-usecases)。
+モデル詳細と例：[EvoLink の Seed-Audio 1.0](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=quickstart&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=model_link)。
 
-## メニュー
+## 📑 メニュー
 
 | セクション | ケース |
 |---|---|
@@ -115,9 +115,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 実用ワークフロー: まず複数話者の音声ベッドを生成し、次に人物シルエットと雰囲気が合うキービジュアルを作り、最後に音声と視覚コンテキストを Seedance に渡します。
 - 注意点: この証拠は workflow 設計と prompt 構造を支えますが、長い場面で話者分離が常に完璧とは証明しません。本番会話に使う前に、人物識別とタイミングを検証してください。
 
-[![ケース 1 video preview](media/cases/case-01.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 1 video preview](media/cases/case-01.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-01.mp4)
 
-[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-01.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-01.mp4)
 
 タイプ: チュートリアル | 日付: 2026-06-26
 
@@ -131,9 +131,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 実用ワークフロー: 動画の文脈を agent に渡し、場面ごとの音声計画を作らせ、サウンドトラックや効果音を生成し、全体1分ではなく各クリップ単位で比較します。
 - 注意点: 同じソースは、一部の効果音が画面上の動作とまだ正確に合わないとも述べています。そのためこれは Tutorial ではなく Evaluation であり、有用なテスト方法と mismatch リスクを残しています。
 
-[![ケース 2 video preview](media/cases/case-02.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 2 video preview](media/cases/case-02.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-02.mp4)
 
-[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-02.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-02.mp4)
 
 タイプ: 評価 | 日付: 2026-06-25
 
@@ -147,9 +147,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 実用ワークフロー: まず音声 prompt で感情のリズムを決め、場面に合う画像を作成または選択し、時間方向と視覚方向を同時に動画モデルへ与えます。
 - 注意点: これは公式 workflow パターンであり、独立 benchmark ではありません。出発点として有用ですが、lip-sync、カットのタイミング、音声手掛かりへの追従は別途テストが必要です。
 
-[![ケース 3 video preview](media/cases/case-03.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 3 video preview](media/cases/case-03.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-03.mp4)
 
-[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-03.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-03.mp4)
 
 タイプ: チュートリアル | 日付: 2026-06-27
 
@@ -163,9 +163,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 実用ワークフロー: 場面を短い script として書き、各台詞の演技指示を数語に抑え、持続する背景音を入れ、モデルが感情とテンポの両方を追うか聞きます。
 - 注意点: 公開ソースは結果が prompt によく従ったと述べていますが、長尺の一貫性はまだ確認が必要です。本番では、感情や音楽がずれる場合に備えて長い場面を短い beat に分けてください。
 
-[![ケース 4 video preview](media/cases/case-04.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 4 video preview](media/cases/case-04.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-04.mp4)
 
-[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-04.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-04.mp4)
 
 タイプ: チュートリアル | 日付: 2026-06-28
 
@@ -179,9 +179,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 実用ワークフロー: 役割、説明すべき概念、会話関係をモデルに渡し、生成された発話が自然か、説明が正しいかを評価します。
 - 注意点: これは Demo です。場面レベルの言語推論と自然な delivery を示しますが、再現可能な benchmark ではありません。教育用途では事実確認が必要です。
 
-[![ケース 5 video preview](media/cases/case-05.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 5 video preview](media/cases/case-05.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-05.mp4)
 
-[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-05.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-05.mp4)
 
 タイプ: デモ | 日付: 2026-06-27
 
@@ -195,9 +195,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 実用ワークフロー: 長めでクリーンな音声サンプルを作り、短いセグメントに切り、動画参照として使い、動画生成後に生じた drift を編集で直します。
 - 注意点: 作者は Seedance で動画化すると声が少し変わると明言しています。これは中心的な caveat であり、workflow 構築の Tutorial であって、安定した声の同一性の保証ではありません。
 
-[![ケース 6 video preview](media/cases/case-06.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 6 video preview](media/cases/case-06.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-06.mp4)
 
-[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-06.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-06.mp4)
 
 タイプ: チュートリアル | 日付: 2026-06-27
 
@@ -211,9 +211,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 実用ワークフロー: Claude 内で短い voiceover や多言語音声の依頼を始め、MCP 経路で生成し、出力が対象言語、声の identity、メディア workflow に合うか確認します。
 - 注意点: これは Integration であり品質評価ではありません。投稿は利用可能性と workflow surface を示しますが、50以上の言語すべての品質を独立検証していません。
 
-[![ケース 7 video preview](media/cases/case-07.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 7 video preview](media/cases/case-07.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-07.mp4)
 
-[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-07.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-07.mp4)
 
 タイプ: 統合 | 日付: 2026-06-27
 
@@ -227,9 +227,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 実用ワークフロー: 通常声と高い声で短いクリップを作り、参照音声と比較し、画像誘導 workflow は別に試します。ソースは音声参照と画像参照を結合できないと述べています。
 - 注意点: これは Evaluation です。主な価値は制限マップであり、「Seed-Audio は常に優れる」ではなく、どこが強く、どこに追加テストが必要かを示します。
 
-[![ケース 8 video preview](media/cases/case-08.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 8 video preview](media/cases/case-08.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-08.mp4)
 
-[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-08.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-08.mp4)
 
 タイプ: 評価 | 日付: 2026-06-26
 
@@ -243,9 +243,9 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 実用ワークフロー: 公開テキストストーリーを選び、ナレーション用セグメントへ調整し、音声を生成し、簡単なビジュアルや字幕と組み合わせ、反復可能な pipeline になるか測ります。
 - 注意点: これは Demo であり、権利や成長の保証ではありません。ストーリー内容には許可または適切な source handling が必要で、scalable channel と呼ぶ前に audience test が必要です。
 
-[![ケース 9 video preview](media/cases/case-09.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 9 video preview](media/cases/case-09.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-09.mp4)
 
-[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-09.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-09.mp4)
 
 タイプ: デモ | 日付: 2026-06-29
 
@@ -273,14 +273,14 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 実用ワークフロー: まず10〜15秒の短い音声テストを生成し、動画モデルの native audio と比較し、音の方向性が十分強い場合だけ後続の動画生成へ進みます。
 - 注意点: コメントには reference voice conversion と、生成音声を Seedance lip-sync に使う際の未解決問題が残っています。これは低コストテストの役割を検証する Evaluation であり、完全な final workflow ではありません。
 
-[![ケース 11 video preview](media/cases/case-11.jpg)](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[![ケース 11 video preview](media/cases/case-11.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-11.mp4)
 
-[動画再生ページを開く](https://evolink-ai.github.io/Awesome-Seed-Audio-1.0-Guide-and-Usecases/docs/player/case-11.html?utm_source=github&utm_medium=media&utm_campaign=awesome-seed-audio-1.0-usecases)
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-11.mp4)
 
 タイプ: 評価 | 日付: 2026-06-25
 
 <a id="acknowledge"></a>
-## 謝辞
+## 🙏 謝辞
 
 このリポジトリはケース単位で公開クリエイターやプロバイダーの投稿へリンクしています。公開ソースは各ケース見出しで明記します。
 
