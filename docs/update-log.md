@@ -25,3 +25,13 @@
 - Rebuilt README thumbnail links so clicking a preview image opens the corresponding public R2 MP4 URL.
 - Removed local `media/cases/*.mp4` files from the git worktree and added an ignore rule to keep future MP4 downloads out of GitHub.
 - Kept local JPG thumbnails in `media/cases/` for README previews.
+
+## July 12, 2026
+
+- Ran the recurring exact-phrase `"seed audio"` search over a fixed 48-hour window.
+- Reviewed 14 in-window candidates: selected 1 high-confidence workflow, marked 3 unsure, and dropped 10 question-only, hype-only, duplicate, unrelated, or showcase-only posts.
+- Added Case 12: a Claude-to-Seed-Audio-to-Premiere workflow that separates music, sound effects, and voice passes before manual timing and fade control.
+- Uploaded the Case 12 source screenshot to the repository's locked Cloudflare R2 namespace and preserved the tracked local source image.
+- Updated English and all 10 localized README files while preserving source URL, author URL, case number, evidence type, date, and stable anchor parity.
+- Added `data/usecase-update-config.json` so recurring updates use the repository's localized case-heading prefixes and structured-data boundary.
+- Updated the generated Quick Start to include the verified `POST https://api.evolink.ai/v1/audios/generations` request and closed conversion-surface P0/P1 findings before publication.

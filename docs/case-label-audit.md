@@ -1,6 +1,6 @@
 # Case Label Audit
 
-Date: 2026-06-29
+Date: 2026-07-12
 
 This audit checks whether each public case is detailed enough to be useful and whether its `Type` label matches the linked source evidence.
 
@@ -30,6 +30,7 @@ This audit checks whether each public case is detailed enough to be useful and w
 | 9 | Demo | The source narrates a public AITA-style story and frames it as a repeatable social content engine. | Keep as Demo. It shows a content pattern, while rights and growth validation remain outside the source. |
 | 10 | Evaluation | The source tests image-guided character voice casting with three short lines and reports pitch/tone instability. | Keep as Evaluation. It defines an early casting use and an explicit production risk. |
 | 11 | Evaluation | The source compares Seed Audio against native Seedance audio for voice acting and foley, and mentions low-cost 15-second tests. | Keep as Evaluation. It supports a cheap pre-production testing role, but not a complete final workflow. |
+| 12 | Tutorial | The source gives a reusable sequence: Claude writes separate music-bed and SFX prompts, Seed Audio generates isolated passes, and Claude assembles them in Premiere for manual tuning. | Keep as Tutorial. The steps and isolation rationale are explicit, while the quality claim remains framed as the creator's production preference. |
 
 ## Removed
 
@@ -37,7 +38,7 @@ The previous WaveSpeedAI provider-access case was removed from the public set. I
 
 ## Result
 
-- Public cases: 11
-- Strong-evidence cases retained: 11
+- Public cases: 12
+- Strong-evidence cases retained: 12
 - Removed cases in this audit pass: 1
 - Type labels changed in this audit pass: Case 4 from Demo to Tutorial

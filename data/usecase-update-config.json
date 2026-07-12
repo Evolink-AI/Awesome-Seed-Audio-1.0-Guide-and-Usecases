@@ -1,0 +1,42 @@
+{
+  "public_artifact_boundary": {
+    "json": "public-tracked",
+    "scripts": "public-tracked"
+  },
+  "banner_policy": {
+    "mode": "shared-r2",
+    "source": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/images/en.png",
+    "width": 760,
+    "required_readmes": 11
+  },
+  "namespace": {
+    "heading_prefix": "Case",
+    "localized_heading_prefixes": {
+      "README_de.md": "Fall",
+      "README_es.md": "Caso",
+      "README_fr.md": "Cas",
+      "README_ja.md": "ケース",
+      "README_ko.md": "사례",
+      "README_pt.md": "Caso",
+      "README_ru.md": "Кейс",
+      "README_tr.md": "Vaka",
+      "README_zh-CN.md": "案例",
+      "README_zh-TW.md": "案例"
+    },
+    "anchor_prefix": "case",
+    "section_anchor": "",
+    "numbering_order": "document",
+    "menu_policy": "per-case",
+    "category_anchors": []
+  },
+  "requirements": {
+    "takeaway": true,
+    "localized_title_translation": true,
+    "localized_title_translation_exempt_numbers": []
+  },
+  "structured_data": {
+    "path": "data/use-cases.json",
+    "items_key": "cases",
+    "source_field": "source_url"
+  }
+}

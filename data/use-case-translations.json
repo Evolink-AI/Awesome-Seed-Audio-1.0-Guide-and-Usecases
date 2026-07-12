@@ -43,6 +43,10 @@
     "11": {
       "takeaway": "在投入下游视频生成前，把 Seed-Audio 作为声音表演和拟音的低成本测试层。",
       "notes": "- 证据来源：作者报告早期测试中，voice acting 和 foley 比 Seedance 2 原生音频更好，并提到 15 秒音频测试成本只有几美分。\n- 可复制做法：把 Seed-Audio 用作低成本预生产测试层，在投入视频生成前先验证声音表演、拟音和环境声方向是否值得继续。\n- 实际流程：先生成 10 到 15 秒短音频，对比它和视频模型原生音频的表现；只有当声音方向足够强时，再进入下游视频生成。\n- 注意事项：评论里补充了 reference voice conversion 可能失败，以及生成音频如何最好地进入 Seedance lip-sync 仍未解决。因此它是评估案例，不是完整最终管线。"
+    },
+    "12": {
+      "takeaway": "将音乐、音效和人声拆成独立生成，再让 Claude 把音频装配进 Premiere，同时保留对节奏与淡入淡出的手动控制。",
+      "notes": "- 证据来源：Matt Workman 说明，他让 Claude 根据剧本中途变化的情绪为音乐床编写 Seed Audio 提示，并挑选、生成关键音效。\n- 可复制做法：需要更精细地控制质量和混音时，不要让 Seed Audio 一次同时生成音乐、音效和人声，而是把它们拆成独立轨道。\n- 实际流程：把剧本交给 Claude，分别生成 Seed Audio 音乐与音效素材，再让 Claude 在 Premiere 中自动装配这些轨道，最后手动调整参数、时间点与淡入淡出。\n- 注意事项：来源表达的是作者对分轨生成质量更好的实践偏好，并非受控基准；应在自己的素材上把分轨方案与一次性混合生成进行对比。"
     }
   },
   "zh-TW": {
@@ -89,6 +93,10 @@
     "11": {
       "takeaway": "在投入影片生成前，把 Seed-Audio 1.0 作為聲音表演和擬音的低成本迭代層來評估。",
       "notes": "- 證據來源：作者回報早期測試中，voice acting 和 foley 比 Seedance 2 原生 audio 更好，並說 15 秒音訊測試只花幾美分。\n- 可複製做法：把 Seed-Audio 當成便宜的前期測試層，在投入影片生成前先驗證聲音表演、擬音或環境聲是否能撐起想法。\n- 實際流程：先做 10 到 15 秒短音訊測試，和影片模型原生音訊比較，只有當聲音方向足夠好時再進入後續影片生成。\n- 注意事項：評論中仍有參考聲轉換和把生成音訊用於 Seedance lip-sync 的未解問題；這仍是 Evaluation，驗證的是低成本測試角色，不是完整最終流程。"
+    },
+    "12": {
+      "takeaway": "將音樂、音效和人聲拆成獨立生成，再讓 Claude 把音訊組裝進 Premiere，同時保留對節奏與淡入淡出的手動控制。",
+      "notes": "- 證據來源：Matt Workman 說明，他讓 Claude 依照劇本中途變化的情緒為音樂底軌撰寫 Seed Audio 提示，並挑選、生成關鍵音效。\n- 可複製做法：需要更細緻地控制品質和混音時，不要讓 Seed Audio 一次同時生成音樂、音效和人聲，而是把它們拆成獨立軌道。\n- 實際流程：把劇本交給 Claude，分別生成 Seed Audio 音樂與音效素材，再讓 Claude 在 Premiere 中自動組裝這些軌道，最後手動調整參數、時間點與淡入淡出。\n- 注意事項：來源表達的是作者對分軌生成品質更好的實務偏好，並非受控基準；應在自己的素材上比較分軌方案與一次性混合生成。"
     }
   },
   "es": {
@@ -135,6 +143,10 @@
     "11": {
       "takeaway": "Evalúe Seed-Audio 1.0 como una capa de iteración de bajo costo para actuación de voz y foley antes de comprometerse con la generación de video.",
       "notes": "- Evidencia de la fuente: El autor informa pruebas tempranas donde la actuación de voz y el foley se sintieron mejores que el audio nativo de Seedance 2, y dice que una prueba de audio de 15 segundos costó solo unos centavos.\n- Qué copiar: Use Seed-Audio como una capa barata de preproducción antes de invertir en vídeo final, especialmente cuando actuación de voz, foley o ambiente determinan si la idea funciona.\n- Flujo práctico: Genere primero pruebas de audio de 10 a 15 segundos, compárelas con el audio nativo del modelo de vídeo y pase a vídeo solo cuando la dirección sonora sea suficientemente fuerte.\n- Precauciones: Los comentarios añaden dudas abiertas sobre conversión de voz de referencia y uso de audio generado con lip-sync de Seedance. Sigue siendo Evaluation: valida un rol de prueba barato, no un flujo final completo."
+    },
+    "12": {
+      "takeaway": "Separe música, efectos y voz en pases distintos, y deje que Claude monte el audio en Premiere sin perder el control manual del tiempo y los fundidos.",
+      "notes": "- Evidencia de la fuente: Matt Workman explica que usa Claude para redactar prompts de Seed Audio para una base musical que sigue los cambios emocionales del guion y para elegir y generar efectos clave.\n- Qué copiar: Genere música, efectos y voz en pases separados en vez de pedir a Seed Audio que los produzca juntos cuando necesite más control de calidad y mezcla.\n- Flujo práctico: Entregue el guion a Claude, genere por separado los recursos de Seed Audio, deje que Claude monte la música y los efectos en Premiere y ajuste después parámetros, tiempos y fundidos a mano.\n- Precauciones: La fuente comunica una preferencia práctica por la mayor calidad de los pases aislados, no un benchmark controlado; compárelos con una generación conjunta usando su propio material."
     }
   },
   "pt": {
@@ -181,6 +193,10 @@
     "11": {
       "takeaway": "Avalie o Seed-Audio 1.0 como uma camada de iteração de baixo custo para dublagem e foley antes de se comprometer com a geração de vídeo.",
       "notes": "- Evidência da fonte: O autor relata testes iniciais em que atuação de voz e foley pareceram melhores que o áudio nativo do Seedance 2, e diz que um teste de áudio de 15 segundos custou apenas alguns centavos.\n- O que copiar: Use o Seed-Audio como uma camada barata de pré-produção antes de investir em vídeo final, especialmente quando atuação de voz, foley ou ambiência determinam se a ideia funciona.\n- Fluxo prático: Gere primeiro testes de áudio de 10 a 15 segundos, compare com o áudio nativo do modelo de vídeo e avance para vídeo apenas quando a direção sonora for forte o suficiente.\n- Cuidados: Comentários ainda levantam dúvidas sobre conversão de voz de referência e uso do áudio gerado com lip-sync no Seedance. Continua sendo Evaluation: valida um papel de teste barato, não um fluxo final completo."
+    },
+    "12": {
+      "takeaway": "Separe música, efeitos e voz em passagens distintas e deixe o Claude montar o áudio no Premiere, mantendo controle manual de tempo e fades.",
+      "notes": "- Evidência da fonte: Matt Workman descreve o uso do Claude para escrever prompts do Seed Audio para uma base musical que acompanha mudanças emocionais no meio da cena e para escolher e gerar efeitos importantes.\n- O que copiar: Gere música, efeitos e voz separadamente, em vez de pedir ao Seed Audio que produza tudo junto, quando precisar de maior controle de qualidade e mixagem.\n- Fluxo prático: Entregue o roteiro ao Claude, gere os recursos do Seed Audio em passagens separadas, deixe o Claude montar a base e os efeitos no Premiere e depois ajuste parâmetros, tempo e fades manualmente.\n- Cuidados: A fonte relata uma preferência prática por melhor qualidade em passagens isoladas, não um benchmark controlado; compare esse método com uma geração conjunta no seu próprio material."
     }
   },
   "ja": {
@@ -227,6 +243,10 @@
     "11": {
       "takeaway": "ビデオ生成に取り組む前に、音声演技とフォーリー用の低コストの反復レイヤーとして Seed-Audio 1.0 を評価します。",
       "notes": "- ソース証拠: 作者は初期テストで voice acting と foley が Seedance 2 native audio より良く感じられたと報告し、15秒の audio test は数セントだけだったと述べています。\n- コピーすること: Seed-Audio を安価な pre-production test レイヤーとして使います。特に声の演技、foley、ambience がアイデアの成否を左右する場面で有効です。\n- 実用ワークフロー: まず10〜15秒の短い音声テストを生成し、動画モデルの native audio と比較し、音の方向性が十分強い場合だけ後続の動画生成へ進みます。\n- 注意点: コメントには reference voice conversion と、生成音声を Seedance lip-sync に使う際の未解決問題が残っています。これは低コストテストの役割を検証する Evaluation であり、完全な final workflow ではありません。"
+    },
+    "12": {
+      "takeaway": "音楽、効果音、音声を別々に生成し、Claude に Premiere 上で組み立てさせながら、タイミングとフェードを手動で調整できる状態を保ちます。",
+      "notes": "- ソース証拠: Matt Workman は、シーン途中の感情変化に合わせた音楽ベッド用 Seed Audio prompt を Claude に作らせ、重要な効果音も選定・生成させる方法を説明しています。\n- コピーすること: 品質とミックスを細かく制御したい場合は、音楽、効果音、音声を一度に生成せず、Seed Audio の処理を別パスに分けます。\n- 実用ワークフロー: Claude に脚本を渡し、Seed Audio の音楽素材と効果音素材を個別に生成し、Premiere に自動配置させた後、設定、タイミング、フェードを手動で調整します。\n- 注意点: ソースが示すのは分離生成の方が高品質だという作者の実務上の好みであり、統制された benchmark ではありません。自分の素材で一括生成と比較してください。"
     }
   },
   "ko": {
@@ -273,6 +293,10 @@
     "11": {
       "takeaway": "비디오 생성을 시작하기 전에 성우 및 폴리를 위한 저비용 반복 레이어로 Seed-Audio 1.0을 평가해 보세요.",
       "notes": "- 출처 근거: 작성자는 초기 테스트에서 voice acting과 foley가 native Seedance 2 audio보다 더 낫게 느껴졌다고 보고하며, 15초 오디오 테스트 비용이 몇 센트에 불과했다고 말한다.\n- 복사할 점: Seed-Audio를 최종 영상 생성 전에 저렴한 pre-production test 레이어로 사용한다. 특히 voice acting, foley, ambience가 아이디어의 성패를 결정하는 장면에 적합하다.\n- 실제 워크플로: 먼저 10~15초짜리 짧은 오디오 테스트를 만들고, 비디오 모델의 native audio와 비교한 뒤, 소리 방향이 충분히 강할 때만 후속 영상 생성으로 넘어간다.\n- 주의점: 댓글에는 reference voice conversion과 생성 오디오를 Seedance lip-sync에 사용하는 문제들이 남아 있다. 이는 완성 workflow가 아니라 낮은 비용의 테스트 역할을 검증하는 Evaluation이다."
+    },
+    "12": {
+      "takeaway": "음악, 효과음, 음성을 별도 패스로 생성한 뒤 Claude가 Premiere에서 조립하게 하고 타이밍과 페이드는 수동으로 제어하세요.",
+      "notes": "- 출처 근거: Matt Workman은 장면 중간의 감정 변화에 맞는 음악 베드용 Seed Audio prompt를 Claude가 작성하고 핵심 효과음을 고르고 생성하게 하는 방식을 설명합니다.\n- 복사할 점: 품질과 믹싱을 더 세밀하게 제어하려면 Seed Audio에 음악, 효과음, 음성을 한 번에 생성하도록 하지 말고 별도 패스로 나눕니다.\n- 실제 워크플로: Claude에 스크립트를 제공하고 Seed Audio 음악과 효과음 자산을 따로 생성한 다음 Premiere에 자동 배치하게 하고 설정, 타이밍, 페이드를 수동으로 조정합니다.\n- 주의점: 출처는 분리 패스의 품질이 더 좋다는 제작자의 실무적 선호를 말할 뿐 통제된 benchmark는 아닙니다. 자신의 소재로 통합 생성과 비교해야 합니다."
     }
   },
   "de": {
@@ -319,6 +343,10 @@
     "11": {
       "takeaway": "Evaluieren Sie Seed-Audio 1.0 als kostengünstige Iterationsschicht für Sprachausgabe und Geräusche, bevor Sie sich auf die Videogenerierung festlegen.",
       "notes": "- Quellenbeleg: Der Autor berichtet frühe Tests, bei denen Voice Acting und Foley besser wirkten als natives Seedance-2-Audio, und nennt für einen 15-Sekunden-Audiotest nur wenige Cent Kosten.\n- Was zu übernehmen ist: Nutzen Sie Seed-Audio als günstige Vorproduktionsebene, bevor Sie in finale Videogenerierung gehen, besonders wenn Stimme, Foley oder Atmosphäre über die Idee entscheiden.\n- Praktischer Workflow: Erzeugen Sie zuerst 10- bis 15-sekündige Audiotests, vergleichen Sie diese mit nativem Videomodell-Audio und gehen Sie erst weiter zum Video, wenn die Klangrichtung stark genug ist.\n- Worauf zu achten ist: Kommentare lassen Fragen zu Referenzstimmen-Konvertierung und Seedance-Lip-sync mit generiertem Audio offen. Es bleibt Evaluation: ein günstiger Testschritt, kein vollständiger Final-Workflow."
+    },
+    "12": {
+      "takeaway": "Trennen Sie Musik, Soundeffekte und Stimme in eigene Durchläufe und lassen Sie Claude das Audio in Premiere montieren, während Timing und Fades manuell steuerbar bleiben.",
+      "notes": "- Quellenbeleg: Matt Workman beschreibt, wie Claude Seed-Audio-Prompts für ein Musikbett erstellt, das emotionalen Wechseln mitten in der Szene folgt, und wichtige Soundeffekte auswählt und generiert.\n- Was zu übernehmen ist: Erzeugen Sie Musik, Effekte und Stimme getrennt, statt Seed Audio alles gleichzeitig ausgeben zu lassen, wenn Sie mehr Kontrolle über Qualität und Mischung brauchen.\n- Praktischer Workflow: Geben Sie Claude das Skript, erzeugen Sie die Seed-Audio-Musik- und Effektdateien getrennt, lassen Sie Claude sie in Premiere montieren und passen Sie anschließend Einstellungen, Timing und Fades manuell an.\n- Worauf zu achten ist: Die Quelle beschreibt eine praktische Qualitätspräferenz für getrennte Durchläufe, keinen kontrollierten Benchmark. Vergleichen Sie den Ansatz mit einer kombinierten Generierung auf eigenem Material."
     }
   },
   "fr": {
@@ -365,6 +393,10 @@
     "11": {
       "takeaway": "Évaluez Seed-Audio 1.0 en tant que couche d'itération à faible coût pour le doublage et le bruitage avant de vous engager dans la génération vidéo.",
       "notes": "- Preuve source : L'auteur rapporte des tests précoces où le jeu vocal et le foley semblaient meilleurs que l'audio natif de Seedance 2, et indique qu'un test audio de 15 secondes ne coûtait que quelques centimes.\n- À reprendre : Utilisez Seed-Audio comme couche de préproduction peu coûteuse avant d'investir dans la vidéo finale, surtout quand jeu vocal, foley ou ambiance déterminent si l'idée fonctionne.\n- Flux de travail pratique : Générez d'abord des tests audio de 10 à 15 secondes, comparez-les à l'audio natif du modèle vidéo, puis passez à la vidéo seulement si la direction sonore est assez forte.\n- Points de vigilance : Les commentaires laissent ouvertes des questions sur la conversion de voix de référence et l'utilisation d'audio généré avec le lip-sync Seedance. Cela reste une Evaluation : un rôle de test peu coûteux, pas un workflow final complet."
+    },
+    "12": {
+      "takeaway": "Séparez musique, effets et voix en passes distinctes, puis laissez Claude assembler l'audio dans Premiere tout en gardant le contrôle manuel du timing et des fondus.",
+      "notes": "- Preuve source : Matt Workman explique qu'il utilise Claude pour rédiger des prompts Seed Audio destinés à un lit musical qui suit les changements émotionnels au milieu de la scène, puis pour choisir et générer les effets clés.\n- À reprendre : Générez musique, effets et voix séparément au lieu de demander à Seed Audio de tout produire en une passe lorsque vous avez besoin de mieux contrôler la qualité et le mixage.\n- Flux de travail pratique : Confiez le scénario à Claude, générez séparément les ressources Seed Audio, laissez Claude assembler la musique et les effets dans Premiere, puis réglez manuellement les paramètres, le timing et les fondus.\n- Points de vigilance : La source exprime une préférence de production pour la qualité des passes isolées, pas un benchmark contrôlé ; comparez cette méthode à une génération combinée sur vos propres médias."
     }
   },
   "tr": {
@@ -411,6 +443,10 @@
     "11": {
       "takeaway": "Seed-Audio 1.0'u video oluşturmaya başlamadan önce seslendirme ve foley için düşük maliyetli bir yineleme katmanı olarak değerlendirin.",
       "notes": "- Kaynak kanıtı: Yazar erken testlerde voice acting ve foley'nin yerel Seedance 2 audio'dan daha iyi hissettirdiğini, 15 saniyelik ses testinin ise sadece birkaç cent tuttuğunu söylüyor.\n- Kopyalanacak yöntem: Seed-Audio'yu final video üretimine zaman harcamadan önce ucuz ön prodüksiyon test katmanı olarak kullanın; özellikle ses oyunculuğu, foley veya ambiyans fikrin çalışıp çalışmadığını belirliyorsa.\n- Pratik iş akışı: Önce 10-15 saniyelik kısa ses testleri üretin, video modelinin yerel sesiyle karşılaştırın ve ancak ses yönü yeterince güçlüyse sonraki video aşamasına geçin.\n- Dikkat noktaları: Yorumlar referans ses dönüşümü ve üretilen sesi Seedance lip-sync ile kullanma konusunda açık sorunlar ekliyor. Bu hâlâ Evaluation: düşük maliyetli test rolünü doğrular, tam final pipeline değil."
+    },
+    "12": {
+      "takeaway": "Müzik, efekt ve sesi ayrı geçişlerde üretin; Claude'un bunları Premiere'de birleştirmesini sağlarken zamanlama ve fade ayarlarını elle kontrol edin.",
+      "notes": "- Kaynak kanıtı: Matt Workman, sahne ortasındaki duygu değişimlerini izleyen müzik yatağı için Claude'a Seed Audio promptları yazdırdığını ve önemli efektleri seçip ürettirdiğini anlatıyor.\n- Kopyalanacak yöntem: Kalite ve miks üzerinde daha fazla kontrol istediğinizde Seed Audio'dan müzik, efekt ve sesi tek seferde üretmesini istemek yerine ayrı geçişler kullanın.\n- Pratik iş akışı: Senaryoyu Claude'a verin, Seed Audio müzik ve efekt varlıklarını ayrı üretin, Claude'un bunları Premiere'e yerleştirmesini sağlayın ve ardından ayarları, zamanlamayı ve fade'leri elle düzenleyin.\n- Dikkat noktaları: Kaynak, ayrılmış geçişlerin daha kaliteli olduğuna dair bir üretim tercihi bildiriyor; kontrollü benchmark sunmuyor. Kendi materyalinizde birleşik üretimle karşılaştırın."
     }
   },
   "ru": {
@@ -457,6 +493,10 @@
     "11": {
       "takeaway": "Оцените Seed-Audio 1.0 как недорогой итерационный слой для озвучки и фоли, прежде чем переходить к созданию видео.",
       "notes": "- Доказательство источника: Автор сообщает ранние тесты, где voice acting и foley воспринимались лучше, чем native Seedance 2 audio, и говорит, что 15-секундный audio test стоил всего несколько центов.\n- Что можно перенять: Используйте Seed-Audio как дешевый слой pre-production test перед финальной видеогенерацией, особенно когда voice acting, foley или ambience определяют жизнеспособность идеи.\n- Практический workflow: Сначала генерируйте короткие 10-15-секундные аудиотесты, сравнивайте с native video-model audio и переходите к видео только когда звуковое направление достаточно сильное.\n- На что обратить внимание: Комментарии добавляют нерешенные вопросы о reference voice conversion и использовании generated audio с Seedance lip-sync. Это остается Evaluation: роль дешевого теста, не полный final pipeline."
+    },
+    "12": {
+      "takeaway": "Генерируйте музыку, эффекты и голос отдельными проходами, а затем поручите Claude собрать их в Premiere, сохранив ручной контроль тайминга и затуханий.",
+      "notes": "- Доказательство источника: Matt Workman описывает, как Claude пишет prompts для Seed Audio, чтобы музыкальная подложка следовала смене эмоций внутри сцены, а также выбирает и генерирует ключевые звуковые эффекты.\n- Что можно перенять: Генерируйте музыку, эффекты и голос отдельно, а не просите Seed Audio создать все за один проход, если нужен более точный контроль качества и микса.\n- Практический workflow: Передайте Claude сценарий, отдельно создайте музыкальные и звуковые ресурсы Seed Audio, поручите Claude собрать их в Premiere, а затем вручную настройте параметры, тайминг и затухания.\n- На что обратить внимание: Источник сообщает практическое предпочтение автора в пользу качества раздельных проходов, а не контролируемый benchmark. Сравните этот подход с общей генерацией на собственном материале."
     }
   }
 }

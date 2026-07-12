@@ -225,9 +225,6 @@ MIN_NON_ASCII_LETTER_RATIO = {
 }
 
 VALID_TYPES = {"Demo", "Tutorial", "Evaluation", "Integration", "Benchmark", "Limit"}
-EXPECTED_ACCEPTED_COUNT = 93
-EXPECTED_SELECTED_COUNT = 11
-EXPECTED_REVIEW_QUEUE_COUNT = 20
 PUBLIC_FILES_TO_SCAN = [
     "README.md",
     "data/source-index.json",
@@ -280,7 +277,9 @@ def tracked_files() -> list[str]:
 def main() -> int:
     errors: list[str] = []
     selected_source_urls: set[str] = set()
-    expected_case_count = EXPECTED_SELECTED_COUNT
+    use_cases_path = ROOT / "data/use-cases.json"
+    use_cases_payload = json.loads(use_cases_path.read_text(encoding="utf-8")) if use_cases_path.is_file() else {}
+    expected_case_count = int((use_cases_payload.get("metadata") or {}).get("selected_case_count") or 0)
     expected_media_paths: list[str] = []
 
     for rel in REQUIRED_FILES:
@@ -359,20 +358,19 @@ def main() -> int:
                 if placeholder in text:
                     errors.append(f"{rel} contains unreplaced placeholder: {placeholder}")
 
-    use_cases_path = ROOT / "data/use-cases.json"
     case_numbers: list[int] = []
     if use_cases_path.exists():
-        payload = json.loads(use_cases_path.read_text(encoding="utf-8"))
+        payload = use_cases_payload
         metadata = payload.get("metadata") or {}
         cases = payload.get("cases") or []
         categories = payload.get("categories") or []
         readme_text = read_text("README.md") if (ROOT / "README.md").exists() else ""
-        if metadata.get("accepted_count") != EXPECTED_ACCEPTED_COUNT:
-            errors.append(f"use-cases metadata expected accepted_count={EXPECTED_ACCEPTED_COUNT}")
+        if not isinstance(metadata.get("accepted_count"), int) or metadata.get("accepted_count") < expected_case_count:
+            errors.append("use-cases metadata accepted_count must be an integer at least as large as selected_case_count")
         if metadata.get("selected_case_count") != expected_case_count:
             errors.append(f"use-cases metadata expected selected_case_count={expected_case_count}")
-        if metadata.get("review_queue_count") != EXPECTED_REVIEW_QUEUE_COUNT:
-            errors.append(f"use-cases metadata expected review_queue_count={EXPECTED_REVIEW_QUEUE_COUNT}")
+        if not isinstance(metadata.get("review_queue_count"), int) or metadata.get("review_queue_count") < expected_case_count:
+            errors.append("use-cases metadata review_queue_count must be an integer at least as large as selected_case_count")
         if metadata.get("selection_policy") != EXPECTED_SELECTION_POLICY:
             errors.append("use-cases metadata expected public strong-evidence selection policy")
         if len(cases) != expected_case_count:
@@ -429,22 +427,28 @@ def main() -> int:
                     elif local_media.stat().st_size < 1024:
                         errors.append(f"case {case.get('number')} media file too small: {media_path}")
                     if media_type == "image":
-                        expected_media_paths.append(media_path)
-                    if media_type == "image" and media_path not in readme_text:
-                        errors.append(f"README.md missing media path for case {case.get('number')}: {media_path}")
+                        image_ref = remote_url or media_path
+                        expected_media_paths.append(image_ref)
+                        if remote_url and not str(remote_url).startswith("https://"):
+                            errors.append(f"case {case.get('number')} invalid image remote_url: {remote_url}")
+                        if image_ref not in readme_text:
+                            errors.append(f"README.md missing media reference for case {case.get('number')}: {image_ref}")
                 if media_type == "video":
                     thumb_path = media.get("thumbnail_path")
+                    poster_url = media.get("poster_url")
                     if not thumb_path:
                         errors.append(f"case {case.get('number')} missing video thumbnail_path")
                     else:
                         local_thumb = ROOT / thumb_path
-                        expected_media_paths.append(thumb_path)
+                        expected_media_paths.append(poster_url or thumb_path)
                         if not local_thumb.is_file():
                             errors.append(f"case {case.get('number')} missing video thumbnail file: {thumb_path}")
                         elif local_thumb.stat().st_size < 1024:
                             errors.append(f"case {case.get('number')} video thumbnail too small: {thumb_path}")
-                        if thumb_path not in readme_text:
-                            errors.append(f"README.md missing media thumbnail for case {case.get('number')}: {thumb_path}")
+                        if not str(poster_url or "").startswith("https://"):
+                            errors.append(f"case {case.get('number')} missing valid R2 poster_url")
+                        if (poster_url or thumb_path) not in readme_text:
+                            errors.append(f"README.md missing media poster for case {case.get('number')}: {poster_url or thumb_path}")
                     if media_path:
                         media_page_url = utm_url(f"{REPO_MEDIA_PAGE_BASE}/{media_path}", "media")
                         if media_page_url in readme_text:
@@ -458,7 +462,7 @@ def main() -> int:
                         if not expected_video_src:
                             errors.append(f"case {case.get('number')} missing video remote_url")
                             expected_video_src = ""
-                        expected_poster_src = f"../../{thumb_path}" if thumb_path else ""
+                        expected_poster_src = poster_url or (f"../../{thumb_path}" if thumb_path else "")
                         if "<video controls" not in player_text:
                             errors.append(f"case {case.get('number')} player page missing video controls")
                         if expected_video_src not in player_text:
@@ -574,20 +578,19 @@ def main() -> int:
             errors.append("source index missing public-seed-audio-search-2026-06-29")
         else:
             row = search_rows[0]
-            if row.get("accepted_count") != EXPECTED_ACCEPTED_COUNT:
-                errors.append(f"source index expected accepted_count={EXPECTED_ACCEPTED_COUNT}")
-            if row.get("review_queue_count") != EXPECTED_REVIEW_QUEUE_COUNT:
-                errors.append(f"source index expected review_queue_count={EXPECTED_REVIEW_QUEUE_COUNT}")
-            if row.get("selected_case_count") != expected_case_count:
-                errors.append(f"source index expected selected_case_count={expected_case_count}")
+            historical_selected = row.get("selected_case_count")
+            if not isinstance(row.get("accepted_count"), int) or not isinstance(historical_selected, int) or row.get("accepted_count") < historical_selected:
+                errors.append("source index historical accepted_count must be at least its selected_case_count")
+            if not isinstance(row.get("review_queue_count"), int) or row.get("review_queue_count") < historical_selected:
+                errors.append("source index historical review_queue_count must be at least its selected_case_count")
             if row.get("selection_policy") != EXPECTED_SELECTION_POLICY:
                 errors.append("source index expected public strong-evidence selection policy")
             if "data/voice-list.json" not in row.get("outputs", []):
                 errors.append("source index missing data/voice-list.json output")
             if "media/cases/" not in row.get("outputs", []):
                 errors.append("source index missing media/cases/ output")
-            if row.get("media_download_count") != expected_case_count:
-                errors.append(f"source index expected media_download_count={expected_case_count}")
+            if row.get("media_download_count") != historical_selected:
+                errors.append("source index historical media_download_count must match its selected_case_count")
             forbidden_keys = ["media_download_manifest", "source_audit"]
             for key in forbidden_keys:
                 if key in row:
@@ -602,7 +605,7 @@ def main() -> int:
         for number in range(1, expected_case_count + 1):
             if f"| {number} |" not in audit_text:
                 errors.append(f"case-label-audit missing case {number}")
-        for snippet in ["Changed from Demo to Tutorial", "previous WaveSpeedAI provider-access case was removed", "Public cases: 11"]:
+        for snippet in ["Changed from Demo to Tutorial", "previous WaveSpeedAI provider-access case was removed", f"Public cases: {expected_case_count}"]:
             if snippet not in audit_text:
                 errors.append(f"case-label-audit missing snippet: {snippet}")
 
@@ -616,7 +619,7 @@ def main() -> int:
     print(f"root={ROOT}")
     print("localized_readmes=11")
     print(f"case_count={expected_case_count}")
-    print(f"x_search_sample_count={EXPECTED_ACCEPTED_COUNT}")
+    print(f"x_search_sample_count={(use_cases_payload.get('metadata') or {}).get('accepted_count', 0)}")
     print("public_release_clean=true")
     return 0
 

@@ -20,6 +20,8 @@ CAMPAIGN = "awesome-seed-audio-1.0-usecases"
 MODEL_DETAIL_BASE = "https://evolink.ai/seed-audio-1-0"
 KEYS_BASE = "https://evolink.ai/dashboard/keys"
 NPM_PACKAGE_BASE = "https://www.npmjs.com/package/evolink-seed-audio"
+API_ENDPOINT = "https://api.evolink.ai/v1/audios/generations"
+BANNER_R2_URL = "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/images/en.png"
 REPO_OWNER = "Evolink-AI"
 REPO_NAME = "Awesome-Seed-Audio-1.0-Guide-and-Usecases"
 REPO_MEDIA_PAGE_BASE = f"https://github.com/{REPO_OWNER}/{REPO_NAME}/blob/main"
@@ -522,6 +524,20 @@ VOICE_DOC_LABELS = {
     "ru": "Документация предустановленных голосов",
 }
 
+RELATED_COPY = {
+    "en": ("Related Repositories", "No separate public Seed-Audio repository is currently verified. The maintained supporting skill surface is", "evolink-seed-audio on npm"),
+    "es": ("Repositorios relacionados", "Actualmente no hay otro repositorio público de Seed-Audio verificado. La superficie de skill mantenida es", "evolink-seed-audio en npm"),
+    "pt": ("Repositórios relacionados", "Nenhum outro repositório público do Seed-Audio está verificado no momento. A superfície de skill mantida é", "evolink-seed-audio no npm"),
+    "ja": ("関連リポジトリ", "現在、別の公開 Seed-Audio リポジトリは検証されていません。保守されている skill の入口は", "npm の evolink-seed-audio"),
+    "ko": ("관련 저장소", "현재 별도의 공개 Seed-Audio 저장소는 검증되지 않았습니다. 유지 관리되는 skill 경로는", "npm의 evolink-seed-audio"),
+    "de": ("Verwandte Repositories", "Derzeit ist kein separates öffentliches Seed-Audio-Repository verifiziert. Die gepflegte Skill-Oberfläche ist", "evolink-seed-audio auf npm"),
+    "fr": ("Dépôts associés", "Aucun autre dépôt public Seed-Audio n'est actuellement vérifié. La surface de skill maintenue est", "evolink-seed-audio sur npm"),
+    "tr": ("İlgili depolar", "Şu anda doğrulanmış ayrı bir açık Seed-Audio deposu yoktur. Bakımı yapılan skill yüzeyi", "npm üzerindeki evolink-seed-audio"),
+    "zh-TW": ("相關儲存庫", "目前沒有已驗證的其他公開 Seed-Audio 儲存庫。持續維護的 skill 入口是", "npm 上的 evolink-seed-audio"),
+    "zh-CN": ("相关仓库", "目前没有已验证的其他公开 Seed-Audio 仓库。持续维护的 skill 入口是", "npm 上的 evolink-seed-audio"),
+    "ru": ("Связанные репозитории", "Отдельный публичный репозиторий Seed-Audio сейчас не подтвержден. Поддерживаемая поверхность skill —", "evolink-seed-audio в npm"),
+}
+
 for locale, label in VOICE_DOC_LABELS.items():
     UI[locale]["links"] = f"{UI[locale]['links']} | [{label}]({utm_url(VOICE_DOCS_URL, 'docs', 'voice_docs')})"
 
@@ -594,7 +610,10 @@ def localized_case_title(locale: str, case: dict) -> str:
 
 
 def localized_type(locale: str, case_type: str) -> str:
-    return TYPE_LABELS.get(locale, {}).get(case_type, case_type)
+    # Type is a stable public enum used by the recurring-update verifier.
+    # Translate the visible label (Type/Typ/类型), but preserve the enum value
+    # across every README so localized files remain machine-comparable.
+    return case_type
 
 
 def localized_takeaway(locale: str, case: dict) -> str:
@@ -686,16 +705,15 @@ def category_anchor(category: dict) -> str:
 def build_header(locale: str) -> list[str]:
     lang_badges = " ".join(badge(item["label"], item["color"], item["file"]) for item in LOCALES.values())
     banner_url = utm_url(MODEL_DETAIL_BASE, "banner", "readme_banner")
-    badge_url = utm_url(MODEL_DETAIL_BASE, "badge", "top_badge")
+    badge_url = utm_url(MODEL_DETAIL_BASE, "badge", "model_try")
     docs_url = utm_url("https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0", "docs", "docs_link")
     return [
         "<div align=\"center\">",
         "",
-        f"<a href=\"{banner_url}\"><img src=\"images/en.png\" alt=\"Seed-Audio 1.0 usecase repository banner\" width=\"760\"></a>",
+        f"<a href=\"{banner_url}\"><img src=\"{BANNER_R2_URL}\" alt=\"Seed-Audio 1.0 usecase repository banner\" width=\"760\"></a>",
         "",
         "[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](LICENSE)",
         f"[![Try it on Evolink](https://img.shields.io/badge/Try_it_on-Evolink-black)]({badge_url})",
-        f"[![Website](https://img.shields.io/badge/Website-Live-orange)]({badge_url})",
         f"[![Docs](https://img.shields.io/badge/Docs-Read-blue)]({docs_url})",
         "",
         lang_badges,
@@ -711,21 +729,29 @@ def build_quick_api(locale: str) -> list[str]:
     key_url = utm_url(KEYS_BASE, "quickstart", "api_key")
     model_url = utm_url(MODEL_DETAIL_BASE, "quickstart", "model_link")
     npm_url = NPM_PACKAGE_BASE
+    api_intro = tr(locale, "api_1").format(key_url=key_url, model_url=model_url, npm_url=npm_url)
+    api_intro = api_intro.replace("EvoLink Dashboard Keys", "Get API Key")
     return [
         '<a id="quick-start"></a>',
         f"## ⚡ {tr(locale, 'api_h')}",
         "",
-        tr(locale, "api_1").format(key_url=key_url, model_url=model_url, npm_url=npm_url),
+        api_intro,
         "",
         "```bash",
         "npm i evolink-seed-audio",
         "",
         "export EVOLINK_API_KEY=\"your_api_key_here\"",
+        "",
+        "curl --request POST \\",
+        f"  --url {API_ENDPOINT} \\",
+        "  --header \"Authorization: Bearer ${EVOLINK_API_KEY}\" \\",
+        "  --header 'Content-Type: application/json' \\",
+        "  --data '{\"model\":\"doubao-seed-audio-1-0\",\"prompt\":\"Welcome to the audio generation service.\",\"format\":\"mp3\"}'",
         "```",
         "",
-        tr(locale, "api_2").format(key_url=key_url, model_url=model_url, npm_url=npm_url),
+        f"Endpoint: `POST {API_ENDPOINT}`",
         "",
-        tr(locale, "api_3").format(key_url=key_url, model_url=model_url, npm_url=npm_url),
+        tr(locale, "api_2").format(key_url=key_url, model_url=model_url, npm_url=npm_url),
         "",
     ]
 
@@ -815,24 +841,28 @@ def build_case_details(locale: str) -> list[str]:
         media = case.get("media") or {}
         if media.get("type") == "video" and media.get("thumbnail_path") and media.get("remote_url"):
             video_url = media.get("remote_url") or utm_url(f"{PAGES_PLAYER_BASE}/case-{case['number']:02d}.html", "media", f"case_{case['number']:02d}_player")
+            poster_url = media.get("poster_url") or media.get("thumbnail_path")
             lines.extend(
                 [
-                    f"[![{tr(locale, 'case')} {case['number']} video preview]({media['thumbnail_path']})]({video_url})",
+                    f"[![{tr(locale, 'case')} {case['number']} video preview]({poster_url})]({video_url})",
                     "",
                     f"[{tr(locale, 'open_video')}]({video_url})",
                     "",
                 ]
             )
-        elif media.get("type") == "image" and media.get("path"):
+        elif media.get("type") == "image" and (media.get("remote_url") or media.get("path")):
+            image_url = media.get("remote_url") or media.get("path")
             lines.extend(
                 [
-                    f"![{tr(locale, 'case')} {case['number']} media]({media['path']})",
+                    f"![{tr(locale, 'case')} {case['number']} media]({image_url})",
                     "",
                 ]
             )
         lines.extend(
             [
                 f"{tr(locale, 'type')}: {localized_type(locale, case['type'])} | {tr(locale, 'date')}: {case['date']}",
+                "",
+                "---",
                 "",
             ]
         )
@@ -877,14 +907,24 @@ def build_readme(locale: str) -> str:
     lines.extend(build_menu(locale))
     lines.extend(build_category_tables(locale))
     lines.extend(build_case_details(locale))
+    related_heading, related_intro, related_label = RELATED_COPY[locale]
+    creators = " ".join(f"[@{case['author']}]({case['author_url']})" for case in DATA["cases"])
     lines.extend(
         [
+            f"## {related_heading}",
+            "",
+            f"{related_intro} {related_label}.",
+            "",
             "<a id=\"acknowledge\"></a>",
             f"## 🙏 {tr(locale, 'ack')}",
             "",
             tr(locale, "ack_1"),
             "",
-            tr(locale, "ack_2"),
+            creators,
+            "",
+            f"*{tr(locale, 'ack_2')}*",
+            "",
+            f"[![Star History Chart](https://api.star-history.com/svg?repos={REPO_OWNER}/{REPO_NAME}&type=Date)](https://www.star-history.com/#{REPO_OWNER}/{REPO_NAME}&Date)",
             "",
         ]
     )
@@ -899,7 +939,7 @@ def build_player_page(case: dict) -> str:
     author = html.escape(case["author"])
     author_url = html.escape(case["author_url"], quote=True)
     video_src = html.escape(media["remote_url"], quote=True)
-    poster_src = html.escape(f"../../{media['thumbnail_path']}", quote=True)
+    poster_src = html.escape(media.get("poster_url") or f"../../{media['thumbnail_path']}", quote=True)
     return f"""<!doctype html>
 <html lang="en">
 <head>

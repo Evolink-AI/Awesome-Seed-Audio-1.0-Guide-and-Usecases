@@ -45,20 +45,34 @@ Exclude:
 9. Re-run `python3 scripts/validate_repo.py`.
 10. Confirm generated public links use the canonical repository owner `Evolink-AI`.
 
+## Recurring Update Contract
+
+The scheduled update runs every two days at 10:00 Asia/Shanghai and searches X with the exact phrase `"seed audio"` over the preceding 48 hours.
+
+- Add no more than 10 high-confidence use cases per run; quality takes priority over filling the cap.
+- Preserve unsure candidates in local review evidence and drop unsupported, duplicate, or irrelevant candidates.
+- Run the handoff verifier, README/data validator, localization parity check, R2 origin check, template audit, repository review, conversion-surface audit, and public-link audit before publication.
+- Push only when all P0/P1 findings are zero. A clean verified no-op is valid when no candidate qualifies.
+- A run is complete only after the published commit and GitHub Actions result are read back from GitHub.
+
+See [Recurring Update Contract](recurring-update-contract.md) for the full public contract.
+
 ## Quick Start
 
-The repository includes an EvoLink-only Quick Start section in every README. The section should use the Seed-Audio agent skill package rather than a raw API curl snippet:
+The repository includes an EvoLink-only Quick Start section in every README. It keeps both the published Seed-Audio package path and a minimal official API request:
 
 - Install: `npm i evolink-seed-audio`
 - API key: `https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=quickstart&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=api_key`
 - Model page: `https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=quickstart&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=model_link`
 - NPM package: `https://www.npmjs.com/package/evolink-seed-audio`
+- Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
+- Model: `doubao-seed-audio-1-0`
 
 Do not replace this section with non-EvoLink provider snippets. All generated external jump links should include GitHub UTM parameters.
 
 ## Video Playback
 
-Video thumbnails in README files should link directly to the public R2-hosted MP4 URL recorded in `data/use-cases.json` as `media.remote_url`.
+Video posters in README files must render from the public R2 URL recorded as `media.poster_url` and link directly to the R2-hosted MP4 URL recorded as `media.remote_url`. Image cases must render from `media.remote_url`.
 
 The repository keeps local preview thumbnails under `media/cases/`, but it does not keep MP4 files in git. R2 video URLs use the public R2 domain plus this object-key prefix: `github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/`.
 
@@ -78,7 +92,7 @@ Description:
 
 Website:
 
-> https://evolink.ai/seed-audio-1-0
+> https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=about&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=website
 
 Topics:
 

@@ -1,10 +1,9 @@
 <div align="center">
 
-<a href="https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=banner&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=readme_banner"><img src="images/en.png" alt="Seed-Audio 1.0 usecase repository banner" width="760"></a>
+<a href="https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=banner&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=readme_banner"><img src="https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/images/en.png" alt="Seed-Audio 1.0 usecase repository banner" width="760"></a>
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](LICENSE)
-[![Try it on Evolink](https://img.shields.io/badge/Try_it_on-Evolink-black)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=top_badge)
-[![Website](https://img.shields.io/badge/Website-Live-orange)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=top_badge)
+[![Try it on Evolink](https://img.shields.io/badge/Try_it_on-Evolink-black)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=model_try)
 [![Docs](https://img.shields.io/badge/Docs-Read-blue)](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0?utm_source=github&utm_medium=docs&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=docs_link)
 
 [![English](https://img.shields.io/badge/English-111111)](README.md) [![Español](https://img.shields.io/badge/Espa%C3%B1ol-ffb703)](README_es.md) [![Português](https://img.shields.io/badge/Portugu%C3%AAs-2a9d8f)](README_pt.md) [![日本語](https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-52b788)](README_ja.md) [![한국어](https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-4ea8de)](README_ko.md) [![Deutsch](https://img.shields.io/badge/Deutsch-f4a261)](README_de.md) [![Français](https://img.shields.io/badge/Fran%C3%A7ais-e76f51)](README_fr.md) [![Türkçe](https://img.shields.io/badge/T%C3%BCrk%C3%A7e-d62828)](README_tr.md) [![繁體中文](https://img.shields.io/badge/%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87-8338ec)](README_zh-TW.md) [![简体中文](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-ef476f)](README_zh-CN.md) [![Русский](https://img.shields.io/badge/%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-577590)](README_ru.md)
@@ -25,7 +24,7 @@
 
 ## 📊 Обзор
 
-- **Из 93 принятых недавних публикаций X/Twitter выбрано 11 кейсов Seed-Audio 1.0.**
+- **Из 94 принятых недавних публикаций X/Twitter выбрано 12 кейсов Seed-Audio 1.0.**
 - Охват: Видео-процессы от аудио, Аудиодрама и генерация сцен, Референсные голоса и подбор голоса персонажа, Интеграции инструментов и провайдеров, Социальная озвучка, foley и тесты стоимости.
 - Каждый кейс содержит исходный источник, атрибуцию автора, вывод по применению, тип доказательства и дату публикации.
 - Используйте репозиторий, чтобы находить реальные рабочие процессы, сравнивать сильные стороны и ограничения, находить маршруты провайдеров и переходить к реализации через EvoLink.
@@ -41,23 +40,29 @@
 <a id="quick-start"></a>
 ## ⚡ Быстрый старт
 
-Установите agent skill Seed-Audio, получите API key в [EvoLink Dashboard Keys](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=quickstart&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=api_key) и задайте `EVOLINK_API_KEY`.
+Установите agent skill Seed-Audio, получите API key в [Get API Key](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=quickstart&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=api_key) и задайте `EVOLINK_API_KEY`.
 
 ```bash
 npm i evolink-seed-audio
 
 export EVOLINK_API_KEY="your_api_key_here"
+
+curl --request POST \
+  --url https://api.evolink.ai/v1/audios/generations \
+  --header "Authorization: Bearer ${EVOLINK_API_KEY}" \
+  --header 'Content-Type: application/json' \
+  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}'
 ```
 
-Пакет опубликован как [evolink-seed-audio](https://www.npmjs.com/package/evolink-seed-audio) для agent и локальных skill workflow.
+Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
-Детали модели и примеры: [Seed-Audio 1.0 на EvoLink](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=quickstart&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=model_link).
+Пакет опубликован как [evolink-seed-audio](https://www.npmjs.com/package/evolink-seed-audio) для agent и локальных skill workflow.
 
 ## 📑 Меню
 
 | Раздел | Кейсы |
 |---|---|
-| [Видео-процессы от аудио](#audio-first-video) | Кейс 1, Кейс 2, Кейс 3 |
+| [Видео-процессы от аудио](#audio-first-video) | Кейс 1, Кейс 2, Кейс 3, Кейс 12 |
 | [Аудиодрама и генерация сцен](#audio-drama-scene-generation) | Кейс 4, Кейс 5 |
 | [Референсные голоса и подбор голоса персонажа](#voice-reference-character-casting) | Кейс 6, Кейс 8, Кейс 10 |
 | [Интеграции инструментов и провайдеров](#tool-provider-integrations) | Кейс 7 |
@@ -69,41 +74,42 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 | Кейс | Что показывает | Тип |
 |---|---|---|
-| [Кейс 1: Аудио с шестью голосами для управления видео Seedance](#case-1) | Создайте рабочий процесс с приоритетом аудио, в котором диалоги нескольких говорящих и фоновые эффекты определяют последующую генерацию видео. | Руководство |
-| [Кейс 2: Аудиопланирование для многофрагментной истории](#case-2) | Проверьте, может ли Seed-Audio 1.0 уменьшить проблемы с синхронизацией и согласованностью в видеосюжетах, состоящих из нескольких клипов. | Оценка |
-| [Кейс 3: Audio-first рабочий процесс Seedance](#case-3) | Структурируйте трехэтапный рабочий процесс: сгенерируйте аудио, создайте ключевой визуальный элемент, а затем используйте оба в качестве эталонов Seedance. | Руководство |
+| [Кейс 1: Аудио с шестью голосами для управления видео Seedance](#case-1) | Создайте рабочий процесс с приоритетом аудио, в котором диалоги нескольких говорящих и фоновые эффекты определяют последующую генерацию видео. | Tutorial |
+| [Кейс 2: Аудиопланирование для многофрагментной истории](#case-2) | Проверьте, может ли Seed-Audio 1.0 уменьшить проблемы с синхронизацией и согласованностью в видеосюжетах, состоящих из нескольких клипов. | Evaluation |
+| [Кейс 3: Audio-first рабочий процесс Seedance](#case-3) | Структурируйте трехэтапный рабочий процесс: сгенерируйте аудио, создайте ключевой визуальный элемент, а затем используйте оба в качестве эталонов Seedance. | Tutorial |
+| [Кейс 12: Сборка музыки и эффектов в Premiere через Claude](#case-12) | Генерируйте музыку, эффекты и голос отдельными проходами, а затем поручите Claude собрать их в Premiere, сохранив ручной контроль тайминга и затуханий. | Tutorial |
 
 <a id="audio-drama-scene-generation"></a>
 ## Аудиодрама и генерация сцен
 
 | Кейс | Что показывает | Тип |
 |---|---|---|
-| [Кейс 4: Двухминутный диалог с атмосферой](#case-4) | Оцените Seed-Audio 1.0 для компактных звуковых драматических сцен с несколькими голосами, атмосферой и фоновой музыкой. | Руководство |
-| [Кейс 5: Сценический диалог с музейным гидом](#case-5) | Протестируйте языковое мышление на уровне сцены, где Seed-Audio генерирует диалоги, подачу и отдельные голоса персонажей. | Демо |
+| [Кейс 4: Двухминутный диалог с атмосферой](#case-4) | Оцените Seed-Audio 1.0 для компактных звуковых драматических сцен с несколькими голосами, атмосферой и фоновой музыкой. | Tutorial |
+| [Кейс 5: Сценический диалог с музейным гидом](#case-5) | Протестируйте языковое мышление на уровне сцены, где Seed-Audio генерирует диалоги, подачу и отдельные голоса персонажей. | Demo |
 
 <a id="voice-reference-character-casting"></a>
 ## Референсные голоса и подбор голоса персонажа
 
 | Кейс | Что показывает | Тип |
 |---|---|---|
-| [Кейс 6: MC-процесс с референсным голосом](#case-6) | Оцените эталонные голосовые рабочие процессы для повторяющегося MC или повествования в сериале перед созданием последующего видео. | Руководство |
-| [Кейс 8: Качество референсного аудио и ограничение высоких голосов](#case-8) | Оценить японскую речь, следование эмоциям, точность эталонного звука и риск высокого синтетического звука. | Оценка |
-| [Кейс 10: Подбор голоса персонажа по изображению](#case-10) | Оценивайте звук эталонного изображения как раннюю озвучку персонажа, а не как окончательную голосовую блокировку. | Оценка |
+| [Кейс 6: MC-процесс с референсным голосом](#case-6) | Оцените эталонные голосовые рабочие процессы для повторяющегося MC или повествования в сериале перед созданием последующего видео. | Tutorial |
+| [Кейс 8: Качество референсного аудио и ограничение высоких голосов](#case-8) | Оценить японскую речь, следование эмоциям, точность эталонного звука и риск высокого синтетического звука. | Evaluation |
+| [Кейс 10: Подбор голоса персонажа по изображению](#case-10) | Оценивайте звук эталонного изображения как раннюю озвучку персонажа, а не как окончательную голосовую блокировку. | Evaluation |
 
 <a id="tool-provider-integrations"></a>
 ## Интеграции инструментов и провайдеров
 
 | Кейс | Что показывает | Тип |
 |---|---|---|
-| [Кейс 7: Интеграция озвучки и дубляжа в Claude MCP](#case-7) | Оцените Seed-Audio 1.0 как часть собственного творческого рабочего пространства помощника для озвучивания, клонирования голоса и дублирования. | Интеграция |
+| [Кейс 7: Интеграция озвучки и дубляжа в Claude MCP](#case-7) | Оцените Seed-Audio 1.0 как часть собственного творческого рабочего пространства помощника для озвучивания, клонирования голоса и дублирования. | Integration |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## Социальная озвучка, foley и тесты стоимости
 
 | Кейс | Что показывает | Тип |
 |---|---|---|
-| [Кейс 9: Движок озвучки социальных историй](#case-9) | Протестируйте форматы повествования социальных историй, в которых текстовые сообщения становятся аудиоразвлечением. | Демо |
-| [Кейс 11: Недорогой тест озвучки и foley](#case-11) | Оцените Seed-Audio 1.0 как недорогой итерационный слой для озвучки и фоли, прежде чем переходить к созданию видео. | Оценка |
+| [Кейс 9: Движок озвучки социальных историй](#case-9) | Протестируйте форматы повествования социальных историй, в которых текстовые сообщения становятся аудиоразвлечением. | Demo |
+| [Кейс 11: Недорогой тест озвучки и foley](#case-11) | Оцените Seed-Audio 1.0 как недорогой итерационный слой для озвучки и фоли, прежде чем переходить к созданию видео. | Evaluation |
 
 <a id="case-1"></a>
 ### Кейс 1: [Аудио с шестью голосами для управления видео Seedance](https://x.com/gokayfem/status/2070429287950188547) (автор [@gokayfem](https://x.com/gokayfem))
@@ -115,11 +121,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - Практический workflow: Сначала сгенерируйте полный аудиослой с несколькими говорящими, затем создайте ключевой визуал с подходящими силуэтами и настроением, после чего передайте аудио и визуальный контекст в Seedance.
 - На что обратить внимание: Доказательство подтверждает структуру workflow и prompt, но не гарантирует идеальное разделение голосов в длинных сценах; перед продакшеном проверьте идентичность персонажей и тайминг.
 
-[![Кейс 1 video preview](media/cases/case-01.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-01.mp4)
+[![Кейс 1 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-01.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-01.mp4)
 
 [Открыть страницу воспроизведения видео](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-01.mp4)
 
-Тип: Руководство | Дата: 2026-06-26
+Тип: Tutorial | Дата: 2026-06-26
+
+---
 
 <a id="case-2"></a>
 ### Кейс 2: [Аудиопланирование для многофрагментной истории](https://x.com/gavinpurcell/status/2070246132341727506) (автор [@gavinpurcell](https://x.com/gavinpurcell))
@@ -131,11 +139,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - Практический workflow: Передайте агенту контекст видео, попросите план аудио по сценам, сгенерируйте саундтрек или эффекты и сравнивайте результат по каждому клипу, а не по всей минуте сразу.
 - На что обратить внимание: В той же source сказано, что часть эффектов все еще не совпадает с точным действием на экране. Поэтому это Evaluation, а не Tutorial: полезный метод теста плюс сохраненный риск mismatch.
 
-[![Кейс 2 video preview](media/cases/case-02.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-02.mp4)
+[![Кейс 2 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-02.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-02.mp4)
 
 [Открыть страницу воспроизведения видео](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-02.mp4)
 
-Тип: Оценка | Дата: 2026-06-25
+Тип: Evaluation | Дата: 2026-06-25
+
+---
 
 <a id="case-3"></a>
 ### Кейс 3: [Audio-first рабочий процесс Seedance](https://x.com/EvoLinkAi/status/2070722722217578562) (автор [@EvoLinkAi](https://x.com/EvoLinkAi))
@@ -147,11 +157,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - Практический workflow: Сначала задайте эмоциональный ритм в audio prompt, затем создайте или выберите подходящее изображение и передайте обе reference, чтобы модель видео получила и временное, и визуальное направление.
 - На что обратить внимание: Это официальный workflow pattern, а не независимый benchmark. Он полезен как стартовый рецепт, но lip-sync, монтажный ритм и следование аудиосигналам все равно нужно проверять.
 
-[![Кейс 3 video preview](media/cases/case-03.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-03.mp4)
+[![Кейс 3 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-03.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-03.mp4)
 
 [Открыть страницу воспроизведения видео](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-03.mp4)
 
-Тип: Руководство | Дата: 2026-06-27
+Тип: Tutorial | Дата: 2026-06-27
+
+---
 
 <a id="case-4"></a>
 ### Кейс 4: [Двухминутный диалог с атмосферой](https://x.com/tarumainfo/status/2071255504907891186) (автор [@tarumainfo](https://x.com/tarumainfo))
@@ -163,11 +175,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - Практический workflow: Напишите сцену как короткий script, ограничьте указания к репликам несколькими словами, сохраните постоянный фон и слушайте, следует ли модель эмоции и темпу.
 - На что обратить внимание: Source говорит, что результат хорошо следовал prompt, но долгосрочная консистентность требует проверки; для продакшена делите длинные сцены на меньшие beats, если эмоция или музыка начинают плыть.
 
-[![Кейс 4 video preview](media/cases/case-04.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-04.mp4)
+[![Кейс 4 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-04.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-04.mp4)
 
 [Открыть страницу воспроизведения видео](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-04.mp4)
 
-Тип: Руководство | Дата: 2026-06-28
+Тип: Tutorial | Дата: 2026-06-28
+
+---
 
 <a id="case-5"></a>
 ### Кейс 5: [Сценический диалог с музейным гидом](https://x.com/TomLikesRobots/status/2070923534449119424) (автор [@TomLikesRobots](https://x.com/TomLikesRobots))
@@ -179,11 +193,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - Практический workflow: Дайте модели роли, объясняемую концепцию и отношение между собеседниками; затем оцените естественность речи и фактическую корректность объяснения.
 - На что обратить внимание: Это Demo: оно показывает сценовое языковое рассуждение и естественную подачу, но не дает повторяемый benchmark. Для образования проверяйте факты отдельно.
 
-[![Кейс 5 video preview](media/cases/case-05.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-05.mp4)
+[![Кейс 5 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-05.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-05.mp4)
 
 [Открыть страницу воспроизведения видео](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-05.mp4)
 
-Тип: Демо | Дата: 2026-06-27
+Тип: Demo | Дата: 2026-06-27
+
+---
 
 <a id="case-6"></a>
 ### Кейс 6: [MC-процесс с референсным голосом](https://x.com/JPAI_HEAVEN/status/2070842306329227264) (автор [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN))
@@ -195,11 +211,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - Практический workflow: Сгенерируйте более длинный чистый образец голоса, нарежьте короткие сегменты, используйте их как references для видео и исправьте drift после видеопрохода.
 - На что обратить внимание: Автор прямо говорит, что голос немного меняется, когда Seedance превращает его в видео. Это ключевой caveat: Tutorial по построению workflow, не гарантия стабильной голосовой идентичности.
 
-[![Кейс 6 video preview](media/cases/case-06.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-06.mp4)
+[![Кейс 6 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-06.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-06.mp4)
 
 [Открыть страницу воспроизведения видео](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-06.mp4)
 
-Тип: Руководство | Дата: 2026-06-27
+Тип: Tutorial | Дата: 2026-06-27
+
+---
 
 <a id="case-7"></a>
 ### Кейс 7: [Интеграция озвучки и дубляжа в Claude MCP](https://x.com/higgsfield/status/2070916672106680360) (автор [@higgsfield](https://x.com/higgsfield))
@@ -211,11 +229,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - Практический workflow: Начните с короткого запроса на voiceover или multilingual voice work внутри Claude, сгенерируйте через MCP route и проверьте соответствие языка, голосовой идентичности и медиа-workflow.
 - На что обратить внимание: Это Integration, не оценка качества. Пост доказывает доступность и поверхность workflow, но не проверяет независимо качество для всех 50+ языков.
 
-[![Кейс 7 video preview](media/cases/case-07.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-07.mp4)
+[![Кейс 7 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-07.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-07.mp4)
 
 [Открыть страницу воспроизведения видео](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-07.mp4)
 
-Тип: Интеграция | Дата: 2026-06-27
+Тип: Integration | Дата: 2026-06-27
+
+---
 
 <a id="case-8"></a>
 ### Кейс 8: [Качество референсного аудио и ограничение высоких голосов](https://x.com/genel_ai/status/2070438167019409582) (автор [@genel_ai](https://x.com/genel_ai))
@@ -227,11 +247,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - Практический workflow: Генерируйте короткие клипы с обычными и высокими голосами, сравнивайте с reference audio и отдельно тестируйте image-guided workflows, потому что source говорит, что audio и image references нельзя совместить.
 - На что обратить внимание: Это Evaluation, потому что главная ценность — карта ограничений. Урок не в том, что “Seed-Audio всегда лучше”, а в том, где он силен и что еще нужно тестировать.
 
-[![Кейс 8 video preview](media/cases/case-08.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-08.mp4)
+[![Кейс 8 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-08.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-08.mp4)
 
 [Открыть страницу воспроизведения видео](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-08.mp4)
 
-Тип: Оценка | Дата: 2026-06-26
+Тип: Evaluation | Дата: 2026-06-26
+
+---
 
 <a id="case-9"></a>
 ### Кейс 9: [Движок озвучки социальных историй](https://x.com/deepwhitman/status/2071485165390704837) (автор [@deepwhitman](https://x.com/deepwhitman))
@@ -243,11 +265,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - Практический workflow: Выберите публичную текстовую историю, адаптируйте ее в сегменты narration, сгенерируйте голос, соедините с простыми visuals или captions и измерьте, работает ли формат как повторяемый pipeline.
 - На что обратить внимание: Это Demo, не гарантия прав или роста. Нужны разрешение или корректная работа с source, а также audience testing перед тем, как считать это масштабируемым каналом.
 
-[![Кейс 9 video preview](media/cases/case-09.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-09.mp4)
+[![Кейс 9 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-09.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-09.mp4)
 
 [Открыть страницу воспроизведения видео](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-09.mp4)
 
-Тип: Демо | Дата: 2026-06-29
+Тип: Demo | Дата: 2026-06-29
+
+---
 
 <a id="case-10"></a>
 ### Кейс 10: [Подбор голоса персонажа по изображению](https://x.com/tc50501/status/2070498347824337389) (автор [@tc50501](https://x.com/tc50501))
@@ -259,9 +283,11 @@ export EVOLINK_API_KEY="your_api_key_here"
 - Практический workflow: Протестируйте несколько коротких реплик с одним и тем же изображением, сравните pitch, tone и направление личности, затем оставьте только кандидатов, стабильных на нескольких репликах.
 - На что обратить внимание: Public source сама предупреждает, что pitch и tone stability еще не готовы для fixed film-character voice. Это Evaluation, потому что определяет и полезный casting use, и production risk.
 
-![Кейс 10 media](media/cases/case-10.jpg)
+![Кейс 10 media](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-10.jpg)
 
-Тип: Оценка | Дата: 2026-06-26
+Тип: Evaluation | Дата: 2026-06-26
+
+---
 
 <a id="case-11"></a>
 ### Кейс 11: [Недорогой тест озвучки и foley](https://x.com/TomLikesRobots/status/2070288519684108353) (автор [@TomLikesRobots](https://x.com/TomLikesRobots))
@@ -273,15 +299,41 @@ export EVOLINK_API_KEY="your_api_key_here"
 - Практический workflow: Сначала генерируйте короткие 10-15-секундные аудиотесты, сравнивайте с native video-model audio и переходите к видео только когда звуковое направление достаточно сильное.
 - На что обратить внимание: Комментарии добавляют нерешенные вопросы о reference voice conversion и использовании generated audio с Seedance lip-sync. Это остается Evaluation: роль дешевого теста, не полный final pipeline.
 
-[![Кейс 11 video preview](media/cases/case-11.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-11.mp4)
+[![Кейс 11 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-11.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-11.mp4)
 
 [Открыть страницу воспроизведения видео](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-11.mp4)
 
-Тип: Оценка | Дата: 2026-06-25
+Тип: Evaluation | Дата: 2026-06-25
+
+---
+
+<a id="case-12"></a>
+### Кейс 12: [Сборка музыки и эффектов в Premiere через Claude](https://x.com/mattworkman/status/2076148989687181705) (автор [@mattworkman](https://x.com/mattworkman))
+
+**Генерируйте музыку, эффекты и голос отдельными проходами, а затем поручите Claude собрать их в Premiere, сохранив ручной контроль тайминга и затуханий.**
+
+- Доказательство источника: Matt Workman описывает, как Claude пишет prompts для Seed Audio, чтобы музыкальная подложка следовала смене эмоций внутри сцены, а также выбирает и генерирует ключевые звуковые эффекты.
+- Что можно перенять: Генерируйте музыку, эффекты и голос отдельно, а не просите Seed Audio создать все за один проход, если нужен более точный контроль качества и микса.
+- Практический workflow: Передайте Claude сценарий, отдельно создайте музыкальные и звуковые ресурсы Seed Audio, поручите Claude собрать их в Premiere, а затем вручную настройте параметры, тайминг и затухания.
+- На что обратить внимание: Источник сообщает практическое предпочтение автора в пользу качества раздельных проходов, а не контролируемый benchmark. Сравните этот подход с общей генерацией на собственном материале.
+
+![Кейс 12 media](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-12.jpg)
+
+Тип: Tutorial | Дата: 2026-07-12
+
+---
+
+## Связанные репозитории
+
+Отдельный публичный репозиторий Seed-Audio сейчас не подтвержден. Поддерживаемая поверхность skill — evolink-seed-audio в npm.
 
 <a id="acknowledge"></a>
 ## 🙏 Благодарности
 
 Этот репозиторий ссылается на публичные публикации авторов и провайдеров на уровне каждого кейса. Публичный источник указан в заголовке кейса.
 
-Исправления приветствуются, если ссылка сломана, атрибуция неверна или утверждение не подтверждается источником.
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman)
+
+*Исправления приветствуются, если ссылка сломана, атрибуция неверна или утверждение не подтверждается источником.*
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Evolink-AI/Awesome-Seed-Audio-1.0-Guide-and-Usecases&type=Date)](https://www.star-history.com/#Evolink-AI/Awesome-Seed-Audio-1.0-Guide-and-Usecases&Date)

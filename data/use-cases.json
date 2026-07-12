@@ -2,19 +2,19 @@
   "metadata": {
     "model": "Seed-Audio 1.0",
     "provider": "ByteDance / Doubao",
-    "generated_at": "2026-06-29",
-    "basis": "Recent X/Twitter search for Seed-Audio 1.0 use cases",
+    "generated_at": "2026-07-12",
+    "basis": "Recurring exact-phrase X/Twitter search for Seed-Audio 1.0 use cases",
     "queries": [
       "\"seed audio\" since:2026-06-24 until:2026-06-30",
       "\"Seed-Audio\" since:2026-06-24 until:2026-06-30",
       "\"SeedAudio\" since:2026-06-24 until:2026-06-30"
     ],
-    "raw_post_count": 182,
-    "accepted_count": 93,
-    "selected_case_count": 11,
+    "raw_post_count": 281,
+    "accepted_count": 94,
+    "selected_case_count": 12,
     "date_span_utc": {
       "start": "2026-06-24T01:47:15+00:00",
-      "end": "2026-06-29T09:33:54+00:00"
+      "end": "2026-07-12T14:04:27+00:00"
     },
     "language_counts": {
       "en": 57,
@@ -27,7 +27,7 @@
       "und": 1,
       "fr": 1
     },
-    "review_queue_count": 20,
+    "review_queue_count": 34,
     "selection_policy": "strong_evidence_public_sources_only",
     "label_audit": "docs/case-label-audit.md"
   },
@@ -37,7 +37,8 @@
       "case_numbers": [
         1,
         2,
-        3
+        3,
+        12
       ],
       "localized_titles": {
         "zh-CN": "音频优先视频工作流",
@@ -168,7 +169,8 @@
         "source_tweet_id": "2070429287950188547",
         "source_url": "https://x.com/gokayfem/status/2070429287950188547",
         "download_url": "https://video.twimg.com/amplify_video/2070427848414744576/vid/avc1/1280x720/dGkKE_H5iHVsvdxR.mp4",
-        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-01.mp4"
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-01.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-01.jpg"
       }
     },
     {
@@ -204,7 +206,8 @@
         "source_tweet_id": "2070246132341727506",
         "source_url": "https://x.com/gavinpurcell/status/2070246132341727506",
         "download_url": "https://video.twimg.com/amplify_video/2070245820671365120/vid/avc1/1280x720/yPIHRpNeILkgd_dz.mp4",
-        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-02.mp4"
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-02.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-02.jpg"
       }
     },
     {
@@ -240,7 +243,8 @@
         "source_tweet_id": "2070438167019409582",
         "source_url": "https://x.com/genel_ai/status/2070438167019409582",
         "download_url": "https://video.twimg.com/amplify_video/2070428838451179520/vid/avc1/1920x1080/s9tJ7bOOwIbqg6xv.mp4",
-        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-03.mp4"
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-03.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-03.jpg"
       }
     },
     {
@@ -276,7 +280,8 @@
         "source_tweet_id": "2071255504907891186",
         "source_url": "https://x.com/tarumainfo/status/2071255504907891186",
         "download_url": "https://video.twimg.com/amplify_video/2071252034599387136/vid/avc1/1920x1080/B6dFMCBSu9XTy1kI.mp4",
-        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-04.mp4"
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-04.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-04.jpg"
       }
     },
     {
@@ -312,7 +317,8 @@
         "source_tweet_id": "2070923534449119424",
         "source_url": "https://x.com/TomLikesRobots/status/2070923534449119424",
         "download_url": "https://video.twimg.com/amplify_video/2070922637551759361/vid/avc1/1280x720/yV5DFaF9BXwgAYwG.mp4",
-        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-05.mp4"
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-05.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-05.jpg"
       }
     },
     {
@@ -348,7 +354,8 @@
         "source_tweet_id": "2070842306329227264",
         "source_url": "https://x.com/JPAI_HEAVEN/status/2070842306329227264",
         "download_url": "https://video.twimg.com/amplify_video/2070840680382119936/vid/avc1/1280x720/kn4Q0ypgFARyGLLL.mp4",
-        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-06.mp4"
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-06.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-06.jpg"
       }
     },
     {
@@ -384,7 +391,8 @@
         "source_tweet_id": "2070916672106680360",
         "source_url": "https://x.com/higgsfield/status/2070916672106680360",
         "download_url": "https://video.twimg.com/amplify_video/2070916180701790210/vid/avc1/1920x1080/ZbbVXCjQ1t3UIZm-.mp4",
-        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-07.mp4"
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-07.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-07.jpg"
       }
     },
     {
@@ -420,7 +428,8 @@
         "source_tweet_id": "2070438167019409582",
         "source_url": "https://x.com/genel_ai/status/2070438167019409582",
         "download_url": "https://video.twimg.com/amplify_video/2070428838451179520/vid/avc1/1920x1080/s9tJ7bOOwIbqg6xv.mp4",
-        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-08.mp4"
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-08.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-08.jpg"
       }
     },
     {
@@ -456,7 +465,8 @@
         "source_tweet_id": "2071485165390704837",
         "source_url": "https://x.com/deepwhitman/status/2071485165390704837",
         "download_url": "https://video.twimg.com/amplify_video/2071484888499531776/vid/avc1/1920x1080/LxcuOZA6E0g50PPq.mp4",
-        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-09.mp4"
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-09.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-09.jpg"
       }
     },
     {
@@ -491,7 +501,8 @@
         "source": "x_twitter_tweet",
         "source_tweet_id": "2070498347824337389",
         "source_url": "https://x.com/tc50501/status/2070498347824337389",
-        "download_url": "https://pbs.twimg.com/media/HLvjGShbEAAAiPA.jpg"
+        "download_url": "https://pbs.twimg.com/media/HLvjGShbEAAAiPA.jpg",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-10.jpg"
       }
     },
     {
@@ -527,7 +538,44 @@
         "source_tweet_id": "2070288519684108353",
         "source_url": "https://x.com/TomLikesRobots/status/2070288519684108353",
         "download_url": "https://video.twimg.com/amplify_video/2070286932232294400/vid/avc1/1280x720/5AP7aNntuIP4Wqf1.mp4",
-        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-11.mp4"
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-11.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-11.jpg"
+      }
+    },
+    {
+      "number": 12,
+      "category": "audio-first-video",
+      "title": "Claude-Directed Music And SFX Assembly In Premiere",
+      "source_url": "https://x.com/mattworkman/status/2076148989687181705",
+      "author": "mattworkman",
+      "author_name": "Matt Workman",
+      "author_url": "https://x.com/mattworkman",
+      "type": "Tutorial",
+      "date": "2026-07-12",
+      "takeaway": "separate music, sound effects, and voice passes, then let Claude assemble the generated audio in Premiere while preserving manual control over timing and fades.",
+      "notes": "- Source evidence: Matt Workman describes using Claude to create Seed Audio prompts for a music bed that follows mid-scene emotional changes and to identify and generate key sound effects.\n- What to copy: Generate music, sound effects, and voice as separate passes instead of asking Seed Audio to produce them together when you want more control over quality and mixing.\n- Practical workflow: Give Claude the script, generate separate Seed Audio assets, have Claude assemble the music bed and sound effects into Premiere, then tune settings, timing, and fades manually.\n- Watch-outs: The source reports a quality preference for isolated passes rather than a controlled benchmark, so treat separation as a production heuristic and compare it against a combined generation on your own material.",
+      "original_number": 12,
+      "evidence_strength": "strong",
+      "localized_titles": {
+        "zh-CN": "用 Claude 在 Premiere 中编排音乐与音效",
+        "zh-TW": "用 Claude 在 Premiere 中編排音樂與音效",
+        "ja": "Claude で音楽と効果音を Premiere に組み込む",
+        "ko": "Claude로 음악과 효과음을 Premiere에 조립",
+        "es": "Montaje de música y efectos con Claude en Premiere",
+        "pt": "Montagem de música e efeitos com Claude no Premiere",
+        "de": "Musik und SFX mit Claude in Premiere montieren",
+        "fr": "Assembler musique et effets dans Premiere avec Claude",
+        "tr": "Claude ile Premiere'de müzik ve efekt montajı",
+        "ru": "Сборка музыки и эффектов в Premiere через Claude"
+      },
+      "media": {
+        "type": "image",
+        "path": "media/cases/case-12.jpg",
+        "source": "x_twitter_tweet",
+        "source_tweet_id": "2076148989687181705",
+        "source_url": "https://x.com/mattworkman/status/2076148989687181705",
+        "download_url": "https://pbs.twimg.com/media/HM_1yxwWEAAXaXU.jpg",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-12.jpg"
       }
     }
   ]

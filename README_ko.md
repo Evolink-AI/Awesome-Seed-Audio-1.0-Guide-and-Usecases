@@ -1,10 +1,9 @@
 <div align="center">
 
-<a href="https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=banner&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=readme_banner"><img src="images/en.png" alt="Seed-Audio 1.0 usecase repository banner" width="760"></a>
+<a href="https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=banner&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=readme_banner"><img src="https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/images/en.png" alt="Seed-Audio 1.0 usecase repository banner" width="760"></a>
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](LICENSE)
-[![Try it on Evolink](https://img.shields.io/badge/Try_it_on-Evolink-black)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=top_badge)
-[![Website](https://img.shields.io/badge/Website-Live-orange)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=top_badge)
+[![Try it on Evolink](https://img.shields.io/badge/Try_it_on-Evolink-black)](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=badge&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=model_try)
 [![Docs](https://img.shields.io/badge/Docs-Read-blue)](https://docs.evolink.ai/en/api-manual/audio-series/doubao-seed-audio/doubao-seed-audio-1-0?utm_source=github&utm_medium=docs&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=docs_link)
 
 [![English](https://img.shields.io/badge/English-111111)](README.md) [![Español](https://img.shields.io/badge/Espa%C3%B1ol-ffb703)](README_es.md) [![Português](https://img.shields.io/badge/Portugu%C3%AAs-2a9d8f)](README_pt.md) [![日本語](https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-52b788)](README_ja.md) [![한국어](https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-4ea8de)](README_ko.md) [![Deutsch](https://img.shields.io/badge/Deutsch-f4a261)](README_de.md) [![Français](https://img.shields.io/badge/Fran%C3%A7ais-e76f51)](README_fr.md) [![Türkçe](https://img.shields.io/badge/T%C3%BCrk%C3%A7e-d62828)](README_tr.md) [![繁體中文](https://img.shields.io/badge/%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87-8338ec)](README_zh-TW.md) [![简体中文](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-ef476f)](README_zh-CN.md) [![Русский](https://img.shields.io/badge/%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-577590)](README_ru.md)
@@ -25,7 +24,7 @@ Seed-Audio 1.0의 신뢰도 높은 사용 사례 저장소입니다.
 
 ## 📊 개요
 
-- **최근 X/Twitter 샘플 93개에서 Seed-Audio 1.0 사용 사례 11개를 선별했습니다.**
+- **최근 X/Twitter 샘플 94개에서 Seed-Audio 1.0 사용 사례 12개를 선별했습니다.**
 - 포함 범위: 오디오 우선 영상 워크플로, 오디오 드라마와 장면 생성, 참조 음성과 캐릭터 보이스 탐색, 도구 및 제공자 통합, 소셜 내레이션, 폴리, 비용 테스트.
 - 각 사례에는 원본 출처, 작성자 표시, 활용 요점, 증거 유형, 게시일이 포함됩니다.
 - 실제 워크플로, 강점과 한계, 제공자 경로, EvoLink 구현 방향을 확인하는 데 사용할 수 있습니다.
@@ -41,23 +40,29 @@ Seed-Audio 1.0의 신뢰도 높은 사용 사례 저장소입니다.
 <a id="quick-start"></a>
 ## ⚡ 빠른 시작
 
-Seed-Audio agent skill을 설치한 뒤 [EvoLink Dashboard Keys](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=quickstart&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=api_key)에서 API key를 받아 `EVOLINK_API_KEY`로 설정하세요.
+Seed-Audio agent skill을 설치한 뒤 [Get API Key](https://evolink.ai/dashboard/keys?utm_source=github&utm_medium=quickstart&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=api_key)에서 API key를 받아 `EVOLINK_API_KEY`로 설정하세요.
 
 ```bash
 npm i evolink-seed-audio
 
 export EVOLINK_API_KEY="your_api_key_here"
+
+curl --request POST \
+  --url https://api.evolink.ai/v1/audios/generations \
+  --header "Authorization: Bearer ${EVOLINK_API_KEY}" \
+  --header 'Content-Type: application/json' \
+  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}'
 ```
 
-이 패키지는 agent 및 로컬 skill 워크플로용 [evolink-seed-audio](https://www.npmjs.com/package/evolink-seed-audio)로 배포됩니다.
+Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
-모델 상세와 예시는 [EvoLink의 Seed-Audio 1.0](https://evolink.ai/seed-audio-1-0?utm_source=github&utm_medium=quickstart&utm_campaign=awesome-seed-audio-1.0-usecases&utm_content=model_link)에서 확인하세요.
+이 패키지는 agent 및 로컬 skill 워크플로용 [evolink-seed-audio](https://www.npmjs.com/package/evolink-seed-audio)로 배포됩니다.
 
 ## 📑 메뉴
 
 | 섹션 | 사례 |
 |---|---|
-| [오디오 우선 영상 워크플로](#audio-first-video) | 사례 1, 사례 2, 사례 3 |
+| [오디오 우선 영상 워크플로](#audio-first-video) | 사례 1, 사례 2, 사례 3, 사례 12 |
 | [오디오 드라마와 장면 생성](#audio-drama-scene-generation) | 사례 4, 사례 5 |
 | [참조 음성과 캐릭터 보이스 탐색](#voice-reference-character-casting) | 사례 6, 사례 8, 사례 10 |
 | [도구 및 제공자 통합](#tool-provider-integrations) | 사례 7 |
@@ -69,41 +74,42 @@ export EVOLINK_API_KEY="your_api_key_here"
 
 | 사례 | 보여주는 점 | 유형 |
 |---|---|---|
-| [사례 1: 6명 음성으로 Seedance 영상 유도](#case-1) | 다중 화자 대화와 배경 효과가 이후 비디오 생성을 안내하는 오디오 우선 비디오 워크플로우를 구축합니다. | 튜토리얼 |
-| [사례 2: 멀티클립 스토리 영상의 오디오 설계](#case-2) | Seed-Audio 1.0이 다중 클립 비디오 스토리의 타이밍 및 일관성 문제를 줄일 수 있는지 테스트합니다. | 평가 |
-| [사례 3: 오디오 우선 Seedance 참조 워크플로](#case-3) | 3단계 작업 흐름을 구성합니다. 즉, 오디오를 생성하고 주요 시각적 요소를 만든 다음 두 가지를 모두 Seedance 참조로 사용합니다. | 튜토리얼 |
+| [사례 1: 6명 음성으로 Seedance 영상 유도](#case-1) | 다중 화자 대화와 배경 효과가 이후 비디오 생성을 안내하는 오디오 우선 비디오 워크플로우를 구축합니다. | Tutorial |
+| [사례 2: 멀티클립 스토리 영상의 오디오 설계](#case-2) | Seed-Audio 1.0이 다중 클립 비디오 스토리의 타이밍 및 일관성 문제를 줄일 수 있는지 테스트합니다. | Evaluation |
+| [사례 3: 오디오 우선 Seedance 참조 워크플로](#case-3) | 3단계 작업 흐름을 구성합니다. 즉, 오디오를 생성하고 주요 시각적 요소를 만든 다음 두 가지를 모두 Seedance 참조로 사용합니다. | Tutorial |
+| [사례 12: Claude로 음악과 효과음을 Premiere에 조립](#case-12) | 음악, 효과음, 음성을 별도 패스로 생성한 뒤 Claude가 Premiere에서 조립하게 하고 타이밍과 페이드는 수동으로 제어하세요. | Tutorial |
 
 <a id="audio-drama-scene-generation"></a>
 ## 오디오 드라마와 장면 생성
 
 | 사례 | 보여주는 점 | 유형 |
 |---|---|---|
-| [사례 4: 환경음이 포함된 2분 대화](#case-4) | 다양한 목소리, 분위기, 배경 음악이 포함된 컴팩트한 오디오 드라마 장면을 위해 Seed-Audio 1.0을 평가해 보세요. | 튜토리얼 |
-| [사례 5: 박물관 안내 장면 대화](#case-5) | Seed-Audio가 대화, 전달 및 고유한 캐릭터 음성을 생성하는 장면 수준 언어 추론을 테스트합니다. | 데모 |
+| [사례 4: 환경음이 포함된 2분 대화](#case-4) | 다양한 목소리, 분위기, 배경 음악이 포함된 컴팩트한 오디오 드라마 장면을 위해 Seed-Audio 1.0을 평가해 보세요. | Tutorial |
+| [사례 5: 박물관 안내 장면 대화](#case-5) | Seed-Audio가 대화, 전달 및 고유한 캐릭터 음성을 생성하는 장면 수준 언어 추론을 테스트합니다. | Demo |
 
 <a id="voice-reference-character-casting"></a>
 ## 참조 음성과 캐릭터 보이스 탐색
 
 | 사례 | 보여주는 점 | 유형 |
 |---|---|---|
-| [사례 6: 참조 음성 MC 워크플로](#case-6) | 다운스트림 비디오 생성 전에 반복되는 MC 또는 시리즈 내레이션에 대한 참조 음성 워크플로를 평가합니다. | 튜토리얼 |
-| [사례 8: 참조 오디오 품질과 높은 음역 제한](#case-8) | 일본어 음성, 감정 추종, 참조 오디오 정밀도 및 고음 합성음 위험을 평가합니다. | 평가 |
-| [사례 10: 이미지 기반 캐릭터 음성 탐색](#case-10) | 참조 이미지 오디오를 최종 음성 잠금 제작이 아닌 초기 캐릭터 음성 캐스팅으로 평가합니다. | 평가 |
+| [사례 6: 참조 음성 MC 워크플로](#case-6) | 다운스트림 비디오 생성 전에 반복되는 MC 또는 시리즈 내레이션에 대한 참조 음성 워크플로를 평가합니다. | Tutorial |
+| [사례 8: 참조 오디오 품질과 높은 음역 제한](#case-8) | 일본어 음성, 감정 추종, 참조 오디오 정밀도 및 고음 합성음 위험을 평가합니다. | Evaluation |
+| [사례 10: 이미지 기반 캐릭터 음성 탐색](#case-10) | 참조 이미지 오디오를 최종 음성 잠금 제작이 아닌 초기 캐릭터 음성 캐스팅으로 평가합니다. | Evaluation |
 
 <a id="tool-provider-integrations"></a>
 ## 도구 및 제공자 통합
 
 | 사례 | 보여주는 점 | 유형 |
 |---|---|---|
-| [사례 7: Claude MCP 보이스오버 및 다국어 더빙 통합](#case-7) | 음성 해설, 음성 복제 및 더빙을 위한 보조 네이티브 창의적 작업 공간의 일부로 Seed-Audio 1.0을 평가해 보세요. | 통합 |
+| [사례 7: Claude MCP 보이스오버 및 다국어 더빙 통합](#case-7) | 음성 해설, 음성 복제 및 더빙을 위한 보조 네이티브 창의적 작업 공간의 일부로 Seed-Audio 1.0을 평가해 보세요. | Integration |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## 소셜 내레이션, 폴리, 비용 테스트
 
 | 사례 | 보여주는 점 | 유형 |
 |---|---|---|
-| [사례 9: 소셜 스토리 내레이션 엔진](#case-9) | 텍스트 게시물이 오디오 우선 엔터테인먼트가 되는 사회 이야기 내레이션 형식을 테스트합니다. | 데모 |
-| [사례 11: 음성 연기와 폴리의 저비용 테스트](#case-11) | 비디오 생성을 시작하기 전에 성우 및 폴리를 위한 저비용 반복 레이어로 Seed-Audio 1.0을 평가해 보세요. | 평가 |
+| [사례 9: 소셜 스토리 내레이션 엔진](#case-9) | 텍스트 게시물이 오디오 우선 엔터테인먼트가 되는 사회 이야기 내레이션 형식을 테스트합니다. | Demo |
+| [사례 11: 음성 연기와 폴리의 저비용 테스트](#case-11) | 비디오 생성을 시작하기 전에 성우 및 폴리를 위한 저비용 반복 레이어로 Seed-Audio 1.0을 평가해 보세요. | Evaluation |
 
 <a id="case-1"></a>
 ### 사례 1: [6명 음성으로 Seedance 영상 유도](https://x.com/gokayfem/status/2070429287950188547) (작성자 [@gokayfem](https://x.com/gokayfem))
@@ -115,11 +121,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 실제 워크플로: 먼저 다중 화자 오디오 베드를 만들고, 인물 실루엣과 분위기가 맞는 키 비주얼을 만든 뒤, 오디오와 시각 맥락을 함께 Seedance에 넘긴다.
 - 주의점: 이 근거는 workflow 설계와 prompt 구조를 뒷받침하지만 긴 장면에서 완벽한 화자 분리를 증명하지는 않는다. 제작용 대화에 쓰기 전 캐릭터 정체성과 타이밍을 테스트해야 한다.
 
-[![사례 1 video preview](media/cases/case-01.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-01.mp4)
+[![사례 1 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-01.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-01.mp4)
 
 [동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-01.mp4)
 
-유형: 튜토리얼 | 날짜: 2026-06-26
+유형: Tutorial | 날짜: 2026-06-26
+
+---
 
 <a id="case-2"></a>
 ### 사례 2: [멀티클립 스토리 영상의 오디오 설계](https://x.com/gavinpurcell/status/2070246132341727506) (작성자 [@gavinpurcell](https://x.com/gavinpurcell))
@@ -131,11 +139,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 실제 워크플로: 영상 맥락을 agent에게 주고 장면별 오디오 계획을 만들게 한 뒤, 사운드트랙이나 효과음을 생성하고 전체 1분이 아니라 각 클립별로 결과를 비교한다.
 - 주의점: 같은 출처는 일부 효과음이 화면의 정확한 동작과 아직 맞지 않는다고도 보고한다. 그래서 Tutorial이 아니라 Evaluation이며, 유용한 테스트 방법과 mismatch 위험을 함께 남긴다.
 
-[![사례 2 video preview](media/cases/case-02.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-02.mp4)
+[![사례 2 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-02.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-02.mp4)
 
 [동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-02.mp4)
 
-유형: 평가 | 날짜: 2026-06-25
+유형: Evaluation | 날짜: 2026-06-25
+
+---
 
 <a id="case-3"></a>
 ### 사례 3: [오디오 우선 Seedance 참조 워크플로](https://x.com/EvoLinkAi/status/2070722722217578562) (작성자 [@EvoLinkAi](https://x.com/EvoLinkAi))
@@ -147,11 +157,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 실제 워크플로: 먼저 오디오 prompt에서 감정 리듬을 정하고, 장면에 맞는 이미지를 만들거나 선택한 뒤, 두 참조를 함께 제공해 영상 모델에 시간 방향과 시각 방향을 동시에 준다.
 - 주의점: 이는 공식 workflow 패턴이지 독립 benchmark가 아니다. 시작 레시피로 유용하지만 lip-sync, 컷 타이밍, 영상이 오디오 단서를 실제로 따르는지는 별도로 테스트해야 한다.
 
-[![사례 3 video preview](media/cases/case-03.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-03.mp4)
+[![사례 3 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-03.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-03.mp4)
 
 [동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-03.mp4)
 
-유형: 튜토리얼 | 날짜: 2026-06-27
+유형: Tutorial | 날짜: 2026-06-27
+
+---
 
 <a id="case-4"></a>
 ### 사례 4: [환경음이 포함된 2분 대화](https://x.com/tarumainfo/status/2071255504907891186) (작성자 [@tarumainfo](https://x.com/tarumainfo))
@@ -163,11 +175,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 실제 워크플로: 장면을 짧은 script로 쓰고, 각 대사의 지시는 몇 단어로 제한하며, 지속적인 배경음을 유지하고, 모델이 감정과 속도를 모두 따르는지 듣는다.
 - 주의점: 공개 출처는 결과가 prompt를 잘 따랐다고 말하지만 장문 일관성은 아직 검토가 필요하다. 제작에서는 감정이나 음악이 흔들리면 긴 장면을 더 작은 beat로 나누는 것이 좋다.
 
-[![사례 4 video preview](media/cases/case-04.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-04.mp4)
+[![사례 4 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-04.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-04.mp4)
 
 [동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-04.mp4)
 
-유형: 튜토리얼 | 날짜: 2026-06-28
+유형: Tutorial | 날짜: 2026-06-28
+
+---
 
 <a id="case-5"></a>
 ### 사례 5: [박물관 안내 장면 대화](https://x.com/TomLikesRobots/status/2070923534449119424) (작성자 [@TomLikesRobots](https://x.com/TomLikesRobots))
@@ -179,11 +193,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 실제 워크플로: 모델에 역할, 설명할 개념, 대화 관계를 주고, 생성된 말이 자연스러운지와 설명이 정확한지 평가한다.
 - 주의점: 이는 Demo다. 장면 수준 언어 추론과 자연스러운 전달을 보여주지만 반복 가능한 benchmark는 아니다. 교육 콘텐츠에 쓸 때는 사실 정확성을 확인해야 한다.
 
-[![사례 5 video preview](media/cases/case-05.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-05.mp4)
+[![사례 5 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-05.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-05.mp4)
 
 [동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-05.mp4)
 
-유형: 데모 | 날짜: 2026-06-27
+유형: Demo | 날짜: 2026-06-27
+
+---
 
 <a id="case-6"></a>
 ### 사례 6: [참조 음성 MC 워크플로](https://x.com/JPAI_HEAVEN/status/2070842306329227264) (작성자 [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN))
@@ -195,11 +211,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 실제 워크플로: 더 길고 깨끗한 음성 샘플을 만들고, 짧은 조각으로 자른 뒤, 이를 영상 참조로 쓰고, 영상 패스 이후 생기는 drift를 편집한다.
 - 주의점: 작성자는 Seedance가 이를 영상으로 바꿀 때 목소리가 약간 변한다고 명시한다. 이 caveat가 핵심이다. 이는 workflow 구성 Tutorial이지 안정적인 음성 정체성 보장이 아니다.
 
-[![사례 6 video preview](media/cases/case-06.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-06.mp4)
+[![사례 6 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-06.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-06.mp4)
 
 [동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-06.mp4)
 
-유형: 튜토리얼 | 날짜: 2026-06-27
+유형: Tutorial | 날짜: 2026-06-27
+
+---
 
 <a id="case-7"></a>
 ### 사례 7: [Claude MCP 보이스오버 및 다국어 더빙 통합](https://x.com/higgsfield/status/2070916672106680360) (작성자 [@higgsfield](https://x.com/higgsfield))
@@ -211,11 +229,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 실제 워크플로: Claude 안에서 짧은 voiceover나 다국어 음성 요청으로 시작하고, MCP 경로로 생성한 뒤, 결과가 대상 언어, 음성 정체성, 미디어 workflow에 맞는지 확인한다.
 - 주의점: 이는 Integration이지 품질 평가가 아니다. 게시물은 사용 가능성과 workflow 표면을 증명하지만 50개 이상 언어의 품질을 독립적으로 검증하지는 않는다.
 
-[![사례 7 video preview](media/cases/case-07.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-07.mp4)
+[![사례 7 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-07.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-07.mp4)
 
 [동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-07.mp4)
 
-유형: 통합 | 날짜: 2026-06-27
+유형: Integration | 날짜: 2026-06-27
+
+---
 
 <a id="case-8"></a>
 ### 사례 8: [참조 오디오 품질과 높은 음역 제한](https://x.com/genel_ai/status/2070438167019409582) (작성자 [@genel_ai](https://x.com/genel_ai))
@@ -227,11 +247,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 실제 워크플로: 일반 음성과 높은 음성으로 짧은 클립을 만들고 reference audio와 비교한다. 출처가 오디오와 이미지 참조를 결합할 수 없다고 하므로 이미지 유도 workflow는 별도로 테스트한다.
 - 주의점: 이는 Evaluation이다. 핵심 가치는 제한 지도를 제공하는 데 있다. “Seed-Audio가 항상 더 낫다”가 아니라 어디서 잘 작동하고 어디서 추가 테스트가 필요한지를 보여준다.
 
-[![사례 8 video preview](media/cases/case-08.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-08.mp4)
+[![사례 8 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-08.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-08.mp4)
 
 [동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-08.mp4)
 
-유형: 평가 | 날짜: 2026-06-26
+유형: Evaluation | 날짜: 2026-06-26
+
+---
 
 <a id="case-9"></a>
 ### 사례 9: [소셜 스토리 내레이션 엔진](https://x.com/deepwhitman/status/2071485165390704837) (작성자 [@deepwhitman](https://x.com/deepwhitman))
@@ -243,11 +265,13 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 실제 워크플로: 공개 텍스트 이야기를 고르고, 내레이션 세그먼트로 각색하고, 음성을 생성한 뒤, 간단한 비주얼이나 자막과 결합해 반복 가능한 콘텐츠 pipeline인지 측정한다.
 - 주의점: 이는 Demo이며 권리나 성장 보장이 아니다. 이야기 콘텐츠에는 허가 또는 적절한 출처 처리가 필요하고, scalable channel이라고 부르기 전 audience test도 필요하다.
 
-[![사례 9 video preview](media/cases/case-09.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-09.mp4)
+[![사례 9 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-09.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-09.mp4)
 
 [동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-09.mp4)
 
-유형: 데모 | 날짜: 2026-06-29
+유형: Demo | 날짜: 2026-06-29
+
+---
 
 <a id="case-10"></a>
 ### 사례 10: [이미지 기반 캐릭터 음성 탐색](https://x.com/tc50501/status/2070498347824337389) (작성자 [@tc50501](https://x.com/tc50501))
@@ -259,9 +283,11 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 실제 워크플로: 같은 캐릭터 이미지로 여러 짧은 대사를 테스트하고, pitch, tone, 성격 방향을 비교한 뒤, 여러 줄에서 안정적인 후보만 남긴다.
 - 주의점: 공개 출처 자체가 pitch와 tone 안정성이 고정 영화 캐릭터 음성 제작에는 아직 부족하다고 경고한다. 이는 casting 용도와 production risk를 함께 정의하는 Evaluation이다.
 
-![사례 10 media](media/cases/case-10.jpg)
+![사례 10 media](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-10.jpg)
 
-유형: 평가 | 날짜: 2026-06-26
+유형: Evaluation | 날짜: 2026-06-26
+
+---
 
 <a id="case-11"></a>
 ### 사례 11: [음성 연기와 폴리의 저비용 테스트](https://x.com/TomLikesRobots/status/2070288519684108353) (작성자 [@TomLikesRobots](https://x.com/TomLikesRobots))
@@ -273,15 +299,41 @@ export EVOLINK_API_KEY="your_api_key_here"
 - 실제 워크플로: 먼저 10~15초짜리 짧은 오디오 테스트를 만들고, 비디오 모델의 native audio와 비교한 뒤, 소리 방향이 충분히 강할 때만 후속 영상 생성으로 넘어간다.
 - 주의점: 댓글에는 reference voice conversion과 생성 오디오를 Seedance lip-sync에 사용하는 문제들이 남아 있다. 이는 완성 workflow가 아니라 낮은 비용의 테스트 역할을 검증하는 Evaluation이다.
 
-[![사례 11 video preview](media/cases/case-11.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-11.mp4)
+[![사례 11 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-11.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-11.mp4)
 
 [동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-11.mp4)
 
-유형: 평가 | 날짜: 2026-06-25
+유형: Evaluation | 날짜: 2026-06-25
+
+---
+
+<a id="case-12"></a>
+### 사례 12: [Claude로 음악과 효과음을 Premiere에 조립](https://x.com/mattworkman/status/2076148989687181705) (작성자 [@mattworkman](https://x.com/mattworkman))
+
+**음악, 효과음, 음성을 별도 패스로 생성한 뒤 Claude가 Premiere에서 조립하게 하고 타이밍과 페이드는 수동으로 제어하세요.**
+
+- 출처 근거: Matt Workman은 장면 중간의 감정 변화에 맞는 음악 베드용 Seed Audio prompt를 Claude가 작성하고 핵심 효과음을 고르고 생성하게 하는 방식을 설명합니다.
+- 복사할 점: 품질과 믹싱을 더 세밀하게 제어하려면 Seed Audio에 음악, 효과음, 음성을 한 번에 생성하도록 하지 말고 별도 패스로 나눕니다.
+- 실제 워크플로: Claude에 스크립트를 제공하고 Seed Audio 음악과 효과음 자산을 따로 생성한 다음 Premiere에 자동 배치하게 하고 설정, 타이밍, 페이드를 수동으로 조정합니다.
+- 주의점: 출처는 분리 패스의 품질이 더 좋다는 제작자의 실무적 선호를 말할 뿐 통제된 benchmark는 아닙니다. 자신의 소재로 통합 생성과 비교해야 합니다.
+
+![사례 12 media](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-12.jpg)
+
+유형: Tutorial | 날짜: 2026-07-12
+
+---
+
+## 관련 저장소
+
+현재 별도의 공개 Seed-Audio 저장소는 검증되지 않았습니다. 유지 관리되는 skill 경로는 npm의 evolink-seed-audio.
 
 <a id="acknowledge"></a>
 ## 🙏 감사의 말
 
 이 저장소는 사례 단위로 공개 크리에이터와 제공자 게시물에 연결합니다. 공개 출처는 각 사례 제목에 표시됩니다.
 
-출처 링크가 깨졌거나, 표시가 잘못되었거나, 주장에 근거가 부족하면 수정을 제안해 주세요.
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman)
+
+*출처 링크가 깨졌거나, 표시가 잘못되었거나, 주장에 근거가 부족하면 수정을 제안해 주세요.*
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Evolink-AI/Awesome-Seed-Audio-1.0-Guide-and-Usecases&type=Date)](https://www.star-history.com/#Evolink-AI/Awesome-Seed-Audio-1.0-Guide-and-Usecases&Date)
