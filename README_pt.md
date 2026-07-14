@@ -24,7 +24,7 @@ Este README em português preserva links de fonte, atribuição e âncoras, enqu
 
 ## 📊 Visão geral
 
-- **Selecionamos 12 casos de Seed-Audio 1.0 a partir de 94 publicações recentes aceitas do X/Twitter.**
+- **Selecionamos 13 casos de Seed-Audio 1.0 a partir de 95 publicações recentes aceitas do X/Twitter.**
 - Abrange: Workflows de vídeo guiados por áudio, Áudio drama e geração de cena, Vozes de referência e casting de personagens, Integrações de ferramentas e provedores, Narração social, foley e testes de custo.
 - Cada caso inclui fonte original, atribuição do criador, conclusão de uso, tipo de evidência e data de publicação.
 - Use este repositório para encontrar fluxos reais, comparar forças e limites, descobrir rotas de provedores e levar a implementação para a EvoLink.
@@ -47,11 +47,32 @@ npm i evolink-seed-audio
 
 export EVOLINK_API_KEY="your_api_key_here"
 
-curl --request POST \
+TASK_JSON=$(curl --silent --request POST \
   --url https://api.evolink.ai/v1/audios/generations \
   --header "Authorization: Bearer ${EVOLINK_API_KEY}" \
   --header 'Content-Type: application/json' \
-  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}'
+  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}')
+
+echo "$TASK_JSON"
+TASK_ID=$(python3 -c 'import json,sys; data=json.load(sys.stdin); print(data.get("id") or data.get("task_id") or "")' <<<"$TASK_JSON")
+[ -n "$TASK_ID" ] || { echo "Task creation did not return an id" >&2; exit 1; }
+
+while true; do
+  STATUS_JSON=$(curl --silent --request GET \
+    --url "https://api.evolink.ai/v1/tasks/${TASK_ID}" \
+    --header "Authorization: Bearer ${EVOLINK_API_KEY}")
+  echo "$STATUS_JSON"
+  STATUS=$(python3 -c 'import json,sys; data=json.load(sys.stdin); print((data.get("status") or data.get("task", {}).get("status") or "").lower())' <<<"$STATUS_JSON")
+  if [ "$STATUS" = "completed" ]; then
+    python3 -c 'import json,sys; data=json.load(sys.stdin); print(data.get("output_url") or data.get("result_url") or data.get("url") or data.get("task", {}).get("output_url") or data.get("task", {}).get("result_url") or "")' <<<"$STATUS_JSON"
+    break
+  fi
+  if [ "$STATUS" = "failed" ] || [ "$STATUS" = "cancelled" ]; then
+    echo "Task ${TASK_ID} ended with status ${STATUS}" >&2
+    exit 1
+  fi
+  sleep 5
+done
 ```
 
 Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
@@ -62,7 +83,7 @@ O pacote é publicado como [evolink-seed-audio](https://www.npmjs.com/package/ev
 
 | Seção | Casos |
 |---|---|
-| [Workflows de vídeo guiados por áudio](#audio-first-video) | Caso 1, Caso 2, Caso 3, Caso 12 |
+| [Workflows de vídeo guiados por áudio](#audio-first-video) | Caso 1, Caso 2, Caso 3, Caso 12, Caso 13 |
 | [Áudio drama e geração de cena](#audio-drama-scene-generation) | Caso 4, Caso 5 |
 | [Vozes de referência e casting de personagens](#voice-reference-character-casting) | Caso 6, Caso 8, Caso 10 |
 | [Integrações de ferramentas e provedores](#tool-provider-integrations) | Caso 7 |
@@ -78,6 +99,7 @@ O pacote é publicado como [evolink-seed-audio](https://www.npmjs.com/package/ev
 | [Caso 2: Planejamento de áudio para histórias em múltiplos clipes](#case-2) | Testar se o Seed-Audio 1.0 pode reduzir problemas de tempo e consistência em histórias de vídeo com vários clipes. | Evaluation |
 | [Caso 3: Workflow Seedance guiado primeiro por áudio](#case-3) | Estruture um fluxo de trabalho de três etapas: gere áudio, crie um visual principal e use ambos como referências Seedance. | Tutorial |
 | [Caso 12: Montagem de música e efeitos com Claude no Premiere](#case-12) | Separe música, efeitos e voz em passagens distintas e deixe o Claude montar o áudio no Premiere, mantendo controle manual de tempo e fades. | Tutorial |
+| [Caso 13: Teste de sincronização de comentário de luta com áudio de referência](#case-13) | Use uma edição final do Seedance como referência no Seed Audio, escreva um comentário cronometrado a partir da ação e trate o alinhamento de tempo como o principal risco de avaliação. | Evaluation |
 
 <a id="audio-drama-scene-generation"></a>
 ## Áudio drama e geração de cena
@@ -256,7 +278,7 @@ Tipo: Evaluation | Data: 2026-06-26
 ---
 
 <a id="case-9"></a>
-### Caso 9: [Motor de narração para histórias sociais](https://x.com/deepwhitman/status/2071485165390704837) (por [@deepwhitman](https://x.com/deepwhitman))
+### Caso 9: [Motor de narração para histórias sociais](https://twitter.com/deepwhitman/status/2071485165390704837) (por [@deepwhitman](https://x.com/deepwhitman))
 
 **Teste formatos de narração de histórias sociais onde as postagens de texto se tornam entretenimento com foco no áudio.**
 
@@ -323,6 +345,24 @@ Tipo: Tutorial | Data: 2026-07-12
 
 ---
 
+<a id="case-13"></a>
+### Caso 13: [Teste de sincronização de comentário de luta com áudio de referência](https://x.com/aimikoda/status/2076526254417735781) (por [@aimikoda](https://x.com/aimikoda))
+
+**Use uma edição final do Seedance como referência no Seed Audio, escreva um comentário cronometrado a partir da ação e trate o alinhamento de tempo como o principal risco de avaliação.**
+
+- Evidência da fonte: O post principal mostra o clipe final da luta e aponta para a resposta https://x.com/aimikoda/status/2076527528227815779. Essa resposta publica os prompts exatos de Midjourney, Seedance 2.0 e Seed Audio e explica que o autor reutilizou o áudio do vídeo final como referência no Seed Audio.
+- O que copiar: Finalize primeiro a edição visual da luta, extraia o áudio já editado e reutilize-o como referência do Seed Audio enquanto outro modelo escreve a narração a partir da ação visível.
+- Fluxo prático: Crie personagens e ringue no Midjourney, gere várias passagens de luta no Seedance, edite os melhores momentos, extraia o áudio final, peça ao GPT-5.6 para redigir a narração com base na ação e então monte um prompt do Seed Audio com duração, voz, ambiente, marcas de tempo e restrições negative.
+- Cuidados: O autor diz que, mesmo após cerca de dez tentativas, o timing não ficou exatamente como queria. Trate isto como Evaluation, não Tutorial, e espere mais refinamento de prompt ou sincronização manual.
+
+[![Caso 13 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-13.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4)
+
+[Abrir página de reprodução de vídeo](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4)
+
+Tipo: Evaluation | Data: 2026-07-13
+
+---
+
 ## Repositórios relacionados
 
 Nenhum outro repositório público do Seed-Audio está verificado no momento. A superfície de skill mantida é evolink-seed-audio no npm.
@@ -332,7 +372,7 @@ Nenhum outro repositório público do Seed-Audio está verificado no momento. A 
 
 Este repositório aponta para publicações públicas de criadores e provedores em cada caso. A fonte pública aparece no título do caso.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda)
 
 *Correções são bem-vindas quando um link quebra, a atribuição está errada ou uma afirmação não é sustentada pela fonte.*
 

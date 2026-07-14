@@ -24,7 +24,7 @@ This English source README focuses on source-linked cases with concrete workflow
 
 ## 📊 Overview
 
-- **12 selected Seed-Audio 1.0 cases from 94 accepted recent X/Twitter posts.**
+- **13 selected Seed-Audio 1.0 cases from 95 accepted recent X/Twitter posts.**
 - Covers Audio-First Video Workflows, Audio Drama And Scene Generation, Reference Voice And Character Casting, Tool And Provider Integrations, Social Narration, Foley, And Cost Tests.
 - Each case includes the original source, creator attribution, concise usage takeaway, evidence type, and publication date.
 - Use this repo to find practical workflows, compare strengths and limits, discover provider routes, and route implementation work to EvoLink.
@@ -47,11 +47,32 @@ npm i evolink-seed-audio
 
 export EVOLINK_API_KEY="your_api_key_here"
 
-curl --request POST \
+TASK_JSON=$(curl --silent --request POST \
   --url https://api.evolink.ai/v1/audios/generations \
   --header "Authorization: Bearer ${EVOLINK_API_KEY}" \
   --header 'Content-Type: application/json' \
-  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}'
+  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}')
+
+echo "$TASK_JSON"
+TASK_ID=$(python3 -c 'import json,sys; data=json.load(sys.stdin); print(data.get("id") or data.get("task_id") or "")' <<<"$TASK_JSON")
+[ -n "$TASK_ID" ] || { echo "Task creation did not return an id" >&2; exit 1; }
+
+while true; do
+  STATUS_JSON=$(curl --silent --request GET \
+    --url "https://api.evolink.ai/v1/tasks/${TASK_ID}" \
+    --header "Authorization: Bearer ${EVOLINK_API_KEY}")
+  echo "$STATUS_JSON"
+  STATUS=$(python3 -c 'import json,sys; data=json.load(sys.stdin); print((data.get("status") or data.get("task", {}).get("status") or "").lower())' <<<"$STATUS_JSON")
+  if [ "$STATUS" = "completed" ]; then
+    python3 -c 'import json,sys; data=json.load(sys.stdin); print(data.get("output_url") or data.get("result_url") or data.get("url") or data.get("task", {}).get("output_url") or data.get("task", {}).get("result_url") or "")' <<<"$STATUS_JSON"
+    break
+  fi
+  if [ "$STATUS" = "failed" ] || [ "$STATUS" = "cancelled" ]; then
+    echo "Task ${TASK_ID} ended with status ${STATUS}" >&2
+    exit 1
+  fi
+  sleep 5
+done
 ```
 
 Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
@@ -62,7 +83,7 @@ The package is published as [evolink-seed-audio](https://www.npmjs.com/package/e
 
 | Section | Cases |
 |---|---|
-| [Audio-First Video Workflows](#audio-first-video) | Case 1, Case 2, Case 3, Case 12 |
+| [Audio-First Video Workflows](#audio-first-video) | Case 1, Case 2, Case 3, Case 12, Case 13 |
 | [Audio Drama And Scene Generation](#audio-drama-scene-generation) | Case 4, Case 5 |
 | [Reference Voice And Character Casting](#voice-reference-character-casting) | Case 6, Case 8, Case 10 |
 | [Tool And Provider Integrations](#tool-provider-integrations) | Case 7 |
@@ -78,6 +99,7 @@ The package is published as [evolink-seed-audio](https://www.npmjs.com/package/e
 | [Case 2: Multi-Clip Story Video Audio Planning](#case-2) | evaluate agent-assisted soundscape generation for multi-clip story videos, including the remaining mismatch risk between effects and on-screen action. | Evaluation |
 | [Case 3: Audio-First Seedance Reference Workflow](#case-3) | use a three-step official workflow: generate Seed-Audio first, create a key visual, then feed both audio and visual references into Seedance 2 reference-to-video. | Tutorial |
 | [Case 12: Claude-Directed Music And SFX Assembly In Premiere](#case-12) | separate music, sound effects, and voice passes, then let Claude assemble the generated audio in Premiere while preserving manual control over timing and fades. | Tutorial |
+| [Case 13: Reference-Audio Fight Commentary Timing Test](#case-13) | use a finished Seedance edit as Seed Audio reference input, draft time-coded commentary from the action, and treat timing alignment as the main evaluation risk. | Evaluation |
 
 <a id="audio-drama-scene-generation"></a>
 ## Audio Drama And Scene Generation
@@ -256,7 +278,7 @@ Type: Evaluation | Date: 2026-06-26
 ---
 
 <a id="case-9"></a>
-### Case 9: [Narrated Social Story Engine](https://x.com/deepwhitman/status/2071485165390704837) (by [@deepwhitman](https://x.com/deepwhitman))
+### Case 9: [Narrated Social Story Engine](https://twitter.com/deepwhitman/status/2071485165390704837) (by [@deepwhitman](https://x.com/deepwhitman))
 
 **turn public text-story posts into narrated social entertainment and evaluate whether the format can become a repeatable content engine.**
 
@@ -323,6 +345,24 @@ Type: Tutorial | Date: 2026-07-12
 
 ---
 
+<a id="case-13"></a>
+### Case 13: [Reference-Audio Fight Commentary Timing Test](https://x.com/aimikoda/status/2076526254417735781) (by [@aimikoda](https://x.com/aimikoda))
+
+**use a finished Seedance edit as Seed Audio reference input, draft time-coded commentary from the action, and treat timing alignment as the main evaluation risk.**
+
+- Source evidence: The parent post shows the finished fight clip and explicitly points readers to the workflow below, while the thread reply at https://x.com/aimikoda/status/2076527528227815779 publishes the exact Midjourney, Seedance 2.0, and Seed Audio prompt text used for the result.
+- What to copy: Build the visual fight edit first, then extract the edited audio and reuse it as a Seed Audio reference while a separate model writes commentary from the visible action.
+- Practical workflow: create character and ring assets in Midjourney, generate multiple Seedance fight passes, edit the strongest segments together, extract the audio, ask GPT-5.6 to write the fight commentary from the finished clip, then prompt Seed Audio with duration, voice, ambience, timeline cues, and negative constraints.
+- Watch-outs: The author says roughly ten Seed Audio attempts still did not match the requested timing exactly, so keep this as an evaluation workflow and expect extra prompt refinement or manual sync work.
+
+[![Case 13 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-13.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4)
+
+[Open video playback page](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4)
+
+Type: Evaluation | Date: 2026-07-13
+
+---
+
 ## Related Repositories
 
 No separate public Seed-Audio repository is currently verified. The maintained supporting skill surface is evolink-seed-audio on npm.
@@ -332,7 +372,7 @@ No separate public Seed-Audio repository is currently verified. The maintained s
 
 This repository links to public creator and provider posts at the case level. Public sources are credited in each case heading.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda)
 
 *Corrections are welcome when a source link breaks, attribution is wrong, or a claim is not supported by the linked source.*
 

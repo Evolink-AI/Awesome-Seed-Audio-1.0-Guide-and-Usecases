@@ -47,6 +47,10 @@
     "12": {
       "takeaway": "将音乐、音效和人声拆成独立生成，再让 Claude 把音频装配进 Premiere，同时保留对节奏与淡入淡出的手动控制。",
       "notes": "- 证据来源：Matt Workman 说明，他让 Claude 根据剧本中途变化的情绪为音乐床编写 Seed Audio 提示，并挑选、生成关键音效。\n- 可复制做法：需要更精细地控制质量和混音时，不要让 Seed Audio 一次同时生成音乐、音效和人声，而是把它们拆成独立轨道。\n- 实际流程：把剧本交给 Claude，分别生成 Seed Audio 音乐与音效素材，再让 Claude 在 Premiere 中自动装配这些轨道，最后手动调整参数、时间点与淡入淡出。\n- 注意事项：来源表达的是作者对分轨生成质量更好的实践偏好，并非受控基准；应在自己的素材上把分轨方案与一次性混合生成进行对比。"
+    },
+    "13": {
+      "takeaway": "先把 Seedance 成片作为 Seed Audio 的参考输入，再根据画面动作生成带时间轴的解说词，并把时序对齐当作主要评估风险。",
+      "notes": "- 证据来源：父帖展示最终格斗片段，并指向回复贴 https://x.com/aimikoda/status/2076527528227815779；该回复公开了 Midjourney、Seedance 2.0 与 Seed Audio 的完整提示词，并说明作者把成片音频作为 Seed Audio 参考。\n- 可复制做法：先把视觉打斗片段剪成最终版，再提取成片音频作为 Seed Audio 参考，同时让另一模型根据画面动作生成解说文案。\n- 实际流程：用 Midjourney 做角色和擂台素材，生成多条 Seedance 打斗片段并剪出最强片段，导出成片音频，交给 GPT-5.6 按画面写解说，再用包含时长、声线、环境、时间轴提示和 negative 约束的 Seed Audio 提示词生成解说。\n- 注意事项：作者说大约试了十次，时序仍未完全贴合，因此这更适合作为 Evaluation；预计还要继续改 prompt 或做手动同步。"
     }
   },
   "zh-TW": {
@@ -97,6 +101,10 @@
     "12": {
       "takeaway": "將音樂、音效和人聲拆成獨立生成，再讓 Claude 把音訊組裝進 Premiere，同時保留對節奏與淡入淡出的手動控制。",
       "notes": "- 證據來源：Matt Workman 說明，他讓 Claude 依照劇本中途變化的情緒為音樂底軌撰寫 Seed Audio 提示，並挑選、生成關鍵音效。\n- 可複製做法：需要更細緻地控制品質和混音時，不要讓 Seed Audio 一次同時生成音樂、音效和人聲，而是把它們拆成獨立軌道。\n- 實際流程：把劇本交給 Claude，分別生成 Seed Audio 音樂與音效素材，再讓 Claude 在 Premiere 中自動組裝這些軌道，最後手動調整參數、時間點與淡入淡出。\n- 注意事項：來源表達的是作者對分軌生成品質更好的實務偏好，並非受控基準；應在自己的素材上比較分軌方案與一次性混合生成。"
+    },
+    "13": {
+      "takeaway": "先把 Seedance 成片當作 Seed Audio 的參考輸入，再依照畫面動作生成帶時間軸的解說詞，並把時序對齊視為主要評估風險。",
+      "notes": "- 證據來源：父帖展示最終格鬥片段，並指向回覆貼 https://x.com/aimikoda/status/2076527528227815779；該回覆公開了 Midjourney、Seedance 2.0 與 Seed Audio 的完整提示詞，並說明作者把成片音訊當作 Seed Audio 參考。\n- 可複製做法：先把視覺打鬥片段剪成最終版，再提取成片音訊作為 Seed Audio 參考，同時讓另一個模型依照畫面動作撰寫解說文案。\n- 實際流程：用 Midjourney 製作角色與擂台素材，生成多條 Seedance 打鬥片段並剪出最強片段，匯出成片音訊，交給 GPT-5.6 依照畫面撰寫解說，再用包含時長、聲線、環境、時間軸提示與 negative 約束的 Seed Audio 提示詞生成解說。\n- 注意事項：作者表示大約試了十次，時序仍未完全貼合，因此更適合作為 Evaluation；預期還要繼續調 prompt 或做手動同步。"
     }
   },
   "es": {
@@ -147,6 +155,10 @@
     "12": {
       "takeaway": "Separe música, efectos y voz en pases distintos, y deje que Claude monte el audio en Premiere sin perder el control manual del tiempo y los fundidos.",
       "notes": "- Evidencia de la fuente: Matt Workman explica que usa Claude para redactar prompts de Seed Audio para una base musical que sigue los cambios emocionales del guion y para elegir y generar efectos clave.\n- Qué copiar: Genere música, efectos y voz en pases separados en vez de pedir a Seed Audio que los produzca juntos cuando necesite más control de calidad y mezcla.\n- Flujo práctico: Entregue el guion a Claude, genere por separado los recursos de Seed Audio, deje que Claude monte la música y los efectos en Premiere y ajuste después parámetros, tiempos y fundidos a mano.\n- Precauciones: La fuente comunica una preferencia práctica por la mayor calidad de los pases aislados, no un benchmark controlado; compárelos con una generación conjunta usando su propio material."
+    },
+    "13": {
+      "takeaway": "Use una edición final de Seedance como referencia de Seed Audio, redacte un comentario cronometrado a partir de la acción y trate la alineación temporal como el riesgo principal de evaluación.",
+      "notes": "- Evidencia de la fuente: El post padre muestra el clip final de combate y remite al reply https://x.com/aimikoda/status/2076527528227815779. Ese reply publica los prompts exactos de Midjourney, Seedance 2.0 y Seed Audio, y explica que el autor reutilizó el audio del vídeo final como referencia en Seed Audio.\n- Qué copiar: Termine primero la edición visual de la pelea, extraiga el audio ya editado y reutilícelo como referencia de Seed Audio mientras otro modelo escribe el comentario a partir de la acción visible.\n- Flujo práctico: Cree personajes y ring en Midjourney, genere varias pasadas de pelea en Seedance, monte los mejores momentos, extraiga el audio final, pida a GPT-5.6 que redacte la narración según la acción y luego construya un prompt de Seed Audio con duración, voz, ambiente, marcas temporales y restricciones negative.\n- Precauciones: El autor afirma que, incluso tras unas diez generaciones, el timing no coincidía exactamente como quería. Trátelo como Evaluation, no como Tutorial, y espere más refinamiento de prompt o sincronización manual."
     }
   },
   "pt": {
@@ -197,6 +209,10 @@
     "12": {
       "takeaway": "Separe música, efeitos e voz em passagens distintas e deixe o Claude montar o áudio no Premiere, mantendo controle manual de tempo e fades.",
       "notes": "- Evidência da fonte: Matt Workman descreve o uso do Claude para escrever prompts do Seed Audio para uma base musical que acompanha mudanças emocionais no meio da cena e para escolher e gerar efeitos importantes.\n- O que copiar: Gere música, efeitos e voz separadamente, em vez de pedir ao Seed Audio que produza tudo junto, quando precisar de maior controle de qualidade e mixagem.\n- Fluxo prático: Entregue o roteiro ao Claude, gere os recursos do Seed Audio em passagens separadas, deixe o Claude montar a base e os efeitos no Premiere e depois ajuste parâmetros, tempo e fades manualmente.\n- Cuidados: A fonte relata uma preferência prática por melhor qualidade em passagens isoladas, não um benchmark controlado; compare esse método com uma geração conjunta no seu próprio material."
+    },
+    "13": {
+      "takeaway": "Use uma edição final do Seedance como referência no Seed Audio, escreva um comentário cronometrado a partir da ação e trate o alinhamento de tempo como o principal risco de avaliação.",
+      "notes": "- Evidência da fonte: O post principal mostra o clipe final da luta e aponta para a resposta https://x.com/aimikoda/status/2076527528227815779. Essa resposta publica os prompts exatos de Midjourney, Seedance 2.0 e Seed Audio e explica que o autor reutilizou o áudio do vídeo final como referência no Seed Audio.\n- O que copiar: Finalize primeiro a edição visual da luta, extraia o áudio já editado e reutilize-o como referência do Seed Audio enquanto outro modelo escreve a narração a partir da ação visível.\n- Fluxo prático: Crie personagens e ringue no Midjourney, gere várias passagens de luta no Seedance, edite os melhores momentos, extraia o áudio final, peça ao GPT-5.6 para redigir a narração com base na ação e então monte um prompt do Seed Audio com duração, voz, ambiente, marcas de tempo e restrições negative.\n- Cuidados: O autor diz que, mesmo após cerca de dez tentativas, o timing não ficou exatamente como queria. Trate isto como Evaluation, não Tutorial, e espere mais refinamento de prompt ou sincronização manual."
     }
   },
   "ja": {
@@ -247,6 +263,10 @@
     "12": {
       "takeaway": "音楽、効果音、音声を別々に生成し、Claude に Premiere 上で組み立てさせながら、タイミングとフェードを手動で調整できる状態を保ちます。",
       "notes": "- ソース証拠: Matt Workman は、シーン途中の感情変化に合わせた音楽ベッド用 Seed Audio prompt を Claude に作らせ、重要な効果音も選定・生成させる方法を説明しています。\n- コピーすること: 品質とミックスを細かく制御したい場合は、音楽、効果音、音声を一度に生成せず、Seed Audio の処理を別パスに分けます。\n- 実用ワークフロー: Claude に脚本を渡し、Seed Audio の音楽素材と効果音素材を個別に生成し、Premiere に自動配置させた後、設定、タイミング、フェードを手動で調整します。\n- 注意点: ソースが示すのは分離生成の方が高品質だという作者の実務上の好みであり、統制された benchmark ではありません。自分の素材で一括生成と比較してください。"
+    },
+    "13": {
+      "takeaway": "完成した Seedance 編集を Seed Audio の参照入力にし、映像アクションから時間指定の実況文を作り、タイミング一致を主な評価リスクとして扱います。",
+      "notes": "- ソース証拠: 親投稿は完成した格闘クリップを示し、返信 https://x.com/aimikoda/status/2076527528227815779 にワークフローを誘導しています。この返信では Midjourney、Seedance 2.0、Seed Audio の正確な prompt が公開され、完成動画の音声を Seed Audio の reference として使ったことも説明されています。\n- コピーすること: 先に映像側の格闘編集を完成させ、その完成音声を Seed Audio の reference として再利用しつつ、別モデルに映像アクションから実況文を書かせます。\n- 実用ワークフロー: Midjourney でキャラクターとリング素材を作り、複数の Seedance 格闘パスを生成して強い部分を編集でつなぎ、完成音声を抽出し、GPT-5.6 に映像から実況を書かせたうえで、尺、声質、環境、タイムライン cue、negative 制約を含む Seed Audio prompt を作成します。\n- 注意点: 作者はおよそ 10 回試してもタイミングが完全には合わなかったと述べています。したがってこれは Tutorial ではなく Evaluation として扱い、prompt の再調整や手動同期を前提にしてください。"
     }
   },
   "ko": {
@@ -297,6 +317,10 @@
     "12": {
       "takeaway": "음악, 효과음, 음성을 별도 패스로 생성한 뒤 Claude가 Premiere에서 조립하게 하고 타이밍과 페이드는 수동으로 제어하세요.",
       "notes": "- 출처 근거: Matt Workman은 장면 중간의 감정 변화에 맞는 음악 베드용 Seed Audio prompt를 Claude가 작성하고 핵심 효과음을 고르고 생성하게 하는 방식을 설명합니다.\n- 복사할 점: 품질과 믹싱을 더 세밀하게 제어하려면 Seed Audio에 음악, 효과음, 음성을 한 번에 생성하도록 하지 말고 별도 패스로 나눕니다.\n- 실제 워크플로: Claude에 스크립트를 제공하고 Seed Audio 음악과 효과음 자산을 따로 생성한 다음 Premiere에 자동 배치하게 하고 설정, 타이밍, 페이드를 수동으로 조정합니다.\n- 주의점: 출처는 분리 패스의 품질이 더 좋다는 제작자의 실무적 선호를 말할 뿐 통제된 benchmark는 아닙니다. 자신의 소재로 통합 생성과 비교해야 합니다."
+    },
+    "13": {
+      "takeaway": "완성된 Seedance 편집본을 Seed Audio의 참조 입력으로 쓰고, 화면 액션에 맞춘 타임코드 해설을 만든 뒤, 타이밍 정합을 핵심 평가 리스크로 다루세요.",
+      "notes": "- 출처 근거: 부모 게시물은 완성된 격투 클립을 보여주고, 답글 https://x.com/aimikoda/status/2076527528227815779 로 워크플로를 안내합니다. 그 답글에는 Midjourney, Seedance 2.0, Seed Audio의 정확한 prompt가 공개되어 있고, 완성 영상의 오디오를 Seed Audio reference로 사용했다는 설명도 있습니다.\n- 복사할 점: 먼저 시각적 격투 편집을 완성하고, 그 편집 오디오를 Seed Audio reference로 재사용하면서 다른 모델이 화면 동작을 바탕으로 해설 문안을 쓰게 합니다.\n- 실제 워크플로: Midjourney로 캐릭터와 링 자산을 만들고, 여러 Seedance 격투 패스를 생성해 가장 강한 장면만 편집으로 묶고, 완성 오디오를 추출한 뒤 GPT-5.6이 영상 기반 해설을 쓰게 하며, 길이, 음성 톤, 환경, 타임라인 cue, negative 제약을 포함한 Seed Audio prompt로 해설을 생성합니다.\n- 주의점: 작성자는 약 10번 시도해도 원하는 타이밍에 완전히 맞지 않았다고 말합니다. 따라서 Tutorial이 아니라 Evaluation으로 취급하고, 추가 prompt 조정이나 수동 싱크 작업을 예상해야 합니다."
     }
   },
   "de": {
@@ -347,6 +371,10 @@
     "12": {
       "takeaway": "Trennen Sie Musik, Soundeffekte und Stimme in eigene Durchläufe und lassen Sie Claude das Audio in Premiere montieren, während Timing und Fades manuell steuerbar bleiben.",
       "notes": "- Quellenbeleg: Matt Workman beschreibt, wie Claude Seed-Audio-Prompts für ein Musikbett erstellt, das emotionalen Wechseln mitten in der Szene folgt, und wichtige Soundeffekte auswählt und generiert.\n- Was zu übernehmen ist: Erzeugen Sie Musik, Effekte und Stimme getrennt, statt Seed Audio alles gleichzeitig ausgeben zu lassen, wenn Sie mehr Kontrolle über Qualität und Mischung brauchen.\n- Praktischer Workflow: Geben Sie Claude das Skript, erzeugen Sie die Seed-Audio-Musik- und Effektdateien getrennt, lassen Sie Claude sie in Premiere montieren und passen Sie anschließend Einstellungen, Timing und Fades manuell an.\n- Worauf zu achten ist: Die Quelle beschreibt eine praktische Qualitätspräferenz für getrennte Durchläufe, keinen kontrollierten Benchmark. Vergleichen Sie den Ansatz mit einer kombinierten Generierung auf eigenem Material."
+    },
+    "13": {
+      "takeaway": "Verwenden Sie einen fertigen Seedance-Schnitt als Seed-Audio-Referenz, schreiben Sie daraus zeitcodierten Kampfkommentar und behandeln Sie Timing-Abgleich als zentrales Evaluationsrisiko.",
+      "notes": "- Quellenbeleg: Der Hauptpost zeigt den finalen Kampfclip und verweist auf die Antwort https://x.com/aimikoda/status/2076527528227815779. Dort stehen die exakten Midjourney-, Seedance-2.0- und Seed-Audio-Prompts sowie der Hinweis, dass das Audio des fertigen Videos als Seed-Audio-Referenz diente.\n- Was zu übernehmen ist: Schließen Sie zuerst den visuellen Kampfschnitt ab, extrahieren Sie dann das editierte Audio und nutzen Sie es als Seed-Audio-Referenz, während ein anderes Modell den Kommentar aus der sichtbaren Aktion schreibt.\n- Praktischer Workflow: Erstellen Sie Figuren und Ring in Midjourney, generieren Sie mehrere Seedance-Kampfpässe, schneiden Sie die stärksten Momente zusammen, extrahieren Sie das finale Audio, lassen Sie GPT-5.6 den Kommentar aus dem Clip schreiben und formulieren Sie anschließend einen Seed-Audio-Prompt mit Dauer, Stimme, Ambiente, Timeline-Cues und negative Constraints.\n- Worauf zu achten ist: Laut Quelle passte das Timing selbst nach etwa zehn Versuchen nicht exakt. Behandeln Sie den Fall deshalb als Evaluation statt als Tutorial und rechnen Sie mit weiterem Prompt-Tuning oder manueller Synchronisation."
     }
   },
   "fr": {
@@ -397,6 +425,10 @@
     "12": {
       "takeaway": "Séparez musique, effets et voix en passes distinctes, puis laissez Claude assembler l'audio dans Premiere tout en gardant le contrôle manuel du timing et des fondus.",
       "notes": "- Preuve source : Matt Workman explique qu'il utilise Claude pour rédiger des prompts Seed Audio destinés à un lit musical qui suit les changements émotionnels au milieu de la scène, puis pour choisir et générer les effets clés.\n- À reprendre : Générez musique, effets et voix séparément au lieu de demander à Seed Audio de tout produire en une passe lorsque vous avez besoin de mieux contrôler la qualité et le mixage.\n- Flux de travail pratique : Confiez le scénario à Claude, générez séparément les ressources Seed Audio, laissez Claude assembler la musique et les effets dans Premiere, puis réglez manuellement les paramètres, le timing et les fondus.\n- Points de vigilance : La source exprime une préférence de production pour la qualité des passes isolées, pas un benchmark contrôlé ; comparez cette méthode à une génération combinée sur vos propres médias."
+    },
+    "13": {
+      "takeaway": "Utilisez un montage final Seedance comme référence Seed Audio, rédigez un commentaire horodaté à partir de l'action et traitez l'alignement temporel comme le principal risque d'évaluation.",
+      "notes": "- Preuve source : Le post parent montre le clip final du combat et renvoie vers la réponse https://x.com/aimikoda/status/2076527528227815779. Cette réponse publie les prompts exacts de Midjourney, Seedance 2.0 et Seed Audio, et précise que l'auteur a réutilisé l'audio de la vidéo finale comme référence dans Seed Audio.\n- À reprendre : Finalisez d'abord le montage visuel du combat, extrayez l'audio déjà monté et réutilisez-le comme référence Seed Audio pendant qu'un autre modèle rédige le commentaire à partir de l'action visible.\n- Flux de travail pratique : Créez personnages et ring dans Midjourney, générez plusieurs passes de combat avec Seedance, montez les meilleurs moments, extrayez l'audio final, demandez à GPT-5.6 d'écrire le commentaire selon l'action, puis construisez un prompt Seed Audio avec durée, voix, ambiance, repères temporels et contraintes negative.\n- Points de vigilance : L'auteur dit qu'après environ dix générations, le timing ne correspondait toujours pas exactement. Traitez donc ce cas comme une Evaluation plutôt qu'un Tutorial, avec davantage de réglage de prompt ou de synchronisation manuelle à prévoir."
     }
   },
   "tr": {
@@ -447,6 +479,10 @@
     "12": {
       "takeaway": "Müzik, efekt ve sesi ayrı geçişlerde üretin; Claude'un bunları Premiere'de birleştirmesini sağlarken zamanlama ve fade ayarlarını elle kontrol edin.",
       "notes": "- Kaynak kanıtı: Matt Workman, sahne ortasındaki duygu değişimlerini izleyen müzik yatağı için Claude'a Seed Audio promptları yazdırdığını ve önemli efektleri seçip ürettirdiğini anlatıyor.\n- Kopyalanacak yöntem: Kalite ve miks üzerinde daha fazla kontrol istediğinizde Seed Audio'dan müzik, efekt ve sesi tek seferde üretmesini istemek yerine ayrı geçişler kullanın.\n- Pratik iş akışı: Senaryoyu Claude'a verin, Seed Audio müzik ve efekt varlıklarını ayrı üretin, Claude'un bunları Premiere'e yerleştirmesini sağlayın ve ardından ayarları, zamanlamayı ve fade'leri elle düzenleyin.\n- Dikkat noktaları: Kaynak, ayrılmış geçişlerin daha kaliteli olduğuna dair bir üretim tercihi bildiriyor; kontrollü benchmark sunmuyor. Kendi materyalinizde birleşik üretimle karşılaştırın."
+    },
+    "13": {
+      "takeaway": "Tamamlanmış bir Seedance kurgusunu Seed Audio referansı olarak kullanın, aksiyondan zaman kodlu dövüş anlatımı üretin ve zaman eşleşmesini ana değerlendirme riski olarak görün.",
+      "notes": "- Kaynak kanıtı: Ana gönderi nihai dövüş klibini gösteriyor ve yanıt https://x.com/aimikoda/status/2076527528227815779 içindeki workflow'a yönlendiriyor. Bu yanıtta Midjourney, Seedance 2.0 ve Seed Audio için tam promptlar yayınlanıyor; ayrıca yazarın bitmiş videonun sesini Seed Audio referansı olarak kullandığı açıklanıyor.\n- Kopyalanacak yöntem: Önce görsel dövüş kurgusunu tamamlayın, sonra düzenlenmiş sesi çıkarıp Seed Audio referansı olarak yeniden kullanın; aynı anda başka bir modele görünür aksiyondan anlatım metni yazdırın.\n- Pratik iş akışı: Karakterleri ve ringi Midjourney'de oluşturun, birden çok Seedance dövüş geçişi üretin, en güçlü anları kurgulayın, son sesi çıkarın, GPT-5.6'ya klibe göre anlatım yazdırın ve ardından süre, ses tonu, ambiyans, zaman çizgisi cue'ları ve negative kısıtları içeren bir Seed Audio promptu kurun.\n- Dikkat noktaları: Kaynağa göre yaklaşık on denemeden sonra bile zamanlama tam oturmuyor. Bu yüzden bunu Tutorial değil Evaluation olarak ele alın; ek prompt iyileştirmesi veya manuel senkron bekleyin."
     }
   },
   "ru": {
@@ -497,6 +533,10 @@
     "12": {
       "takeaway": "Генерируйте музыку, эффекты и голос отдельными проходами, а затем поручите Claude собрать их в Premiere, сохранив ручной контроль тайминга и затуханий.",
       "notes": "- Доказательство источника: Matt Workman описывает, как Claude пишет prompts для Seed Audio, чтобы музыкальная подложка следовала смене эмоций внутри сцены, а также выбирает и генерирует ключевые звуковые эффекты.\n- Что можно перенять: Генерируйте музыку, эффекты и голос отдельно, а не просите Seed Audio создать все за один проход, если нужен более точный контроль качества и микса.\n- Практический workflow: Передайте Claude сценарий, отдельно создайте музыкальные и звуковые ресурсы Seed Audio, поручите Claude собрать их в Premiere, а затем вручную настройте параметры, тайминг и затухания.\n- На что обратить внимание: Источник сообщает практическое предпочтение автора в пользу качества раздельных проходов, а не контролируемый benchmark. Сравните этот подход с общей генерацией на собственном материале."
+    },
+    "13": {
+      "takeaway": "Используйте готовый монтаж Seedance как reference для Seed Audio, создавайте тайм-кодированный бойцовский комментарий из экранного действия и рассматривайте точное совпадение по времени как главный риск оценки.",
+      "notes": "- Доказательство источника: Родительский пост показывает финальный бойцовский клип и направляет к ответу https://x.com/aimikoda/status/2076527528227815779. В этом ответе опубликованы точные prompts для Midjourney, Seedance 2.0 и Seed Audio, а также сказано, что автор использовал аудио готового видео как reference в Seed Audio.\n- Что можно перенять: Сначала завершите визуальный монтаж боя, затем извлеките уже смонтированное аудио и используйте его как reference для Seed Audio, пока другая модель пишет комментарий по видимому действию.\n- Практический workflow: Создайте персонажей и ринг в Midjourney, сгенерируйте несколько Seedance-проходов боя, смонтируйте лучшие моменты, извлеките финальное аудио, попросите GPT-5.6 написать комментарий по клипу, а затем соберите prompt Seed Audio с длительностью, голосом, атмосферой, timeline-cues и negative-ограничениями.\n- На что обратить внимание: Автор пишет, что даже после примерно десяти попыток тайминг не совпал точно так, как хотелось. Поэтому это Evaluation, а не Tutorial; ожидайте дополнительную настройку prompt или ручную синхронизацию."
     }
   }
 }

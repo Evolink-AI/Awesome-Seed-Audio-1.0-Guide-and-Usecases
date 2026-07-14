@@ -225,6 +225,7 @@ MIN_NON_ASCII_LETTER_RATIO = {
 }
 
 VALID_TYPES = {"Demo", "Tutorial", "Evaluation", "Integration", "Benchmark", "Limit"}
+PUBLIC_X_DOMAINS = ("https://x.com/", "https://twitter.com/")
 PUBLIC_FILES_TO_SCAN = [
     "README.md",
     "data/source-index.json",
@@ -257,7 +258,11 @@ def anchored_section(text: str, anchor: str) -> str:
 
 
 def table_rows(section: str) -> list[str]:
-    return [line for line in section.splitlines() if line.startswith("| [") and "https://x.com/" in line]
+    return [
+        line
+        for line in section.splitlines()
+        if line.startswith("| [") and any(domain in line for domain in PUBLIC_X_DOMAINS)
+    ]
 
 
 def tracked_files() -> list[str]:
@@ -302,7 +307,12 @@ def main() -> int:
             errors.append("README.md missing GitHub UTM links")
         if "## Prompt Cases" in readme:
             errors.append("README.md still contains legacy prompt-case section")
-        case_headings = re.findall(r"^### Case (\d+): \[(.+?)\]\((https://x\.com/[^)]+)\) \(by \[@([^]]+)\]\((https://x\.com/[^)]+)\)\)", readme, flags=re.M)
+        case_headings = re.findall(
+            r"^### Case (\d+): \[(.+?)\]\((https://(?:x|twitter)\.com/[^)]+)\) "
+            r"\(by \[@([^]]+)\]\((https://(?:x|twitter)\.com/[^)]+)\)\)",
+            readme,
+            flags=re.M,
+        )
         if len(case_headings) != expected_case_count:
             errors.append(f"README.md expected {expected_case_count} template case headings, found {len(case_headings)}")
         if sorted(int(row[0]) for row in case_headings) != list(range(1, expected_case_count + 1)):
@@ -393,9 +403,9 @@ def main() -> int:
                     errors.append(f"case {case.get('number')} notes missing actionable section: {required_note_part}")
             if len(notes) < 420:
                 errors.append(f"case {case.get('number')} notes are not detailed enough")
-            if not str(case.get("source_url", "")).startswith("https://x.com/"):
+            if not str(case.get("source_url", "")).startswith(PUBLIC_X_DOMAINS):
                 errors.append(f"case {case.get('number')} invalid source_url")
-            if not str(case.get("author_url", "")).startswith("https://x.com/"):
+            if not str(case.get("author_url", "")).startswith(PUBLIC_X_DOMAINS):
                 errors.append(f"case {case.get('number')} invalid author_url")
             if case.get("type") not in VALID_TYPES:
                 errors.append(f"case {case.get('number')} invalid type: {case.get('type')}")

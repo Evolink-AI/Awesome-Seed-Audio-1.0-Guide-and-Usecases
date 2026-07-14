@@ -24,7 +24,7 @@ Bu Türkçe README kaynak bağlantılarını, atıfları ve ankrajları korur; k
 
 ## 📊 Genel bakış
 
-- **Yakın tarihli kabul edilmiş 94 X/Twitter gönderisinden 12 Seed-Audio 1.0 vakası seçildi.**
+- **Yakın tarihli kabul edilmiş 95 X/Twitter gönderisinden 13 Seed-Audio 1.0 vakası seçildi.**
 - Kapsam: Ses öncelikli video iş akışları, Sesli drama ve sahne üretimi, Referans sesler ve karakter sesi seçimi, Araç ve sağlayıcı entegrasyonları, Sosyal anlatım, foley ve maliyet testleri.
 - Her vaka özgün kaynak, üretici atfı, kullanım sonucu, kanıt türü ve yayın tarihi içerir.
 - Bu repoyu gerçek iş akışlarını bulmak, güçlü ve zayıf yönleri karşılaştırmak, sağlayıcı yollarını keşfetmek ve uygulamayı EvoLink'e yönlendirmek için kullanın.
@@ -47,11 +47,32 @@ npm i evolink-seed-audio
 
 export EVOLINK_API_KEY="your_api_key_here"
 
-curl --request POST \
+TASK_JSON=$(curl --silent --request POST \
   --url https://api.evolink.ai/v1/audios/generations \
   --header "Authorization: Bearer ${EVOLINK_API_KEY}" \
   --header 'Content-Type: application/json' \
-  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}'
+  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}')
+
+echo "$TASK_JSON"
+TASK_ID=$(python3 -c 'import json,sys; data=json.load(sys.stdin); print(data.get("id") or data.get("task_id") or "")' <<<"$TASK_JSON")
+[ -n "$TASK_ID" ] || { echo "Task creation did not return an id" >&2; exit 1; }
+
+while true; do
+  STATUS_JSON=$(curl --silent --request GET \
+    --url "https://api.evolink.ai/v1/tasks/${TASK_ID}" \
+    --header "Authorization: Bearer ${EVOLINK_API_KEY}")
+  echo "$STATUS_JSON"
+  STATUS=$(python3 -c 'import json,sys; data=json.load(sys.stdin); print((data.get("status") or data.get("task", {}).get("status") or "").lower())' <<<"$STATUS_JSON")
+  if [ "$STATUS" = "completed" ]; then
+    python3 -c 'import json,sys; data=json.load(sys.stdin); print(data.get("output_url") or data.get("result_url") or data.get("url") or data.get("task", {}).get("output_url") or data.get("task", {}).get("result_url") or "")' <<<"$STATUS_JSON"
+    break
+  fi
+  if [ "$STATUS" = "failed" ] || [ "$STATUS" = "cancelled" ]; then
+    echo "Task ${TASK_ID} ended with status ${STATUS}" >&2
+    exit 1
+  fi
+  sleep 5
+done
 ```
 
 Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
@@ -62,7 +83,7 @@ Paket agent ve yerel skill iş akışları için [evolink-seed-audio](https://ww
 
 | Bölüm | Vakalar |
 |---|---|
-| [Ses öncelikli video iş akışları](#audio-first-video) | Vaka 1, Vaka 2, Vaka 3, Vaka 12 |
+| [Ses öncelikli video iş akışları](#audio-first-video) | Vaka 1, Vaka 2, Vaka 3, Vaka 12, Vaka 13 |
 | [Sesli drama ve sahne üretimi](#audio-drama-scene-generation) | Vaka 4, Vaka 5 |
 | [Referans sesler ve karakter sesi seçimi](#voice-reference-character-casting) | Vaka 6, Vaka 8, Vaka 10 |
 | [Araç ve sağlayıcı entegrasyonları](#tool-provider-integrations) | Vaka 7 |
@@ -78,6 +99,7 @@ Paket agent ve yerel skill iş akışları için [evolink-seed-audio](https://ww
 | [Vaka 2: Çok klipli hikaye videosu için ses planlama](#case-2) | Seed-Audio 1.0'un çok klipli video hikayelerinde zamanlama ve tutarlılık sorunlarını azaltıp azaltamayacağını test edin. | Evaluation |
 | [Vaka 3: Ses öncelikli Seedance referans iş akışı](#case-3) | Üç adımlı bir iş akışı yapılandırın: ses oluşturun, önemli bir görsel oluşturun ve ardından her ikisini de Seedance referansları olarak kullanın. | Tutorial |
 | [Vaka 12: Claude ile Premiere'de müzik ve efekt montajı](#case-12) | Müzik, efekt ve sesi ayrı geçişlerde üretin; Claude'un bunları Premiere'de birleştirmesini sağlarken zamanlama ve fade ayarlarını elle kontrol edin. | Tutorial |
+| [Vaka 13: Referans sesle dövüş anlatımı zamanlama testi](#case-13) | Tamamlanmış bir Seedance kurgusunu Seed Audio referansı olarak kullanın, aksiyondan zaman kodlu dövüş anlatımı üretin ve zaman eşleşmesini ana değerlendirme riski olarak görün. | Evaluation |
 
 <a id="audio-drama-scene-generation"></a>
 ## Sesli drama ve sahne üretimi
@@ -256,7 +278,7 @@ Tür: Evaluation | Tarih: 2026-06-26
 ---
 
 <a id="case-9"></a>
-### Vaka 9: [Sosyal hikaye anlatım motoru](https://x.com/deepwhitman/status/2071485165390704837) (yazar [@deepwhitman](https://x.com/deepwhitman))
+### Vaka 9: [Sosyal hikaye anlatım motoru](https://twitter.com/deepwhitman/status/2071485165390704837) (yazar [@deepwhitman](https://x.com/deepwhitman))
 
 **Metin gönderilerinin önce ses eğlencesine dönüştüğü sosyal hikaye anlatım formatlarını test edin.**
 
@@ -323,6 +345,24 @@ Tür: Tutorial | Tarih: 2026-07-12
 
 ---
 
+<a id="case-13"></a>
+### Vaka 13: [Referans sesle dövüş anlatımı zamanlama testi](https://x.com/aimikoda/status/2076526254417735781) (yazar [@aimikoda](https://x.com/aimikoda))
+
+**Tamamlanmış bir Seedance kurgusunu Seed Audio referansı olarak kullanın, aksiyondan zaman kodlu dövüş anlatımı üretin ve zaman eşleşmesini ana değerlendirme riski olarak görün.**
+
+- Kaynak kanıtı: Ana gönderi nihai dövüş klibini gösteriyor ve yanıt https://x.com/aimikoda/status/2076527528227815779 içindeki workflow'a yönlendiriyor. Bu yanıtta Midjourney, Seedance 2.0 ve Seed Audio için tam promptlar yayınlanıyor; ayrıca yazarın bitmiş videonun sesini Seed Audio referansı olarak kullandığı açıklanıyor.
+- Kopyalanacak yöntem: Önce görsel dövüş kurgusunu tamamlayın, sonra düzenlenmiş sesi çıkarıp Seed Audio referansı olarak yeniden kullanın; aynı anda başka bir modele görünür aksiyondan anlatım metni yazdırın.
+- Pratik iş akışı: Karakterleri ve ringi Midjourney'de oluşturun, birden çok Seedance dövüş geçişi üretin, en güçlü anları kurgulayın, son sesi çıkarın, GPT-5.6'ya klibe göre anlatım yazdırın ve ardından süre, ses tonu, ambiyans, zaman çizgisi cue'ları ve negative kısıtları içeren bir Seed Audio promptu kurun.
+- Dikkat noktaları: Kaynağa göre yaklaşık on denemeden sonra bile zamanlama tam oturmuyor. Bu yüzden bunu Tutorial değil Evaluation olarak ele alın; ek prompt iyileştirmesi veya manuel senkron bekleyin.
+
+[![Vaka 13 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-13.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4)
+
+[Video oynatma sayfasını aç](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4)
+
+Tür: Evaluation | Tarih: 2026-07-13
+
+---
+
 ## İlgili depolar
 
 Şu anda doğrulanmış ayrı bir açık Seed-Audio deposu yoktur. Bakımı yapılan skill yüzeyi npm üzerindeki evolink-seed-audio.
@@ -332,7 +372,7 @@ Tür: Tutorial | Tarih: 2026-07-12
 
 Bu repo, her vaka düzeyinde herkese açık üretici ve sağlayıcı gönderilerine bağlantı verir. Kamu kaynağı her vaka başlığında yer alır.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda)
 
 *Kaynak bağlantısı bozulduğunda, atıf yanlış olduğunda veya bir iddia bağlantılı kaynakça desteklenmediğinde düzeltmeler memnuniyetle karşılanır.*
 

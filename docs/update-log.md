@@ -35,3 +35,13 @@
 - Updated English and all 10 localized README files while preserving source URL, author URL, case number, evidence type, date, and stable anchor parity.
 - Added `data/usecase-update-config.json` so recurring updates use the repository's localized case-heading prefixes and structured-data boundary.
 - Updated the generated Quick Start to include the verified `POST https://api.evolink.ai/v1/audios/generations` request and closed conversion-surface P0/P1 findings before publication.
+
+## July 14, 2026
+
+- Ran the recurring exact-phrase `"seed audio"` search over a fixed 48-hour window ending at the collector timestamp.
+- Reviewed 21 in-window candidates: selected 1 high-confidence workflow, marked 3 unsure, and dropped 17 weak, duplicate, question-only, incidental, or showcase-only posts.
+- Added Case 13: a reference-audio fight-commentary timing evaluation that uses a finished Seedance edit, GPT-5.6-written commentary, and Seed Audio timeline prompting.
+- Preserved the public prompt boundary by linking the selected parent post while grounding the case notes in the public thread reply that exposes the exact Midjourney, Seedance 2.0, and Seed Audio prompts.
+- Uploaded the Case 13 poster image and MP4 to the repository's locked Cloudflare R2 namespace, kept the tracked local poster, and kept the MP4 out of git.
+- Rebuilt English and all 10 localized README files, player pages, and structured case data while preserving source URL, author URL, case number, evidence type, date, anchor parity, and R2 media URLs.
+- Expanded the generated Quick Start into a runnable async create-task plus poll flow so the repo passes the current conversion-surface contract for async models.

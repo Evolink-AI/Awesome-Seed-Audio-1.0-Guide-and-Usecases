@@ -24,7 +24,7 @@
 
 ## 📊 Обзор
 
-- **Из 94 принятых недавних публикаций X/Twitter выбрано 12 кейсов Seed-Audio 1.0.**
+- **Из 95 принятых недавних публикаций X/Twitter выбрано 13 кейсов Seed-Audio 1.0.**
 - Охват: Видео-процессы от аудио, Аудиодрама и генерация сцен, Референсные голоса и подбор голоса персонажа, Интеграции инструментов и провайдеров, Социальная озвучка, foley и тесты стоимости.
 - Каждый кейс содержит исходный источник, атрибуцию автора, вывод по применению, тип доказательства и дату публикации.
 - Используйте репозиторий, чтобы находить реальные рабочие процессы, сравнивать сильные стороны и ограничения, находить маршруты провайдеров и переходить к реализации через EvoLink.
@@ -47,11 +47,32 @@ npm i evolink-seed-audio
 
 export EVOLINK_API_KEY="your_api_key_here"
 
-curl --request POST \
+TASK_JSON=$(curl --silent --request POST \
   --url https://api.evolink.ai/v1/audios/generations \
   --header "Authorization: Bearer ${EVOLINK_API_KEY}" \
   --header 'Content-Type: application/json' \
-  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}'
+  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}')
+
+echo "$TASK_JSON"
+TASK_ID=$(python3 -c 'import json,sys; data=json.load(sys.stdin); print(data.get("id") or data.get("task_id") or "")' <<<"$TASK_JSON")
+[ -n "$TASK_ID" ] || { echo "Task creation did not return an id" >&2; exit 1; }
+
+while true; do
+  STATUS_JSON=$(curl --silent --request GET \
+    --url "https://api.evolink.ai/v1/tasks/${TASK_ID}" \
+    --header "Authorization: Bearer ${EVOLINK_API_KEY}")
+  echo "$STATUS_JSON"
+  STATUS=$(python3 -c 'import json,sys; data=json.load(sys.stdin); print((data.get("status") or data.get("task", {}).get("status") or "").lower())' <<<"$STATUS_JSON")
+  if [ "$STATUS" = "completed" ]; then
+    python3 -c 'import json,sys; data=json.load(sys.stdin); print(data.get("output_url") or data.get("result_url") or data.get("url") or data.get("task", {}).get("output_url") or data.get("task", {}).get("result_url") or "")' <<<"$STATUS_JSON"
+    break
+  fi
+  if [ "$STATUS" = "failed" ] || [ "$STATUS" = "cancelled" ]; then
+    echo "Task ${TASK_ID} ended with status ${STATUS}" >&2
+    exit 1
+  fi
+  sleep 5
+done
 ```
 
 Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
@@ -62,7 +83,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 | Раздел | Кейсы |
 |---|---|
-| [Видео-процессы от аудио](#audio-first-video) | Кейс 1, Кейс 2, Кейс 3, Кейс 12 |
+| [Видео-процессы от аудио](#audio-first-video) | Кейс 1, Кейс 2, Кейс 3, Кейс 12, Кейс 13 |
 | [Аудиодрама и генерация сцен](#audio-drama-scene-generation) | Кейс 4, Кейс 5 |
 | [Референсные голоса и подбор голоса персонажа](#voice-reference-character-casting) | Кейс 6, Кейс 8, Кейс 10 |
 | [Интеграции инструментов и провайдеров](#tool-provider-integrations) | Кейс 7 |
@@ -78,6 +99,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 | [Кейс 2: Аудиопланирование для многофрагментной истории](#case-2) | Проверьте, может ли Seed-Audio 1.0 уменьшить проблемы с синхронизацией и согласованностью в видеосюжетах, состоящих из нескольких клипов. | Evaluation |
 | [Кейс 3: Audio-first рабочий процесс Seedance](#case-3) | Структурируйте трехэтапный рабочий процесс: сгенерируйте аудио, создайте ключевой визуальный элемент, а затем используйте оба в качестве эталонов Seedance. | Tutorial |
 | [Кейс 12: Сборка музыки и эффектов в Premiere через Claude](#case-12) | Генерируйте музыку, эффекты и голос отдельными проходами, а затем поручите Claude собрать их в Premiere, сохранив ручной контроль тайминга и затуханий. | Tutorial |
+| [Кейс 13: Тест тайминга бойцовского комментария по референс-аудио](#case-13) | Используйте готовый монтаж Seedance как reference для Seed Audio, создавайте тайм-кодированный бойцовский комментарий из экранного действия и рассматривайте точное совпадение по времени как главный риск оценки. | Evaluation |
 
 <a id="audio-drama-scene-generation"></a>
 ## Аудиодрама и генерация сцен
@@ -256,7 +278,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 ---
 
 <a id="case-9"></a>
-### Кейс 9: [Движок озвучки социальных историй](https://x.com/deepwhitman/status/2071485165390704837) (автор [@deepwhitman](https://x.com/deepwhitman))
+### Кейс 9: [Движок озвучки социальных историй](https://twitter.com/deepwhitman/status/2071485165390704837) (автор [@deepwhitman](https://x.com/deepwhitman))
 
 **Протестируйте форматы повествования социальных историй, в которых текстовые сообщения становятся аудиоразвлечением.**
 
@@ -323,6 +345,24 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 ---
 
+<a id="case-13"></a>
+### Кейс 13: [Тест тайминга бойцовского комментария по референс-аудио](https://x.com/aimikoda/status/2076526254417735781) (автор [@aimikoda](https://x.com/aimikoda))
+
+**Используйте готовый монтаж Seedance как reference для Seed Audio, создавайте тайм-кодированный бойцовский комментарий из экранного действия и рассматривайте точное совпадение по времени как главный риск оценки.**
+
+- Доказательство источника: Родительский пост показывает финальный бойцовский клип и направляет к ответу https://x.com/aimikoda/status/2076527528227815779. В этом ответе опубликованы точные prompts для Midjourney, Seedance 2.0 и Seed Audio, а также сказано, что автор использовал аудио готового видео как reference в Seed Audio.
+- Что можно перенять: Сначала завершите визуальный монтаж боя, затем извлеките уже смонтированное аудио и используйте его как reference для Seed Audio, пока другая модель пишет комментарий по видимому действию.
+- Практический workflow: Создайте персонажей и ринг в Midjourney, сгенерируйте несколько Seedance-проходов боя, смонтируйте лучшие моменты, извлеките финальное аудио, попросите GPT-5.6 написать комментарий по клипу, а затем соберите prompt Seed Audio с длительностью, голосом, атмосферой, timeline-cues и negative-ограничениями.
+- На что обратить внимание: Автор пишет, что даже после примерно десяти попыток тайминг не совпал точно так, как хотелось. Поэтому это Evaluation, а не Tutorial; ожидайте дополнительную настройку prompt или ручную синхронизацию.
+
+[![Кейс 13 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-13.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4)
+
+[Открыть страницу воспроизведения видео](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4)
+
+Тип: Evaluation | Дата: 2026-07-13
+
+---
+
 ## Связанные репозитории
 
 Отдельный публичный репозиторий Seed-Audio сейчас не подтвержден. Поддерживаемая поверхность skill — evolink-seed-audio в npm.
@@ -332,7 +372,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 Этот репозиторий ссылается на публичные публикации авторов и провайдеров на уровне каждого кейса. Публичный источник указан в заголовке кейса.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda)
 
 *Исправления приветствуются, если ссылка сломана, атрибуция неверна или утверждение не подтверждается источником.*
 

@@ -24,7 +24,7 @@ Seed-Audio 1.0의 신뢰도 높은 사용 사례 저장소입니다.
 
 ## 📊 개요
 
-- **최근 X/Twitter 샘플 94개에서 Seed-Audio 1.0 사용 사례 12개를 선별했습니다.**
+- **최근 X/Twitter 샘플 95개에서 Seed-Audio 1.0 사용 사례 13개를 선별했습니다.**
 - 포함 범위: 오디오 우선 영상 워크플로, 오디오 드라마와 장면 생성, 참조 음성과 캐릭터 보이스 탐색, 도구 및 제공자 통합, 소셜 내레이션, 폴리, 비용 테스트.
 - 각 사례에는 원본 출처, 작성자 표시, 활용 요점, 증거 유형, 게시일이 포함됩니다.
 - 실제 워크플로, 강점과 한계, 제공자 경로, EvoLink 구현 방향을 확인하는 데 사용할 수 있습니다.
@@ -47,11 +47,32 @@ npm i evolink-seed-audio
 
 export EVOLINK_API_KEY="your_api_key_here"
 
-curl --request POST \
+TASK_JSON=$(curl --silent --request POST \
   --url https://api.evolink.ai/v1/audios/generations \
   --header "Authorization: Bearer ${EVOLINK_API_KEY}" \
   --header 'Content-Type: application/json' \
-  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}'
+  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}')
+
+echo "$TASK_JSON"
+TASK_ID=$(python3 -c 'import json,sys; data=json.load(sys.stdin); print(data.get("id") or data.get("task_id") or "")' <<<"$TASK_JSON")
+[ -n "$TASK_ID" ] || { echo "Task creation did not return an id" >&2; exit 1; }
+
+while true; do
+  STATUS_JSON=$(curl --silent --request GET \
+    --url "https://api.evolink.ai/v1/tasks/${TASK_ID}" \
+    --header "Authorization: Bearer ${EVOLINK_API_KEY}")
+  echo "$STATUS_JSON"
+  STATUS=$(python3 -c 'import json,sys; data=json.load(sys.stdin); print((data.get("status") or data.get("task", {}).get("status") or "").lower())' <<<"$STATUS_JSON")
+  if [ "$STATUS" = "completed" ]; then
+    python3 -c 'import json,sys; data=json.load(sys.stdin); print(data.get("output_url") or data.get("result_url") or data.get("url") or data.get("task", {}).get("output_url") or data.get("task", {}).get("result_url") or "")' <<<"$STATUS_JSON"
+    break
+  fi
+  if [ "$STATUS" = "failed" ] || [ "$STATUS" = "cancelled" ]; then
+    echo "Task ${TASK_ID} ended with status ${STATUS}" >&2
+    exit 1
+  fi
+  sleep 5
+done
 ```
 
 Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
@@ -62,7 +83,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 | 섹션 | 사례 |
 |---|---|
-| [오디오 우선 영상 워크플로](#audio-first-video) | 사례 1, 사례 2, 사례 3, 사례 12 |
+| [오디오 우선 영상 워크플로](#audio-first-video) | 사례 1, 사례 2, 사례 3, 사례 12, 사례 13 |
 | [오디오 드라마와 장면 생성](#audio-drama-scene-generation) | 사례 4, 사례 5 |
 | [참조 음성과 캐릭터 보이스 탐색](#voice-reference-character-casting) | 사례 6, 사례 8, 사례 10 |
 | [도구 및 제공자 통합](#tool-provider-integrations) | 사례 7 |
@@ -78,6 +99,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 | [사례 2: 멀티클립 스토리 영상의 오디오 설계](#case-2) | Seed-Audio 1.0이 다중 클립 비디오 스토리의 타이밍 및 일관성 문제를 줄일 수 있는지 테스트합니다. | Evaluation |
 | [사례 3: 오디오 우선 Seedance 참조 워크플로](#case-3) | 3단계 작업 흐름을 구성합니다. 즉, 오디오를 생성하고 주요 시각적 요소를 만든 다음 두 가지를 모두 Seedance 참조로 사용합니다. | Tutorial |
 | [사례 12: Claude로 음악과 효과음을 Premiere에 조립](#case-12) | 음악, 효과음, 음성을 별도 패스로 생성한 뒤 Claude가 Premiere에서 조립하게 하고 타이밍과 페이드는 수동으로 제어하세요. | Tutorial |
+| [사례 13: 참조 오디오 기반 격투 해설 타이밍 검증](#case-13) | 완성된 Seedance 편집본을 Seed Audio의 참조 입력으로 쓰고, 화면 액션에 맞춘 타임코드 해설을 만든 뒤, 타이밍 정합을 핵심 평가 리스크로 다루세요. | Evaluation |
 
 <a id="audio-drama-scene-generation"></a>
 ## 오디오 드라마와 장면 생성
@@ -256,7 +278,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 ---
 
 <a id="case-9"></a>
-### 사례 9: [소셜 스토리 내레이션 엔진](https://x.com/deepwhitman/status/2071485165390704837) (작성자 [@deepwhitman](https://x.com/deepwhitman))
+### 사례 9: [소셜 스토리 내레이션 엔진](https://twitter.com/deepwhitman/status/2071485165390704837) (작성자 [@deepwhitman](https://x.com/deepwhitman))
 
 **텍스트 게시물이 오디오 우선 엔터테인먼트가 되는 사회 이야기 내레이션 형식을 테스트합니다.**
 
@@ -323,6 +345,24 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 ---
 
+<a id="case-13"></a>
+### 사례 13: [참조 오디오 기반 격투 해설 타이밍 검증](https://x.com/aimikoda/status/2076526254417735781) (작성자 [@aimikoda](https://x.com/aimikoda))
+
+**완성된 Seedance 편집본을 Seed Audio의 참조 입력으로 쓰고, 화면 액션에 맞춘 타임코드 해설을 만든 뒤, 타이밍 정합을 핵심 평가 리스크로 다루세요.**
+
+- 출처 근거: 부모 게시물은 완성된 격투 클립을 보여주고, 답글 https://x.com/aimikoda/status/2076527528227815779 로 워크플로를 안내합니다. 그 답글에는 Midjourney, Seedance 2.0, Seed Audio의 정확한 prompt가 공개되어 있고, 완성 영상의 오디오를 Seed Audio reference로 사용했다는 설명도 있습니다.
+- 복사할 점: 먼저 시각적 격투 편집을 완성하고, 그 편집 오디오를 Seed Audio reference로 재사용하면서 다른 모델이 화면 동작을 바탕으로 해설 문안을 쓰게 합니다.
+- 실제 워크플로: Midjourney로 캐릭터와 링 자산을 만들고, 여러 Seedance 격투 패스를 생성해 가장 강한 장면만 편집으로 묶고, 완성 오디오를 추출한 뒤 GPT-5.6이 영상 기반 해설을 쓰게 하며, 길이, 음성 톤, 환경, 타임라인 cue, negative 제약을 포함한 Seed Audio prompt로 해설을 생성합니다.
+- 주의점: 작성자는 약 10번 시도해도 원하는 타이밍에 완전히 맞지 않았다고 말합니다. 따라서 Tutorial이 아니라 Evaluation으로 취급하고, 추가 prompt 조정이나 수동 싱크 작업을 예상해야 합니다.
+
+[![사례 13 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-13.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4)
+
+[동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4)
+
+유형: Evaluation | 날짜: 2026-07-13
+
+---
+
 ## 관련 저장소
 
 현재 별도의 공개 Seed-Audio 저장소는 검증되지 않았습니다. 유지 관리되는 skill 경로는 npm의 evolink-seed-audio.
@@ -332,7 +372,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 이 저장소는 사례 단위로 공개 크리에이터와 제공자 게시물에 연결합니다. 공개 출처는 각 사례 제목에 표시됩니다.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda)
 
 *출처 링크가 깨졌거나, 표시가 잘못되었거나, 주장에 근거가 부족하면 수정을 제안해 주세요.*
 

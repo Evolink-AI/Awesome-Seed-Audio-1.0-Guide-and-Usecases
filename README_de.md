@@ -24,7 +24,7 @@ Diese deutsche README behält Quellenlinks, Attribution und Anker bei und übers
 
 ## 📊 Überblick
 
-- **Aus 94 akzeptierten aktuellen X/Twitter-Beiträgen wurden 12 Seed-Audio 1.0 Fälle ausgewählt.**
+- **Aus 95 akzeptierten aktuellen X/Twitter-Beiträgen wurden 13 Seed-Audio 1.0 Fälle ausgewählt.**
 - Abgedeckte Bereiche: Audio-First-Video-Workflows, Audio-Drama und Szenengenerierung, Referenzstimmen und Character Casting, Tool- und Provider-Integrationen, Social Narration, Foley und Kostentests.
 - Jeder Fall enthält Originalquelle, Creator-Attribution, Nutzungserkenntnis, Evidenztyp und Veröffentlichungsdatum.
 - Nutze dieses Repository, um reale Workflows zu finden, Stärken und Grenzen zu vergleichen, Provider-Routen zu entdecken und Implementierung zu EvoLink zu führen.
@@ -47,11 +47,32 @@ npm i evolink-seed-audio
 
 export EVOLINK_API_KEY="your_api_key_here"
 
-curl --request POST \
+TASK_JSON=$(curl --silent --request POST \
   --url https://api.evolink.ai/v1/audios/generations \
   --header "Authorization: Bearer ${EVOLINK_API_KEY}" \
   --header 'Content-Type: application/json' \
-  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}'
+  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}')
+
+echo "$TASK_JSON"
+TASK_ID=$(python3 -c 'import json,sys; data=json.load(sys.stdin); print(data.get("id") or data.get("task_id") or "")' <<<"$TASK_JSON")
+[ -n "$TASK_ID" ] || { echo "Task creation did not return an id" >&2; exit 1; }
+
+while true; do
+  STATUS_JSON=$(curl --silent --request GET \
+    --url "https://api.evolink.ai/v1/tasks/${TASK_ID}" \
+    --header "Authorization: Bearer ${EVOLINK_API_KEY}")
+  echo "$STATUS_JSON"
+  STATUS=$(python3 -c 'import json,sys; data=json.load(sys.stdin); print((data.get("status") or data.get("task", {}).get("status") or "").lower())' <<<"$STATUS_JSON")
+  if [ "$STATUS" = "completed" ]; then
+    python3 -c 'import json,sys; data=json.load(sys.stdin); print(data.get("output_url") or data.get("result_url") or data.get("url") or data.get("task", {}).get("output_url") or data.get("task", {}).get("result_url") or "")' <<<"$STATUS_JSON"
+    break
+  fi
+  if [ "$STATUS" = "failed" ] || [ "$STATUS" = "cancelled" ]; then
+    echo "Task ${TASK_ID} ended with status ${STATUS}" >&2
+    exit 1
+  fi
+  sleep 5
+done
 ```
 
 Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
@@ -62,7 +83,7 @@ Das Paket ist als [evolink-seed-audio](https://www.npmjs.com/package/evolink-see
 
 | Abschnitt | Fälle |
 |---|---|
-| [Audio-First-Video-Workflows](#audio-first-video) | Fall 1, Fall 2, Fall 3, Fall 12 |
+| [Audio-First-Video-Workflows](#audio-first-video) | Fall 1, Fall 2, Fall 3, Fall 12, Fall 13 |
 | [Audio-Drama und Szenengenerierung](#audio-drama-scene-generation) | Fall 4, Fall 5 |
 | [Referenzstimmen und Character Casting](#voice-reference-character-casting) | Fall 6, Fall 8, Fall 10 |
 | [Tool- und Provider-Integrationen](#tool-provider-integrations) | Fall 7 |
@@ -78,6 +99,7 @@ Das Paket ist als [evolink-seed-audio](https://www.npmjs.com/package/evolink-see
 | [Fall 2: Audioplanung für Multi-Clip-Storyvideos](#case-2) | Testen Sie, ob Seed-Audio 1.0 Timing- und Konsistenzprobleme in Videogeschichten mit mehreren Clips reduzieren kann. | Evaluation |
 | [Fall 3: Audio-First Seedance-Referenzworkflow](#case-3) | Strukturieren Sie einen dreistufigen Workflow: Audio generieren, ein Key Visual erstellen und dann beides als Seedance-Referenzen verwenden. | Tutorial |
 | [Fall 12: Musik und SFX mit Claude in Premiere montieren](#case-12) | Trennen Sie Musik, Soundeffekte und Stimme in eigene Durchläufe und lassen Sie Claude das Audio in Premiere montieren, während Timing und Fades manuell steuerbar bleiben. | Tutorial |
+| [Fall 13: Timing-Test für Kampfkommentar mit Referenz-Audio](#case-13) | Verwenden Sie einen fertigen Seedance-Schnitt als Seed-Audio-Referenz, schreiben Sie daraus zeitcodierten Kampfkommentar und behandeln Sie Timing-Abgleich als zentrales Evaluationsrisiko. | Evaluation |
 
 <a id="audio-drama-scene-generation"></a>
 ## Audio-Drama und Szenengenerierung
@@ -256,7 +278,7 @@ Typ: Evaluation | Datum: 2026-06-26
 ---
 
 <a id="case-9"></a>
-### Fall 9: [Narrationsmaschine für Social Stories](https://x.com/deepwhitman/status/2071485165390704837) (von [@deepwhitman](https://x.com/deepwhitman))
+### Fall 9: [Narrationsmaschine für Social Stories](https://twitter.com/deepwhitman/status/2071485165390704837) (von [@deepwhitman](https://x.com/deepwhitman))
 
 **Testen Sie Social-Story-Erzählformate, bei denen Textbeiträge zu Audio-First-Unterhaltung werden.**
 
@@ -323,6 +345,24 @@ Typ: Tutorial | Datum: 2026-07-12
 
 ---
 
+<a id="case-13"></a>
+### Fall 13: [Timing-Test für Kampfkommentar mit Referenz-Audio](https://x.com/aimikoda/status/2076526254417735781) (von [@aimikoda](https://x.com/aimikoda))
+
+**Verwenden Sie einen fertigen Seedance-Schnitt als Seed-Audio-Referenz, schreiben Sie daraus zeitcodierten Kampfkommentar und behandeln Sie Timing-Abgleich als zentrales Evaluationsrisiko.**
+
+- Quellenbeleg: Der Hauptpost zeigt den finalen Kampfclip und verweist auf die Antwort https://x.com/aimikoda/status/2076527528227815779. Dort stehen die exakten Midjourney-, Seedance-2.0- und Seed-Audio-Prompts sowie der Hinweis, dass das Audio des fertigen Videos als Seed-Audio-Referenz diente.
+- Was zu übernehmen ist: Schließen Sie zuerst den visuellen Kampfschnitt ab, extrahieren Sie dann das editierte Audio und nutzen Sie es als Seed-Audio-Referenz, während ein anderes Modell den Kommentar aus der sichtbaren Aktion schreibt.
+- Praktischer Workflow: Erstellen Sie Figuren und Ring in Midjourney, generieren Sie mehrere Seedance-Kampfpässe, schneiden Sie die stärksten Momente zusammen, extrahieren Sie das finale Audio, lassen Sie GPT-5.6 den Kommentar aus dem Clip schreiben und formulieren Sie anschließend einen Seed-Audio-Prompt mit Dauer, Stimme, Ambiente, Timeline-Cues und negative Constraints.
+- Worauf zu achten ist: Laut Quelle passte das Timing selbst nach etwa zehn Versuchen nicht exakt. Behandeln Sie den Fall deshalb als Evaluation statt als Tutorial und rechnen Sie mit weiterem Prompt-Tuning oder manueller Synchronisation.
+
+[![Fall 13 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-13.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4)
+
+[Video-Wiedergabeseite oeffnen](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4)
+
+Typ: Evaluation | Datum: 2026-07-13
+
+---
+
 ## Verwandte Repositories
 
 Derzeit ist kein separates öffentliches Seed-Audio-Repository verifiziert. Die gepflegte Skill-Oberfläche ist evolink-seed-audio auf npm.
@@ -332,7 +372,7 @@ Derzeit ist kein separates öffentliches Seed-Audio-Repository verifiziert. Die 
 
 Dieses Repository verlinkt öffentliche Creator- und Provider-Beiträge auf Fallebene. Die öffentliche Quelle steht in jeder Fallüberschrift.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda)
 
 *Korrekturen sind willkommen, wenn ein Link defekt ist, Attribution falsch ist oder eine Aussage nicht durch die Quelle gestützt wird.*
 

@@ -1,6 +1,6 @@
 # Case Label Audit
 
-Date: 2026-07-12
+Date: 2026-07-14
 
 This audit checks whether each public case is detailed enough to be useful and whether its `Type` label matches the linked source evidence.
 
@@ -31,6 +31,7 @@ This audit checks whether each public case is detailed enough to be useful and w
 | 10 | Evaluation | The source tests image-guided character voice casting with three short lines and reports pitch/tone instability. | Keep as Evaluation. It defines an early casting use and an explicit production risk. |
 | 11 | Evaluation | The source compares Seed Audio against native Seedance audio for voice acting and foley, and mentions low-cost 15-second tests. | Keep as Evaluation. It supports a cheap pre-production testing role, but not a complete final workflow. |
 | 12 | Tutorial | The source gives a reusable sequence: Claude writes separate music-bed and SFX prompts, Seed Audio generates isolated passes, and Claude assembles them in Premiere for manual tuning. | Keep as Tutorial. The steps and isolation rationale are explicit, while the quality claim remains framed as the creator's production preference. |
+| 13 | Evaluation | The selected parent post shows the finished fight clip, while the public thread reply publishes the exact Midjourney, Seedance 2.0, and Seed Audio prompts plus the timing-mismatch limitation. | Keep as Evaluation. The workflow is concrete and reusable, but the source explicitly says timing still drifted after repeated attempts. |
 
 ## Removed
 
@@ -38,7 +39,7 @@ The previous WaveSpeedAI provider-access case was removed from the public set. I
 
 ## Result
 
-- Public cases: 12
-- Strong-evidence cases retained: 12
+- Public cases: 13
+- Strong-evidence cases retained: 13
 - Removed cases in this audit pass: 1
-- Type labels changed in this audit pass: Case 4 from Demo to Tutorial
+- Type labels changed in this audit pass: Case 4 from Demo to Tutorial; Case 13 added as Evaluation

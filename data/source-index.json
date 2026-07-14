@@ -47,5 +47,16 @@
     "run_id": "20260712-seed-audio-recurring-update",
     "query": "\"seed audio\"",
     "lookback_hours": 48
+  },
+  {
+    "id": "recurring-x-2076526254417735781",
+    "type": "public_x_post",
+    "source_url": "https://x.com/aimikoda/status/2076526254417735781",
+    "author": "aimikoda",
+    "status": "included_in_use_case_evidence",
+    "case_number": 13,
+    "run_id": "20260714-seed-audio-recurring-update",
+    "query": "\"seed audio\"",
+    "lookback_hours": 48
   }
 ]

@@ -24,7 +24,7 @@ Seed-Audio 1.0 の高シグナルなユースケース集です。
 
 ## 📊 概要
 
-- **最近の X/Twitter サンプル 94 件から、Seed-Audio 1.0 のユースケース 12 件を選定しました。**
+- **最近の X/Twitter サンプル 95 件から、Seed-Audio 1.0 のユースケース 13 件を選定しました。**
 - 対象領域：音声先行の動画ワークフロー, 音声ドラマとシーン生成, 参照音声とキャラクター音声探索, ツールとプロバイダー統合, SNS ナレーション、フォーリー、コスト検証。
 - 各ケースには、元ソース、作者クレジット、活用ポイント、証拠タイプ、公開日を含めています。
 - 実用ワークフロー、強みと制約、プロバイダー経路、EvoLink での実装導線を確認するために使えます。
@@ -47,11 +47,32 @@ npm i evolink-seed-audio
 
 export EVOLINK_API_KEY="your_api_key_here"
 
-curl --request POST \
+TASK_JSON=$(curl --silent --request POST \
   --url https://api.evolink.ai/v1/audios/generations \
   --header "Authorization: Bearer ${EVOLINK_API_KEY}" \
   --header 'Content-Type: application/json' \
-  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}'
+  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}')
+
+echo "$TASK_JSON"
+TASK_ID=$(python3 -c 'import json,sys; data=json.load(sys.stdin); print(data.get("id") or data.get("task_id") or "")' <<<"$TASK_JSON")
+[ -n "$TASK_ID" ] || { echo "Task creation did not return an id" >&2; exit 1; }
+
+while true; do
+  STATUS_JSON=$(curl --silent --request GET \
+    --url "https://api.evolink.ai/v1/tasks/${TASK_ID}" \
+    --header "Authorization: Bearer ${EVOLINK_API_KEY}")
+  echo "$STATUS_JSON"
+  STATUS=$(python3 -c 'import json,sys; data=json.load(sys.stdin); print((data.get("status") or data.get("task", {}).get("status") or "").lower())' <<<"$STATUS_JSON")
+  if [ "$STATUS" = "completed" ]; then
+    python3 -c 'import json,sys; data=json.load(sys.stdin); print(data.get("output_url") or data.get("result_url") or data.get("url") or data.get("task", {}).get("output_url") or data.get("task", {}).get("result_url") or "")' <<<"$STATUS_JSON"
+    break
+  fi
+  if [ "$STATUS" = "failed" ] || [ "$STATUS" = "cancelled" ]; then
+    echo "Task ${TASK_ID} ended with status ${STATUS}" >&2
+    exit 1
+  fi
+  sleep 5
+done
 ```
 
 Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
@@ -62,7 +83,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 | セクション | ケース |
 |---|---|
-| [音声先行の動画ワークフロー](#audio-first-video) | ケース 1, ケース 2, ケース 3, ケース 12 |
+| [音声先行の動画ワークフロー](#audio-first-video) | ケース 1, ケース 2, ケース 3, ケース 12, ケース 13 |
 | [音声ドラマとシーン生成](#audio-drama-scene-generation) | ケース 4, ケース 5 |
 | [参照音声とキャラクター音声探索](#voice-reference-character-casting) | ケース 6, ケース 8, ケース 10 |
 | [ツールとプロバイダー統合](#tool-provider-integrations) | ケース 7 |
@@ -78,6 +99,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 | [ケース 2: マルチクリップ物語動画の音声設計](#case-2) | Seed-Audio 1.0 がマルチクリップ ビデオ ストーリーのタイミングと一貫性の問題を軽減できるかどうかをテストします。 | Evaluation |
 | [ケース 3: 音声先行の Seedance 参照ワークフロー](#case-3) | 音声の生成、キービジュアルの作成、両方を Seedance リファレンスとして使用するという 3 ステップのワークフローを構築します。 | Tutorial |
 | [ケース 12: Claude で音楽と効果音を Premiere に組み込む](#case-12) | 音楽、効果音、音声を別々に生成し、Claude に Premiere 上で組み立てさせながら、タイミングとフェードを手動で調整できる状態を保ちます。 | Tutorial |
+| [ケース 13: 参照音声による格闘実況タイミング検証](#case-13) | 完成した Seedance 編集を Seed Audio の参照入力にし、映像アクションから時間指定の実況文を作り、タイミング一致を主な評価リスクとして扱います。 | Evaluation |
 
 <a id="audio-drama-scene-generation"></a>
 ## 音声ドラマとシーン生成
@@ -256,7 +278,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 ---
 
 <a id="case-9"></a>
-### ケース 9: [SNS ストーリー朗読エンジン](https://x.com/deepwhitman/status/2071485165390704837) (作者 [@deepwhitman](https://x.com/deepwhitman))
+### ケース 9: [SNS ストーリー朗読エンジン](https://twitter.com/deepwhitman/status/2071485165390704837) (作者 [@deepwhitman](https://x.com/deepwhitman))
 
 **テキスト投稿がオーディオファーストのエンターテイメントになるソーシャルストーリーのナレーション形式をテストします。**
 
@@ -323,6 +345,24 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 ---
 
+<a id="case-13"></a>
+### ケース 13: [参照音声による格闘実況タイミング検証](https://x.com/aimikoda/status/2076526254417735781) (作者 [@aimikoda](https://x.com/aimikoda))
+
+**完成した Seedance 編集を Seed Audio の参照入力にし、映像アクションから時間指定の実況文を作り、タイミング一致を主な評価リスクとして扱います。**
+
+- ソース証拠: 親投稿は完成した格闘クリップを示し、返信 https://x.com/aimikoda/status/2076527528227815779 にワークフローを誘導しています。この返信では Midjourney、Seedance 2.0、Seed Audio の正確な prompt が公開され、完成動画の音声を Seed Audio の reference として使ったことも説明されています。
+- コピーすること: 先に映像側の格闘編集を完成させ、その完成音声を Seed Audio の reference として再利用しつつ、別モデルに映像アクションから実況文を書かせます。
+- 実用ワークフロー: Midjourney でキャラクターとリング素材を作り、複数の Seedance 格闘パスを生成して強い部分を編集でつなぎ、完成音声を抽出し、GPT-5.6 に映像から実況を書かせたうえで、尺、声質、環境、タイムライン cue、negative 制約を含む Seed Audio prompt を作成します。
+- 注意点: 作者はおよそ 10 回試してもタイミングが完全には合わなかったと述べています。したがってこれは Tutorial ではなく Evaluation として扱い、prompt の再調整や手動同期を前提にしてください。
+
+[![ケース 13 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-13.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4)
+
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4)
+
+タイプ: Evaluation | 日付: 2026-07-13
+
+---
+
 ## 関連リポジトリ
 
 現在、別の公開 Seed-Audio リポジトリは検証されていません。保守されている skill の入口は npm の evolink-seed-audio.
@@ -332,7 +372,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 このリポジトリはケース単位で公開クリエイターやプロバイダーの投稿へリンクしています。公開ソースは各ケース見出しで明記します。
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda)
 
 *リンク切れ、誤った帰属、またはリンク先で裏付けられていない主張があれば修正を歓迎します。*
 

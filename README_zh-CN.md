@@ -24,7 +24,7 @@
 
 ## 📊 概览
 
-- **从近期 X/Twitter 样本中筛选出 12 个 Seed-Audio 1.0 使用案例，原始可用样本为 94 条。**
+- **从近期 X/Twitter 样本中筛选出 13 个 Seed-Audio 1.0 使用案例，原始可用样本为 95 条。**
 - 覆盖方向：音频优先视频工作流, 音频剧与场景生成, 参考声音与角色配音探索, 工具与服务商集成, 社交旁白、拟音与成本测试。
 - 每个案例都包含原始来源、创作者署名、使用结论、证据类型和发布日期。
 - 你可以用这个仓库查找真实工作流、比较优势和限制、发现服务商路径，并把实现工作导向 EvoLink。
@@ -47,11 +47,32 @@ npm i evolink-seed-audio
 
 export EVOLINK_API_KEY="your_api_key_here"
 
-curl --request POST \
+TASK_JSON=$(curl --silent --request POST \
   --url https://api.evolink.ai/v1/audios/generations \
   --header "Authorization: Bearer ${EVOLINK_API_KEY}" \
   --header 'Content-Type: application/json' \
-  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}'
+  --data '{"model":"doubao-seed-audio-1-0","prompt":"Welcome to the audio generation service.","format":"mp3"}')
+
+echo "$TASK_JSON"
+TASK_ID=$(python3 -c 'import json,sys; data=json.load(sys.stdin); print(data.get("id") or data.get("task_id") or "")' <<<"$TASK_JSON")
+[ -n "$TASK_ID" ] || { echo "Task creation did not return an id" >&2; exit 1; }
+
+while true; do
+  STATUS_JSON=$(curl --silent --request GET \
+    --url "https://api.evolink.ai/v1/tasks/${TASK_ID}" \
+    --header "Authorization: Bearer ${EVOLINK_API_KEY}")
+  echo "$STATUS_JSON"
+  STATUS=$(python3 -c 'import json,sys; data=json.load(sys.stdin); print((data.get("status") or data.get("task", {}).get("status") or "").lower())' <<<"$STATUS_JSON")
+  if [ "$STATUS" = "completed" ]; then
+    python3 -c 'import json,sys; data=json.load(sys.stdin); print(data.get("output_url") or data.get("result_url") or data.get("url") or data.get("task", {}).get("output_url") or data.get("task", {}).get("result_url") or "")' <<<"$STATUS_JSON"
+    break
+  fi
+  if [ "$STATUS" = "failed" ] || [ "$STATUS" = "cancelled" ]; then
+    echo "Task ${TASK_ID} ended with status ${STATUS}" >&2
+    exit 1
+  fi
+  sleep 5
+done
 ```
 
 Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
@@ -62,7 +83,7 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 
 | 章节 | 案例 |
 |---|---|
-| [音频优先视频工作流](#audio-first-video) | 案例 1, 案例 2, 案例 3, 案例 12 |
+| [音频优先视频工作流](#audio-first-video) | 案例 1, 案例 2, 案例 3, 案例 12, 案例 13 |
 | [音频剧与场景生成](#audio-drama-scene-generation) | 案例 4, 案例 5 |
 | [参考声音与角色配音探索](#voice-reference-character-casting) | 案例 6, 案例 8, 案例 10 |
 | [工具与服务商集成](#tool-provider-integrations) | 案例 7 |
@@ -78,6 +99,7 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 | [案例 2: 多片段故事视频的音频规划](#case-2) | 评估多片段故事视频中的 agentic soundscape 生成，并保留音效与画面动作仍可能不匹配的限制。 | Evaluation |
 | [案例 3: 音频优先的 Seedance 参考工作流](#case-3) | 采用官方三步流程：先生成 Seed-Audio，再创建关键视觉图，最后把音频和视觉一起作为 Seedance 2 reference-to-video 的参考。 | Tutorial |
 | [案例 12: 用 Claude 在 Premiere 中编排音乐与音效](#case-12) | 将音乐、音效和人声拆成独立生成，再让 Claude 把音频装配进 Premiere，同时保留对节奏与淡入淡出的手动控制。 | Tutorial |
+| [案例 13: 参考音频格斗解说时序测试](#case-13) | 先把 Seedance 成片作为 Seed Audio 的参考输入，再根据画面动作生成带时间轴的解说词，并把时序对齐当作主要评估风险。 | Evaluation |
 
 <a id="audio-drama-scene-generation"></a>
 ## 音频剧与场景生成
@@ -256,7 +278,7 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 ---
 
 <a id="case-9"></a>
-### 案例 9: [社交故事旁白内容引擎](https://x.com/deepwhitman/status/2071485165390704837) (作者 [@deepwhitman](https://x.com/deepwhitman))
+### 案例 9: [社交故事旁白内容引擎](https://twitter.com/deepwhitman/status/2071485165390704837) (作者 [@deepwhitman](https://x.com/deepwhitman))
 
 **把公开文字故事帖转成音频优先娱乐内容，并评估它能否成为可重复的内容引擎。**
 
@@ -323,6 +345,24 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 
 ---
 
+<a id="case-13"></a>
+### 案例 13: [参考音频格斗解说时序测试](https://x.com/aimikoda/status/2076526254417735781) (作者 [@aimikoda](https://x.com/aimikoda))
+
+**先把 Seedance 成片作为 Seed Audio 的参考输入，再根据画面动作生成带时间轴的解说词，并把时序对齐当作主要评估风险。**
+
+- 证据来源：父帖展示最终格斗片段，并指向回复贴 https://x.com/aimikoda/status/2076527528227815779；该回复公开了 Midjourney、Seedance 2.0 与 Seed Audio 的完整提示词，并说明作者把成片音频作为 Seed Audio 参考。
+- 可复制做法：先把视觉打斗片段剪成最终版，再提取成片音频作为 Seed Audio 参考，同时让另一模型根据画面动作生成解说文案。
+- 实际流程：用 Midjourney 做角色和擂台素材，生成多条 Seedance 打斗片段并剪出最强片段，导出成片音频，交给 GPT-5.6 按画面写解说，再用包含时长、声线、环境、时间轴提示和 negative 约束的 Seed Audio 提示词生成解说。
+- 注意事项：作者说大约试了十次，时序仍未完全贴合，因此这更适合作为 Evaluation；预计还要继续改 prompt 或做手动同步。
+
+[![案例 13 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-13.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4)
+
+[打开视频播放页](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4)
+
+类型: Evaluation | 日期: 2026-07-13
+
+---
+
 ## 相关仓库
 
 目前没有已验证的其他公开 Seed-Audio 仓库。持续维护的 skill 入口是 npm 上的 evolink-seed-audio.
@@ -332,7 +372,7 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 
 本仓库在案例级别链接公开创作者和服务商内容。每个案例标题都会标注公开来源。
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda)
 
 *如果来源链接失效、署名错误，或某个说法没有得到链接来源支持，欢迎提交修正。*
 
