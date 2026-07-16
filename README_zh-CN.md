@@ -24,7 +24,7 @@
 
 ## 📊 概览
 
-- **从近期 X/Twitter 样本中筛选出 13 个 Seed-Audio 1.0 使用案例，原始可用样本为 95 条。**
+- **从近期 X/Twitter 样本中筛选出 15 个 Seed-Audio 1.0 使用案例，原始可用样本为 97 条。**
 - 覆盖方向：音频优先视频工作流, 音频剧与场景生成, 参考声音与角色配音探索, 工具与服务商集成, 社交旁白、拟音与成本测试。
 - 每个案例都包含原始来源、创作者署名、使用结论、证据类型和发布日期。
 - 你可以用这个仓库查找真实工作流、比较优势和限制、发现服务商路径，并把实现工作导向 EvoLink。
@@ -83,10 +83,10 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 
 | 章节 | 案例 |
 |---|---|
-| [音频优先视频工作流](#audio-first-video) | 案例 1, 案例 2, 案例 3, 案例 12, 案例 13 |
+| [音频优先视频工作流](#audio-first-video) | 案例 1, 案例 2, 案例 3, 案例 12, 案例 13, 案例 15 |
 | [音频剧与场景生成](#audio-drama-scene-generation) | 案例 4, 案例 5 |
 | [参考声音与角色配音探索](#voice-reference-character-casting) | 案例 6, 案例 8, 案例 10 |
-| [工具与服务商集成](#tool-provider-integrations) | 案例 7 |
+| [工具与服务商集成](#tool-provider-integrations) | 案例 7, 案例 14 |
 | [社交旁白、拟音与成本测试](#social-narration-foley-cost-tests) | 案例 9, 案例 11 |
 | [致谢](#acknowledge) | 来源致谢与修正政策 |
 
@@ -100,6 +100,7 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 | [案例 3: 音频优先的 Seedance 参考工作流](#case-3) | 采用官方三步流程：先生成 Seed-Audio，再创建关键视觉图，最后把音频和视觉一起作为 Seedance 2 reference-to-video 的参考。 | Tutorial |
 | [案例 12: 用 Claude 在 Premiere 中编排音乐与音效](#case-12) | 将音乐、音效和人声拆成独立生成，再让 Claude 把音频装配进 Premiere，同时保留对节奏与淡入淡出的手动控制。 | Tutorial |
 | [案例 13: 参考音频格斗解说时序测试](#case-13) | 先把 Seedance 成片作为 Seed Audio 的参考输入，再根据画面动作生成带时间轴的解说词，并把时序对齐当作主要评估风险。 | Evaluation |
+| [案例 15: Agent 重写正向版本的视频旁白测试](#case-15) | 把现有视频交给 agent，让它为新的情绪方向重写脚本，再用 Seed Audio 合成匹配的新旁白，然后重建画面。 | Evaluation |
 
 <a id="audio-drama-scene-generation"></a>
 ## 音频剧与场景生成
@@ -124,6 +125,7 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 | 案例 | 展示重点 | 类型 |
 |---|---|---|
 | [案例 7: Claude MCP 旁白与多语言配音集成](#case-7) | 通过 Higgsfield MCP 在 Claude 内完成旁白、声音克隆和多语言配音，Seed Audio 1.0 是其中的音频能力之一。 | Integration |
+| [案例 14: 用克隆旁白驱动动态图形技能工作流](#case-14) | 先用 Seed Audio 克隆自己的声音，再把生成的旁白当作时间轴骨架，驱动带文本、图形动画、BGM 和字幕的动态图形视频。 | Tutorial |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## 社交旁白、拟音与成本测试
@@ -363,6 +365,42 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 
 ---
 
+<a id="case-14"></a>
+### 案例 14: [用克隆旁白驱动动态图形技能工作流](https://x.com/akiyoshisan/status/2077650497536987154) (作者 [@akiyoshisan](https://x.com/akiyoshisan))
+
+**先用 Seed Audio 克隆自己的声音，再把生成的旁白当作时间轴骨架，驱动带文本、图形动画、BGM 和字幕的动态图形视频。**
+
+- 证据来源：作者明确表示视频是用 MiniMax Hub 的动态图形技能制作的，并公开列出了流程：用 Seed Audio 1.0 克隆自己的声音、生成旁白、确认时长和内容、为 15 秒成片设计 6 张分镜、编写日文画面文字、规划连续的图形变形过渡、用 Seedance 2.0 Fast 出视频，再合成旁白、BGM、音效和日文字幕。
+- 可复制做法：当你要做短讲解或动态图形视频时，可以把 Seed Audio 的声音克隆和旁白生成当成时间轴主线，再让分镜卡片、文字覆盖和动画节奏围绕这条主线同步展开。
+- 实际流程：先准备源声音并在 Seed Audio 中生成旁白，锁定目标时长，再按这段旁白长度设计分镜，补齐文本和图形动作，渲染视频后把旁白、音乐、音效和字幕一起混到最终成片。
+- 注意事项：这条帖子证明了工作流形态和所用工具链，但没有公开具体 prompt 或节点配置。适合把它当成可迁移的生产模式，而不是 prompt 复现案例。
+
+[![案例 14 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-14.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-14.mp4)
+
+[打开视频播放页](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-14.mp4)
+
+类型: Tutorial | 日期: 2026-07-16
+
+---
+
+<a id="case-15"></a>
+### 案例 15: [Agent 重写正向版本的视频旁白测试](https://x.com/fabianstelzer/status/2077138756939727067) (作者 [@fabianstelzer](https://x.com/fabianstelzer))
+
+**把现有视频交给 agent，让它为新的情绪方向重写脚本，再用 Seed Audio 合成匹配的新旁白，然后重建画面。**
+
+- 证据来源：作者表示，一个由 Claude 驱动的 Glif agent 先接收原视频链接，再用 Gemini 3.5 观看视频、写出更正向的新脚本、调用 Seed Audio 生成相似声线的旁白，最后再用 NB2 做静帧、用 Remotion 组装成片。
+- 可复制做法：当你测试 agent 式视频改写流程时，可以把 Seed Audio 放在“保留原有说话风格、但替换叙述内容”的旁白层。
+- 实际流程：先把源视频交给 agent，要求它改写语气；让 agent 理解视频内容并生成新脚本；再用 Seed Audio 产出替代旁白，随后重建或扩展画面，并把节奏与配乐单独复核。
+- 注意事项：作者明确指出节奏和速度仍需人工打磨，图像质感仍受模型选择限制，而且 ElevenLabs 的配乐尝试失败了。因此它更适合作为评估型流程，而不是无监督成片方案。
+
+[![案例 15 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-15.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-15.mp4)
+
+[打开视频播放页](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-15.mp4)
+
+类型: Evaluation | 日期: 2026-07-14
+
+---
+
 ## 相关仓库
 
 目前没有已验证的其他公开 Seed-Audio 仓库。持续维护的 skill 入口是 npm 上的 evolink-seed-audio.
@@ -372,7 +410,7 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 
 本仓库在案例级别链接公开创作者和服务商内容。每个案例标题都会标注公开来源。
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer)
 
 *如果来源链接失效、署名错误，或某个说法没有得到链接来源支持，欢迎提交修正。*
 

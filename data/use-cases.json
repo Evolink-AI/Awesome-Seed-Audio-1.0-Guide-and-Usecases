@@ -2,23 +2,23 @@
   "metadata": {
     "model": "Seed-Audio 1.0",
     "provider": "ByteDance / Doubao",
-    "generated_at": "2026-07-14",
+    "generated_at": "2026-07-16",
     "basis": "Recurring exact-phrase X/Twitter search for Seed-Audio 1.0 use cases",
     "queries": [
       "\"seed audio\" since:2026-06-24 until:2026-06-30",
       "\"Seed-Audio\" since:2026-06-24 until:2026-06-30",
       "\"SeedAudio\" since:2026-06-24 until:2026-06-30"
     ],
-    "raw_post_count": 381,
-    "accepted_count": 95,
-    "selected_case_count": 13,
+    "raw_post_count": 441,
+    "accepted_count": 97,
+    "selected_case_count": 15,
     "date_span_utc": {
       "start": "2026-06-24T01:47:15+00:00",
-      "end": "2026-07-14T10:07:49+00:00"
+      "end": "2026-07-16T10:05:27+00:00"
     },
     "language_counts": {
-      "en": 59,
-      "ja": 22,
+      "en": 60,
+      "ja": 23,
       "zh": 7,
       "zxx": 2,
       "pl": 1,
@@ -27,7 +27,7 @@
       "und": 1,
       "fr": 1
     },
-    "review_queue_count": 55,
+    "review_queue_count": 77,
     "selection_policy": "strong_evidence_public_sources_only",
     "label_audit": "docs/case-label-audit.md"
   },
@@ -39,7 +39,8 @@
         2,
         3,
         12,
-        13
+        13,
+        15
       ],
       "localized_titles": {
         "zh-CN": "音频优先视频工作流",
@@ -99,7 +100,8 @@
     {
       "title": "Tool And Provider Integrations",
       "case_numbers": [
-        7
+        7,
+        14
       ],
       "localized_titles": {
         "zh-CN": "工具与服务商集成",
@@ -614,6 +616,80 @@
         "download_url": "https://video.twimg.com/amplify_video/2076526024506880000/vid/avc1/1280x720/9SKzigp46SP0LAyp.mp4?tag=28",
         "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-13.mp4",
         "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-13.jpg"
+      }
+    },
+    {
+      "number": 14,
+      "category": "tool-provider-integrations",
+      "title": "Voice-Cloned Motion Graphics Skill Workflow",
+      "source_url": "https://x.com/akiyoshisan/status/2077650497536987154",
+      "author": "akiyoshisan",
+      "author_name": "Akiyoshi",
+      "author_url": "https://x.com/akiyoshisan",
+      "type": "Tutorial",
+      "date": "2026-07-16",
+      "takeaway": "clone your own voice in Seed Audio, then use the generated narration as the timing spine for storyboarded motion-graphics videos with text, shape animation, BGM, and subtitles.",
+      "notes": "- Source evidence: The author says the video was built with MiniMax Hub's motion-graphics skill and lists the public production steps: clone the author's own voice with Seed Audio 1.0, generate narration, check duration and content, design a six-frame storyboard for a fifteen-second output, write Japanese on-screen text, plan uninterrupted shape morph transitions, render with Seedance 2.0 Fast, then combine narration, BGM, sound effects, and Japanese subtitles.\n- What to copy: Use Seed Audio voice cloning as the narration-first timing layer when you want short explainer or motion-graphics videos to stay synchronized across storyboard cards, text overlays, and animation beats.\n- Practical workflow: record or choose the source voice, generate the narration in Seed Audio, lock the target duration, build the storyboard around that narration length, create the supporting text and graphic motions, render the visuals, then mix narration, music, effects, and subtitles into the final output.\n- Watch-outs: The post proves the workflow shape and published tool chain, but it does not expose exact prompts or node settings. Treat this as a reusable production pattern rather than a prompt-reproduction case.",
+      "original_number": 14,
+      "evidence_strength": "strong",
+      "localized_titles": {
+        "zh-CN": "用克隆旁白驱动动态图形技能工作流",
+        "zh-TW": "用複製旁白驅動動態圖形技能工作流",
+        "ja": "クローン音声で動かすモーショングラフィックス技能フロー",
+        "ko": "클론 내레이션으로 구동하는 모션그래픽 스킬 워크플로",
+        "es": "Flujo de motion graphics con narración clonada",
+        "pt": "Workflow de motion graphics com narração clonada",
+        "de": "Motion-Graphics-Workflow mit geklonter Erzählstimme",
+        "fr": "Workflow motion graphics piloté par une narration clonée",
+        "tr": "Klon anlatımlı motion graphics beceri iş akışı",
+        "ru": "Workflow motion graphics с клонированной озвучкой"
+      },
+      "media": {
+        "type": "video",
+        "thumbnail_path": "media/cases/case-14.jpg",
+        "source": "x_twitter_tweet",
+        "source_tweet_id": "2077650497536987154",
+        "source_url": "https://x.com/akiyoshisan/status/2077650497536987154",
+        "download_url": "https://video.twimg.com/amplify_video/2077648505322250241/vid/avc1/720x1280/Eboc6THzRiFRUNP7.mp4?tag=29",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-14.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-14.jpg"
+      }
+    },
+    {
+      "number": 15,
+      "category": "audio-first-video",
+      "title": "Agent-Rewritten Positive Video Voiceover Test",
+      "source_url": "https://x.com/fabianstelzer/status/2077138756939727067",
+      "author": "fabianstelzer",
+      "author_name": "Fabian Stelzer",
+      "author_url": "https://x.com/fabianstelzer",
+      "type": "Evaluation",
+      "date": "2026-07-14",
+      "takeaway": "give an agent an existing video, let it rewrite the script for a new tone, and use Seed Audio to synthesize a matching replacement voiceover before rebuilding the visuals.",
+      "notes": "- Source evidence: The author says a Glif agent powered by Claude took a source video link, watched it with Gemini 3.5, wrote a more positive replacement script, used Seed Audio to generate a similar voiceover, then used NB2 for stills and Remotion for assembly.\n- What to copy: Use Seed Audio as the voice-preserving narration layer when testing agentic video remixes that need to change message tone without discarding the original speaking style.\n- Practical workflow: pass the source video into an agent, request the tonal rewrite, let the agent inspect the clip and draft the new script, generate the replacement voiceover with Seed Audio, rebuild or extend the visuals, then review pacing and soundtrack choices separately.\n- Watch-outs: The author explicitly says pacing and tempo still need work, image texture quality is still a model-selection problem, and the music attempt failed in ElevenLabs. Keep this as an evaluation workflow with manual review still required.",
+      "original_number": 15,
+      "evidence_strength": "strong",
+      "localized_titles": {
+        "zh-CN": "Agent 重写正向版本的视频旁白测试",
+        "zh-TW": "Agent 重寫正向版本的影片旁白測試",
+        "ja": "エージェントが前向き版へ書き換える音声テスト",
+        "ko": "에이전트가 긍정 버전으로 다시 쓰는 보이스오버 테스트",
+        "es": "Prueba de voiceover para versión positiva reescrita por agente",
+        "pt": "Teste de voiceover para versão positiva reescrita por agente",
+        "de": "Voiceover-Test für agentisch positiv umgeschriebenes Video",
+        "fr": "Test de voix off pour version positive réécrite par agent",
+        "tr": "Ajanın pozitif sürüme yeniden yazdığı video seslendirme testi",
+        "ru": "Тест озвучки для позитивно переписанной агентом версии видео"
+      },
+      "media": {
+        "type": "video",
+        "thumbnail_path": "media/cases/case-15.jpg",
+        "source": "x_twitter_tweet",
+        "source_tweet_id": "2077138756939727067",
+        "source_url": "https://x.com/fabianstelzer/status/2077138756939727067",
+        "download_url": "https://video.twimg.com/amplify_video/2077137526414852096/vid/avc1/1920x1080/ErkJ2iCaiWebW1m0.mp4?tag=28",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-15.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-15.jpg"
       }
     }
   ]

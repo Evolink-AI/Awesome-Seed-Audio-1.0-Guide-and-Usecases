@@ -24,7 +24,7 @@ Este README em português preserva links de fonte, atribuição e âncoras, enqu
 
 ## 📊 Visão geral
 
-- **Selecionamos 13 casos de Seed-Audio 1.0 a partir de 95 publicações recentes aceitas do X/Twitter.**
+- **Selecionamos 15 casos de Seed-Audio 1.0 a partir de 97 publicações recentes aceitas do X/Twitter.**
 - Abrange: Workflows de vídeo guiados por áudio, Áudio drama e geração de cena, Vozes de referência e casting de personagens, Integrações de ferramentas e provedores, Narração social, foley e testes de custo.
 - Cada caso inclui fonte original, atribuição do criador, conclusão de uso, tipo de evidência e data de publicação.
 - Use este repositório para encontrar fluxos reais, comparar forças e limites, descobrir rotas de provedores e levar a implementação para a EvoLink.
@@ -83,10 +83,10 @@ O pacote é publicado como [evolink-seed-audio](https://www.npmjs.com/package/ev
 
 | Seção | Casos |
 |---|---|
-| [Workflows de vídeo guiados por áudio](#audio-first-video) | Caso 1, Caso 2, Caso 3, Caso 12, Caso 13 |
+| [Workflows de vídeo guiados por áudio](#audio-first-video) | Caso 1, Caso 2, Caso 3, Caso 12, Caso 13, Caso 15 |
 | [Áudio drama e geração de cena](#audio-drama-scene-generation) | Caso 4, Caso 5 |
 | [Vozes de referência e casting de personagens](#voice-reference-character-casting) | Caso 6, Caso 8, Caso 10 |
-| [Integrações de ferramentas e provedores](#tool-provider-integrations) | Caso 7 |
+| [Integrações de ferramentas e provedores](#tool-provider-integrations) | Caso 7, Caso 14 |
 | [Narração social, foley e testes de custo](#social-narration-foley-cost-tests) | Caso 9, Caso 11 |
 | [Agradecimentos](#acknowledge) | Créditos e política de correções |
 
@@ -100,6 +100,7 @@ O pacote é publicado como [evolink-seed-audio](https://www.npmjs.com/package/ev
 | [Caso 3: Workflow Seedance guiado primeiro por áudio](#case-3) | Estruture um fluxo de trabalho de três etapas: gere áudio, crie um visual principal e use ambos como referências Seedance. | Tutorial |
 | [Caso 12: Montagem de música e efeitos com Claude no Premiere](#case-12) | Separe música, efeitos e voz em passagens distintas e deixe o Claude montar o áudio no Premiere, mantendo controle manual de tempo e fades. | Tutorial |
 | [Caso 13: Teste de sincronização de comentário de luta com áudio de referência](#case-13) | Use uma edição final do Seedance como referência no Seed Audio, escreva um comentário cronometrado a partir da ação e trate o alinhamento de tempo como o principal risco de avaliação. | Evaluation |
+| [Caso 15: Teste de voiceover para versão positiva reescrita por agente](#case-15) | Entregue a um agente um vídeo existente, deixe-o reescrever o roteiro para um novo tom e use Seed Audio para sintetizar um novo voiceover correspondente antes de reconstruir os visuais. | Evaluation |
 
 <a id="audio-drama-scene-generation"></a>
 ## Áudio drama e geração de cena
@@ -124,6 +125,7 @@ O pacote é publicado como [evolink-seed-audio](https://www.npmjs.com/package/ev
 | Caso | O que mostra | Tipo |
 |---|---|---|
 | [Caso 7: Integração de narração e dublagem no Claude MCP](#case-7) | Avalie o Seed-Audio 1.0 como parte de um espaço de trabalho criativo nativo do assistente para narração, clonagem de voz e dublagem. | Integration |
+| [Caso 14: Workflow de motion graphics com narração clonada](#case-14) | Clone sua própria voz no Seed Audio e use essa narração como espinha de timing para vídeos de motion graphics com texto, animação de formas, BGM e legendas. | Tutorial |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## Narração social, foley e testes de custo
@@ -363,6 +365,42 @@ Tipo: Evaluation | Data: 2026-07-13
 
 ---
 
+<a id="case-14"></a>
+### Caso 14: [Workflow de motion graphics com narração clonada](https://x.com/akiyoshisan/status/2077650497536987154) (por [@akiyoshisan](https://x.com/akiyoshisan))
+
+**Clone sua própria voz no Seed Audio e use essa narração como espinha de timing para vídeos de motion graphics com texto, animação de formas, BGM e legendas.**
+
+- Evidência da fonte: O autor explica que o vídeo foi feito com a skill de motion graphics do MiniMax Hub e publica a sequência: clonar a própria voz com Seed Audio 1.0, gerar a narração, revisar duração e conteúdo, desenhar um storyboard de seis quadros para uma saída de quinze segundos, escrever o texto em japonês, planejar transições contínuas de formas, renderizar com Seedance 2.0 Fast e depois combinar narração, BGM, efeitos e legendas em japonês.
+- O que copiar: Use a clonagem de voz e a narração do Seed Audio como camada principal de timing quando quiser manter storyboard, texto na tela e ritmo de animação sincronizados em vídeos curtos explicativos ou de motion graphics.
+- Fluxo prático: prepare a voz de origem, gere a narração no Seed Audio, fixe a duração alvo, desenhe o storyboard em volta dessa duração, crie os textos e movimentos gráficos de apoio, renderize o vídeo e depois misture narração, música, efeitos e legendas na saída final.
+- Cuidados: O post comprova o formato do workflow e a cadeia de ferramentas, mas não publica prompts exatos nem configuração de nós. Use-o como padrão de produção transferível, não como caso de reprodução de prompt.
+
+[![Caso 14 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-14.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-14.mp4)
+
+[Abrir página de reprodução de vídeo](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-14.mp4)
+
+Tipo: Tutorial | Data: 2026-07-16
+
+---
+
+<a id="case-15"></a>
+### Caso 15: [Teste de voiceover para versão positiva reescrita por agente](https://x.com/fabianstelzer/status/2077138756939727067) (por [@fabianstelzer](https://x.com/fabianstelzer))
+
+**Entregue a um agente um vídeo existente, deixe-o reescrever o roteiro para um novo tom e use Seed Audio para sintetizar um novo voiceover correspondente antes de reconstruir os visuais.**
+
+- Evidência da fonte: O autor diz que um agente do Glif movido por Claude recebeu o link de um vídeo, assistiu ao conteúdo com Gemini 3.5, escreveu um roteiro alternativo mais positivo, usou Seed Audio para gerar um voiceover semelhante e depois utilizou NB2 para stills e Remotion para a montagem.
+- O que copiar: Use o Seed Audio como camada de narração que preserva a voz quando testar remixes agentic de vídeo que precisam mudar o tom da mensagem sem perder o estilo de fala original.
+- Fluxo prático: passe o vídeo de origem para o agente, peça a mudança de tom, deixe que ele analise o clipe e escreva o novo roteiro, gere o voiceover de substituição com Seed Audio, reconstrua ou amplie os visuais e revise ritmo e trilha separadamente.
+- Cuidados: O autor afirma explicitamente que pacing e tempo ainda precisam de trabalho, que a textura visual continua dependente da escolha do modelo e que a tentativa de música falhou no ElevenLabs. Trate isso como um workflow de avaliação que ainda exige revisão manual.
+
+[![Caso 15 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-15.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-15.mp4)
+
+[Abrir página de reprodução de vídeo](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-15.mp4)
+
+Tipo: Evaluation | Data: 2026-07-14
+
+---
+
 ## Repositórios relacionados
 
 Nenhum outro repositório público do Seed-Audio está verificado no momento. A superfície de skill mantida é evolink-seed-audio no npm.
@@ -372,7 +410,7 @@ Nenhum outro repositório público do Seed-Audio está verificado no momento. A 
 
 Este repositório aponta para publicações públicas de criadores e provedores em cada caso. A fonte pública aparece no título do caso.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer)
 
 *Correções são bem-vindas quando um link quebra, a atribuição está errada ou uma afirmação não é sustentada pela fonte.*
 

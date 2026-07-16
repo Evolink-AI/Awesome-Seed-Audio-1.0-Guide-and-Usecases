@@ -58,5 +58,27 @@
     "run_id": "20260714-seed-audio-recurring-update",
     "query": "\"seed audio\"",
     "lookback_hours": 48
+  },
+  {
+    "id": "recurring-x-2077650497536987154",
+    "type": "public_x_post",
+    "source_url": "https://x.com/akiyoshisan/status/2077650497536987154",
+    "author": "akiyoshisan",
+    "status": "included_in_use_case_evidence",
+    "case_number": 14,
+    "run_id": "20260716-seed-audio-recurring-update",
+    "query": "\"seed audio\"",
+    "lookback_hours": 48
+  },
+  {
+    "id": "recurring-x-2077138756939727067",
+    "type": "public_x_post",
+    "source_url": "https://x.com/fabianstelzer/status/2077138756939727067",
+    "author": "fabianstelzer",
+    "status": "included_in_use_case_evidence",
+    "case_number": 15,
+    "run_id": "20260716-seed-audio-recurring-update",
+    "query": "\"seed audio\"",
+    "lookback_hours": 48
   }
 ]

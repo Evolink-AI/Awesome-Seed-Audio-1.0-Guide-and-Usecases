@@ -24,7 +24,7 @@
 
 ## 📊 總覽
 
-- **從近期 X/Twitter 樣本中篩選出 13 個 Seed-Audio 1.0 使用案例，原始可用樣本為 95 則。**
+- **從近期 X/Twitter 樣本中篩選出 15 個 Seed-Audio 1.0 使用案例，原始可用樣本為 97 則。**
 - 涵蓋方向：音訊優先影片工作流, 音訊劇與場景生成, 參考聲音與角色配音探索, 工具與服務商整合, 社群旁白、擬音與成本測試。
 - 每個案例都包含原始來源、創作者署名、使用結論、證據類型與發布日期。
 - 你可以用這個倉庫查找真實工作流、比較優勢和限制、發現服務商路徑，並把實作工作導向 EvoLink。
@@ -83,10 +83,10 @@ skill 套件發布為 [evolink-seed-audio](https://www.npmjs.com/package/evolink
 
 | 章節 | 案例 |
 |---|---|
-| [音訊優先影片工作流](#audio-first-video) | 案例 1, 案例 2, 案例 3, 案例 12, 案例 13 |
+| [音訊優先影片工作流](#audio-first-video) | 案例 1, 案例 2, 案例 3, 案例 12, 案例 13, 案例 15 |
 | [音訊劇與場景生成](#audio-drama-scene-generation) | 案例 4, 案例 5 |
 | [參考聲音與角色配音探索](#voice-reference-character-casting) | 案例 6, 案例 8, 案例 10 |
-| [工具與服務商整合](#tool-provider-integrations) | 案例 7 |
+| [工具與服務商整合](#tool-provider-integrations) | 案例 7, 案例 14 |
 | [社群旁白、擬音與成本測試](#social-narration-foley-cost-tests) | 案例 9, 案例 11 |
 | [致謝](#acknowledge) | 來源致謝與修正政策 |
 
@@ -100,6 +100,7 @@ skill 套件發布為 [evolink-seed-audio](https://www.npmjs.com/package/evolink
 | [案例 3: 音訊優先的 Seedance 參考工作流](#case-3) | 組織三步工作流：先生成音訊，再建立關鍵視覺圖，最後把兩者作為 Seedance 參考。 | Tutorial |
 | [案例 12: 用 Claude 在 Premiere 中編排音樂與音效](#case-12) | 將音樂、音效和人聲拆成獨立生成，再讓 Claude 把音訊組裝進 Premiere，同時保留對節奏與淡入淡出的手動控制。 | Tutorial |
 | [案例 13: 參考音訊格鬥解說時序測試](#case-13) | 先把 Seedance 成片當作 Seed Audio 的參考輸入，再依照畫面動作生成帶時間軸的解說詞，並把時序對齊視為主要評估風險。 | Evaluation |
+| [案例 15: Agent 重寫正向版本的影片旁白測試](#case-15) | 把現有影片交給 agent，讓它為新的情緒方向重寫腳本，再用 Seed Audio 合成匹配的新旁白，最後重建畫面。 | Evaluation |
 
 <a id="audio-drama-scene-generation"></a>
 ## 音訊劇與場景生成
@@ -124,6 +125,7 @@ skill 套件發布為 [evolink-seed-audio](https://www.npmjs.com/package/evolink
 | 案例 | 展示重點 | 類型 |
 |---|---|---|
 | [案例 7: Claude MCP 旁白與多語配音整合](#case-7) | 評估 Seed-Audio 1.0 在面向助手的創意工作區中，承擔旁白、聲音克隆和多語配音的價值。 | Integration |
+| [案例 14: 用複製旁白驅動動態圖形技能工作流](#case-14) | 先用 Seed Audio 複製自己的聲音，再把生成的旁白當作時間軸骨架，驅動帶文字、圖形動畫、BGM 和字幕的動態圖形影片。 | Tutorial |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## 社群旁白、擬音與成本測試
@@ -363,6 +365,42 @@ skill 套件發布為 [evolink-seed-audio](https://www.npmjs.com/package/evolink
 
 ---
 
+<a id="case-14"></a>
+### 案例 14: [用複製旁白驅動動態圖形技能工作流](https://x.com/akiyoshisan/status/2077650497536987154) (作者 [@akiyoshisan](https://x.com/akiyoshisan))
+
+**先用 Seed Audio 複製自己的聲音，再把生成的旁白當作時間軸骨架，驅動帶文字、圖形動畫、BGM 和字幕的動態圖形影片。**
+
+- 證據來源：作者明確表示影片是用 MiniMax Hub 的動態圖形技能製作，並公開列出流程：用 Seed Audio 1.0 複製自己的聲音、生成旁白、確認時長和內容、為 15 秒成片設計 6 張分鏡、撰寫日文畫面文字、規劃連續的圖形變形過渡、用 Seedance 2.0 Fast 輸出影片，再合成旁白、BGM、音效和日文字幕。
+- 可複製做法：當你要做短講解或動態圖形影片時，可以把 Seed Audio 的聲音複製和旁白生成當成時間軸主線，再讓分鏡卡片、文字覆蓋和動畫節奏圍繞這條主線同步展開。
+- 實際流程：先準備來源聲音並在 Seed Audio 中生成旁白，鎖定目標時長，再按照旁白長度設計分鏡，補上文字和圖形動作，渲染影片後把旁白、音樂、音效和字幕混到最終成片。
+- 注意事項：這條貼文證明了工作流形態與所用工具鏈，但沒有公開具體 prompt 或節點設定。適合把它當成可遷移的製作模式，而不是 prompt 重現案例。
+
+[![案例 14 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-14.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-14.mp4)
+
+[打開影片播放頁](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-14.mp4)
+
+類型: Tutorial | 日期: 2026-07-16
+
+---
+
+<a id="case-15"></a>
+### 案例 15: [Agent 重寫正向版本的影片旁白測試](https://x.com/fabianstelzer/status/2077138756939727067) (作者 [@fabianstelzer](https://x.com/fabianstelzer))
+
+**把現有影片交給 agent，讓它為新的情緒方向重寫腳本，再用 Seed Audio 合成匹配的新旁白，最後重建畫面。**
+
+- 證據來源：作者表示，一個由 Claude 驅動的 Glif agent 先接收原影片連結，再用 Gemini 3.5 觀看影片、寫出更正向的新腳本、調用 Seed Audio 生成相似聲線的旁白，最後再用 NB2 做靜幀、用 Remotion 組裝成片。
+- 可複製做法：當你測試 agent 式影片改寫流程時，可以把 Seed Audio 放在「保留原有說話風格、但替換敘述內容」的旁白層。
+- 實際流程：先把來源影片交給 agent，要求它改寫語氣；讓 agent 理解影片內容並生成新腳本；再用 Seed Audio 產出替代旁白，之後重建或延展畫面，並把節奏與配樂單獨複核。
+- 注意事項：作者明確指出節奏和速度仍需人工打磨，圖像質感仍受模型選擇限制，而且 ElevenLabs 的配樂嘗試失敗了。因此它更適合作為評估型流程，而不是無監督成片方案。
+
+[![案例 15 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-15.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-15.mp4)
+
+[打開影片播放頁](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-15.mp4)
+
+類型: Evaluation | 日期: 2026-07-14
+
+---
+
 ## 相關儲存庫
 
 目前沒有已驗證的其他公開 Seed-Audio 儲存庫。持續維護的 skill 入口是 npm 上的 evolink-seed-audio.
@@ -372,7 +410,7 @@ skill 套件發布為 [evolink-seed-audio](https://www.npmjs.com/package/evolink
 
 本倉庫在案例層級連結公開創作者和服務商內容。每個案例標題都會標註公開來源。
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer)
 
 *如果來源連結失效、署名錯誤，或某個說法沒有得到連結來源支持，歡迎提交修正。*
 

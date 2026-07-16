@@ -24,7 +24,7 @@ Seed-Audio 1.0 の高シグナルなユースケース集です。
 
 ## 📊 概要
 
-- **最近の X/Twitter サンプル 95 件から、Seed-Audio 1.0 のユースケース 13 件を選定しました。**
+- **最近の X/Twitter サンプル 97 件から、Seed-Audio 1.0 のユースケース 15 件を選定しました。**
 - 対象領域：音声先行の動画ワークフロー, 音声ドラマとシーン生成, 参照音声とキャラクター音声探索, ツールとプロバイダー統合, SNS ナレーション、フォーリー、コスト検証。
 - 各ケースには、元ソース、作者クレジット、活用ポイント、証拠タイプ、公開日を含めています。
 - 実用ワークフロー、強みと制約、プロバイダー経路、EvoLink での実装導線を確認するために使えます。
@@ -83,10 +83,10 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 | セクション | ケース |
 |---|---|
-| [音声先行の動画ワークフロー](#audio-first-video) | ケース 1, ケース 2, ケース 3, ケース 12, ケース 13 |
+| [音声先行の動画ワークフロー](#audio-first-video) | ケース 1, ケース 2, ケース 3, ケース 12, ケース 13, ケース 15 |
 | [音声ドラマとシーン生成](#audio-drama-scene-generation) | ケース 4, ケース 5 |
 | [参照音声とキャラクター音声探索](#voice-reference-character-casting) | ケース 6, ケース 8, ケース 10 |
-| [ツールとプロバイダー統合](#tool-provider-integrations) | ケース 7 |
+| [ツールとプロバイダー統合](#tool-provider-integrations) | ケース 7, ケース 14 |
 | [SNS ナレーション、フォーリー、コスト検証](#social-narration-foley-cost-tests) | ケース 9, ケース 11 |
 | [謝辞](#acknowledge) | クレジットと修正ポリシー |
 
@@ -100,6 +100,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 | [ケース 3: 音声先行の Seedance 参照ワークフロー](#case-3) | 音声の生成、キービジュアルの作成、両方を Seedance リファレンスとして使用するという 3 ステップのワークフローを構築します。 | Tutorial |
 | [ケース 12: Claude で音楽と効果音を Premiere に組み込む](#case-12) | 音楽、効果音、音声を別々に生成し、Claude に Premiere 上で組み立てさせながら、タイミングとフェードを手動で調整できる状態を保ちます。 | Tutorial |
 | [ケース 13: 参照音声による格闘実況タイミング検証](#case-13) | 完成した Seedance 編集を Seed Audio の参照入力にし、映像アクションから時間指定の実況文を作り、タイミング一致を主な評価リスクとして扱います。 | Evaluation |
+| [ケース 15: エージェントが前向き版へ書き換える音声テスト](#case-15) | 既存の動画を agent に渡し、新しいトーン向けに script を書き換えさせてから、Seed Audio で合う voiceover を生成し、映像を組み直します。 | Evaluation |
 
 <a id="audio-drama-scene-generation"></a>
 ## 音声ドラマとシーン生成
@@ -124,6 +125,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 | ケース | 注目点 | タイプ |
 |---|---|---|
 | [ケース 7: Claude MCP のボイスオーバーと多言語吹き替え統合](#case-7) | ナレーション、音声クローン、およびダビングのためのアシスタントネイティブのクリエイティブワークスペースの一部として Seed-Audio 1.0 を評価します。 | Integration |
+| [ケース 14: クローン音声で動かすモーショングラフィックス技能フロー](#case-14) | Seed Audio で自分の声をクローン化し、そのナレーションを時間軸の骨格として、テキスト、図形アニメーション、BGM、字幕を含むモーショングラフィックス動画を組み立てます。 | Tutorial |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## SNS ナレーション、フォーリー、コスト検証
@@ -363,6 +365,42 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 ---
 
+<a id="case-14"></a>
+### ケース 14: [クローン音声で動かすモーショングラフィックス技能フロー](https://x.com/akiyoshisan/status/2077650497536987154) (作者 [@akiyoshisan](https://x.com/akiyoshisan))
+
+**Seed Audio で自分の声をクローン化し、そのナレーションを時間軸の骨格として、テキスト、図形アニメーション、BGM、字幕を含むモーショングラフィックス動画を組み立てます。**
+
+- ソース証拠: 作者は、この動画が MiniMax Hub のモーショングラフィックス skill で作られたと述べ、Seed Audio 1.0 で自分の声をクローン化し、ナレーションを生成し、長さと内容を確認し、15 秒出力用の 6 枚 storyboard を設計し、日本語テキストを作成し、切れ目のない図形変形を計画し、Seedance 2.0 Fast で動画化し、最後にナレーション、BGM、効果音、日本語字幕を合成したと公開しています。
+- コピーすること: 短い解説動画やモーショングラフィックス動画で、storyboard カード、テキスト overlay、アニメーションの拍を同期させたいなら、Seed Audio の voice clone と narration を timing の主軸として使います。
+- 実用ワークフロー: 元になる声を用意し、Seed Audio で narration を生成し、目標の長さを固定し、その長さに合わせて storyboard を設計し、補助テキストと graphic motion を作り、映像をレンダリングしてから narration、music、effects、subtitles を最終出力に混ぜます。
+- 注意点: この投稿は workflow の形と tool chain を証明していますが、正確な prompt や node 設定は公開していません。prompt 再現例ではなく、移植可能な production pattern として扱ってください。
+
+[![ケース 14 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-14.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-14.mp4)
+
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-14.mp4)
+
+タイプ: Tutorial | 日付: 2026-07-16
+
+---
+
+<a id="case-15"></a>
+### ケース 15: [エージェントが前向き版へ書き換える音声テスト](https://x.com/fabianstelzer/status/2077138756939727067) (作者 [@fabianstelzer](https://x.com/fabianstelzer))
+
+**既存の動画を agent に渡し、新しいトーン向けに script を書き換えさせてから、Seed Audio で合う voiceover を生成し、映像を組み直します。**
+
+- ソース証拠: 作者は、Claude で動く Glif agent が元動画リンクを受け取り、Gemini 3.5 で動画を見て、より前向きな代替 script を書き、Seed Audio で似た voiceover を生成し、その後 NB2 で stills を作り、Remotion で組み立てたと述べています。
+- コピーすること: 元の話し方を残したままメッセージのトーンだけを変えたい agentic video remix では、Seed Audio を voice-preserving narration layer として使います。
+- 実用ワークフロー: 元動画を agent に渡し、トーン変更を依頼し、clip を解析して新しい script を書かせ、Seed Audio で置き換え voiceover を生成し、visuals を再構築または拡張して、最後に pacing と music を個別に見直します。
+- 注意点: 作者は pacing と tempo にまだ改善余地があり、画像の texture 品質は model 選択に依存し、ElevenLabs での music 生成は失敗したと明言しています。manual review が前提の Evaluation workflow として扱ってください。
+
+[![ケース 15 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-15.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-15.mp4)
+
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-15.mp4)
+
+タイプ: Evaluation | 日付: 2026-07-14
+
+---
+
 ## 関連リポジトリ
 
 現在、別の公開 Seed-Audio リポジトリは検証されていません。保守されている skill の入口は npm の evolink-seed-audio.
@@ -372,7 +410,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 このリポジトリはケース単位で公開クリエイターやプロバイダーの投稿へリンクしています。公開ソースは各ケース見出しで明記します。
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer)
 
 *リンク切れ、誤った帰属、またはリンク先で裏付けられていない主張があれば修正を歓迎します。*
 

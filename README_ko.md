@@ -24,7 +24,7 @@ Seed-Audio 1.0의 신뢰도 높은 사용 사례 저장소입니다.
 
 ## 📊 개요
 
-- **최근 X/Twitter 샘플 95개에서 Seed-Audio 1.0 사용 사례 13개를 선별했습니다.**
+- **최근 X/Twitter 샘플 97개에서 Seed-Audio 1.0 사용 사례 15개를 선별했습니다.**
 - 포함 범위: 오디오 우선 영상 워크플로, 오디오 드라마와 장면 생성, 참조 음성과 캐릭터 보이스 탐색, 도구 및 제공자 통합, 소셜 내레이션, 폴리, 비용 테스트.
 - 각 사례에는 원본 출처, 작성자 표시, 활용 요점, 증거 유형, 게시일이 포함됩니다.
 - 실제 워크플로, 강점과 한계, 제공자 경로, EvoLink 구현 방향을 확인하는 데 사용할 수 있습니다.
@@ -83,10 +83,10 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 | 섹션 | 사례 |
 |---|---|
-| [오디오 우선 영상 워크플로](#audio-first-video) | 사례 1, 사례 2, 사례 3, 사례 12, 사례 13 |
+| [오디오 우선 영상 워크플로](#audio-first-video) | 사례 1, 사례 2, 사례 3, 사례 12, 사례 13, 사례 15 |
 | [오디오 드라마와 장면 생성](#audio-drama-scene-generation) | 사례 4, 사례 5 |
 | [참조 음성과 캐릭터 보이스 탐색](#voice-reference-character-casting) | 사례 6, 사례 8, 사례 10 |
-| [도구 및 제공자 통합](#tool-provider-integrations) | 사례 7 |
+| [도구 및 제공자 통합](#tool-provider-integrations) | 사례 7, 사례 14 |
 | [소셜 내레이션, 폴리, 비용 테스트](#social-narration-foley-cost-tests) | 사례 9, 사례 11 |
 | [감사의 말](#acknowledge) | 크레딧 및 수정 정책 |
 
@@ -100,6 +100,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 | [사례 3: 오디오 우선 Seedance 참조 워크플로](#case-3) | 3단계 작업 흐름을 구성합니다. 즉, 오디오를 생성하고 주요 시각적 요소를 만든 다음 두 가지를 모두 Seedance 참조로 사용합니다. | Tutorial |
 | [사례 12: Claude로 음악과 효과음을 Premiere에 조립](#case-12) | 음악, 효과음, 음성을 별도 패스로 생성한 뒤 Claude가 Premiere에서 조립하게 하고 타이밍과 페이드는 수동으로 제어하세요. | Tutorial |
 | [사례 13: 참조 오디오 기반 격투 해설 타이밍 검증](#case-13) | 완성된 Seedance 편집본을 Seed Audio의 참조 입력으로 쓰고, 화면 액션에 맞춘 타임코드 해설을 만든 뒤, 타이밍 정합을 핵심 평가 리스크로 다루세요. | Evaluation |
+| [사례 15: 에이전트가 긍정 버전으로 다시 쓰는 보이스오버 테스트](#case-15) | 기존 영상을 agent에게 넘겨 새로운 톤으로 스크립트를 다시 쓰게 하고, Seed Audio로 맞는 새 보이스오버를 만든 뒤 화면을 다시 구성합니다. | Evaluation |
 
 <a id="audio-drama-scene-generation"></a>
 ## 오디오 드라마와 장면 생성
@@ -124,6 +125,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 | 사례 | 보여주는 점 | 유형 |
 |---|---|---|
 | [사례 7: Claude MCP 보이스오버 및 다국어 더빙 통합](#case-7) | 음성 해설, 음성 복제 및 더빙을 위한 보조 네이티브 창의적 작업 공간의 일부로 Seed-Audio 1.0을 평가해 보세요. | Integration |
+| [사례 14: 클론 내레이션으로 구동하는 모션그래픽 스킬 워크플로](#case-14) | Seed Audio로 자신의 목소리를 복제한 뒤, 그 내레이션을 시간축의 뼈대로 삼아 텍스트, 도형 애니메이션, BGM, 자막이 들어가는 모션그래픽 영상을 구성합니다. | Tutorial |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## 소셜 내레이션, 폴리, 비용 테스트
@@ -363,6 +365,42 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 ---
 
+<a id="case-14"></a>
+### 사례 14: [클론 내레이션으로 구동하는 모션그래픽 스킬 워크플로](https://x.com/akiyoshisan/status/2077650497536987154) (작성자 [@akiyoshisan](https://x.com/akiyoshisan))
+
+**Seed Audio로 자신의 목소리를 복제한 뒤, 그 내레이션을 시간축의 뼈대로 삼아 텍스트, 도형 애니메이션, BGM, 자막이 들어가는 모션그래픽 영상을 구성합니다.**
+
+- 출처 근거: 작성자는 이 영상이 MiniMax Hub의 모션그래픽 스킬로 만들어졌다고 설명하며, Seed Audio 1.0으로 자신의 목소리를 복제하고 내레이션을 생성한 뒤 길이와 내용을 확인하고, 15초 출력에 맞는 6컷 스토리보드를 설계하고, 일본어 화면 텍스트를 만들고, 끊기지 않는 도형 변형 흐름을 계획하고, Seedance 2.0 Fast로 영상을 만든 다음 내레이션, BGM, 효과음, 일본어 자막을 합쳤다고 공개했습니다.
+- 복사할 점: 짧은 설명형 영상이나 모션그래픽 영상에서 스토리보드 카드, 텍스트 오버레이, 애니메이션 박자를 함께 맞추고 싶다면 Seed Audio의 음성 복제와 내레이션을 타이밍 주축으로 사용하세요.
+- 실제 워크플로: 원본 목소리를 준비하고 Seed Audio에서 내레이션을 만든 뒤 목표 길이를 고정하고, 그 길이에 맞춰 스토리보드를 설계하고, 보조 텍스트와 그래픽 모션을 만든 다음 영상을 렌더링하고 마지막으로 내레이션, 음악, 효과음, 자막을 최종 출력에 섞습니다.
+- 주의점: 이 게시물은 워크플로 형태와 도구 체인을 증명하지만 정확한 프롬프트나 노드 설정은 공개하지 않습니다. 프롬프트 재현 사례가 아니라 옮겨 쓸 수 있는 제작 패턴으로 다루세요.
+
+[![사례 14 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-14.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-14.mp4)
+
+[동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-14.mp4)
+
+유형: Tutorial | 날짜: 2026-07-16
+
+---
+
+<a id="case-15"></a>
+### 사례 15: [에이전트가 긍정 버전으로 다시 쓰는 보이스오버 테스트](https://x.com/fabianstelzer/status/2077138756939727067) (작성자 [@fabianstelzer](https://x.com/fabianstelzer))
+
+**기존 영상을 agent에게 넘겨 새로운 톤으로 스크립트를 다시 쓰게 하고, Seed Audio로 맞는 새 보이스오버를 만든 뒤 화면을 다시 구성합니다.**
+
+- 출처 근거: 작성자는 Claude 기반 Glif agent가 원본 영상 링크를 받아 Gemini 3.5로 영상을 보고 더 긍정적인 대체 스크립트를 작성한 뒤, Seed Audio로 비슷한 보이스오버를 만들고, 이후 NB2로 스틸을 만들고 Remotion으로 조립했다고 설명했습니다.
+- 복사할 점: 원래 화자의 말투는 유지하면서 메시지 톤만 바꿔야 하는 agent식 비디오 리믹스에서는 Seed Audio를 voice-preserving narration layer로 사용할 수 있습니다.
+- 실제 워크플로: 원본 영상을 agent에 전달하고 톤 변경을 요청한 뒤, agent가 클립을 이해하고 새 스크립트를 쓰게 하고, Seed Audio로 대체 보이스오버를 생성하고, 화면을 재구성하거나 확장한 다음, 마지막으로 pacing과 음악을 따로 점검합니다.
+- 주의점: 작성자는 pacing과 tempo가 아직 더 다듬어져야 하고, 이미지 질감은 여전히 모델 선택 문제이며, ElevenLabs에서 시도한 음악은 실패했다고 명시했습니다. 따라서 수동 검토가 필요한 평가형 워크플로로 취급해야 합니다.
+
+[![사례 15 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-15.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-15.mp4)
+
+[동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-15.mp4)
+
+유형: Evaluation | 날짜: 2026-07-14
+
+---
+
 ## 관련 저장소
 
 현재 별도의 공개 Seed-Audio 저장소는 검증되지 않았습니다. 유지 관리되는 skill 경로는 npm의 evolink-seed-audio.
@@ -372,7 +410,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 이 저장소는 사례 단위로 공개 크리에이터와 제공자 게시물에 연결합니다. 공개 출처는 각 사례 제목에 표시됩니다.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer)
 
 *출처 링크가 깨졌거나, 표시가 잘못되었거나, 주장에 근거가 부족하면 수정을 제안해 주세요.*
 

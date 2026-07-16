@@ -24,7 +24,7 @@ Bu Türkçe README kaynak bağlantılarını, atıfları ve ankrajları korur; k
 
 ## 📊 Genel bakış
 
-- **Yakın tarihli kabul edilmiş 95 X/Twitter gönderisinden 13 Seed-Audio 1.0 vakası seçildi.**
+- **Yakın tarihli kabul edilmiş 97 X/Twitter gönderisinden 15 Seed-Audio 1.0 vakası seçildi.**
 - Kapsam: Ses öncelikli video iş akışları, Sesli drama ve sahne üretimi, Referans sesler ve karakter sesi seçimi, Araç ve sağlayıcı entegrasyonları, Sosyal anlatım, foley ve maliyet testleri.
 - Her vaka özgün kaynak, üretici atfı, kullanım sonucu, kanıt türü ve yayın tarihi içerir.
 - Bu repoyu gerçek iş akışlarını bulmak, güçlü ve zayıf yönleri karşılaştırmak, sağlayıcı yollarını keşfetmek ve uygulamayı EvoLink'e yönlendirmek için kullanın.
@@ -83,10 +83,10 @@ Paket agent ve yerel skill iş akışları için [evolink-seed-audio](https://ww
 
 | Bölüm | Vakalar |
 |---|---|
-| [Ses öncelikli video iş akışları](#audio-first-video) | Vaka 1, Vaka 2, Vaka 3, Vaka 12, Vaka 13 |
+| [Ses öncelikli video iş akışları](#audio-first-video) | Vaka 1, Vaka 2, Vaka 3, Vaka 12, Vaka 13, Vaka 15 |
 | [Sesli drama ve sahne üretimi](#audio-drama-scene-generation) | Vaka 4, Vaka 5 |
 | [Referans sesler ve karakter sesi seçimi](#voice-reference-character-casting) | Vaka 6, Vaka 8, Vaka 10 |
-| [Araç ve sağlayıcı entegrasyonları](#tool-provider-integrations) | Vaka 7 |
+| [Araç ve sağlayıcı entegrasyonları](#tool-provider-integrations) | Vaka 7, Vaka 14 |
 | [Sosyal anlatım, foley ve maliyet testleri](#social-narration-foley-cost-tests) | Vaka 9, Vaka 11 |
 | [Teşekkür](#acknowledge) | Atıflar ve düzeltme politikası |
 
@@ -100,6 +100,7 @@ Paket agent ve yerel skill iş akışları için [evolink-seed-audio](https://ww
 | [Vaka 3: Ses öncelikli Seedance referans iş akışı](#case-3) | Üç adımlı bir iş akışı yapılandırın: ses oluşturun, önemli bir görsel oluşturun ve ardından her ikisini de Seedance referansları olarak kullanın. | Tutorial |
 | [Vaka 12: Claude ile Premiere'de müzik ve efekt montajı](#case-12) | Müzik, efekt ve sesi ayrı geçişlerde üretin; Claude'un bunları Premiere'de birleştirmesini sağlarken zamanlama ve fade ayarlarını elle kontrol edin. | Tutorial |
 | [Vaka 13: Referans sesle dövüş anlatımı zamanlama testi](#case-13) | Tamamlanmış bir Seedance kurgusunu Seed Audio referansı olarak kullanın, aksiyondan zaman kodlu dövüş anlatımı üretin ve zaman eşleşmesini ana değerlendirme riski olarak görün. | Evaluation |
+| [Vaka 15: Ajanın pozitif sürüme yeniden yazdığı video seslendirme testi](#case-15) | Mevcut bir videoyu bir ajana verin, yeni tona göre senaryoyu yeniden yazdırın ve görselleri yeniden kurmadan önce Seed Audio ile buna uygun yeni bir seslendirme üretin. | Evaluation |
 
 <a id="audio-drama-scene-generation"></a>
 ## Sesli drama ve sahne üretimi
@@ -124,6 +125,7 @@ Paket agent ve yerel skill iş akışları için [evolink-seed-audio](https://ww
 | Vaka | Neyi gösterir | Tür |
 |---|---|---|
 | [Vaka 7: Claude MCP seslendirme ve dublaj entegrasyonu](#case-7) | Seed-Audio 1.0'u seslendirme, ses klonlama ve dublaj için asistan-yerel yaratıcı çalışma alanının parçası olarak değerlendirin. | Integration |
+| [Vaka 14: Klon anlatımlı motion graphics beceri iş akışı](#case-14) | Seed Audio ile kendi sesinizi klonlayın ve bu anlatımı metin, şekil animasyonu, BGM ve altyazı içeren motion graphics videolar için zamanlama omurgası olarak kullanın. | Tutorial |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## Sosyal anlatım, foley ve maliyet testleri
@@ -363,6 +365,42 @@ Tür: Evaluation | Tarih: 2026-07-13
 
 ---
 
+<a id="case-14"></a>
+### Vaka 14: [Klon anlatımlı motion graphics beceri iş akışı](https://x.com/akiyoshisan/status/2077650497536987154) (yazar [@akiyoshisan](https://x.com/akiyoshisan))
+
+**Seed Audio ile kendi sesinizi klonlayın ve bu anlatımı metin, şekil animasyonu, BGM ve altyazı içeren motion graphics videolar için zamanlama omurgası olarak kullanın.**
+
+- Kaynak kanıtı: Yazar, videonun MiniMax Hub motion graphics skilli ile üretildiğini söylüyor ve şu açık iş akışını paylaşıyor: kendi sesini Seed Audio 1.0 ile klonlamak, anlatımı üretmek, süre ve içeriği kontrol etmek, on beş saniyelik çıktı için altı karelik storyboard hazırlamak, Japonca ekran metni yazmak, kesintisiz şekil dönüşüm akışını planlamak, Seedance 2.0 Fast ile videoyu üretmek ve ardından anlatım, BGM, efekt ve Japonca altyazıları birleştirmek.
+- Kopyalanacak yöntem: Kısa açıklayıcı veya motion graphics videolarda storyboard kartları, metin katmanları ve animasyon ritmi senkron kalsın istiyorsanız Seed Audio ses klonlama ve anlatımını ana zamanlama katmanı olarak kullanın.
+- Pratik iş akışı: kaynak sesi hazırlayın, Seed Audio içinde anlatımı üretin, hedef süreyi sabitleyin, storyboard'u bu sürenin etrafında kurun, destekleyici metin ve grafik hareketlerini üretin, videoyu render edin ve sonrasında anlatım, müzik, efekt ve altyazıları final çıktıda birleştirin.
+- Dikkat noktaları: Bu gönderi iş akışının şeklini ve araç zincirini kanıtlıyor, ancak tam promptları veya node ayarlarını açıklamıyor. Bunu prompt çoğaltma örneği değil, taşınabilir bir üretim kalıbı olarak kullanın.
+
+[![Vaka 14 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-14.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-14.mp4)
+
+[Video oynatma sayfasını aç](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-14.mp4)
+
+Tür: Tutorial | Tarih: 2026-07-16
+
+---
+
+<a id="case-15"></a>
+### Vaka 15: [Ajanın pozitif sürüme yeniden yazdığı video seslendirme testi](https://x.com/fabianstelzer/status/2077138756939727067) (yazar [@fabianstelzer](https://x.com/fabianstelzer))
+
+**Mevcut bir videoyu bir ajana verin, yeni tona göre senaryoyu yeniden yazdırın ve görselleri yeniden kurmadan önce Seed Audio ile buna uygun yeni bir seslendirme üretin.**
+
+- Kaynak kanıtı: Yazar, Claude destekli bir Glif ajanının kaynak video bağlantısını aldığını, videoyu Gemini 3.5 ile izlediğini, daha pozitif bir alternatif senaryo yazdığını, Seed Audio ile benzer bir seslendirme ürettiğini ve ardından NB2 ile stills, Remotion ile kurgu yaptığını söylüyor.
+- Kopyalanacak yöntem: Mesajın tonunu değiştirirken orijinal konuşma stilini koruması gereken ajan tabanlı video remikslerinde Seed Audio'yu sesi koruyan anlatım katmanı olarak kullanın.
+- Pratik iş akışı: kaynak videoyu ajana verin, ton değişimi isteyin, klibi analiz edip yeni senaryoyu yazmasını sağlayın, Seed Audio ile yedek seslendirmeyi üretin, görselleri yeniden kurun veya genişletin ve ardından pacing ile müziği ayrı ayrı gözden geçirin.
+- Dikkat noktaları: Yazar pacing ve temponun hâlâ çalışma istediğini, görsel dokunun model seçimine bağlı kaldığını ve ElevenLabs içindeki müzik denemesinin başarısız olduğunu açıkça söylüyor. Bunu manuel kontrol gerektiren bir değerlendirme iş akışı olarak ele alın.
+
+[![Vaka 15 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-15.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-15.mp4)
+
+[Video oynatma sayfasını aç](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-15.mp4)
+
+Tür: Evaluation | Tarih: 2026-07-14
+
+---
+
 ## İlgili depolar
 
 Şu anda doğrulanmış ayrı bir açık Seed-Audio deposu yoktur. Bakımı yapılan skill yüzeyi npm üzerindeki evolink-seed-audio.
@@ -372,7 +410,7 @@ Tür: Evaluation | Tarih: 2026-07-13
 
 Bu repo, her vaka düzeyinde herkese açık üretici ve sağlayıcı gönderilerine bağlantı verir. Kamu kaynağı her vaka başlığında yer alır.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer)
 
 *Kaynak bağlantısı bozulduğunda, atıf yanlış olduğunda veya bir iddia bağlantılı kaynakça desteklenmediğinde düzeltmeler memnuniyetle karşılanır.*
 

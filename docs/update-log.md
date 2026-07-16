@@ -45,3 +45,13 @@
 - Uploaded the Case 13 poster image and MP4 to the repository's locked Cloudflare R2 namespace, kept the tracked local poster, and kept the MP4 out of git.
 - Rebuilt English and all 10 localized README files, player pages, and structured case data while preserving source URL, author URL, case number, evidence type, date, anchor parity, and R2 media URLs.
 - Expanded the generated Quick Start into a runnable async create-task plus poll flow so the repo passes the current conversion-surface contract for async models.
+
+## July 16, 2026
+
+- Ran the recurring exact-phrase `"seed audio"` search over the fixed 48-hour window ending at collector timestamp `2026-07-16T10:05:27.755966+00:00`.
+- Reviewed 22 in-window candidates: selected 2 high-confidence workflows, marked 3 unsure, and dropped 17 launch-only, incidental, duplicate, media-only, or overlapping posts.
+- Added Case 14: a MiniMax Hub motion-graphics workflow that clones the creator voice in Seed Audio, uses narration as the timing spine, and then builds storyboard, text, shape animation, BGM, and subtitles around it.
+- Added Case 15: an autonomous Glif-agent evaluation that rewrites an existing video's tone, uses Seed Audio to generate a matching replacement voiceover, and flags pacing plus music as unresolved review points.
+- Uploaded the Case 14 and Case 15 poster images and MP4 files to the repository's locked Cloudflare R2 namespace, kept the tracked local poster JPG files, and kept the MP4 files out of git.
+- Updated `data/use-cases.json`, `data/use-case-translations.json`, and `data/source-index.json` while preserving case order, source attribution, stable anchors, media URL format, and locale parity.
+- Rebuilt English and all 10 localized README files plus GitHub Pages player pages from the updated structured data.
