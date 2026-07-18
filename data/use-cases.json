@@ -2,19 +2,19 @@
   "metadata": {
     "model": "Seed-Audio 1.0",
     "provider": "ByteDance / Doubao",
-    "generated_at": "2026-07-16",
+    "generated_at": "2026-07-18",
     "basis": "Recurring exact-phrase X/Twitter search for Seed-Audio 1.0 use cases",
     "queries": [
       "\"seed audio\" since:2026-06-24 until:2026-06-30",
       "\"Seed-Audio\" since:2026-06-24 until:2026-06-30",
       "\"SeedAudio\" since:2026-06-24 until:2026-06-30"
     ],
-    "raw_post_count": 441,
+    "raw_post_count": 501,
     "accepted_count": 97,
-    "selected_case_count": 15,
+    "selected_case_count": 18,
     "date_span_utc": {
       "start": "2026-06-24T01:47:15+00:00",
-      "end": "2026-07-16T10:05:27+00:00"
+      "end": "2026-07-18T10:05:58+00:00"
     },
     "language_counts": {
       "en": 60,
@@ -27,7 +27,7 @@
       "und": 1,
       "fr": 1
     },
-    "review_queue_count": 77,
+    "review_queue_count": 88,
     "selection_policy": "strong_evidence_public_sources_only",
     "label_audit": "docs/case-label-audit.md"
   },
@@ -40,7 +40,9 @@
         3,
         12,
         13,
-        15
+        15,
+        17,
+        18
       ],
       "localized_titles": {
         "zh-CN": "音频优先视频工作流",
@@ -101,7 +103,8 @@
       "title": "Tool And Provider Integrations",
       "case_numbers": [
         7,
-        14
+        14,
+        16
       ],
       "localized_titles": {
         "zh-CN": "工具与服务商集成",
@@ -690,6 +693,116 @@
         "download_url": "https://video.twimg.com/amplify_video/2077137526414852096/vid/avc1/1920x1080/ErkJ2iCaiWebW1m0.mp4?tag=28",
         "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-15.mp4",
         "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-15.jpg"
+      }
+    },
+    {
+      "number": 16,
+      "category": "tool-provider-integrations",
+      "title": "One-Photo Scenario MCP Adventure Trailer",
+      "source_url": "https://x.com/emmanuel_2m/status/2078227114818707891",
+      "author": "emmanuel_2m",
+      "author_name": "Emm | scenario.com",
+      "author_url": "https://x.com/emmanuel_2m",
+      "type": "Integration",
+      "date": "2026-07-17",
+      "takeaway": "use a single portrait plus one orchestration prompt to let a Codex/GPT MCP workflow generate multi-scene Seedance shots, Seed Audio narration, score, and packaging in one run.",
+      "notes": "- Source evidence: The public reply publishes a four-step MCP workflow and the full trailer prompt text, while the parent post shows the finished Indiana Jones-style result made from one uploaded portrait.\n- What to copy: Use one portrait plus one orchestration prompt when you want an MCP agent to coordinate scene generation, narration, score, poster, and final packaging in a single run.\n- Practical workflow: load Scenario MCP in Codex or GPT 5.6, upload the portrait, run the published prompt, keep the face consistent across at least ten Seedance scenes, and let the agent combine Seed Audio narration and music with retro title cards.\n- Watch-outs: The source proves the orchestration pattern and prompt boundary, but it does not expose the intermediate retries or manual edits. Treat this as an integration workflow rather than a guaranteed one-click outcome.",
+      "original_number": 16,
+      "evidence_strength": "strong",
+      "localized_titles": {
+        "zh-CN": "单照片 Scenario MCP 冒险预告片",
+        "zh-TW": "單照片 Scenario MCP 冒險預告片",
+        "ja": "1枚写真の Scenario MCP 冒険トレーラー",
+        "ko": "한 장 사진으로 만드는 Scenario MCP 모험 예고편",
+        "es": "Tráiler de aventura con Scenario MCP y una foto",
+        "pt": "Trailer de aventura com Scenario MCP e uma foto",
+        "de": "Abenteuer-Trailer mit Scenario MCP aus einem Foto",
+        "fr": "Bande-annonce d'aventure Scenario MCP avec une photo",
+        "tr": "Tek fotoğraflı Scenario MCP macera fragmanı",
+        "ru": "Приключенческий трейлер Scenario MCP по одному фото"
+      },
+      "media": {
+        "type": "image",
+        "path": "media/cases/case-16.jpg",
+        "source": "x_twitter_tweet",
+        "source_tweet_id": "2078227114818707891",
+        "source_url": "https://x.com/emmanuel_2m/status/2078227114818707891",
+        "download_url": "https://pbs.twimg.com/media/HNdYDBSX0AA07Mv.jpg",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-16.jpg"
+      }
+    },
+    {
+      "number": 17,
+      "category": "audio-first-video",
+      "title": "Beat-Synced Trailer Sound Design",
+      "source_url": "https://x.com/maxescu/status/2078146037517312129",
+      "author": "maxescu",
+      "author_name": "Alex Patrascu",
+      "author_url": "https://x.com/maxescu",
+      "type": "Tutorial",
+      "date": "2026-07-17",
+      "takeaway": "lock characters and stills first, then map trailer cuts to music timestamps and use Seed Audio where narration or accent sound design needs to land precisely.",
+      "notes": "- Source evidence: The public Inferno thread says the trailer used character sheets, still-image-first clip generation, beat-structured video prompts, and a final assembly pass where narration only fills quiet moments and Seed Audio 1.0 generates extra accent sound effects.\n- What to copy: Lock character identity and composition earlier in the pipeline, then use Seed Audio as a beat-aware sound-design layer after the visual edit already follows the score.\n- Practical workflow: make 4K character sheets, turn each shot into a still before animating it in Seedance, write clip prompts as camera-action-light beats, map the final cut to music timestamps, then use Seed Audio for narration gaps and emphasized sound accents.\n- Watch-outs: The thread exposes prompt structure and sequencing, but it does not publish reusable Seed Audio prompt text or a controlled comparison against other audio stacks.",
+      "original_number": 17,
+      "evidence_strength": "strong",
+      "localized_titles": {
+        "zh-CN": "按节拍对齐的预告片声音设计",
+        "zh-TW": "按節拍對齊的預告片聲音設計",
+        "ja": "ビート同期の予告編サウンド設計",
+        "ko": "비트 싱크 예고편 사운드 디자인",
+        "es": "Diseño sonoro de tráiler sincronizado al beat",
+        "pt": "Design de som de trailer sincronizado ao beat",
+        "de": "Beat-synchrones Trailer-Sounddesign",
+        "fr": "Design sonore de bande-annonce synchronisé au beat",
+        "tr": "Beat senkronlu fragman ses tasarımı",
+        "ru": "Синхронизированный по битам саунд-дизайн трейлера"
+      },
+      "media": {
+        "type": "video",
+        "thumbnail_path": "media/cases/case-17.jpg",
+        "source": "x_twitter_tweet",
+        "source_tweet_id": "2078146037517312129",
+        "source_url": "https://x.com/maxescu/status/2078146037517312129",
+        "download_url": "https://video.twimg.com/amplify_video/2078145998799736832/vid/avc1/1678x720/wS5VkrQilZpJtQZ7.mp4?tag=14",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-17.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-17.jpg"
+      }
+    },
+    {
+      "number": 18,
+      "category": "audio-first-video",
+      "title": "Two-Image Animated Short With Seed Audio",
+      "source_url": "https://x.com/Dani__oros/status/2077829108818657420",
+      "author": "Dani__oros",
+      "author_name": "Danioros",
+      "author_url": "https://x.com/Dani__oros",
+      "type": "Demo",
+      "date": "2026-07-16",
+      "takeaway": "treat one or two reference images as the visual lock, then let Seed Audio provide the score while Seedance expands the short into a finished animated clip.",
+      "notes": "- Source evidence: The post labels Tide-Rider as an animated short made with Seedance 2.0 for animation, Seed Audio 1.0 for music, Krea 2 for the source image, and CapCut for editing, then says the whole piece stayed on just two reference images with text prompting only.\n- What to copy: Use one hero reference image as the visual lock and add a second only when the ending needs a new angle or reveal instead of building a full model sheet first.\n- Practical workflow: design one key image in Krea 2, generate short animated clips in Seedance from that visual anchor, keep text prompting lightweight, let Seed Audio supply the score, and finish the timing in CapCut.\n- Watch-outs: The post proves a compact two-image production pattern, but it does not share the exact prompts or show whether additional cleanup was needed between shots.",
+      "original_number": 18,
+      "evidence_strength": "strong",
+      "localized_titles": {
+        "zh-CN": "用 Seed Audio 完成的双图动画短片",
+        "zh-TW": "用 Seed Audio 完成的雙圖動畫短片",
+        "ja": "Seed Audio を使う2枚画像アニメ短編",
+        "ko": "Seed Audio로 완성한 두 장 이미지 애니메이션 숏",
+        "es": "Corto animado con dos imágenes y Seed Audio",
+        "pt": "Curta animado com duas imagens e Seed Audio",
+        "de": "Animierter Kurzfilm mit zwei Bildern und Seed Audio",
+        "fr": "Court métrage animé à deux images avec Seed Audio",
+        "tr": "İki görselli animasyon kısa filmi ve Seed Audio",
+        "ru": "Анимационный шорт на двух изображениях с Seed Audio"
+      },
+      "media": {
+        "type": "video",
+        "thumbnail_path": "media/cases/case-18.jpg",
+        "source": "x_twitter_tweet",
+        "source_tweet_id": "2077829108818657420",
+        "source_url": "https://x.com/Dani__oros/status/2077829108818657420",
+        "download_url": "https://video.twimg.com/amplify_video/2077822023544475648/vid/avc1/1920x1080/zYt1XR4ZsRe5ieSG.mp4?tag=29",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-18.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-18.jpg"
       }
     }
   ]

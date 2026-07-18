@@ -24,7 +24,7 @@ Este README em português preserva links de fonte, atribuição e âncoras, enqu
 
 ## 📊 Visão geral
 
-- **Selecionamos 15 casos de Seed-Audio 1.0 a partir de 97 publicações recentes aceitas do X/Twitter.**
+- **Selecionamos 18 casos de Seed-Audio 1.0 a partir de 97 publicações recentes aceitas do X/Twitter.**
 - Abrange: Workflows de vídeo guiados por áudio, Áudio drama e geração de cena, Vozes de referência e casting de personagens, Integrações de ferramentas e provedores, Narração social, foley e testes de custo.
 - Cada caso inclui fonte original, atribuição do criador, conclusão de uso, tipo de evidência e data de publicação.
 - Use este repositório para encontrar fluxos reais, comparar forças e limites, descobrir rotas de provedores e levar a implementação para a EvoLink.
@@ -83,10 +83,10 @@ O pacote é publicado como [evolink-seed-audio](https://www.npmjs.com/package/ev
 
 | Seção | Casos |
 |---|---|
-| [Workflows de vídeo guiados por áudio](#audio-first-video) | Caso 1, Caso 2, Caso 3, Caso 12, Caso 13, Caso 15 |
+| [Workflows de vídeo guiados por áudio](#audio-first-video) | Caso 1, Caso 2, Caso 3, Caso 12, Caso 13, Caso 15, Caso 17, Caso 18 |
 | [Áudio drama e geração de cena](#audio-drama-scene-generation) | Caso 4, Caso 5 |
 | [Vozes de referência e casting de personagens](#voice-reference-character-casting) | Caso 6, Caso 8, Caso 10 |
-| [Integrações de ferramentas e provedores](#tool-provider-integrations) | Caso 7, Caso 14 |
+| [Integrações de ferramentas e provedores](#tool-provider-integrations) | Caso 7, Caso 14, Caso 16 |
 | [Narração social, foley e testes de custo](#social-narration-foley-cost-tests) | Caso 9, Caso 11 |
 | [Agradecimentos](#acknowledge) | Créditos e política de correções |
 
@@ -101,6 +101,8 @@ O pacote é publicado como [evolink-seed-audio](https://www.npmjs.com/package/ev
 | [Caso 12: Montagem de música e efeitos com Claude no Premiere](#case-12) | Separe música, efeitos e voz em passagens distintas e deixe o Claude montar o áudio no Premiere, mantendo controle manual de tempo e fades. | Tutorial |
 | [Caso 13: Teste de sincronização de comentário de luta com áudio de referência](#case-13) | Use uma edição final do Seedance como referência no Seed Audio, escreva um comentário cronometrado a partir da ação e trate o alinhamento de tempo como o principal risco de avaliação. | Evaluation |
 | [Caso 15: Teste de voiceover para versão positiva reescrita por agente](#case-15) | Entregue a um agente um vídeo existente, deixe-o reescrever o roteiro para um novo tom e use Seed Audio para sintetizar um novo voiceover correspondente antes de reconstruir os visuais. | Evaluation |
+| [Caso 17: Design de som de trailer sincronizado ao beat](#case-17) | trave primeiro personagens e stills, depois alinhe os cortes do trailer aos timestamps da música e use Seed Audio apenas onde a narração ou os acentos sonoros precisem cair com precisão. | Tutorial |
+| [Caso 18: Curta animado com duas imagens e Seed Audio](#case-18) | trate uma ou duas imagens de referência como trava visual, deixe o Seed Audio cuidar da trilha e use o Seedance para expandir o curta até um clip animado finalizado. | Demo |
 
 <a id="audio-drama-scene-generation"></a>
 ## Áudio drama e geração de cena
@@ -126,6 +128,7 @@ O pacote é publicado como [evolink-seed-audio](https://www.npmjs.com/package/ev
 |---|---|---|
 | [Caso 7: Integração de narração e dublagem no Claude MCP](#case-7) | Avalie o Seed-Audio 1.0 como parte de um espaço de trabalho criativo nativo do assistente para narração, clonagem de voz e dublagem. | Integration |
 | [Caso 14: Workflow de motion graphics com narração clonada](#case-14) | Clone sua própria voz no Seed Audio e use essa narração como espinha de timing para vídeos de motion graphics com texto, animação de formas, BGM e legendas. | Tutorial |
+| [Caso 16: Trailer de aventura com Scenario MCP e uma foto](#case-16) | use um único retrato e um só prompt de orquestração para que um workflow MCP no Codex/GPT gere múltiplas cenas em Seedance, narração com Seed Audio, trilha e empacotamento final em uma única execução. | Integration |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## Narração social, foley e testes de custo
@@ -401,6 +404,58 @@ Tipo: Evaluation | Data: 2026-07-14
 
 ---
 
+<a id="case-16"></a>
+### Caso 16: [Trailer de aventura com Scenario MCP e uma foto](https://x.com/emmanuel_2m/status/2078227114818707891) (por [@emmanuel_2m](https://x.com/emmanuel_2m))
+
+**use um único retrato e um só prompt de orquestração para que um workflow MCP no Codex/GPT gere múltiplas cenas em Seedance, narração com Seed Audio, trilha e empacotamento final em uma única execução.**
+
+- Evidência da fonte: a reply pública traz um workflow MCP de quatro passos e o prompt completo do trailer, enquanto o post pai mostra o resultado final em estilo Indiana Jones feito a partir de uma única foto enviada.
+- O que copiar: quando quiser que um agente MCP coordene geração de cenas, narração, trilha, pôster e empacotamento final de uma vez, comece com um retrato e um prompt de controle global.
+- Fluxo prático: carregue o Scenario MCP no Codex ou GPT 5.6, envie o retrato, execute o prompt público, mantenha a identidade facial em pelo menos dez cenas do Seedance e deixe o agente combinar narração e música do Seed Audio com cartões de título retrô.
+- Cuidados: a fonte prova o padrão de orquestração e o limite do prompt, mas não expõe as tentativas intermediárias nem as edições manuais. Trate isto como um workflow de integração, não como uma promessa garantida de um clique.
+
+![Caso 16 media](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-16.jpg)
+
+Tipo: Integration | Data: 2026-07-17
+
+---
+
+<a id="case-17"></a>
+### Caso 17: [Design de som de trailer sincronizado ao beat](https://x.com/maxescu/status/2078146037517312129) (por [@maxescu](https://x.com/maxescu))
+
+**trave primeiro personagens e stills, depois alinhe os cortes do trailer aos timestamps da música e use Seed Audio apenas onde a narração ou os acentos sonoros precisem cair com precisão.**
+
+- Evidência da fonte: a thread pública de Inferno explica que o trailer usou folhas de personagem, geração de clips a partir de stills, prompts de vídeo estruturados por beat e uma montagem final em que a narração entra só nos trechos silenciosos e o Seed Audio 1.0 adiciona efeitos sonoros de ênfase.
+- O que copiar: fixe identidade de personagem e composição antes, e use Seed Audio como camada de design sonoro orientada a beat depois que a edição visual já segue a trilha.
+- Fluxo prático: crie folhas de personagem em 4K, transforme cada tomada em um still antes de animar no Seedance, escreva os prompts do clip como beats de câmera-ação-luz, alinhe o corte final aos timestamps da música e então use Seed Audio para lacunas de narração e acentos sonoros.
+- Cuidados: a thread expõe a estrutura do prompt e a sequência, mas não publica um prompt reutilizável de Seed Audio nem uma comparação controlada com outras stacks de áudio.
+
+[![Caso 17 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-17.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-17.mp4)
+
+[Abrir página de reprodução de vídeo](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-17.mp4)
+
+Tipo: Tutorial | Data: 2026-07-17
+
+---
+
+<a id="case-18"></a>
+### Caso 18: [Curta animado com duas imagens e Seed Audio](https://x.com/Dani__oros/status/2077829108818657420) (por [@Dani__oros](https://x.com/Dani__oros))
+
+**trate uma ou duas imagens de referência como trava visual, deixe o Seed Audio cuidar da trilha e use o Seedance para expandir o curta até um clip animado finalizado.**
+
+- Evidência da fonte: o post apresenta Tide-Rider como um curta animado feito com Seedance 2.0 na animação, Seed Audio 1.0 na música, Krea 2 na imagem base e CapCut na edição, além de dizer que quase todo o curta se apoiou em apenas duas imagens de referência e prompting de texto.
+- O que copiar: em vez de montar um model sheet completo logo no início, fixe o visual com uma hero image e adicione uma segunda imagem apenas quando o final precisar de um novo ângulo ou reveal.
+- Fluxo prático: crie uma imagem-chave no Krea 2, use-a como âncora visual para gerar clips curtos no Seedance, mantenha o prompting de texto leve, deixe a trilha para o Seed Audio e finalize o ritmo no CapCut.
+- Cuidados: o post prova um padrão compacto de produção com duas imagens, mas não compartilha os prompts exatos nem mostra se houve limpeza adicional entre planos.
+
+[![Caso 18 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-18.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-18.mp4)
+
+[Abrir página de reprodução de vídeo](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-18.mp4)
+
+Tipo: Demo | Data: 2026-07-16
+
+---
+
 ## Repositórios relacionados
 
 Nenhum outro repositório público do Seed-Audio está verificado no momento. A superfície de skill mantida é evolink-seed-audio no npm.
@@ -410,7 +465,7 @@ Nenhum outro repositório público do Seed-Audio está verificado no momento. A 
 
 Este repositório aponta para publicações públicas de criadores e provedores em cada caso. A fonte pública aparece no título do caso.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros)
 
 *Correções são bem-vindas quando um link quebra, a atribuição está errada ou uma afirmação não é sustentada pela fonte.*
 

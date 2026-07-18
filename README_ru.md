@@ -24,7 +24,7 @@
 
 ## 📊 Обзор
 
-- **Из 97 принятых недавних публикаций X/Twitter выбрано 15 кейсов Seed-Audio 1.0.**
+- **Из 97 принятых недавних публикаций X/Twitter выбрано 18 кейсов Seed-Audio 1.0.**
 - Охват: Видео-процессы от аудио, Аудиодрама и генерация сцен, Референсные голоса и подбор голоса персонажа, Интеграции инструментов и провайдеров, Социальная озвучка, foley и тесты стоимости.
 - Каждый кейс содержит исходный источник, атрибуцию автора, вывод по применению, тип доказательства и дату публикации.
 - Используйте репозиторий, чтобы находить реальные рабочие процессы, сравнивать сильные стороны и ограничения, находить маршруты провайдеров и переходить к реализации через EvoLink.
@@ -83,10 +83,10 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 | Раздел | Кейсы |
 |---|---|
-| [Видео-процессы от аудио](#audio-first-video) | Кейс 1, Кейс 2, Кейс 3, Кейс 12, Кейс 13, Кейс 15 |
+| [Видео-процессы от аудио](#audio-first-video) | Кейс 1, Кейс 2, Кейс 3, Кейс 12, Кейс 13, Кейс 15, Кейс 17, Кейс 18 |
 | [Аудиодрама и генерация сцен](#audio-drama-scene-generation) | Кейс 4, Кейс 5 |
 | [Референсные голоса и подбор голоса персонажа](#voice-reference-character-casting) | Кейс 6, Кейс 8, Кейс 10 |
-| [Интеграции инструментов и провайдеров](#tool-provider-integrations) | Кейс 7, Кейс 14 |
+| [Интеграции инструментов и провайдеров](#tool-provider-integrations) | Кейс 7, Кейс 14, Кейс 16 |
 | [Социальная озвучка, foley и тесты стоимости](#social-narration-foley-cost-tests) | Кейс 9, Кейс 11 |
 | [Благодарности](#acknowledge) | Кредиты и политика исправлений |
 
@@ -101,6 +101,8 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 | [Кейс 12: Сборка музыки и эффектов в Premiere через Claude](#case-12) | Генерируйте музыку, эффекты и голос отдельными проходами, а затем поручите Claude собрать их в Premiere, сохранив ручной контроль тайминга и затуханий. | Tutorial |
 | [Кейс 13: Тест тайминга бойцовского комментария по референс-аудио](#case-13) | Используйте готовый монтаж Seedance как reference для Seed Audio, создавайте тайм-кодированный бойцовский комментарий из экранного действия и рассматривайте точное совпадение по времени как главный риск оценки. | Evaluation |
 | [Кейс 15: Тест озвучки для позитивно переписанной агентом версии видео](#case-15) | Передайте агенту существующее видео, дайте ему переписать сценарий под новый тон и используйте Seed Audio, чтобы синтезировать подходящий новый voiceover перед перестройкой визуалов. | Evaluation |
+| [Кейс 17: Синхронизированный по битам саунд-дизайн трейлера](#case-17) | сначала зафиксируйте персонажей и still-кадры, затем привяжите trailer cuts к музыкальным timestamp и используйте Seed Audio только там, где narration или акцентный sound design должны попадать точно в ритм. | Tutorial |
+| [Кейс 18: Анимационный шорт на двух изображениях с Seed Audio](#case-18) | используйте одно или два reference image как визуальный lock, поручите Seed Audio музыку и расширьте короткую работу в законченный animated clip через Seedance. | Demo |
 
 <a id="audio-drama-scene-generation"></a>
 ## Аудиодрама и генерация сцен
@@ -126,6 +128,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 |---|---|---|
 | [Кейс 7: Интеграция озвучки и дубляжа в Claude MCP](#case-7) | Оцените Seed-Audio 1.0 как часть собственного творческого рабочего пространства помощника для озвучивания, клонирования голоса и дублирования. | Integration |
 | [Кейс 14: Workflow motion graphics с клонированной озвучкой](#case-14) | Склонируйте собственный голос в Seed Audio и используйте эту озвучку как временной каркас для motion graphics видео с текстом, анимацией форм, BGM и субтитрами. | Tutorial |
+| [Кейс 16: Приключенческий трейлер Scenario MCP по одному фото](#case-16) | используйте один портрет и один orchestration prompt, чтобы MCP-workflow в Codex/GPT за один проход собрал несколько сцен Seedance, narration в Seed Audio, музыку и финальную упаковку. | Integration |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## Социальная озвучка, foley и тесты стоимости
@@ -401,6 +404,58 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 ---
 
+<a id="case-16"></a>
+### Кейс 16: [Приключенческий трейлер Scenario MCP по одному фото](https://x.com/emmanuel_2m/status/2078227114818707891) (автор [@emmanuel_2m](https://x.com/emmanuel_2m))
+
+**используйте один портрет и один orchestration prompt, чтобы MCP-workflow в Codex/GPT за один проход собрал несколько сцен Seedance, narration в Seed Audio, музыку и финальную упаковку.**
+
+- Доказательство источника: публичный reply публикует четырёхшаговый MCP-workflow и полный prompt трейлера, а родительский post показывает готовый Indiana Jones-подобный результат, сделанный из одной загруженной фотографии.
+- Что можно перенять: если вы хотите, чтобы MCP-agent за один запуск координировал генерацию сцен, narration, музыку, постер и финальную упаковку, начните с одного портрета и общего управляющего promptа.
+- Практический workflow: загрузите Scenario MCP в Codex или GPT 5.6, добавьте portrait, выполните публичный prompt, удерживайте идентичность лица минимум через десять сцен Seedance и затем дайте agent'у объединить narration и музыку Seed Audio с ретро title cards.
+- На что обратить внимание: источник доказывает orchestration pattern и границу promptа, но не раскрывает промежуточные retry и ручные правки. Рассматривайте это как integration workflow, а не как гарантированный one-click сценарий.
+
+![Кейс 16 media](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-16.jpg)
+
+Тип: Integration | Дата: 2026-07-17
+
+---
+
+<a id="case-17"></a>
+### Кейс 17: [Синхронизированный по битам саунд-дизайн трейлера](https://x.com/maxescu/status/2078146037517312129) (автор [@maxescu](https://x.com/maxescu))
+
+**сначала зафиксируйте персонажей и still-кадры, затем привяжите trailer cuts к музыкальным timestamp и используйте Seed Audio только там, где narration или акцентный sound design должны попадать точно в ритм.**
+
+- Доказательство источника: публичный Inferno-thread описывает character sheets, генерацию clips через still-first, beat-структурированные video prompts и финальный assembly, где narration заполняет только тихие участки, а Seed Audio 1.0 создаёт дополнительные акцентные sound effects.
+- Что можно перенять: зафиксируйте идентичность персонажа и композицию раньше по пайплайну, а затем используйте Seed Audio как beat-aware слой sound design после того, как визуальный монтаж уже следует за музыкой.
+- Практический workflow: создайте 4K character sheets, превращайте каждый shot сначала в still и только потом анимируйте в Seedance, пишите clip prompts как beats camera-action-light, выравнивайте финальный cut по музыкальным timestamp, а затем используйте Seed Audio для narration gaps и подчеркнутых звуковых акцентов.
+- На что обратить внимание: thread раскрывает структуру promptов и порядок, но не публикует переиспользуемый Seed Audio prompt и не даёт контролируемого сравнения с другими audio stack.
+
+[![Кейс 17 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-17.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-17.mp4)
+
+[Открыть страницу воспроизведения видео](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-17.mp4)
+
+Тип: Tutorial | Дата: 2026-07-17
+
+---
+
+<a id="case-18"></a>
+### Кейс 18: [Анимационный шорт на двух изображениях с Seed Audio](https://x.com/Dani__oros/status/2077829108818657420) (автор [@Dani__oros](https://x.com/Dani__oros))
+
+**используйте одно или два reference image как визуальный lock, поручите Seed Audio музыку и расширьте короткую работу в законченный animated clip через Seedance.**
+
+- Доказательство источника: post описывает Tide-Rider как animated short, где Seedance 2.0 отвечает за animation, Seed Audio 1.0 за music, Krea 2 за исходное image, а CapCut за editing, и прямо говорит, что почти вся работа собрана всего на двух reference images и text prompting.
+- Что можно перенять: вместо полного model sheet на старте зафиксируйте визуал одной hero image и добавляйте вторую только тогда, когда финалу нужен новый угол или reveal.
+- Практический workflow: создайте key image в Krea 2, используйте его как visual anchor для коротких clips в Seedance, держите text prompting лёгким, поручите score Seed Audio и завершите timing в CapCut.
+- На что обратить внимание: post доказывает компактный two-image production pattern, но не публикует точные prompts и не показывает, требовалась ли дополнительная очистка между shots.
+
+[![Кейс 18 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-18.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-18.mp4)
+
+[Открыть страницу воспроизведения видео](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-18.mp4)
+
+Тип: Demo | Дата: 2026-07-16
+
+---
+
 ## Связанные репозитории
 
 Отдельный публичный репозиторий Seed-Audio сейчас не подтвержден. Поддерживаемая поверхность skill — evolink-seed-audio в npm.
@@ -410,7 +465,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 Этот репозиторий ссылается на публичные публикации авторов и провайдеров на уровне каждого кейса. Публичный источник указан в заголовке кейса.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros)
 
 *Исправления приветствуются, если ссылка сломана, атрибуция неверна или утверждение не подтверждается источником.*
 

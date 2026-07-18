@@ -80,5 +80,38 @@
     "run_id": "20260716-seed-audio-recurring-update",
     "query": "\"seed audio\"",
     "lookback_hours": 48
+  },
+  {
+    "id": "recurring-x-2078227114818707891",
+    "type": "public_x_post",
+    "source_url": "https://x.com/emmanuel_2m/status/2078227114818707891",
+    "author": "emmanuel_2m",
+    "status": "included_in_use_case_evidence",
+    "case_number": 16,
+    "run_id": "20260718-seed-audio-recurring-update",
+    "query": "\"seed audio\"",
+    "lookback_hours": 48
+  },
+  {
+    "id": "recurring-x-2078146037517312129",
+    "type": "public_x_post",
+    "source_url": "https://x.com/maxescu/status/2078146037517312129",
+    "author": "maxescu",
+    "status": "included_in_use_case_evidence",
+    "case_number": 17,
+    "run_id": "20260718-seed-audio-recurring-update",
+    "query": "\"seed audio\"",
+    "lookback_hours": 48
+  },
+  {
+    "id": "recurring-x-2077829108818657420",
+    "type": "public_x_post",
+    "source_url": "https://x.com/Dani__oros/status/2077829108818657420",
+    "author": "Dani__oros",
+    "status": "included_in_use_case_evidence",
+    "case_number": 18,
+    "run_id": "20260718-seed-audio-recurring-update",
+    "query": "\"seed audio\"",
+    "lookback_hours": 48
   }
 ]

@@ -55,3 +55,14 @@
 - Uploaded the Case 14 and Case 15 poster images and MP4 files to the repository's locked Cloudflare R2 namespace, kept the tracked local poster JPG files, and kept the MP4 files out of git.
 - Updated `data/use-cases.json`, `data/use-case-translations.json`, and `data/source-index.json` while preserving case order, source attribution, stable anchors, media URL format, and locale parity.
 - Rebuilt English and all 10 localized README files plus GitHub Pages player pages from the updated structured data.
+
+## July 18, 2026
+
+- Ran the recurring exact-phrase `"seed audio"` search over the fixed 48-hour window ending at collector timestamp `2026-07-18T10:05:58.716821+00:00`.
+- Reviewed 11 in-window candidates: selected 3 high-confidence workflows, marked 2 unsure, and dropped 6 duplicate, link-only, reaction-only, comparative, or thin-context posts.
+- Added Case 16: a one-photo Scenario MCP adventure-trailer workflow where a published orchestration prompt drives Seedance scenes plus Seed Audio narration and score.
+- Added Case 17: a beat-synced trailer sound-design workflow that locks character sheets and stills first, then uses Seed Audio narration and accent effects in the final timed edit.
+- Added Case 18: a two-image animated-short workflow that keeps visual continuity with one or two reference images while Seed Audio provides the score for the finished clip.
+- Uploaded the Case 16 poster image plus the Case 17 and Case 18 poster images and MP4 files to the repository's locked Cloudflare R2 namespace, kept the tracked local poster JPG files, and kept the MP4 files out of git.
+- Updated `data/use-cases.json`, `data/use-case-translations.json`, and `data/source-index.json` while preserving case order, stable anchors, source attribution, locale parity, media URL shape, and the fixed search-window metadata.
+- Rebuilt English and all 10 localized README files plus GitHub Pages player pages from the updated structured data.

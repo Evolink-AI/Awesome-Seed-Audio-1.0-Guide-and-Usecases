@@ -24,7 +24,7 @@ Bu Türkçe README kaynak bağlantılarını, atıfları ve ankrajları korur; k
 
 ## 📊 Genel bakış
 
-- **Yakın tarihli kabul edilmiş 97 X/Twitter gönderisinden 15 Seed-Audio 1.0 vakası seçildi.**
+- **Yakın tarihli kabul edilmiş 97 X/Twitter gönderisinden 18 Seed-Audio 1.0 vakası seçildi.**
 - Kapsam: Ses öncelikli video iş akışları, Sesli drama ve sahne üretimi, Referans sesler ve karakter sesi seçimi, Araç ve sağlayıcı entegrasyonları, Sosyal anlatım, foley ve maliyet testleri.
 - Her vaka özgün kaynak, üretici atfı, kullanım sonucu, kanıt türü ve yayın tarihi içerir.
 - Bu repoyu gerçek iş akışlarını bulmak, güçlü ve zayıf yönleri karşılaştırmak, sağlayıcı yollarını keşfetmek ve uygulamayı EvoLink'e yönlendirmek için kullanın.
@@ -83,10 +83,10 @@ Paket agent ve yerel skill iş akışları için [evolink-seed-audio](https://ww
 
 | Bölüm | Vakalar |
 |---|---|
-| [Ses öncelikli video iş akışları](#audio-first-video) | Vaka 1, Vaka 2, Vaka 3, Vaka 12, Vaka 13, Vaka 15 |
+| [Ses öncelikli video iş akışları](#audio-first-video) | Vaka 1, Vaka 2, Vaka 3, Vaka 12, Vaka 13, Vaka 15, Vaka 17, Vaka 18 |
 | [Sesli drama ve sahne üretimi](#audio-drama-scene-generation) | Vaka 4, Vaka 5 |
 | [Referans sesler ve karakter sesi seçimi](#voice-reference-character-casting) | Vaka 6, Vaka 8, Vaka 10 |
-| [Araç ve sağlayıcı entegrasyonları](#tool-provider-integrations) | Vaka 7, Vaka 14 |
+| [Araç ve sağlayıcı entegrasyonları](#tool-provider-integrations) | Vaka 7, Vaka 14, Vaka 16 |
 | [Sosyal anlatım, foley ve maliyet testleri](#social-narration-foley-cost-tests) | Vaka 9, Vaka 11 |
 | [Teşekkür](#acknowledge) | Atıflar ve düzeltme politikası |
 
@@ -101,6 +101,8 @@ Paket agent ve yerel skill iş akışları için [evolink-seed-audio](https://ww
 | [Vaka 12: Claude ile Premiere'de müzik ve efekt montajı](#case-12) | Müzik, efekt ve sesi ayrı geçişlerde üretin; Claude'un bunları Premiere'de birleştirmesini sağlarken zamanlama ve fade ayarlarını elle kontrol edin. | Tutorial |
 | [Vaka 13: Referans sesle dövüş anlatımı zamanlama testi](#case-13) | Tamamlanmış bir Seedance kurgusunu Seed Audio referansı olarak kullanın, aksiyondan zaman kodlu dövüş anlatımı üretin ve zaman eşleşmesini ana değerlendirme riski olarak görün. | Evaluation |
 | [Vaka 15: Ajanın pozitif sürüme yeniden yazdığı video seslendirme testi](#case-15) | Mevcut bir videoyu bir ajana verin, yeni tona göre senaryoyu yeniden yazdırın ve görselleri yeniden kurmadan önce Seed Audio ile buna uygun yeni bir seslendirme üretin. | Evaluation |
+| [Vaka 17: Beat senkronlu fragman ses tasarımı](#case-17) | önce karakterleri ve still görüntüleri kilitleyin, sonra fragman kesmelerini müzik zaman damgalarına hizalayın ve Seed Audio'yu yalnızca anlatımın veya vurgu ses tasarımının tam yere düşmesi gereken anlarda kullanın. | Tutorial |
+| [Vaka 18: İki görselli animasyon kısa filmi ve Seed Audio](#case-18) | bir veya iki referans görseli görsel kilit olarak kullanın, skoru Seed Audio'ya bırakın ve Seedance ile kısa filmi tamamlanmış bir animasyon klibine genişletin. | Demo |
 
 <a id="audio-drama-scene-generation"></a>
 ## Sesli drama ve sahne üretimi
@@ -126,6 +128,7 @@ Paket agent ve yerel skill iş akışları için [evolink-seed-audio](https://ww
 |---|---|---|
 | [Vaka 7: Claude MCP seslendirme ve dublaj entegrasyonu](#case-7) | Seed-Audio 1.0'u seslendirme, ses klonlama ve dublaj için asistan-yerel yaratıcı çalışma alanının parçası olarak değerlendirin. | Integration |
 | [Vaka 14: Klon anlatımlı motion graphics beceri iş akışı](#case-14) | Seed Audio ile kendi sesinizi klonlayın ve bu anlatımı metin, şekil animasyonu, BGM ve altyazı içeren motion graphics videolar için zamanlama omurgası olarak kullanın. | Tutorial |
+| [Vaka 16: Tek fotoğraflı Scenario MCP macera fragmanı](#case-16) | tek bir portre ve tek bir orkestrasyon promptu kullanarak Codex/GPT MCP iş akışının tek çalışmada çok sahneli Seedance görüntüleri, Seed Audio anlatımı, müzik ve final paketlemesini üretmesini sağlayın. | Integration |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## Sosyal anlatım, foley ve maliyet testleri
@@ -401,6 +404,58 @@ Tür: Evaluation | Tarih: 2026-07-14
 
 ---
 
+<a id="case-16"></a>
+### Vaka 16: [Tek fotoğraflı Scenario MCP macera fragmanı](https://x.com/emmanuel_2m/status/2078227114818707891) (yazar [@emmanuel_2m](https://x.com/emmanuel_2m))
+
+**tek bir portre ve tek bir orkestrasyon promptu kullanarak Codex/GPT MCP iş akışının tek çalışmada çok sahneli Seedance görüntüleri, Seed Audio anlatımı, müzik ve final paketlemesini üretmesini sağlayın.**
+
+- Kaynak kanıtı: herkese açık reply dört adımlı MCP iş akışını ve tam trailer promptunu yayımlıyor; üst post ise yalnızca tek bir yüklenmiş fotoğraftan üretilen Indiana Jones tarzı sonucu gösteriyor.
+- Kopyalanacak yöntem: bir MCP agentın sahne üretimi, anlatım, müzik, poster ve final paketlemeyi tek seferde koordine etmesini istiyorsanız bir portre ve genel kontrol promptuyla başlayın.
+- Pratik iş akışı: Scenario MCP'yi Codex veya GPT 5.6 içinde yükleyin, portreyi ekleyin, herkese açık promptu çalıştırın, en az on Seedance sahnesinde yüz tutarlılığını koruyun ve ardından agentın Seed Audio anlatımını, müziği ve retro title cardları birleştirmesine izin verin.
+- Dikkat noktaları: kaynak orkestrasyon kalıbını ve prompt sınırını kanıtlıyor, ancak ara denemeleri veya manuel düzenlemeleri yayımlamıyor. Bunu tek tık garantisi olarak değil, bir entegrasyon iş akışı olarak değerlendirin.
+
+![Vaka 16 media](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-16.jpg)
+
+Tür: Integration | Tarih: 2026-07-17
+
+---
+
+<a id="case-17"></a>
+### Vaka 17: [Beat senkronlu fragman ses tasarımı](https://x.com/maxescu/status/2078146037517312129) (yazar [@maxescu](https://x.com/maxescu))
+
+**önce karakterleri ve still görüntüleri kilitleyin, sonra fragman kesmelerini müzik zaman damgalarına hizalayın ve Seed Audio'yu yalnızca anlatımın veya vurgu ses tasarımının tam yere düşmesi gereken anlarda kullanın.**
+
+- Kaynak kanıtı: herkese açık Inferno thread'i character sheet'ler, still-first clip üretimi, beat yapılı video promptları ve anlatımın yalnızca sessiz anları doldurduğu, Seed Audio 1.0'ın ise ek vurgu ses efektleri ürettiği son assembly aşamasını açıklıyor.
+- Kopyalanacak yöntem: karakter kimliğini ve kompozisyonu hattın erken aşamalarında sabitleyin; görsel kurgu zaten skoru takip ettikten sonra Seed Audio'yu beat odaklı bir ses tasarım katmanı olarak kullanın.
+- Pratik iş akışı: 4K character sheet'ler oluşturun, her shot'u önce still olarak üretip Seedance'de canlandırın, clip promptlarını camera-action-light beatleri olarak yazın, final kurguyu müzik zaman damgalarına hizalayın ve ardından Seed Audio ile anlatım boşluklarını ve vurgu efektlerini ekleyin.
+- Dikkat noktaları: thread prompt yapısını ve sırasını yayımlıyor, ancak yeniden kullanılabilir bir Seed Audio promptu veya diğer ses yığınlarıyla kontrollü karşılaştırma paylaşmıyor.
+
+[![Vaka 17 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-17.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-17.mp4)
+
+[Video oynatma sayfasını aç](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-17.mp4)
+
+Tür: Tutorial | Tarih: 2026-07-17
+
+---
+
+<a id="case-18"></a>
+### Vaka 18: [İki görselli animasyon kısa filmi ve Seed Audio](https://x.com/Dani__oros/status/2077829108818657420) (yazar [@Dani__oros](https://x.com/Dani__oros))
+
+**bir veya iki referans görseli görsel kilit olarak kullanın, skoru Seed Audio'ya bırakın ve Seedance ile kısa filmi tamamlanmış bir animasyon klibine genişletin.**
+
+- Kaynak kanıtı: post Tide-Rider'ı animasyon için Seedance 2.0, müzik için Seed Audio 1.0, kaynak görsel için Krea 2 ve kurgu için CapCut ile yapılmış bir kısa film olarak tanımlıyor; ayrıca işin neredeyse tamamen iki referans görsel ve text prompting ile kurulduğunu söylüyor.
+- Kopyalanacak yöntem: en başta tam bir model sheet kurmak yerine görünümü bir hero reference image ile sabitleyin, yalnızca final bölümünde yeni açı veya reveal gerekiyorsa ikinci görseli ekleyin.
+- Pratik iş akışı: Krea 2'de bir ana görsel tasarlayın, bunu Seedance için görsel çapa olarak kullanarak kısa animasyon klipleri üretin, text prompting'i hafif tutun, müziği Seed Audio'ya bırakın ve ritmi CapCut'ta tamamlayın.
+- Dikkat noktaları: post kompakt iki görselli bir üretim kalıbını kanıtlıyor, ancak tam promptları veya çekimler arasında ek temizlik yapılıp yapılmadığını paylaşmıyor.
+
+[![Vaka 18 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-18.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-18.mp4)
+
+[Video oynatma sayfasını aç](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-18.mp4)
+
+Tür: Demo | Tarih: 2026-07-16
+
+---
+
 ## İlgili depolar
 
 Şu anda doğrulanmış ayrı bir açık Seed-Audio deposu yoktur. Bakımı yapılan skill yüzeyi npm üzerindeki evolink-seed-audio.
@@ -410,7 +465,7 @@ Tür: Evaluation | Tarih: 2026-07-14
 
 Bu repo, her vaka düzeyinde herkese açık üretici ve sağlayıcı gönderilerine bağlantı verir. Kamu kaynağı her vaka başlığında yer alır.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros)
 
 *Kaynak bağlantısı bozulduğunda, atıf yanlış olduğunda veya bir iddia bağlantılı kaynakça desteklenmediğinde düzeltmeler memnuniyetle karşılanır.*
 

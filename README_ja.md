@@ -24,7 +24,7 @@ Seed-Audio 1.0 の高シグナルなユースケース集です。
 
 ## 📊 概要
 
-- **最近の X/Twitter サンプル 97 件から、Seed-Audio 1.0 のユースケース 15 件を選定しました。**
+- **最近の X/Twitter サンプル 97 件から、Seed-Audio 1.0 のユースケース 18 件を選定しました。**
 - 対象領域：音声先行の動画ワークフロー, 音声ドラマとシーン生成, 参照音声とキャラクター音声探索, ツールとプロバイダー統合, SNS ナレーション、フォーリー、コスト検証。
 - 各ケースには、元ソース、作者クレジット、活用ポイント、証拠タイプ、公開日を含めています。
 - 実用ワークフロー、強みと制約、プロバイダー経路、EvoLink での実装導線を確認するために使えます。
@@ -83,10 +83,10 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 | セクション | ケース |
 |---|---|
-| [音声先行の動画ワークフロー](#audio-first-video) | ケース 1, ケース 2, ケース 3, ケース 12, ケース 13, ケース 15 |
+| [音声先行の動画ワークフロー](#audio-first-video) | ケース 1, ケース 2, ケース 3, ケース 12, ケース 13, ケース 15, ケース 17, ケース 18 |
 | [音声ドラマとシーン生成](#audio-drama-scene-generation) | ケース 4, ケース 5 |
 | [参照音声とキャラクター音声探索](#voice-reference-character-casting) | ケース 6, ケース 8, ケース 10 |
-| [ツールとプロバイダー統合](#tool-provider-integrations) | ケース 7, ケース 14 |
+| [ツールとプロバイダー統合](#tool-provider-integrations) | ケース 7, ケース 14, ケース 16 |
 | [SNS ナレーション、フォーリー、コスト検証](#social-narration-foley-cost-tests) | ケース 9, ケース 11 |
 | [謝辞](#acknowledge) | クレジットと修正ポリシー |
 
@@ -101,6 +101,8 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 | [ケース 12: Claude で音楽と効果音を Premiere に組み込む](#case-12) | 音楽、効果音、音声を別々に生成し、Claude に Premiere 上で組み立てさせながら、タイミングとフェードを手動で調整できる状態を保ちます。 | Tutorial |
 | [ケース 13: 参照音声による格闘実況タイミング検証](#case-13) | 完成した Seedance 編集を Seed Audio の参照入力にし、映像アクションから時間指定の実況文を作り、タイミング一致を主な評価リスクとして扱います。 | Evaluation |
 | [ケース 15: エージェントが前向き版へ書き換える音声テスト](#case-15) | 既存の動画を agent に渡し、新しいトーン向けに script を書き換えさせてから、Seed Audio で合う voiceover を生成し、映像を組み直します。 | Evaluation |
+| [ケース 17: ビート同期の予告編サウンド設計](#case-17) | 先に登場人物と静止画を固め、その後で予告編のカットを音楽の時間軸に合わせ、正確な入りが必要なナレーションや強調効果音だけに Seed Audio を使います。 | Tutorial |
+| [ケース 18: Seed Audio を使う2枚画像アニメ短編](#case-18) | 1〜2 枚の参照画像を見た目の固定軸にし、Seed Audio に音楽を任せ、Seedance で短編を完成したアニメ映像へ広げます。 | Demo |
 
 <a id="audio-drama-scene-generation"></a>
 ## 音声ドラマとシーン生成
@@ -126,6 +128,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 |---|---|---|
 | [ケース 7: Claude MCP のボイスオーバーと多言語吹き替え統合](#case-7) | ナレーション、音声クローン、およびダビングのためのアシスタントネイティブのクリエイティブワークスペースの一部として Seed-Audio 1.0 を評価します。 | Integration |
 | [ケース 14: クローン音声で動かすモーショングラフィックス技能フロー](#case-14) | Seed Audio で自分の声をクローン化し、そのナレーションを時間軸の骨格として、テキスト、図形アニメーション、BGM、字幕を含むモーショングラフィックス動画を組み立てます。 | Tutorial |
+| [ケース 16: 1枚写真の Scenario MCP 冒険トレーラー](#case-16) | 1枚の人物写真と1本の総合指示だけで、Codex/GPT の MCP 連携に複数の Seedance 映像、Seed Audio のナレーション、音楽、仕上げ処理まで一括で進めさせます。 | Integration |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## SNS ナレーション、フォーリー、コスト検証
@@ -401,6 +404,58 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 ---
 
+<a id="case-16"></a>
+### ケース 16: [1枚写真の Scenario MCP 冒険トレーラー](https://x.com/emmanuel_2m/status/2078227114818707891) (作者 [@emmanuel_2m](https://x.com/emmanuel_2m))
+
+**1枚の人物写真と1本の総合指示だけで、Codex/GPT の MCP 連携に複数の Seedance 映像、Seed Audio のナレーション、音楽、仕上げ処理まで一括で進めさせます。**
+
+- ソース証拠: 公開リプライには 4 段階の MCP 手順と完全な予告編用指示文があり、親投稿では 1 枚のアップロード写真から作ったインディ・ジョーンズ風の完成映像が示されています。
+- コピーすること: MCP エージェントに場面生成、ナレーション、音楽、ポスター、最終仕上げまでまとめて担当させたいなら、まず正面の人物写真 1 枚と全体方針をまとめた指示文を用意します。
+- 実用ワークフロー: Codex または GPT 5.6 で Scenario MCP を読み込み、人物写真をアップロードし、公開された指示文を実行して、少なくとも 10 個の Seedance 場面で顔の一貫性を保ちながら、Seed Audio のナレーションと音楽、レトロ調タイトルカードをまとめて仕上げます。
+- 注意点: この公開情報は編成パターンと指示文の境界を示しますが、途中の再試行や手作業の調整は公開していません。ワンクリック完成の保証ではなく、統合型ワークフローの実例として扱ってください。
+
+![ケース 16 media](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-16.jpg)
+
+タイプ: Integration | 日付: 2026-07-17
+
+---
+
+<a id="case-17"></a>
+### ケース 17: [ビート同期の予告編サウンド設計](https://x.com/maxescu/status/2078146037517312129) (作者 [@maxescu](https://x.com/maxescu))
+
+**先に登場人物と静止画を固め、その後で予告編のカットを音楽の時間軸に合わせ、正確な入りが必要なナレーションや強調効果音だけに Seed Audio を使います。**
+
+- ソース証拠: 公開された Inferno の連続投稿では、キャラクター設定画、静止画先行のショット作成、ビートに沿った映像指示、そして静かな区間だけにナレーションを入れ、Seed Audio 1.0 で強調効果音を足す最終組み立て工程が説明されています。
+- コピーすること: まず前段で人物の見た目と構図を安定させ、映像編集が音楽に乗ったあとで、Seed Audio を拍に合わせた音響設計の層として使います。
+- 実用ワークフロー: 4K のキャラクター設定画を作り、各ショットをいったん静止画として固めてから Seedance で動かし、映像指示をカメラ・動作・光の拍構成で書き、最終カットを音楽の時間位置に合わせてから、Seed Audio でナレーションの空白と強調効果音を補います。
+- 注意点: この連続投稿は指示の組み立て方と工程順を公開していますが、再利用できる Seed Audio の本文指示や他の音声基盤との厳密比較は公開していません。
+
+[![ケース 17 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-17.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-17.mp4)
+
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-17.mp4)
+
+タイプ: Tutorial | 日付: 2026-07-17
+
+---
+
+<a id="case-18"></a>
+### ケース 18: [Seed Audio を使う2枚画像アニメ短編](https://x.com/Dani__oros/status/2077829108818657420) (作者 [@Dani__oros](https://x.com/Dani__oros))
+
+**1〜2 枚の参照画像を見た目の固定軸にし、Seed Audio に音楽を任せ、Seedance で短編を完成したアニメ映像へ広げます。**
+
+- ソース証拠: 投稿では Tide-Rider について、アニメーションは Seedance 2.0、音楽は Seed Audio 1.0、元画像は Krea 2、編集は CapCut と明記し、作品全体がほぼ 2 枚の参照画像と文字指示だけで作られたと説明しています。
+- コピーすること: 最初から完全な設定資料集を作る代わりに、まず主役となる参照画像 1 枚で見た目を固定し、最後に新しい角度や種明かしが必要なときだけ 2 枚目を足します。
+- 実用ワークフロー: Krea 2 で基準画像を作り、それを Seedance の見た目アンカーとして短いアニメ映像を生成し、文字指示は軽く保ち、Seed Audio に音楽を任せたうえで CapCut でタイミングを整えます。
+- 注意点: この投稿は 2 枚の画像でも完成短編を作れることを示しますが、正確な指示文やショット間で追加の後処理が必要だったかどうかは公開していません。
+
+[![ケース 18 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-18.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-18.mp4)
+
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-18.mp4)
+
+タイプ: Demo | 日付: 2026-07-16
+
+---
+
 ## 関連リポジトリ
 
 現在、別の公開 Seed-Audio リポジトリは検証されていません。保守されている skill の入口は npm の evolink-seed-audio.
@@ -410,7 +465,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 このリポジトリはケース単位で公開クリエイターやプロバイダーの投稿へリンクしています。公開ソースは各ケース見出しで明記します。
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros)
 
 *リンク切れ、誤った帰属、またはリンク先で裏付けられていない主張があれば修正を歓迎します。*
 

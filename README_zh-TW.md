@@ -24,7 +24,7 @@
 
 ## 📊 總覽
 
-- **從近期 X/Twitter 樣本中篩選出 15 個 Seed-Audio 1.0 使用案例，原始可用樣本為 97 則。**
+- **從近期 X/Twitter 樣本中篩選出 18 個 Seed-Audio 1.0 使用案例，原始可用樣本為 97 則。**
 - 涵蓋方向：音訊優先影片工作流, 音訊劇與場景生成, 參考聲音與角色配音探索, 工具與服務商整合, 社群旁白、擬音與成本測試。
 - 每個案例都包含原始來源、創作者署名、使用結論、證據類型與發布日期。
 - 你可以用這個倉庫查找真實工作流、比較優勢和限制、發現服務商路徑，並把實作工作導向 EvoLink。
@@ -83,10 +83,10 @@ skill 套件發布為 [evolink-seed-audio](https://www.npmjs.com/package/evolink
 
 | 章節 | 案例 |
 |---|---|
-| [音訊優先影片工作流](#audio-first-video) | 案例 1, 案例 2, 案例 3, 案例 12, 案例 13, 案例 15 |
+| [音訊優先影片工作流](#audio-first-video) | 案例 1, 案例 2, 案例 3, 案例 12, 案例 13, 案例 15, 案例 17, 案例 18 |
 | [音訊劇與場景生成](#audio-drama-scene-generation) | 案例 4, 案例 5 |
 | [參考聲音與角色配音探索](#voice-reference-character-casting) | 案例 6, 案例 8, 案例 10 |
-| [工具與服務商整合](#tool-provider-integrations) | 案例 7, 案例 14 |
+| [工具與服務商整合](#tool-provider-integrations) | 案例 7, 案例 14, 案例 16 |
 | [社群旁白、擬音與成本測試](#social-narration-foley-cost-tests) | 案例 9, 案例 11 |
 | [致謝](#acknowledge) | 來源致謝與修正政策 |
 
@@ -101,6 +101,8 @@ skill 套件發布為 [evolink-seed-audio](https://www.npmjs.com/package/evolink
 | [案例 12: 用 Claude 在 Premiere 中編排音樂與音效](#case-12) | 將音樂、音效和人聲拆成獨立生成，再讓 Claude 把音訊組裝進 Premiere，同時保留對節奏與淡入淡出的手動控制。 | Tutorial |
 | [案例 13: 參考音訊格鬥解說時序測試](#case-13) | 先把 Seedance 成片當作 Seed Audio 的參考輸入，再依照畫面動作生成帶時間軸的解說詞，並把時序對齊視為主要評估風險。 | Evaluation |
 | [案例 15: Agent 重寫正向版本的影片旁白測試](#case-15) | 把現有影片交給 agent，讓它為新的情緒方向重寫腳本，再用 Seed Audio 合成匹配的新旁白，最後重建畫面。 | Evaluation |
+| [案例 17: 按節拍對齊的預告片聲音設計](#case-17) | 先鎖定角色與靜幀，再把預告片剪輯對齊到音樂時間點，並只在需要精準落點的旁白或強調音效位置使用 Seed Audio。 | Tutorial |
+| [案例 18: 用 Seed Audio 完成的雙圖動畫短片](#case-18) | 把一張或兩張參考圖當作視覺鎖定層，再讓 Seed Audio 負責配樂，最後由 Seedance 把短片擴展成完整動畫。 | Demo |
 
 <a id="audio-drama-scene-generation"></a>
 ## 音訊劇與場景生成
@@ -126,6 +128,7 @@ skill 套件發布為 [evolink-seed-audio](https://www.npmjs.com/package/evolink
 |---|---|---|
 | [案例 7: Claude MCP 旁白與多語配音整合](#case-7) | 評估 Seed-Audio 1.0 在面向助手的創意工作區中，承擔旁白、聲音克隆和多語配音的價值。 | Integration |
 | [案例 14: 用複製旁白驅動動態圖形技能工作流](#case-14) | 先用 Seed Audio 複製自己的聲音，再把生成的旁白當作時間軸骨架，驅動帶文字、圖形動畫、BGM 和字幕的動態圖形影片。 | Tutorial |
+| [案例 16: 單照片 Scenario MCP 冒險預告片](#case-16) | 用一張人像加一條總控 prompt，就能讓 Codex/GPT 的 MCP 工作流在一次執行裡完成多場景 Seedance 鏡頭、Seed Audio 旁白、配樂與成片包裝。 | Integration |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## 社群旁白、擬音與成本測試
@@ -401,6 +404,58 @@ skill 套件發布為 [evolink-seed-audio](https://www.npmjs.com/package/evolink
 
 ---
 
+<a id="case-16"></a>
+### 案例 16: [單照片 Scenario MCP 冒險預告片](https://x.com/emmanuel_2m/status/2078227114818707891) (作者 [@emmanuel_2m](https://x.com/emmanuel_2m))
+
+**用一張人像加一條總控 prompt，就能讓 Codex/GPT 的 MCP 工作流在一次執行裡完成多場景 Seedance 鏡頭、Seed Audio 旁白、配樂與成片包裝。**
+
+- 證據來源：公開回覆給出了四步 MCP 流程與完整預告片 prompt，而父帖展示了只用一張上傳照片做出的印第安納瓊斯風格成片。
+- 可複製做法：如果你想讓 MCP agent 一次協調場景生成、旁白、配樂、海報與最終包裝，可以先準備一張正臉人像，再配一條總控 prompt。
+- 實際流程：在 Codex 或 GPT 5.6 中載入 Scenario MCP，上傳人像，執行公開 prompt，讓 agent 在至少十個 Seedance 場景裡維持人物一致性，再把 Seed Audio 旁白、音樂與復古標題卡組合成片。
+- 注意事項：這個來源證明了編排模式與 prompt 邊界，但沒有公開中間重試或手動修整過程。應把它視為整合型工作流，而不是保證一鍵完成的承諾。
+
+![案例 16 media](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-16.jpg)
+
+類型: Integration | 日期: 2026-07-17
+
+---
+
+<a id="case-17"></a>
+### 案例 17: [按節拍對齊的預告片聲音設計](https://x.com/maxescu/status/2078146037517312129) (作者 [@maxescu](https://x.com/maxescu))
+
+**先鎖定角色與靜幀，再把預告片剪輯對齊到音樂時間點，並只在需要精準落點的旁白或強調音效位置使用 Seed Audio。**
+
+- 證據來源：公開的 Inferno thread 說明，這支預告片先做角色設定圖、先靜幀後影片、按節拍寫影片 prompt，最後在裝配階段只讓旁白填入安靜段落，並用 Seed Audio 1.0 生成額外的強調音效。
+- 可複製做法：先在前期鎖定角色一致性與構圖，再把 Seed Audio 放到後期節拍感更強的聲音設計層，而不是一開始就讓它承擔全部音訊。
+- 實際流程：先做 4K 角色設定圖，把每個鏡頭先生成靜幀再送進 Seedance，把影片 prompt 寫成 camera-action-light 的分拍結構，按音樂時間點對齊最終剪輯，再用 Seed Audio 補旁白空檔與重點音效。
+- 注意事項：這個 thread 公開了 prompt 結構與流程順序，但沒有放出可直接複用的 Seed Audio prompt，也沒有提供與其他音訊堆疊的受控對比。
+
+[![案例 17 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-17.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-17.mp4)
+
+[打開影片播放頁](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-17.mp4)
+
+類型: Tutorial | 日期: 2026-07-17
+
+---
+
+<a id="case-18"></a>
+### 案例 18: [用 Seed Audio 完成的雙圖動畫短片](https://x.com/Dani__oros/status/2077829108818657420) (作者 [@Dani__oros](https://x.com/Dani__oros))
+
+**把一張或兩張參考圖當作視覺鎖定層，再讓 Seed Audio 負責配樂，最後由 Seedance 把短片擴展成完整動畫。**
+
+- 證據來源：貼文把 Tide-Rider 標註為：Seedance 2.0 負責動畫，Seed Audio 1.0 負責音樂，Krea 2 負責源圖，CapCut 負責剪輯，並明確說整支短片基本只靠兩張參考圖與文字 prompting。
+- 可複製做法：不要一開始就做完整 model sheet，可以先用一張核心參考圖鎖住視覺，再只在結尾需要新角度或揭示時補第二張圖。
+- 實際流程：先在 Krea 2 設計關鍵圖，把它當作 Seedance 的視覺錨點生成短動畫鏡頭，保持 text prompting 輕量，再讓 Seed Audio 提供配樂，並在 CapCut 裡完成節奏與收尾。
+- 注意事項：這篇貼文證明了「兩張圖也能做完整動畫短片」的模式，但沒有公開精確 prompt，也沒有說明鏡頭之間是否還做過額外清理。
+
+[![案例 18 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-18.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-18.mp4)
+
+[打開影片播放頁](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-18.mp4)
+
+類型: Demo | 日期: 2026-07-16
+
+---
+
 ## 相關儲存庫
 
 目前沒有已驗證的其他公開 Seed-Audio 儲存庫。持續維護的 skill 入口是 npm 上的 evolink-seed-audio.
@@ -410,7 +465,7 @@ skill 套件發布為 [evolink-seed-audio](https://www.npmjs.com/package/evolink
 
 本倉庫在案例層級連結公開創作者和服務商內容。每個案例標題都會標註公開來源。
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros)
 
 *如果來源連結失效、署名錯誤，或某個說法沒有得到連結來源支持，歡迎提交修正。*
 

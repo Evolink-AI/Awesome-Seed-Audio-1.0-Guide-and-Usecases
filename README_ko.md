@@ -24,7 +24,7 @@ Seed-Audio 1.0의 신뢰도 높은 사용 사례 저장소입니다.
 
 ## 📊 개요
 
-- **최근 X/Twitter 샘플 97개에서 Seed-Audio 1.0 사용 사례 15개를 선별했습니다.**
+- **최근 X/Twitter 샘플 97개에서 Seed-Audio 1.0 사용 사례 18개를 선별했습니다.**
 - 포함 범위: 오디오 우선 영상 워크플로, 오디오 드라마와 장면 생성, 참조 음성과 캐릭터 보이스 탐색, 도구 및 제공자 통합, 소셜 내레이션, 폴리, 비용 테스트.
 - 각 사례에는 원본 출처, 작성자 표시, 활용 요점, 증거 유형, 게시일이 포함됩니다.
 - 실제 워크플로, 강점과 한계, 제공자 경로, EvoLink 구현 방향을 확인하는 데 사용할 수 있습니다.
@@ -83,10 +83,10 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 | 섹션 | 사례 |
 |---|---|
-| [오디오 우선 영상 워크플로](#audio-first-video) | 사례 1, 사례 2, 사례 3, 사례 12, 사례 13, 사례 15 |
+| [오디오 우선 영상 워크플로](#audio-first-video) | 사례 1, 사례 2, 사례 3, 사례 12, 사례 13, 사례 15, 사례 17, 사례 18 |
 | [오디오 드라마와 장면 생성](#audio-drama-scene-generation) | 사례 4, 사례 5 |
 | [참조 음성과 캐릭터 보이스 탐색](#voice-reference-character-casting) | 사례 6, 사례 8, 사례 10 |
-| [도구 및 제공자 통합](#tool-provider-integrations) | 사례 7, 사례 14 |
+| [도구 및 제공자 통합](#tool-provider-integrations) | 사례 7, 사례 14, 사례 16 |
 | [소셜 내레이션, 폴리, 비용 테스트](#social-narration-foley-cost-tests) | 사례 9, 사례 11 |
 | [감사의 말](#acknowledge) | 크레딧 및 수정 정책 |
 
@@ -101,6 +101,8 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 | [사례 12: Claude로 음악과 효과음을 Premiere에 조립](#case-12) | 음악, 효과음, 음성을 별도 패스로 생성한 뒤 Claude가 Premiere에서 조립하게 하고 타이밍과 페이드는 수동으로 제어하세요. | Tutorial |
 | [사례 13: 참조 오디오 기반 격투 해설 타이밍 검증](#case-13) | 완성된 Seedance 편집본을 Seed Audio의 참조 입력으로 쓰고, 화면 액션에 맞춘 타임코드 해설을 만든 뒤, 타이밍 정합을 핵심 평가 리스크로 다루세요. | Evaluation |
 | [사례 15: 에이전트가 긍정 버전으로 다시 쓰는 보이스오버 테스트](#case-15) | 기존 영상을 agent에게 넘겨 새로운 톤으로 스크립트를 다시 쓰게 하고, Seed Audio로 맞는 새 보이스오버를 만든 뒤 화면을 다시 구성합니다. | Evaluation |
+| [사례 17: 비트 싱크 예고편 사운드 디자인](#case-17) | 먼저 캐릭터와 스틸을 고정한 뒤 트레일러 컷을 음악 타임스탬프에 맞추고, 내레이션이나 강조 사운드가 정확히 떨어져야 하는 지점에만 Seed Audio를 사용하세요. | Tutorial |
+| [사례 18: Seed Audio로 완성한 두 장 이미지 애니메이션 숏](#case-18) | 한두 장의 참조 이미지를 시각 고정축으로 두고 Seed Audio가 음악을 맡게 한 뒤, Seedance로 짧은 영상을 완성된 애니메이션 클립으로 확장합니다. | Demo |
 
 <a id="audio-drama-scene-generation"></a>
 ## 오디오 드라마와 장면 생성
@@ -126,6 +128,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 |---|---|---|
 | [사례 7: Claude MCP 보이스오버 및 다국어 더빙 통합](#case-7) | 음성 해설, 음성 복제 및 더빙을 위한 보조 네이티브 창의적 작업 공간의 일부로 Seed-Audio 1.0을 평가해 보세요. | Integration |
 | [사례 14: 클론 내레이션으로 구동하는 모션그래픽 스킬 워크플로](#case-14) | Seed Audio로 자신의 목소리를 복제한 뒤, 그 내레이션을 시간축의 뼈대로 삼아 텍스트, 도형 애니메이션, BGM, 자막이 들어가는 모션그래픽 영상을 구성합니다. | Tutorial |
+| [사례 16: 한 장 사진으로 만드는 Scenario MCP 모험 예고편](#case-16) | 한 장의 portrait와 하나의 orchestration prompt만으로 Codex/GPT MCP workflow가 여러 Seedance 장면, Seed Audio 내레이션, 음악, 최종 패키징까지 한 번에 만들게 할 수 있습니다. | Integration |
 
 <a id="social-narration-foley-cost-tests"></a>
 ## 소셜 내레이션, 폴리, 비용 테스트
@@ -401,6 +404,58 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 ---
 
+<a id="case-16"></a>
+### 사례 16: [한 장 사진으로 만드는 Scenario MCP 모험 예고편](https://x.com/emmanuel_2m/status/2078227114818707891) (작성자 [@emmanuel_2m](https://x.com/emmanuel_2m))
+
+**한 장의 portrait와 하나의 orchestration prompt만으로 Codex/GPT MCP workflow가 여러 Seedance 장면, Seed Audio 내레이션, 음악, 최종 패키징까지 한 번에 만들게 할 수 있습니다.**
+
+- 출처 근거: 공개 reply에는 4단계 MCP workflow와 전체 trailer prompt가 실려 있고, 부모 post에는 업로드한 사진 한 장으로 만든 Indiana Jones 스타일 결과물이 보입니다.
+- 복사할 점: MCP agent가 장면 생성, 내레이션, 음악, 포스터, 최종 패키징까지 한 번에 조율하길 원한다면 portrait 한 장과 총괄 prompt 하나에서 시작하세요.
+- 실제 워크플로: Codex 또는 GPT 5.6에서 Scenario MCP를 불러오고 portrait를 업로드한 뒤 공개 prompt를 실행해 최소 10개의 Seedance 장면에서 얼굴 일관성을 유지하고, Seed Audio 내레이션과 음악, 복고풍 title card를 함께 묶어냅니다.
+- 주의점: 이 소스는 orchestration pattern과 prompt boundary를 보여주지만 중간 retry나 수동 편집은 공개하지 않습니다. 보장된 원클릭이 아니라 integration workflow로 봐야 합니다.
+
+![사례 16 media](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-16.jpg)
+
+유형: Integration | 날짜: 2026-07-17
+
+---
+
+<a id="case-17"></a>
+### 사례 17: [비트 싱크 예고편 사운드 디자인](https://x.com/maxescu/status/2078146037517312129) (작성자 [@maxescu](https://x.com/maxescu))
+
+**먼저 캐릭터와 스틸을 고정한 뒤 트레일러 컷을 음악 타임스탬프에 맞추고, 내레이션이나 강조 사운드가 정확히 떨어져야 하는 지점에만 Seed Audio를 사용하세요.**
+
+- 출처 근거: 공개 Inferno thread는 캐릭터 시트, 스틸 우선 클립 생성, 비트 구조의 video prompt, 그리고 조용한 구간에만 내레이션을 넣고 Seed Audio 1.0으로 추가 강조 효과음을 만드는 최종 assembly 단계를 설명합니다.
+- 복사할 점: 먼저 파이프라인 앞단에서 캐릭터 일관성과 구도를 잠그고, 비주얼 편집이 score를 따라간 뒤 Seed Audio를 beat-aware 사운드 디자인 레이어로 쓰세요.
+- 실제 워크플로: 4K 캐릭터 시트를 만들고 각 shot을 먼저 still로 만든 뒤 Seedance에서 움직이게 하며, clip prompt를 camera-action-light 비트 구조로 작성하고, 최종 컷을 음악 타임스탬프에 맞춘 다음 Seed Audio로 내레이션 공백과 강조 효과음을 채웁니다.
+- 주의점: 이 thread는 prompt 구조와 순서를 공개하지만 재사용 가능한 Seed Audio prompt 본문이나 다른 audio stack과의 통제된 비교는 제공하지 않습니다.
+
+[![사례 17 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-17.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-17.mp4)
+
+[동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-17.mp4)
+
+유형: Tutorial | 날짜: 2026-07-17
+
+---
+
+<a id="case-18"></a>
+### 사례 18: [Seed Audio로 완성한 두 장 이미지 애니메이션 숏](https://x.com/Dani__oros/status/2077829108818657420) (작성자 [@Dani__oros](https://x.com/Dani__oros))
+
+**한두 장의 참조 이미지를 시각 고정축으로 두고 Seed Audio가 음악을 맡게 한 뒤, Seedance로 짧은 영상을 완성된 애니메이션 클립으로 확장합니다.**
+
+- 출처 근거: 이 게시물은 Tide-Rider를 두고 애니메이션은 Seedance 2.0, 음악은 Seed Audio 1.0, 원본 이미지는 Krea 2, 편집은 CapCut이라고 명시하며, 작품 전체가 사실상 두 장의 참조 이미지와 짧은 텍스트 지시만으로 만들어졌다고 설명합니다.
+- 복사할 점: 처음부터 완전한 모델 시트를 만들기보다 대표가 되는 참조 이미지 한 장으로 화면 인상을 고정하고, 마지막에 새로운 각도나 반전이 필요할 때만 두 번째 이미지를 더합니다.
+- 실제 워크플로: Krea 2에서 기준 이미지를 만들고 이를 Seedance의 시각 앵커로 삼아 짧은 애니메이션 장면을 만든 뒤, 텍스트 지시는 가볍게 유지하고 Seed Audio가 음악을 담당하게 하며, 마지막 타이밍 조정은 CapCut에서 마무리합니다.
+- 주의점: 이 게시물은 두 장의 이미지로도 완성형 애니메이션 단편을 만들 수 있다는 패턴을 보여주지만, 정확한 지시문이나 장면 사이의 추가 후처리 여부까지 공개하지는 않습니다.
+
+[![사례 18 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-18.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-18.mp4)
+
+[동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-18.mp4)
+
+유형: Demo | 날짜: 2026-07-16
+
+---
+
 ## 관련 저장소
 
 현재 별도의 공개 Seed-Audio 저장소는 검증되지 않았습니다. 유지 관리되는 skill 경로는 npm의 evolink-seed-audio.
@@ -410,7 +465,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 이 저장소는 사례 단위로 공개 크리에이터와 제공자 게시물에 연결합니다. 공개 출처는 각 사례 제목에 표시됩니다.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros)
 
 *출처 링크가 깨졌거나, 표시가 잘못되었거나, 주장에 근거가 부족하면 수정을 제안해 주세요.*
 

@@ -1,6 +1,6 @@
 # Case Label Audit
 
-Date: 2026-07-16
+Date: 2026-07-18
 
 This audit checks whether each public case is detailed enough to be useful and whether its `Type` label matches the linked source evidence.
 
@@ -34,6 +34,9 @@ This audit checks whether each public case is detailed enough to be useful and w
 | 13 | Evaluation | The selected parent post shows the finished fight clip, while the public thread reply publishes the exact Midjourney, Seedance 2.0, and Seed Audio prompts plus the timing-mismatch limitation. | Keep as Evaluation. The workflow is concrete and reusable, but the source explicitly says timing still drifted after repeated attempts. |
 | 14 | Tutorial | The source publishes a step-by-step MiniMax Hub motion-graphics workflow: clone the creator voice with Seed Audio, generate narration, storyboard a 15-second piece, then add text, shape animation, BGM, and subtitles around the narration timeline. | Keep as Tutorial. It exposes a reusable narration-first production sequence rather than a launch-only integration mention. |
 | 15 | Evaluation | The source documents an autonomous remix test: a Glif agent watches a video, rewrites the script, uses Seed Audio for a similar replacement voiceover, and reports pacing plus music limitations. | Keep as Evaluation. The workflow is concrete, but the author explicitly frames it as an experiment with unresolved quality issues. |
+| 16 | Integration | The source proves a Scenario MCP access route where one public orchestration prompt coordinates a one-photo trailer workflow across Codex/GPT, Seedance, and Seed Audio. | Keep as Integration. The standout value is the MCP/provider orchestration pattern with a public prompt boundary, not a controlled benchmark or isolated quality test. |
+| 17 | Tutorial | The public Inferno thread lays out a reusable trailer-making sequence: character sheets, still-image-first shot generation, beat-mapped clip prompts, then Seed Audio narration and accent effects during final assembly. | Keep as Tutorial. The reader can copy the production order and sound-design timing method even though the exact Seed Audio prompt text is not public. |
+| 18 | Demo | The source shows a finished animated short, clearly attributes Seed Audio to the score, and explains that the production stayed within a two-reference-image boundary. | Keep as Demo. It proves a compact visual-lock plus audio-score pattern, but the public post does not expose enough exact steps to qualify as a full tutorial. |
 
 ## Removed
 
@@ -41,7 +44,7 @@ The previous WaveSpeedAI provider-access case was removed from the public set. I
 
 ## Result
 
-- Public cases: 15
-- Strong-evidence cases retained: 15
+- Public cases: 18
+- Strong-evidence cases retained: 18
 - Removed cases in this audit pass: 1
-- Type labels changed in this audit pass: Case 4 from Demo to Tutorial; Case 13 added as Evaluation; Case 14 added as Tutorial; Case 15 added as Evaluation
+- Type labels changed in this audit pass: Case 4 Changed from Demo to Tutorial; Case 13 added as Evaluation; Case 14 added as Tutorial; Case 15 added as Evaluation; Case 16 added as Integration; Case 17 added as Tutorial; Case 18 added as Demo
