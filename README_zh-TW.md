@@ -24,7 +24,7 @@
 
 ## 📊 總覽
 
-- **從近期 X/Twitter 樣本中篩選出 18 個 Seed-Audio 1.0 使用案例，原始可用樣本為 97 則。**
+- **從近期 X/Twitter 樣本中篩選出 19 個 Seed-Audio 1.0 使用案例，原始可用樣本為 97 則。**
 - 涵蓋方向：音訊優先影片工作流, 音訊劇與場景生成, 參考聲音與角色配音探索, 工具與服務商整合, 社群旁白、擬音與成本測試。
 - 每個案例都包含原始來源、創作者署名、使用結論、證據類型與發布日期。
 - 你可以用這個倉庫查找真實工作流、比較優勢和限制、發現服務商路徑，並把實作工作導向 EvoLink。
@@ -85,7 +85,7 @@ skill 套件發布為 [evolink-seed-audio](https://www.npmjs.com/package/evolink
 |---|---|
 | [音訊優先影片工作流](#audio-first-video) | 案例 1, 案例 2, 案例 3, 案例 12, 案例 13, 案例 15, 案例 17, 案例 18 |
 | [音訊劇與場景生成](#audio-drama-scene-generation) | 案例 4, 案例 5 |
-| [參考聲音與角色配音探索](#voice-reference-character-casting) | 案例 6, 案例 8, 案例 10 |
+| [參考聲音與角色配音探索](#voice-reference-character-casting) | 案例 6, 案例 8, 案例 10, 案例 19 |
 | [工具與服務商整合](#tool-provider-integrations) | 案例 7, 案例 14, 案例 16 |
 | [社群旁白、擬音與成本測試](#social-narration-foley-cost-tests) | 案例 9, 案例 11 |
 | [致謝](#acknowledge) | 來源致謝與修正政策 |
@@ -120,6 +120,7 @@ skill 套件發布為 [evolink-seed-audio](https://www.npmjs.com/package/evolink
 | [案例 6: 參考聲音 MC 工作流](#case-6) | 在進入後續影片生成前，評估適用於固定 MC 或系列旁白的參考聲音工作流。 | Tutorial |
 | [案例 8: 參考音訊品質與高聲線限制](#case-8) | 評估日語語音、情緒跟隨、參考音訊精度，以及高聲線可能出現機械感的風險。 | Evaluation |
 | [案例 10: 圖像引導的角色聲音探索](#case-10) | 把參考圖生成音訊用於早期角色聲音探索，而不是最終鎖定角色聲音。 | Evaluation |
+| [案例 19: 同畫面換音訊的 TTS 品質對比](#case-19) | 在鎖定正式 TTS 方案前，先保持成片畫面不變，只替換音軌，就能更快比較 Seed Audio 與其他 TTS 的情緒、口音和原聲洩漏問題。 | Evaluation |
 
 <a id="tool-provider-integrations"></a>
 ## 工具與服務商整合
@@ -456,6 +457,24 @@ skill 套件發布為 [evolink-seed-audio](https://www.npmjs.com/package/evolink
 
 ---
 
+<a id="case-19"></a>
+### 案例 19: [同畫面換音訊的 TTS 品質對比](https://x.com/takareinhard/status/2079028004202918291) (作者 [@takareinhard](https://x.com/takareinhard))
+
+**在鎖定正式 TTS 方案前，先保持成片畫面不變，只替換音軌，就能更快比較 Seed Audio 與其他 TTS 的情緒、口音和原聲洩漏問題。**
+
+- 證據來源：作者發了同一段短影片的兩個版本，說明前者保留 Seedance 2.0 原音，後者把音軌替換成 Seed Audio 1.0，並把結果與 ElevenLabs、にじボイス、MiniMax、Gemini TTS 做主觀對比。
+- 可複製做法：如果你想在定下正式 TTS 方案前更快比較情緒表達、口音穩定性和「像不像原聲優」的洩漏風險，就保持畫面不變，只替換語音層做同片對照。
+- 實際流程：先輸出一段完成版影片，保留一版基線音訊，再用 Seed Audio 重做第二版音軌，只比較兩版在情緒、口音和聲音身份洩漏上的差別。
+- 注意事項：這是單一創作者的定性評測，沒有公開 prompt、參考音訊或量化基準。應把它當作比較方法，不是最終排行榜結論。
+
+[![案例 19 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-19.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4)
+
+[打開影片播放頁](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4)
+
+類型: Evaluation | 日期: 2026-07-20
+
+---
+
 ## 相關儲存庫
 
 目前沒有已驗證的其他公開 Seed-Audio 儲存庫。持續維護的 skill 入口是 npm 上的 evolink-seed-audio.
@@ -465,7 +484,7 @@ skill 套件發布為 [evolink-seed-audio](https://www.npmjs.com/package/evolink
 
 本倉庫在案例層級連結公開創作者和服務商內容。每個案例標題都會標註公開來源。
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard)
 
 *如果來源連結失效、署名錯誤，或某個說法沒有得到連結來源支持，歡迎提交修正。*
 

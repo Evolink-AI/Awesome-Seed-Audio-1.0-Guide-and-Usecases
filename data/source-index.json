@@ -113,5 +113,16 @@
     "run_id": "20260718-seed-audio-recurring-update",
     "query": "\"seed audio\"",
     "lookback_hours": 48
+  },
+  {
+    "id": "recurring-x-2079028004202918291",
+    "type": "public_x_post",
+    "source_url": "https://x.com/takareinhard/status/2079028004202918291",
+    "author": "takareinhard",
+    "status": "included_in_use_case_evidence",
+    "case_number": 19,
+    "run_id": "20260720-seed-audio-recurring-update",
+    "query": "\"seed audio\"",
+    "lookback_hours": 48
   }
 ]

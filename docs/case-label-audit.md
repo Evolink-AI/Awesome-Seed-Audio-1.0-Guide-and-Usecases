@@ -1,6 +1,6 @@
 # Case Label Audit
 
-Date: 2026-07-18
+Date: 2026-07-20
 
 This audit checks whether each public case is detailed enough to be useful and whether its `Type` label matches the linked source evidence.
 
@@ -37,6 +37,7 @@ This audit checks whether each public case is detailed enough to be useful and w
 | 16 | Integration | The source proves a Scenario MCP access route where one public orchestration prompt coordinates a one-photo trailer workflow across Codex/GPT, Seedance, and Seed Audio. | Keep as Integration. The standout value is the MCP/provider orchestration pattern with a public prompt boundary, not a controlled benchmark or isolated quality test. |
 | 17 | Tutorial | The public Inferno thread lays out a reusable trailer-making sequence: character sheets, still-image-first shot generation, beat-mapped clip prompts, then Seed Audio narration and accent effects during final assembly. | Keep as Tutorial. The reader can copy the production order and sound-design timing method even though the exact Seed Audio prompt text is not public. |
 | 18 | Demo | The source shows a finished animated short, clearly attributes Seed Audio to the score, and explains that the production stayed within a two-reference-image boundary. | Keep as Demo. It proves a compact visual-lock plus audio-score pattern, but the public post does not expose enough exact steps to qualify as a full tutorial. |
+| 19 | Evaluation | The source keeps one finished clip fixed, swaps only the audio track to Seed Audio 1.0, and compares emotion, accent, and clone leakage against rival TTS outputs. | Keep as Evaluation. It is a useful same-clip comparison method with direct hands-on quality observations, but there is no public prompt or controlled benchmark. |
 
 ## Removed
 
@@ -44,7 +45,7 @@ The previous WaveSpeedAI provider-access case was removed from the public set. I
 
 ## Result
 
-- Public cases: 18
-- Strong-evidence cases retained: 18
-- Removed cases in this audit pass: 1
-- Type labels changed in this audit pass: Case 4 Changed from Demo to Tutorial; Case 13 added as Evaluation; Case 14 added as Tutorial; Case 15 added as Evaluation; Case 16 added as Integration; Case 17 added as Tutorial; Case 18 added as Demo
+- Public cases: 19
+- Strong-evidence cases retained: 19
+- Removed cases in this audit pass: 0
+- Type labels changed in this audit pass: Case 19 added as Evaluation

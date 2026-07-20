@@ -24,7 +24,7 @@
 
 ## 📊 概览
 
-- **从近期 X/Twitter 样本中筛选出 18 个 Seed-Audio 1.0 使用案例，原始可用样本为 97 条。**
+- **从近期 X/Twitter 样本中筛选出 19 个 Seed-Audio 1.0 使用案例，原始可用样本为 97 条。**
 - 覆盖方向：音频优先视频工作流, 音频剧与场景生成, 参考声音与角色配音探索, 工具与服务商集成, 社交旁白、拟音与成本测试。
 - 每个案例都包含原始来源、创作者署名、使用结论、证据类型和发布日期。
 - 你可以用这个仓库查找真实工作流、比较优势和限制、发现服务商路径，并把实现工作导向 EvoLink。
@@ -85,7 +85,7 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 |---|---|
 | [音频优先视频工作流](#audio-first-video) | 案例 1, 案例 2, 案例 3, 案例 12, 案例 13, 案例 15, 案例 17, 案例 18 |
 | [音频剧与场景生成](#audio-drama-scene-generation) | 案例 4, 案例 5 |
-| [参考声音与角色配音探索](#voice-reference-character-casting) | 案例 6, 案例 8, 案例 10 |
+| [参考声音与角色配音探索](#voice-reference-character-casting) | 案例 6, 案例 8, 案例 10, 案例 19 |
 | [工具与服务商集成](#tool-provider-integrations) | 案例 7, 案例 14, 案例 16 |
 | [社交旁白、拟音与成本测试](#social-narration-foley-cost-tests) | 案例 9, 案例 11 |
 | [致谢](#acknowledge) | 来源致谢与修正政策 |
@@ -120,6 +120,7 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 | [案例 6: 参考声音 MC 工作流](#case-6) | 从参考素材生成固定 MC 声音，将音频切分后作为 Seedance 2.0 lip-sync 视频参考。 | Tutorial |
 | [案例 8: 参考音频质量与高声线限制](#case-8) | 基于实际使用评估日语稳定性、情绪跟随、参考音频精度，以及高声线机械感风险。 | Evaluation |
 | [案例 10: 图像引导的角色声音探索](#case-10) | 用参考图片做早期角色声音 casting，同时把 pitch 和 tone 稳定性视为未解决的生产风险。 | Evaluation |
+| [案例 19: 同画面换音频的 TTS 质量对比](#case-19) | 在锁定正式 TTS 方案前，先保持成片画面不变，只替换音轨，就能更快比较 Seed Audio 与其他 TTS 的情绪、口音和原声泄漏问题。 | Evaluation |
 
 <a id="tool-provider-integrations"></a>
 ## 工具与服务商集成
@@ -456,6 +457,24 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 
 ---
 
+<a id="case-19"></a>
+### 案例 19: [同画面换音频的 TTS 质量对比](https://x.com/takareinhard/status/2079028004202918291) (作者 [@takareinhard](https://x.com/takareinhard))
+
+**在锁定正式 TTS 方案前，先保持成片画面不变，只替换音轨，就能更快比较 Seed Audio 与其他 TTS 的情绪、口音和原声泄漏问题。**
+
+- 证据来源：作者发了同一段短视频的两个版本，说明前者保留 Seedance 2.0 原音，后者把音轨替换成 Seed Audio 1.0，并把结果与 ElevenLabs、にじボイス、MiniMax、Gemini TTS 做主观对比。
+- 可复制做法：如果你想在定生产 TTS 方案前更快比较情绪表达、口音稳定性和“像不像原声优”的泄漏风险，就保持画面不变，只替换语音层做同片对照。
+- 实际流程：先导出一段完成版视频，保留一版基线音频，再用 Seed Audio 重做第二版音轨，只比较两版在情绪、口音和声音身份泄漏上的差别。
+- 注意事项：这是单一创作者的定性评测，没有公开 prompt、参考音频或量化基准。应把它当作比较方法，不是最终排行榜结论。
+
+[![案例 19 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-19.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4)
+
+[打开视频播放页](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4)
+
+类型: Evaluation | 日期: 2026-07-20
+
+---
+
 ## 相关仓库
 
 目前没有已验证的其他公开 Seed-Audio 仓库。持续维护的 skill 入口是 npm 上的 evolink-seed-audio.
@@ -465,7 +484,7 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 
 本仓库在案例级别链接公开创作者和服务商内容。每个案例标题都会标注公开来源。
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard)
 
 *如果来源链接失效、署名错误，或某个说法没有得到链接来源支持，欢迎提交修正。*
 

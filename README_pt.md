@@ -24,7 +24,7 @@ Este README em português preserva links de fonte, atribuição e âncoras, enqu
 
 ## 📊 Visão geral
 
-- **Selecionamos 18 casos de Seed-Audio 1.0 a partir de 97 publicações recentes aceitas do X/Twitter.**
+- **Selecionamos 19 casos de Seed-Audio 1.0 a partir de 97 publicações recentes aceitas do X/Twitter.**
 - Abrange: Workflows de vídeo guiados por áudio, Áudio drama e geração de cena, Vozes de referência e casting de personagens, Integrações de ferramentas e provedores, Narração social, foley e testes de custo.
 - Cada caso inclui fonte original, atribuição do criador, conclusão de uso, tipo de evidência e data de publicação.
 - Use este repositório para encontrar fluxos reais, comparar forças e limites, descobrir rotas de provedores e levar a implementação para a EvoLink.
@@ -85,7 +85,7 @@ O pacote é publicado como [evolink-seed-audio](https://www.npmjs.com/package/ev
 |---|---|
 | [Workflows de vídeo guiados por áudio](#audio-first-video) | Caso 1, Caso 2, Caso 3, Caso 12, Caso 13, Caso 15, Caso 17, Caso 18 |
 | [Áudio drama e geração de cena](#audio-drama-scene-generation) | Caso 4, Caso 5 |
-| [Vozes de referência e casting de personagens](#voice-reference-character-casting) | Caso 6, Caso 8, Caso 10 |
+| [Vozes de referência e casting de personagens](#voice-reference-character-casting) | Caso 6, Caso 8, Caso 10, Caso 19 |
 | [Integrações de ferramentas e provedores](#tool-provider-integrations) | Caso 7, Caso 14, Caso 16 |
 | [Narração social, foley e testes de custo](#social-narration-foley-cost-tests) | Caso 9, Caso 11 |
 | [Agradecimentos](#acknowledge) | Créditos e política de correções |
@@ -120,6 +120,7 @@ O pacote é publicado como [evolink-seed-audio](https://www.npmjs.com/package/ev
 | [Caso 6: Workflow de MC com voz de referência](#case-6) | Avalie fluxos de trabalho de voz de referência para MC recorrentes ou narração em série antes da geração de vídeo posterior. | Tutorial |
 | [Caso 8: Qualidade de áudio de referência e limite em vozes agudas](#case-8) | Avaliar a fala japonesa, o acompanhamento de emoções, a precisão do áudio de referência e o risco de som sintético de alta frequência. | Evaluation |
 | [Caso 10: Casting de voz de personagem guiado por imagem](#case-10) | Avaliar o áudio da imagem de referência como o elenco inicial da voz do personagem, e não como a produção final do bloqueio de voz. | Evaluation |
+| [Caso 19: Comparação TTS com o mesmo clipe](#case-19) | antes de fechar a stack TTS de produção, mantenha o clipe final com o mesmo visual e troque apenas o áudio para comparar emoção, sotaque e vazamento de identidade entre Seed Audio e outros TTS. | Evaluation |
 
 <a id="tool-provider-integrations"></a>
 ## Integrações de ferramentas e provedores
@@ -456,6 +457,24 @@ Tipo: Demo | Data: 2026-07-16
 
 ---
 
+<a id="case-19"></a>
+### Caso 19: [Comparação TTS com o mesmo clipe](https://x.com/takareinhard/status/2079028004202918291) (por [@takareinhard](https://x.com/takareinhard))
+
+**antes de fechar a stack TTS de produção, mantenha o clipe final com o mesmo visual e troque apenas o áudio para comparar emoção, sotaque e vazamento de identidade entre Seed Audio e outros TTS.**
+
+- Evidência da fonte: o autor publica duas versões do mesmo clipe curto, explica que a primeira mantém apenas o áudio do Seedance 2.0 e que a segunda troca a faixa por Seed Audio 1.0, depois compara o resultado com ElevenLabs, Niji Voice, MiniMax e Gemini TTS.
+- O que copiar: se você quer uma comparação mais rápida antes de escolher a stack TTS, deixe o visual fixo e troque só a camada de voz para revisar emoção, estabilidade do sotaque e vazamento da voz de origem.
+- Fluxo prático: exporte um clipe finalizado, mantenha uma versão base de áudio, refaça apenas a faixa de voz com Seed Audio numa segunda passada e compare as duas versões por expressividade, sotaque e proximidade excessiva com o ator original.
+- Cuidados: é uma avaliação qualitativa feita por um único criador, sem prompt público, áudio de referência ou benchmark numérico. Trate isso como método de comparação, não como ranking final.
+
+[![Caso 19 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-19.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4)
+
+[Abrir página de reprodução de vídeo](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4)
+
+Tipo: Evaluation | Data: 2026-07-20
+
+---
+
 ## Repositórios relacionados
 
 Nenhum outro repositório público do Seed-Audio está verificado no momento. A superfície de skill mantida é evolink-seed-audio no npm.
@@ -465,7 +484,7 @@ Nenhum outro repositório público do Seed-Audio está verificado no momento. A 
 
 Este repositório aponta para publicações públicas de criadores e provedores em cada caso. A fonte pública aparece no título do caso.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard)
 
 *Correções são bem-vindas quando um link quebra, a atribuição está errada ou uma afirmação não é sustentada pela fonte.*
 

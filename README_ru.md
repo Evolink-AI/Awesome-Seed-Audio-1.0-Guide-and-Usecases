@@ -24,7 +24,7 @@
 
 ## 📊 Обзор
 
-- **Из 97 принятых недавних публикаций X/Twitter выбрано 18 кейсов Seed-Audio 1.0.**
+- **Из 97 принятых недавних публикаций X/Twitter выбрано 19 кейсов Seed-Audio 1.0.**
 - Охват: Видео-процессы от аудио, Аудиодрама и генерация сцен, Референсные голоса и подбор голоса персонажа, Интеграции инструментов и провайдеров, Социальная озвучка, foley и тесты стоимости.
 - Каждый кейс содержит исходный источник, атрибуцию автора, вывод по применению, тип доказательства и дату публикации.
 - Используйте репозиторий, чтобы находить реальные рабочие процессы, сравнивать сильные стороны и ограничения, находить маршруты провайдеров и переходить к реализации через EvoLink.
@@ -85,7 +85,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 |---|---|
 | [Видео-процессы от аудио](#audio-first-video) | Кейс 1, Кейс 2, Кейс 3, Кейс 12, Кейс 13, Кейс 15, Кейс 17, Кейс 18 |
 | [Аудиодрама и генерация сцен](#audio-drama-scene-generation) | Кейс 4, Кейс 5 |
-| [Референсные голоса и подбор голоса персонажа](#voice-reference-character-casting) | Кейс 6, Кейс 8, Кейс 10 |
+| [Референсные голоса и подбор голоса персонажа](#voice-reference-character-casting) | Кейс 6, Кейс 8, Кейс 10, Кейс 19 |
 | [Интеграции инструментов и провайдеров](#tool-provider-integrations) | Кейс 7, Кейс 14, Кейс 16 |
 | [Социальная озвучка, foley и тесты стоимости](#social-narration-foley-cost-tests) | Кейс 9, Кейс 11 |
 | [Благодарности](#acknowledge) | Кредиты и политика исправлений |
@@ -120,6 +120,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 | [Кейс 6: MC-процесс с референсным голосом](#case-6) | Оцените эталонные голосовые рабочие процессы для повторяющегося MC или повествования в сериале перед созданием последующего видео. | Tutorial |
 | [Кейс 8: Качество референсного аудио и ограничение высоких голосов](#case-8) | Оценить японскую речь, следование эмоциям, точность эталонного звука и риск высокого синтетического звука. | Evaluation |
 | [Кейс 10: Подбор голоса персонажа по изображению](#case-10) | Оценивайте звук эталонного изображения как раннюю озвучку персонажа, а не как окончательную голосовую блокировку. | Evaluation |
+| [Кейс 19: Сравнение TTS на одном клипе](#case-19) | перед выбором боевого TTS-стека оставьте готовый клип визуально неизменным и меняйте только звук, чтобы сравнить эмоцию, акцент и утечку голосовой идентичности у Seed Audio и других TTS. | Evaluation |
 
 <a id="tool-provider-integrations"></a>
 ## Интеграции инструментов и провайдеров
@@ -456,6 +457,24 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 ---
 
+<a id="case-19"></a>
+### Кейс 19: [Сравнение TTS на одном клипе](https://x.com/takareinhard/status/2079028004202918291) (автор [@takareinhard](https://x.com/takareinhard))
+
+**перед выбором боевого TTS-стека оставьте готовый клип визуально неизменным и меняйте только звук, чтобы сравнить эмоцию, акцент и утечку голосовой идентичности у Seed Audio и других TTS.**
+
+- Доказательство источника: автор публикует две версии одного и того же короткого клипа, объясняет, что в первой сохранён только исходный звук Seedance 2.0, а во второй дорожка заменена на Seed Audio 1.0, после чего сравнивает результат с ElevenLabs, Niji Voice, MiniMax и Gemini TTS.
+- Что можно перенять: если вам нужен более быстрый и сопоставимый тест перед выбором TTS-стека, оставьте картинку неизменной и меняйте только голосовой слой, чтобы проверить эмоцию, устойчивость акцента и слишком сильную похожесть на исходного актёра.
+- Практический workflow: экспортируйте готовый клип, сохраните базовую версию со старым звуком, на втором проходе замените только аудиодорожку через Seed Audio, затем сравните обе версии по выразительности, акценту и утечке голосовой идентичности.
+- На что обратить внимание: это качественная оценка одного автора без публичного prompt, референсного аудио и численного бенчмарка. Используйте её как способ сравнения, а не как финальный рейтинг.
+
+[![Кейс 19 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-19.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4)
+
+[Открыть страницу воспроизведения видео](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4)
+
+Тип: Evaluation | Дата: 2026-07-20
+
+---
+
 ## Связанные репозитории
 
 Отдельный публичный репозиторий Seed-Audio сейчас не подтвержден. Поддерживаемая поверхность skill — evolink-seed-audio в npm.
@@ -465,7 +484,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 Этот репозиторий ссылается на публичные публикации авторов и провайдеров на уровне каждого кейса. Публичный источник указан в заголовке кейса.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard)
 
 *Исправления приветствуются, если ссылка сломана, атрибуция неверна или утверждение не подтверждается источником.*
 

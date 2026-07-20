@@ -66,3 +66,11 @@
 - Uploaded the Case 16 poster image plus the Case 17 and Case 18 poster images and MP4 files to the repository's locked Cloudflare R2 namespace, kept the tracked local poster JPG files, and kept the MP4 files out of git.
 - Updated `data/use-cases.json`, `data/use-case-translations.json`, and `data/source-index.json` while preserving case order, stable anchors, source attribution, locale parity, media URL shape, and the fixed search-window metadata.
 - Rebuilt English and all 10 localized README files plus GitHub Pages player pages from the updated structured data.
+
+## July 20, 2026
+
+- Ran the recurring exact-phrase `"seed audio"` search over the fixed 48-hour window ending at collector timestamp `2026-07-20T10:06:34.795569+00:00`.
+- Reviewed 12 in-window candidates: selected 1 high-confidence evaluation, marked 1 unsure, and dropped 10 launch-summary, roundup, overlap, or thin-context posts.
+- Added Case 19: a same-clip TTS swap quality check that keeps one finished video fixed, replaces only the audio with Seed Audio 1.0, and compares the result against rival TTS weaknesses on emotion, accent, and clone leakage.
+- Preserved the public prompt boundary by publishing only the visible comparison setup and qualitative findings; the source does not expose a reusable prompt, reference audio, or numeric benchmark.
+- Updated `data/use-cases.json`, `data/use-case-translations.json`, and `data/source-index.json` while preserving case order, source attribution, locale parity, stable anchors, and the fixed search-window metadata.

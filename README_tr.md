@@ -24,7 +24,7 @@ Bu Türkçe README kaynak bağlantılarını, atıfları ve ankrajları korur; k
 
 ## 📊 Genel bakış
 
-- **Yakın tarihli kabul edilmiş 97 X/Twitter gönderisinden 18 Seed-Audio 1.0 vakası seçildi.**
+- **Yakın tarihli kabul edilmiş 97 X/Twitter gönderisinden 19 Seed-Audio 1.0 vakası seçildi.**
 - Kapsam: Ses öncelikli video iş akışları, Sesli drama ve sahne üretimi, Referans sesler ve karakter sesi seçimi, Araç ve sağlayıcı entegrasyonları, Sosyal anlatım, foley ve maliyet testleri.
 - Her vaka özgün kaynak, üretici atfı, kullanım sonucu, kanıt türü ve yayın tarihi içerir.
 - Bu repoyu gerçek iş akışlarını bulmak, güçlü ve zayıf yönleri karşılaştırmak, sağlayıcı yollarını keşfetmek ve uygulamayı EvoLink'e yönlendirmek için kullanın.
@@ -85,7 +85,7 @@ Paket agent ve yerel skill iş akışları için [evolink-seed-audio](https://ww
 |---|---|
 | [Ses öncelikli video iş akışları](#audio-first-video) | Vaka 1, Vaka 2, Vaka 3, Vaka 12, Vaka 13, Vaka 15, Vaka 17, Vaka 18 |
 | [Sesli drama ve sahne üretimi](#audio-drama-scene-generation) | Vaka 4, Vaka 5 |
-| [Referans sesler ve karakter sesi seçimi](#voice-reference-character-casting) | Vaka 6, Vaka 8, Vaka 10 |
+| [Referans sesler ve karakter sesi seçimi](#voice-reference-character-casting) | Vaka 6, Vaka 8, Vaka 10, Vaka 19 |
 | [Araç ve sağlayıcı entegrasyonları](#tool-provider-integrations) | Vaka 7, Vaka 14, Vaka 16 |
 | [Sosyal anlatım, foley ve maliyet testleri](#social-narration-foley-cost-tests) | Vaka 9, Vaka 11 |
 | [Teşekkür](#acknowledge) | Atıflar ve düzeltme politikası |
@@ -120,6 +120,7 @@ Paket agent ve yerel skill iş akışları için [evolink-seed-audio](https://ww
 | [Vaka 6: Referans sesli MC iş akışı](#case-6) | Aşağı yönde video oluşturmadan önce yinelenen MC veya seri anlatım için referans ses iş akışlarını değerlendirin. | Tutorial |
 | [Vaka 8: Referans ses kalitesi ve tiz ses sınırı](#case-8) | Japonca konuşmayı, duygu takibini, referans ses hassasiyetini ve yüksek perdeli sentetik ses riskini değerlendirin. | Evaluation |
 | [Vaka 10: Görüntü kılavuzlu karakter sesi seçimi](#case-10) | Referans görüntü sesini, son ses kilidi üretimi olarak değil, erken karakter seslendirmesi olarak değerlendirin. | Evaluation |
+| [Vaka 19: Aynı klipte TTS kalite karşılaştırması](#case-19) | üretim TTS yığınını seçmeden önce bitmiş klibin görüntüsünü sabit tutup yalnızca sesi değiştirerek Seed Audio ile diğer TTS’ler arasında duygu, aksan ve kaynak ses sızıntısını karşılaştırın. | Evaluation |
 
 <a id="tool-provider-integrations"></a>
 ## Araç ve sağlayıcı entegrasyonları
@@ -456,6 +457,24 @@ Tür: Demo | Tarih: 2026-07-16
 
 ---
 
+<a id="case-19"></a>
+### Vaka 19: [Aynı klipte TTS kalite karşılaştırması](https://x.com/takareinhard/status/2079028004202918291) (yazar [@takareinhard](https://x.com/takareinhard))
+
+**üretim TTS yığınını seçmeden önce bitmiş klibin görüntüsünü sabit tutup yalnızca sesi değiştirerek Seed Audio ile diğer TTS’ler arasında duygu, aksan ve kaynak ses sızıntısını karşılaştırın.**
+
+- Kaynak kanıtı: yazar aynı kısa klibin iki sürümünü yayımlıyor; ilkinin sadece Seedance 2.0 sesini koruduğunu, ikincisinin ise bunu Seed Audio 1.0 ile değiştirdiğini söylüyor ve sonucu ElevenLabs, Niji Voice, MiniMax ve Gemini TTS ile karşılaştırıyor.
+- Kopyalanacak yöntem: üretim TTS yığınını seçmeden önce daha hızlı karşılaştırma yapmak istiyorsanız görüntüyü sabit tutun ve yalnızca konuşma katmanını değiştirerek duygu, aksan kararlılığı ve kaynak sese fazla benzeme riskini inceleyin.
+- Pratik iş akışı: bitmiş bir klibi dışa aktarın, temel ses sürümünü saklayın, ikinci geçişte yalnızca ses parçasını Seed Audio ile değiştirin ve iki sürümü ifade gücü, aksan ve özgün oyuncuya fazla benzeme açısından karşılaştırın.
+- Dikkat noktaları: bu, tek bir üreticinin yaptığı niteliksel bir değerlendirmedir; herkese açık prompt, referans ses veya sayısal benchmark yoktur. Bunu nihai sıralama değil, karşılaştırma yöntemi olarak ele alın.
+
+[![Vaka 19 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-19.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4)
+
+[Video oynatma sayfasını aç](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4)
+
+Tür: Evaluation | Tarih: 2026-07-20
+
+---
+
 ## İlgili depolar
 
 Şu anda doğrulanmış ayrı bir açık Seed-Audio deposu yoktur. Bakımı yapılan skill yüzeyi npm üzerindeki evolink-seed-audio.
@@ -465,7 +484,7 @@ Tür: Demo | Tarih: 2026-07-16
 
 Bu repo, her vaka düzeyinde herkese açık üretici ve sağlayıcı gönderilerine bağlantı verir. Kamu kaynağı her vaka başlığında yer alır.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard)
 
 *Kaynak bağlantısı bozulduğunda, atıf yanlış olduğunda veya bir iddia bağlantılı kaynakça desteklenmediğinde düzeltmeler memnuniyetle karşılanır.*
 

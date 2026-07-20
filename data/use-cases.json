@@ -2,7 +2,7 @@
   "metadata": {
     "model": "Seed-Audio 1.0",
     "provider": "ByteDance / Doubao",
-    "generated_at": "2026-07-18",
+    "generated_at": "2026-07-20",
     "basis": "Recurring exact-phrase X/Twitter search for Seed-Audio 1.0 use cases",
     "queries": [
       "\"seed audio\" since:2026-06-24 until:2026-06-30",
@@ -11,10 +11,10 @@
     ],
     "raw_post_count": 501,
     "accepted_count": 97,
-    "selected_case_count": 18,
+    "selected_case_count": 19,
     "date_span_utc": {
       "start": "2026-06-24T01:47:15+00:00",
-      "end": "2026-07-18T10:05:58+00:00"
+      "end": "2026-07-20T10:06:34+00:00"
     },
     "language_counts": {
       "en": 60,
@@ -83,7 +83,8 @@
       "case_numbers": [
         6,
         8,
-        10
+        10,
+        19
       ],
       "localized_titles": {
         "zh-CN": "参考声音与角色配音探索",
@@ -803,6 +804,43 @@
         "download_url": "https://video.twimg.com/amplify_video/2077822023544475648/vid/avc1/1920x1080/zYt1XR4ZsRe5ieSG.mp4?tag=29",
         "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-18.mp4",
         "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-18.jpg"
+      }
+    },
+    {
+      "number": 19,
+      "category": "voice-reference-character-casting",
+      "title": "Same-Clip TTS Swap Quality Check",
+      "source_url": "https://x.com/takareinhard/status/2079028004202918291",
+      "author": "takareinhard",
+      "author_name": "Takara",
+      "author_url": "https://x.com/takareinhard",
+      "type": "Evaluation",
+      "date": "2026-07-20",
+      "takeaway": "swap only the audio on the same finished clip to compare emotion, accent, and clone leakage across Seed Audio and rival TTS models before locking a production voice stack.",
+      "notes": "- Source evidence: The author posts two versions of the same short clip, saying the first keeps Seedance 2.0 audio only while the second swaps in Seed Audio 1.0, then compares the result against ElevenLabs, Niji Voice, MiniMax, and Gemini TTS.\n- What to copy: Keep the visuals fixed and replace only the speech layer when you want a faster apples-to-apples check for emotion, accent, and source-voice leakage before choosing a production TTS stack.\n- Practical workflow: export one finished clip, render one baseline audio version, replace only the audio with Seed Audio on the second pass, then compare the pair for emotional delivery, accent stability, and whether the voice sounds too close to the source actor.\n- Watch-outs: This is a single-creator qualitative evaluation with no public prompt, reference audio, or numeric benchmark. Treat it as a useful comparison pattern, not a final leaderboard claim.",
+      "original_number": 19,
+      "evidence_strength": "strong",
+      "localized_titles": {
+        "zh-CN": "同画面换音频的 TTS 质量对比",
+        "zh-TW": "同畫面換音訊的 TTS 品質對比",
+        "ja": "同一映像で音声だけ差し替える TTS 品質比較",
+        "ko": "같은 영상 오디오 교체 TTS 품질 비교",
+        "es": "Comparativa TTS con el mismo clip",
+        "pt": "Comparação TTS com o mesmo clipe",
+        "de": "TTS-Qualitätscheck mit demselben Clip",
+        "fr": "Comparatif TTS sur un même clip",
+        "tr": "Aynı klipte TTS kalite karşılaştırması",
+        "ru": "Сравнение TTS на одном клипе"
+      },
+      "media": {
+        "type": "video",
+        "thumbnail_path": "media/cases/case-19.jpg",
+        "source": "x_twitter_tweet",
+        "source_tweet_id": "2079028004202918291",
+        "source_url": "https://x.com/takareinhard/status/2079028004202918291",
+        "download_url": "https://video.twimg.com/amplify_video/2079027590048960513/vid/avc1/720x1280/vh1wwExZuBJmjJoX.mp4?tag=14",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-19.jpg"
       }
     }
   ]

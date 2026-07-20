@@ -71,6 +71,10 @@
     "18": {
       "takeaway": "把一张或两张参考图当作视觉锁定层，再让 Seed Audio 负责配乐，最后由 Seedance 把短片扩展成完整动画。",
       "notes": "- 证据来源：帖子把 Tide-Rider 标注为：Seedance 2.0 负责动画，Seed Audio 1.0 负责音乐，Krea 2 负责源图，CapCut 负责剪辑，并明确说整支短片基本只靠两张参考图和文本 prompting。\n- 可复制做法：不要一开始就做完整 model sheet，可以先用一张核心参考图锁住视觉，再只在结尾需要新角度或揭示时补第二张图。\n- 实际流程：先在 Krea 2 里设计关键图，把它当作 Seedance 的视觉锚点生成短动画镜头，保持 text prompting 轻量，再让 Seed Audio 提供配乐，并在 CapCut 里完成节奏和收尾。\n- 注意事项：这个帖子证明了“两张图也能做完整动画短片”的模式，但没有公开精确 prompt，也没有说明镜头之间是否还做过额外清理。"
+    },
+    "19": {
+      "takeaway": "在锁定正式 TTS 方案前，先保持成片画面不变，只替换音轨，就能更快比较 Seed Audio 与其他 TTS 的情绪、口音和原声泄漏问题。",
+      "notes": "- 证据来源：作者发了同一段短视频的两个版本，说明前者保留 Seedance 2.0 原音，后者把音轨替换成 Seed Audio 1.0，并把结果与 ElevenLabs、にじボイス、MiniMax、Gemini TTS 做主观对比。\n- 可复制做法：如果你想在定生产 TTS 方案前更快比较情绪表达、口音稳定性和“像不像原声优”的泄漏风险，就保持画面不变，只替换语音层做同片对照。\n- 实际流程：先导出一段完成版视频，保留一版基线音频，再用 Seed Audio 重做第二版音轨，只比较两版在情绪、口音和声音身份泄漏上的差别。\n- 注意事项：这是单一创作者的定性评测，没有公开 prompt、参考音频或量化基准。应把它当作比较方法，不是最终排行榜结论。"
     }
   },
   "zh-TW": {
@@ -145,6 +149,10 @@
     "18": {
       "takeaway": "把一張或兩張參考圖當作視覺鎖定層，再讓 Seed Audio 負責配樂，最後由 Seedance 把短片擴展成完整動畫。",
       "notes": "- 證據來源：貼文把 Tide-Rider 標註為：Seedance 2.0 負責動畫，Seed Audio 1.0 負責音樂，Krea 2 負責源圖，CapCut 負責剪輯，並明確說整支短片基本只靠兩張參考圖與文字 prompting。\n- 可複製做法：不要一開始就做完整 model sheet，可以先用一張核心參考圖鎖住視覺，再只在結尾需要新角度或揭示時補第二張圖。\n- 實際流程：先在 Krea 2 設計關鍵圖，把它當作 Seedance 的視覺錨點生成短動畫鏡頭，保持 text prompting 輕量，再讓 Seed Audio 提供配樂，並在 CapCut 裡完成節奏與收尾。\n- 注意事項：這篇貼文證明了「兩張圖也能做完整動畫短片」的模式，但沒有公開精確 prompt，也沒有說明鏡頭之間是否還做過額外清理。"
+    },
+    "19": {
+      "takeaway": "在鎖定正式 TTS 方案前，先保持成片畫面不變，只替換音軌，就能更快比較 Seed Audio 與其他 TTS 的情緒、口音和原聲洩漏問題。",
+      "notes": "- 證據來源：作者發了同一段短影片的兩個版本，說明前者保留 Seedance 2.0 原音，後者把音軌替換成 Seed Audio 1.0，並把結果與 ElevenLabs、にじボイス、MiniMax、Gemini TTS 做主觀對比。\n- 可複製做法：如果你想在定下正式 TTS 方案前更快比較情緒表達、口音穩定性和「像不像原聲優」的洩漏風險，就保持畫面不變，只替換語音層做同片對照。\n- 實際流程：先輸出一段完成版影片，保留一版基線音訊，再用 Seed Audio 重做第二版音軌，只比較兩版在情緒、口音和聲音身份洩漏上的差別。\n- 注意事項：這是單一創作者的定性評測，沒有公開 prompt、參考音訊或量化基準。應把它當作比較方法，不是最終排行榜結論。"
     }
   },
   "es": {
@@ -219,6 +227,10 @@
     "18": {
       "takeaway": "trata una o dos imágenes de referencia como bloqueo visual, deja que Seed Audio aporte la música y usa Seedance para expandir el corto hasta un clip animado terminado.",
       "notes": "- Evidencia de la fuente: el post presenta Tide-Rider como un corto animado hecho con Seedance 2.0 para la animación, Seed Audio 1.0 para la música, Krea 2 para la imagen base y CapCut para la edición, y añade que casi todo el corto se apoyó en solo dos imágenes de referencia y prompting de texto.\n- Qué copiar: en vez de construir un model sheet completo desde el inicio, bloquea primero la estética con una hero image y añade una segunda imagen solo cuando el final necesite un nuevo ángulo o un reveal.\n- Flujo práctico: diseña una imagen clave en Krea 2, úsala como ancla visual para generar clips cortos en Seedance, mantén ligero el prompting de texto, deja la música a Seed Audio y termina el ritmo en CapCut.\n- Precauciones: el post prueba un patrón compacto de producción con dos imágenes, pero no comparte los prompts exactos ni muestra si hizo limpieza adicional entre planos."
+    },
+    "19": {
+      "takeaway": "antes de fijar la pila TTS de producción, mantén el clip final sin cambios visuales y sustituye solo el audio para comparar emoción, acento y fuga de identidad entre Seed Audio y otros TTS.",
+      "notes": "- Evidencia de la fuente: el autor publica dos versiones del mismo clip corto, explica que la primera mantiene solo el audio de Seedance 2.0 y que la segunda lo sustituye por Seed Audio 1.0, y luego compara el resultado con ElevenLabs, Niji Voice, MiniMax y Gemini TTS.\n- Qué copiar: si quieres una comparación más rápida y comparable antes de elegir tu stack TTS, deja la imagen fija y cambia solo la capa de voz para revisar emoción, estabilidad del acento y fuga de la voz fuente.\n- Flujo práctico: exporta un clip terminado, conserva una versión base de audio, rehace solo la pista de voz con Seed Audio en una segunda pasada y compara ambas versiones por expresividad, acento y cercanía excesiva al actor original.\n- Precauciones: se trata de una evaluación cualitativa hecha por un solo creador, sin prompt público, audio de referencia ni benchmark numérico. Úsalo como método de comparación, no como ranking definitivo."
     }
   },
   "pt": {
@@ -293,6 +305,10 @@
     "18": {
       "takeaway": "trate uma ou duas imagens de referência como trava visual, deixe o Seed Audio cuidar da trilha e use o Seedance para expandir o curta até um clip animado finalizado.",
       "notes": "- Evidência da fonte: o post apresenta Tide-Rider como um curta animado feito com Seedance 2.0 na animação, Seed Audio 1.0 na música, Krea 2 na imagem base e CapCut na edição, além de dizer que quase todo o curta se apoiou em apenas duas imagens de referência e prompting de texto.\n- O que copiar: em vez de montar um model sheet completo logo no início, fixe o visual com uma hero image e adicione uma segunda imagem apenas quando o final precisar de um novo ângulo ou reveal.\n- Fluxo prático: crie uma imagem-chave no Krea 2, use-a como âncora visual para gerar clips curtos no Seedance, mantenha o prompting de texto leve, deixe a trilha para o Seed Audio e finalize o ritmo no CapCut.\n- Cuidados: o post prova um padrão compacto de produção com duas imagens, mas não compartilha os prompts exatos nem mostra se houve limpeza adicional entre planos."
+    },
+    "19": {
+      "takeaway": "antes de fechar a stack TTS de produção, mantenha o clipe final com o mesmo visual e troque apenas o áudio para comparar emoção, sotaque e vazamento de identidade entre Seed Audio e outros TTS.",
+      "notes": "- Evidência da fonte: o autor publica duas versões do mesmo clipe curto, explica que a primeira mantém apenas o áudio do Seedance 2.0 e que a segunda troca a faixa por Seed Audio 1.0, depois compara o resultado com ElevenLabs, Niji Voice, MiniMax e Gemini TTS.\n- O que copiar: se você quer uma comparação mais rápida antes de escolher a stack TTS, deixe o visual fixo e troque só a camada de voz para revisar emoção, estabilidade do sotaque e vazamento da voz de origem.\n- Fluxo prático: exporte um clipe finalizado, mantenha uma versão base de áudio, refaça apenas a faixa de voz com Seed Audio numa segunda passada e compare as duas versões por expressividade, sotaque e proximidade excessiva com o ator original.\n- Cuidados: é uma avaliação qualitativa feita por um único criador, sem prompt público, áudio de referência ou benchmark numérico. Trate isso como método de comparação, não como ranking final."
     }
   },
   "ja": {
@@ -367,6 +383,10 @@
     "18": {
       "takeaway": "1〜2 枚の参照画像を見た目の固定軸にし、Seed Audio に音楽を任せ、Seedance で短編を完成したアニメ映像へ広げます。",
       "notes": "- ソース証拠: 投稿では Tide-Rider について、アニメーションは Seedance 2.0、音楽は Seed Audio 1.0、元画像は Krea 2、編集は CapCut と明記し、作品全体がほぼ 2 枚の参照画像と文字指示だけで作られたと説明しています。\n- コピーすること: 最初から完全な設定資料集を作る代わりに、まず主役となる参照画像 1 枚で見た目を固定し、最後に新しい角度や種明かしが必要なときだけ 2 枚目を足します。\n- 実用ワークフロー: Krea 2 で基準画像を作り、それを Seedance の見た目アンカーとして短いアニメ映像を生成し、文字指示は軽く保ち、Seed Audio に音楽を任せたうえで CapCut でタイミングを整えます。\n- 注意点: この投稿は 2 枚の画像でも完成短編を作れることを示しますが、正確な指示文やショット間で追加の後処理が必要だったかどうかは公開していません。"
+    },
+    "19": {
+      "takeaway": "本番の TTS スタックを決める前に、完成クリップの映像を固定したまま音声だけ差し替え、Seed Audio と他の TTS の感情表現、訛り、元音声の残り方を比べます。",
+      "notes": "- ソース証拠: 作者は同じ短いクリップを 2 本並べ、前者は Seedance 2.0 の元音声、後者は Seed Audio 1.0 に差し替えた版だと説明したうえで、ElevenLabs、にじボイス、MiniMax、Gemini TTS と主観比較しています。\n- コピーすること: 本番用 TTS を決める前に、映像を固定し、音声層だけを差し替えることで、感情表現、訛りの安定性、元声優に似すぎる漏れを短時間で比べられます。\n- 実用ワークフロー: まず完成した映像を 1 本書き出し、基準となる音声版を残し、2 本目で音声だけ Seed Audio に置き換え、感情、訛り、声の似すぎ具合を見比べます。\n- 注意点: これは 1 人の作者による定性的な評価で、公開 prompt、参照音声、数値ベンチマークはありません。最終順位表ではなく、比較方法として扱ってください。"
     }
   },
   "ko": {
@@ -441,6 +461,10 @@
     "18": {
       "takeaway": "한두 장의 참조 이미지를 시각 고정축으로 두고 Seed Audio가 음악을 맡게 한 뒤, Seedance로 짧은 영상을 완성된 애니메이션 클립으로 확장합니다.",
       "notes": "- 출처 근거: 이 게시물은 Tide-Rider를 두고 애니메이션은 Seedance 2.0, 음악은 Seed Audio 1.0, 원본 이미지는 Krea 2, 편집은 CapCut이라고 명시하며, 작품 전체가 사실상 두 장의 참조 이미지와 짧은 텍스트 지시만으로 만들어졌다고 설명합니다.\n- 복사할 점: 처음부터 완전한 모델 시트를 만들기보다 대표가 되는 참조 이미지 한 장으로 화면 인상을 고정하고, 마지막에 새로운 각도나 반전이 필요할 때만 두 번째 이미지를 더합니다.\n- 실제 워크플로: Krea 2에서 기준 이미지를 만들고 이를 Seedance의 시각 앵커로 삼아 짧은 애니메이션 장면을 만든 뒤, 텍스트 지시는 가볍게 유지하고 Seed Audio가 음악을 담당하게 하며, 마지막 타이밍 조정은 CapCut에서 마무리합니다.\n- 주의점: 이 게시물은 두 장의 이미지로도 완성형 애니메이션 단편을 만들 수 있다는 패턴을 보여주지만, 정확한 지시문이나 장면 사이의 추가 후처리 여부까지 공개하지는 않습니다."
+    },
+    "19": {
+      "takeaway": "최종 TTS 스택을 고르기 전에 완성된 클립의 화면은 그대로 두고 오디오만 바꿔서, Seed Audio와 다른 TTS의 감정 표현, 억양, 원음 누출을 빠르게 비교합니다.",
+      "notes": "- 출처 근거: 작성자는 같은 짧은 클립의 두 버전을 올리면서 첫 번째는 Seedance 2.0 원음, 두 번째는 Seed Audio 1.0으로 오디오를 교체한 버전이라고 설명하고, 결과를 ElevenLabs, 니지보이스, MiniMax, Gemini TTS와 주관적으로 비교합니다.\n- 복사할 점: 실제 TTS 스택을 고르기 전에 화면은 고정하고 음성 레이어만 바꾸면 감정 표현, 억양 안정성, 원본 성우와 너무 비슷한지 여부를 더 빨리 비교할 수 있습니다.\n- 실제 워크플로: 먼저 완성된 영상을 하나 내보내 기준 오디오 버전을 남기고, 두 번째 패스에서 오디오만 Seed Audio로 교체한 뒤 두 버전을 감정, 억양, 음성 정체성 누출 관점에서 비교합니다.\n- 주의점: 이는 한 명의 크리에이터가 수행한 정성 평가이며 공개 prompt, 참조 오디오, 수치 벤치마크는 없습니다. 최종 순위표가 아니라 비교 패턴으로 받아들여야 합니다."
     }
   },
   "de": {
@@ -515,6 +539,10 @@
     "18": {
       "takeaway": "Behandeln Sie ein oder zwei Referenzbilder als visuellen Lock, lassen Sie Seed Audio den Score liefern und erweitern Sie den Kurzfilm mit Seedance zu einem fertigen animierten Clip.",
       "notes": "- Quellenbeleg: Der Post beschreibt Tide-Rider als animierten Kurzfilm mit Seedance 2.0 für Animation, Seed Audio 1.0 für Musik, Krea 2 für das Ausgangsbild und CapCut für den Schnitt und sagt ausdrücklich, dass fast der gesamte Film mit nur zwei Referenzbildern und Text-Prompting gebaut wurde.\n- Was zu übernehmen ist: Statt gleich ein komplettes Model Sheet zu bauen, fixieren Sie die Optik mit einem Hero-Referenzbild und ergänzen erst dann ein zweites Bild, wenn das Ende einen neuen Blickwinkel oder Reveal braucht.\n- Praktischer Workflow: Ein Key Image in Krea 2 gestalten, es als visuellen Anker für kurze Seedance-Clips nutzen, Text-Prompting schlank halten, Seed Audio den Score liefern lassen und das Timing in CapCut abschließen.\n- Worauf zu achten ist: Der Post beweist ein kompaktes Zwei-Bilder-Produktionsmuster, veröffentlicht aber weder die exakten Prompts noch, ob zwischen den Shots zusätzliche Bereinigung nötig war."
+    },
+    "19": {
+      "takeaway": "behalte den fertigen Clip visuell unverändert und tausche nur die Tonspur aus, um vor der Produktionsentscheidung Emotion, Akzent und Stimm-Leakage zwischen Seed Audio und anderen TTS-Stacks zu vergleichen.",
+      "notes": "- Quellenbeleg: Der Autor veröffentlicht zwei Versionen desselben kurzen Clips, erklärt, dass die erste nur das ursprüngliche Seedance-2.0-Audio behält und die zweite die Spur durch Seed Audio 1.0 ersetzt, und vergleicht das Ergebnis anschließend mit ElevenLabs, Niji Voice, MiniMax und Gemini TTS.\n- Was zu übernehmen ist: Wenn du vor der Wahl eines Produktions-Stacks schneller vergleichen willst, halte das Bild fest und tausche nur die Sprachspur aus, um Emotion, Akzentstabilität und das Durchscheinen der Quellstimme zu prüfen.\n- Praktischer Workflow: Exportiere einen fertigen Clip, behalte eine Basisversion mit Originalton, ersetze im zweiten Durchlauf nur die Audiospur durch Seed Audio und vergleiche beide Fassungen auf Ausdruck, Akzent und zu starke Ähnlichkeit zur Ausgangsstimme.\n- Worauf zu achten ist: Das ist eine qualitative Einzelbewertung ohne öffentlichen Prompt, Referenzaudio oder numerischen Benchmark. Nutze es als Vergleichsmuster, nicht als endgültiges Ranking."
     }
   },
   "fr": {
@@ -589,6 +617,10 @@
     "18": {
       "takeaway": "traitez une ou deux images de référence comme verrou visuel, laissez Seed Audio fournir la musique et utilisez Seedance pour étendre le court en clip animé finalisé.",
       "notes": "- Preuve source : le post présente Tide-Rider comme un court métrage animé fait avec Seedance 2.0 pour l’animation, Seed Audio 1.0 pour la musique, Krea 2 pour l’image source et CapCut pour le montage, puis précise que presque tout le film repose sur seulement deux images de référence et du text prompting.\n- À reprendre : au lieu de construire un model sheet complet dès le départ, verrouillez l’esthétique avec une hero image et n’ajoutez une deuxième image que lorsque la fin a besoin d’un nouvel angle ou d’un reveal.\n- Flux de travail pratique : concevez une image clé dans Krea 2, utilisez-la comme ancre visuelle pour générer de courts clips dans Seedance, gardez un text prompting léger, laissez Seed Audio porter la musique et terminez le rythme dans CapCut.\n- Points de vigilance : le post prouve un pattern de production compact à deux images, mais ne partage ni les prompts exacts ni la nécessité éventuelle d’un nettoyage supplémentaire entre les plans."
+    },
+    "19": {
+      "takeaway": "avant de verrouiller votre stack TTS de production, gardez le clip final inchangé visuellement et remplacez seulement l’audio pour comparer émotion, accent et fuite d’identité entre Seed Audio et les autres TTS.",
+      "notes": "- Preuve source : l’auteur publie deux versions du même court clip, précise que la première garde seulement l’audio Seedance 2.0 et que la seconde remplace la piste par Seed Audio 1.0, puis compare le résultat à ElevenLabs, Niji Voice, MiniMax et Gemini TTS.\n- À reprendre : si vous voulez une comparaison plus rapide avant de choisir votre stack TTS, gardez l’image fixe et changez seulement la couche vocale pour observer émotion, stabilité de l’accent et fuite de la voix source.\n- Flux de travail pratique : exportez un clip terminé, conservez une version audio de base, refaites uniquement la piste vocale avec Seed Audio sur un second passage, puis comparez les deux versions sur l’expressivité, l’accent et une ressemblance trop forte avec l’acteur d’origine.\n- Points de vigilance : il s’agit d’une évaluation qualitative d’un seul créateur, sans prompt public, audio de référence ni benchmark chiffré. Traitez-la comme une méthode de comparaison, pas comme un classement définitif."
     }
   },
   "tr": {
@@ -663,6 +695,10 @@
     "18": {
       "takeaway": "bir veya iki referans görseli görsel kilit olarak kullanın, skoru Seed Audio'ya bırakın ve Seedance ile kısa filmi tamamlanmış bir animasyon klibine genişletin.",
       "notes": "- Kaynak kanıtı: post Tide-Rider'ı animasyon için Seedance 2.0, müzik için Seed Audio 1.0, kaynak görsel için Krea 2 ve kurgu için CapCut ile yapılmış bir kısa film olarak tanımlıyor; ayrıca işin neredeyse tamamen iki referans görsel ve text prompting ile kurulduğunu söylüyor.\n- Kopyalanacak yöntem: en başta tam bir model sheet kurmak yerine görünümü bir hero reference image ile sabitleyin, yalnızca final bölümünde yeni açı veya reveal gerekiyorsa ikinci görseli ekleyin.\n- Pratik iş akışı: Krea 2'de bir ana görsel tasarlayın, bunu Seedance için görsel çapa olarak kullanarak kısa animasyon klipleri üretin, text prompting'i hafif tutun, müziği Seed Audio'ya bırakın ve ritmi CapCut'ta tamamlayın.\n- Dikkat noktaları: post kompakt iki görselli bir üretim kalıbını kanıtlıyor, ancak tam promptları veya çekimler arasında ek temizlik yapılıp yapılmadığını paylaşmıyor."
+    },
+    "19": {
+      "takeaway": "üretim TTS yığınını seçmeden önce bitmiş klibin görüntüsünü sabit tutup yalnızca sesi değiştirerek Seed Audio ile diğer TTS’ler arasında duygu, aksan ve kaynak ses sızıntısını karşılaştırın.",
+      "notes": "- Kaynak kanıtı: yazar aynı kısa klibin iki sürümünü yayımlıyor; ilkinin sadece Seedance 2.0 sesini koruduğunu, ikincisinin ise bunu Seed Audio 1.0 ile değiştirdiğini söylüyor ve sonucu ElevenLabs, Niji Voice, MiniMax ve Gemini TTS ile karşılaştırıyor.\n- Kopyalanacak yöntem: üretim TTS yığınını seçmeden önce daha hızlı karşılaştırma yapmak istiyorsanız görüntüyü sabit tutun ve yalnızca konuşma katmanını değiştirerek duygu, aksan kararlılığı ve kaynak sese fazla benzeme riskini inceleyin.\n- Pratik iş akışı: bitmiş bir klibi dışa aktarın, temel ses sürümünü saklayın, ikinci geçişte yalnızca ses parçasını Seed Audio ile değiştirin ve iki sürümü ifade gücü, aksan ve özgün oyuncuya fazla benzeme açısından karşılaştırın.\n- Dikkat noktaları: bu, tek bir üreticinin yaptığı niteliksel bir değerlendirmedir; herkese açık prompt, referans ses veya sayısal benchmark yoktur. Bunu nihai sıralama değil, karşılaştırma yöntemi olarak ele alın."
     }
   },
   "ru": {
@@ -737,6 +773,10 @@
     "18": {
       "takeaway": "используйте одно или два reference image как визуальный lock, поручите Seed Audio музыку и расширьте короткую работу в законченный animated clip через Seedance.",
       "notes": "- Доказательство источника: post описывает Tide-Rider как animated short, где Seedance 2.0 отвечает за animation, Seed Audio 1.0 за music, Krea 2 за исходное image, а CapCut за editing, и прямо говорит, что почти вся работа собрана всего на двух reference images и text prompting.\n- Что можно перенять: вместо полного model sheet на старте зафиксируйте визуал одной hero image и добавляйте вторую только тогда, когда финалу нужен новый угол или reveal.\n- Практический workflow: создайте key image в Krea 2, используйте его как visual anchor для коротких clips в Seedance, держите text prompting лёгким, поручите score Seed Audio и завершите timing в CapCut.\n- На что обратить внимание: post доказывает компактный two-image production pattern, но не публикует точные prompts и не показывает, требовалась ли дополнительная очистка между shots."
+    },
+    "19": {
+      "takeaway": "перед выбором боевого TTS-стека оставьте готовый клип визуально неизменным и меняйте только звук, чтобы сравнить эмоцию, акцент и утечку голосовой идентичности у Seed Audio и других TTS.",
+      "notes": "- Доказательство источника: автор публикует две версии одного и того же короткого клипа, объясняет, что в первой сохранён только исходный звук Seedance 2.0, а во второй дорожка заменена на Seed Audio 1.0, после чего сравнивает результат с ElevenLabs, Niji Voice, MiniMax и Gemini TTS.\n- Что можно перенять: если вам нужен более быстрый и сопоставимый тест перед выбором TTS-стека, оставьте картинку неизменной и меняйте только голосовой слой, чтобы проверить эмоцию, устойчивость акцента и слишком сильную похожесть на исходного актёра.\n- Практический workflow: экспортируйте готовый клип, сохраните базовую версию со старым звуком, на втором проходе замените только аудиодорожку через Seed Audio, затем сравните обе версии по выразительности, акценту и утечке голосовой идентичности.\n- На что обратить внимание: это качественная оценка одного автора без публичного prompt, референсного аудио и численного бенчмарка. Используйте её как способ сравнения, а не как финальный рейтинг."
     }
   }
 }

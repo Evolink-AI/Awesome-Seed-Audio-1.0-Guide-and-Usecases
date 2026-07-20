@@ -24,7 +24,7 @@ This English source README focuses on source-linked cases with concrete workflow
 
 ## 📊 Overview
 
-- **18 selected Seed-Audio 1.0 cases from 97 accepted recent X/Twitter posts.**
+- **19 selected Seed-Audio 1.0 cases from 97 accepted recent X/Twitter posts.**
 - Covers Audio-First Video Workflows, Audio Drama And Scene Generation, Reference Voice And Character Casting, Tool And Provider Integrations, Social Narration, Foley, And Cost Tests.
 - Each case includes the original source, creator attribution, concise usage takeaway, evidence type, and publication date.
 - Use this repo to find practical workflows, compare strengths and limits, discover provider routes, and route implementation work to EvoLink.
@@ -85,7 +85,7 @@ The package is published as [evolink-seed-audio](https://www.npmjs.com/package/e
 |---|---|
 | [Audio-First Video Workflows](#audio-first-video) | Case 1, Case 2, Case 3, Case 12, Case 13, Case 15, Case 17, Case 18 |
 | [Audio Drama And Scene Generation](#audio-drama-scene-generation) | Case 4, Case 5 |
-| [Reference Voice And Character Casting](#voice-reference-character-casting) | Case 6, Case 8, Case 10 |
+| [Reference Voice And Character Casting](#voice-reference-character-casting) | Case 6, Case 8, Case 10, Case 19 |
 | [Tool And Provider Integrations](#tool-provider-integrations) | Case 7, Case 14, Case 16 |
 | [Social Narration, Foley, And Cost Tests](#social-narration-foley-cost-tests) | Case 9, Case 11 |
 | [Acknowledge](#acknowledge) | Credits and correction policy |
@@ -120,6 +120,7 @@ The package is published as [evolink-seed-audio](https://www.npmjs.com/package/e
 | [Case 6: Reference Voice MC Workflow](#case-6) | generate a recurring MC voice from reference material, split the resulting audio, and use it as a Seedance 2.0 lip-sync reference. | Tutorial |
 | [Case 8: Reference Audio Quality And High-Voice Caveat](#case-8) | evaluate Japanese speech stability, emotion following, reference-audio precision, and high-pitch mechanical artifacts from hands-on use. | Evaluation |
 | [Case 10: Image-Guided Character Voice Casting](#case-10) | use reference images for early character voice casting while treating pitch and tone stability as unresolved production risks. | Evaluation |
+| [Case 19: Same-Clip TTS Swap Quality Check](#case-19) | swap only the audio on the same finished clip to compare emotion, accent, and clone leakage across Seed Audio and rival TTS models before locking a production voice stack. | Evaluation |
 
 <a id="tool-provider-integrations"></a>
 ## Tool And Provider Integrations
@@ -456,6 +457,24 @@ Type: Demo | Date: 2026-07-16
 
 ---
 
+<a id="case-19"></a>
+### Case 19: [Same-Clip TTS Swap Quality Check](https://x.com/takareinhard/status/2079028004202918291) (by [@takareinhard](https://x.com/takareinhard))
+
+**swap only the audio on the same finished clip to compare emotion, accent, and clone leakage across Seed Audio and rival TTS models before locking a production voice stack.**
+
+- Source evidence: The author posts two versions of the same short clip, saying the first keeps Seedance 2.0 audio only while the second swaps in Seed Audio 1.0, then compares the result against ElevenLabs, Niji Voice, MiniMax, and Gemini TTS.
+- What to copy: Keep the visuals fixed and replace only the speech layer when you want a faster apples-to-apples check for emotion, accent, and source-voice leakage before choosing a production TTS stack.
+- Practical workflow: export one finished clip, render one baseline audio version, replace only the audio with Seed Audio on the second pass, then compare the pair for emotional delivery, accent stability, and whether the voice sounds too close to the source actor.
+- Watch-outs: This is a single-creator qualitative evaluation with no public prompt, reference audio, or numeric benchmark. Treat it as a useful comparison pattern, not a final leaderboard claim.
+
+[![Case 19 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-19.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4)
+
+[Open video playback page](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4)
+
+Type: Evaluation | Date: 2026-07-20
+
+---
+
 ## Related Repositories
 
 No separate public Seed-Audio repository is currently verified. The maintained supporting skill surface is evolink-seed-audio on npm.
@@ -465,7 +484,7 @@ No separate public Seed-Audio repository is currently verified. The maintained s
 
 This repository links to public creator and provider posts at the case level. Public sources are credited in each case heading.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard)
 
 *Corrections are welcome when a source link breaks, attribution is wrong, or a claim is not supported by the linked source.*
 

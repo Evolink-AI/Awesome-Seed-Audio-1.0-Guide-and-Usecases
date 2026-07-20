@@ -24,7 +24,7 @@ Seed-Audio 1.0 の高シグナルなユースケース集です。
 
 ## 📊 概要
 
-- **最近の X/Twitter サンプル 97 件から、Seed-Audio 1.0 のユースケース 18 件を選定しました。**
+- **最近の X/Twitter サンプル 97 件から、Seed-Audio 1.0 のユースケース 19 件を選定しました。**
 - 対象領域：音声先行の動画ワークフロー, 音声ドラマとシーン生成, 参照音声とキャラクター音声探索, ツールとプロバイダー統合, SNS ナレーション、フォーリー、コスト検証。
 - 各ケースには、元ソース、作者クレジット、活用ポイント、証拠タイプ、公開日を含めています。
 - 実用ワークフロー、強みと制約、プロバイダー経路、EvoLink での実装導線を確認するために使えます。
@@ -85,7 +85,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 |---|---|
 | [音声先行の動画ワークフロー](#audio-first-video) | ケース 1, ケース 2, ケース 3, ケース 12, ケース 13, ケース 15, ケース 17, ケース 18 |
 | [音声ドラマとシーン生成](#audio-drama-scene-generation) | ケース 4, ケース 5 |
-| [参照音声とキャラクター音声探索](#voice-reference-character-casting) | ケース 6, ケース 8, ケース 10 |
+| [参照音声とキャラクター音声探索](#voice-reference-character-casting) | ケース 6, ケース 8, ケース 10, ケース 19 |
 | [ツールとプロバイダー統合](#tool-provider-integrations) | ケース 7, ケース 14, ケース 16 |
 | [SNS ナレーション、フォーリー、コスト検証](#social-narration-foley-cost-tests) | ケース 9, ケース 11 |
 | [謝辞](#acknowledge) | クレジットと修正ポリシー |
@@ -120,6 +120,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 | [ケース 6: 参照音声 MC ワークフロー](#case-6) | ダウンストリームビデオ生成前に、反復的な MC またはシリーズのナレーションのリファレンス音声ワークフローを評価します。 | Tutorial |
 | [ケース 8: 参照音声品質と高音ボイスの制約](#case-8) | 日本語の音声、感情の追従性、基準音声の精度、高音の合成音のリスクを評価します。 | Evaluation |
 | [ケース 10: 画像参照によるキャラクター音声探索](#case-10) | 最終的なボイスロック制作ではなく、初期のキャラクターボイスキャストとして参照イメージオーディオを評価します。 | Evaluation |
+| [ケース 19: 同一映像で音声だけ差し替える TTS 品質比較](#case-19) | 本番の TTS スタックを決める前に、完成クリップの映像を固定したまま音声だけ差し替え、Seed Audio と他の TTS の感情表現、訛り、元音声の残り方を比べます。 | Evaluation |
 
 <a id="tool-provider-integrations"></a>
 ## ツールとプロバイダー統合
@@ -456,6 +457,24 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 ---
 
+<a id="case-19"></a>
+### ケース 19: [同一映像で音声だけ差し替える TTS 品質比較](https://x.com/takareinhard/status/2079028004202918291) (作者 [@takareinhard](https://x.com/takareinhard))
+
+**本番の TTS スタックを決める前に、完成クリップの映像を固定したまま音声だけ差し替え、Seed Audio と他の TTS の感情表現、訛り、元音声の残り方を比べます。**
+
+- ソース証拠: 作者は同じ短いクリップを 2 本並べ、前者は Seedance 2.0 の元音声、後者は Seed Audio 1.0 に差し替えた版だと説明したうえで、ElevenLabs、にじボイス、MiniMax、Gemini TTS と主観比較しています。
+- コピーすること: 本番用 TTS を決める前に、映像を固定し、音声層だけを差し替えることで、感情表現、訛りの安定性、元声優に似すぎる漏れを短時間で比べられます。
+- 実用ワークフロー: まず完成した映像を 1 本書き出し、基準となる音声版を残し、2 本目で音声だけ Seed Audio に置き換え、感情、訛り、声の似すぎ具合を見比べます。
+- 注意点: これは 1 人の作者による定性的な評価で、公開 prompt、参照音声、数値ベンチマークはありません。最終順位表ではなく、比較方法として扱ってください。
+
+[![ケース 19 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-19.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4)
+
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4)
+
+タイプ: Evaluation | 日付: 2026-07-20
+
+---
+
 ## 関連リポジトリ
 
 現在、別の公開 Seed-Audio リポジトリは検証されていません。保守されている skill の入口は npm の evolink-seed-audio.
@@ -465,7 +484,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 このリポジトリはケース単位で公開クリエイターやプロバイダーの投稿へリンクしています。公開ソースは各ケース見出しで明記します。
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard)
 
 *リンク切れ、誤った帰属、またはリンク先で裏付けられていない主張があれば修正を歓迎します。*
 

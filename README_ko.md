@@ -24,7 +24,7 @@ Seed-Audio 1.0의 신뢰도 높은 사용 사례 저장소입니다.
 
 ## 📊 개요
 
-- **최근 X/Twitter 샘플 97개에서 Seed-Audio 1.0 사용 사례 18개를 선별했습니다.**
+- **최근 X/Twitter 샘플 97개에서 Seed-Audio 1.0 사용 사례 19개를 선별했습니다.**
 - 포함 범위: 오디오 우선 영상 워크플로, 오디오 드라마와 장면 생성, 참조 음성과 캐릭터 보이스 탐색, 도구 및 제공자 통합, 소셜 내레이션, 폴리, 비용 테스트.
 - 각 사례에는 원본 출처, 작성자 표시, 활용 요점, 증거 유형, 게시일이 포함됩니다.
 - 실제 워크플로, 강점과 한계, 제공자 경로, EvoLink 구현 방향을 확인하는 데 사용할 수 있습니다.
@@ -85,7 +85,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 |---|---|
 | [오디오 우선 영상 워크플로](#audio-first-video) | 사례 1, 사례 2, 사례 3, 사례 12, 사례 13, 사례 15, 사례 17, 사례 18 |
 | [오디오 드라마와 장면 생성](#audio-drama-scene-generation) | 사례 4, 사례 5 |
-| [참조 음성과 캐릭터 보이스 탐색](#voice-reference-character-casting) | 사례 6, 사례 8, 사례 10 |
+| [참조 음성과 캐릭터 보이스 탐색](#voice-reference-character-casting) | 사례 6, 사례 8, 사례 10, 사례 19 |
 | [도구 및 제공자 통합](#tool-provider-integrations) | 사례 7, 사례 14, 사례 16 |
 | [소셜 내레이션, 폴리, 비용 테스트](#social-narration-foley-cost-tests) | 사례 9, 사례 11 |
 | [감사의 말](#acknowledge) | 크레딧 및 수정 정책 |
@@ -120,6 +120,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 | [사례 6: 참조 음성 MC 워크플로](#case-6) | 다운스트림 비디오 생성 전에 반복되는 MC 또는 시리즈 내레이션에 대한 참조 음성 워크플로를 평가합니다. | Tutorial |
 | [사례 8: 참조 오디오 품질과 높은 음역 제한](#case-8) | 일본어 음성, 감정 추종, 참조 오디오 정밀도 및 고음 합성음 위험을 평가합니다. | Evaluation |
 | [사례 10: 이미지 기반 캐릭터 음성 탐색](#case-10) | 참조 이미지 오디오를 최종 음성 잠금 제작이 아닌 초기 캐릭터 음성 캐스팅으로 평가합니다. | Evaluation |
+| [사례 19: 같은 영상 오디오 교체 TTS 품질 비교](#case-19) | 최종 TTS 스택을 고르기 전에 완성된 클립의 화면은 그대로 두고 오디오만 바꿔서, Seed Audio와 다른 TTS의 감정 표현, 억양, 원음 누출을 빠르게 비교합니다. | Evaluation |
 
 <a id="tool-provider-integrations"></a>
 ## 도구 및 제공자 통합
@@ -456,6 +457,24 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 ---
 
+<a id="case-19"></a>
+### 사례 19: [같은 영상 오디오 교체 TTS 품질 비교](https://x.com/takareinhard/status/2079028004202918291) (작성자 [@takareinhard](https://x.com/takareinhard))
+
+**최종 TTS 스택을 고르기 전에 완성된 클립의 화면은 그대로 두고 오디오만 바꿔서, Seed Audio와 다른 TTS의 감정 표현, 억양, 원음 누출을 빠르게 비교합니다.**
+
+- 출처 근거: 작성자는 같은 짧은 클립의 두 버전을 올리면서 첫 번째는 Seedance 2.0 원음, 두 번째는 Seed Audio 1.0으로 오디오를 교체한 버전이라고 설명하고, 결과를 ElevenLabs, 니지보이스, MiniMax, Gemini TTS와 주관적으로 비교합니다.
+- 복사할 점: 실제 TTS 스택을 고르기 전에 화면은 고정하고 음성 레이어만 바꾸면 감정 표현, 억양 안정성, 원본 성우와 너무 비슷한지 여부를 더 빨리 비교할 수 있습니다.
+- 실제 워크플로: 먼저 완성된 영상을 하나 내보내 기준 오디오 버전을 남기고, 두 번째 패스에서 오디오만 Seed Audio로 교체한 뒤 두 버전을 감정, 억양, 음성 정체성 누출 관점에서 비교합니다.
+- 주의점: 이는 한 명의 크리에이터가 수행한 정성 평가이며 공개 prompt, 참조 오디오, 수치 벤치마크는 없습니다. 최종 순위표가 아니라 비교 패턴으로 받아들여야 합니다.
+
+[![사례 19 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-19.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4)
+
+[동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4)
+
+유형: Evaluation | 날짜: 2026-07-20
+
+---
+
 ## 관련 저장소
 
 현재 별도의 공개 Seed-Audio 저장소는 검증되지 않았습니다. 유지 관리되는 skill 경로는 npm의 evolink-seed-audio.
@@ -465,7 +484,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 이 저장소는 사례 단위로 공개 크리에이터와 제공자 게시물에 연결합니다. 공개 출처는 각 사례 제목에 표시됩니다.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard)
 
 *출처 링크가 깨졌거나, 표시가 잘못되었거나, 주장에 근거가 부족하면 수정을 제안해 주세요.*
 
