@@ -1,6 +1,6 @@
 # Case Label Audit
 
-Date: 2026-07-20
+Date: 2026-07-22
 
 This audit checks whether each public case is detailed enough to be useful and whether its `Type` label matches the linked source evidence.
 
@@ -38,6 +38,8 @@ This audit checks whether each public case is detailed enough to be useful and w
 | 17 | Tutorial | The public Inferno thread lays out a reusable trailer-making sequence: character sheets, still-image-first shot generation, beat-mapped clip prompts, then Seed Audio narration and accent effects during final assembly. | Keep as Tutorial. The reader can copy the production order and sound-design timing method even though the exact Seed Audio prompt text is not public. |
 | 18 | Demo | The source shows a finished animated short, clearly attributes Seed Audio to the score, and explains that the production stayed within a two-reference-image boundary. | Keep as Demo. It proves a compact visual-lock plus audio-score pattern, but the public post does not expose enough exact steps to qualify as a full tutorial. |
 | 19 | Evaluation | The source keeps one finished clip fixed, swaps only the audio track to Seed Audio 1.0, and compares emotion, accent, and clone leakage against rival TTS outputs. | Keep as Evaluation. It is a useful same-clip comparison method with direct hands-on quality observations, but there is no public prompt or controlled benchmark. |
+| 20 | Tutorial | The source explains an audio-first soundstage workflow where one Seed Audio scene description becomes a finished performance reference that is paired with character images before video generation. | Keep as Tutorial. The reusable value is the public scene-planning sequence: generate the full performance audio first, then hand audio plus character visuals to the video model. |
+| 21 | Limit | The source reports a direct Arabic dialogue and voiceover test failure, states the language is not officially supported, and the public thread adds one exact prompt example plus one result video. | Keep as Limit. The strongest value is the explicit unsupported-language failure mode and the clear go/no-go test boundary it creates for Arabic workflows. |
 
 ## Removed
 
@@ -45,7 +47,7 @@ The previous WaveSpeedAI provider-access case was removed from the public set. I
 
 ## Result
 
-- Public cases: 19
-- Strong-evidence cases retained: 19
+- Public cases: 21
+- Strong-evidence cases retained: 21
 - Removed cases in this audit pass: 0
-- Type labels changed in this audit pass: Case 19 added as Evaluation
+- Type labels changed in this audit pass: Case 20 added as Tutorial; Case 21 added as Limit

@@ -24,7 +24,7 @@ Bu Türkçe README kaynak bağlantılarını, atıfları ve ankrajları korur; k
 
 ## 📊 Genel bakış
 
-- **Yakın tarihli kabul edilmiş 97 X/Twitter gönderisinden 19 Seed-Audio 1.0 vakası seçildi.**
+- **Yakın tarihli kabul edilmiş 99 X/Twitter gönderisinden 21 Seed-Audio 1.0 vakası seçildi.**
 - Kapsam: Ses öncelikli video iş akışları, Sesli drama ve sahne üretimi, Referans sesler ve karakter sesi seçimi, Araç ve sağlayıcı entegrasyonları, Sosyal anlatım, foley ve maliyet testleri.
 - Her vaka özgün kaynak, üretici atfı, kullanım sonucu, kanıt türü ve yayın tarihi içerir.
 - Bu repoyu gerçek iş akışlarını bulmak, güçlü ve zayıf yönleri karşılaştırmak, sağlayıcı yollarını keşfetmek ve uygulamayı EvoLink'e yönlendirmek için kullanın.
@@ -475,6 +475,42 @@ Tür: Evaluation | Tarih: 2026-07-20
 
 ---
 
+<a id="case-20"></a>
+### Vaka 20: [Soundstage için audio-first performans referansı](https://x.com/WriterMcG/status/2079351581460287890) (yazar [@WriterMcG](https://x.com/WriterMcG))
+
+**oda tonu, ambiyans, karakter davranışı ve diyaloğu Seed Audio içinde tek bir sahne olarak tarif edin; ardından tamamlanan sesi karakter görselleriyle birlikte sonraki video modeli için performans referansı olarak yeniden kullanın.**
+
+- Kaynak kanıtı: kamuya açık paylaşımda üretici, private soundstage uygulamasındaki Seed Audio bölümünü kullanarak oda düzenini, ambiyansı, karakter davranışını ve diyaloğu tek bir dramatik performans olarak tanımladığını, ardından ortaya çıkan ses dosyasını karakter görselleriyle birlikte video üretimi için oyunculuk referansı olarak yeniden kullandığını söylüyor.
+- Kopyalanacak yöntem: video modeli sahneyi yorumlamaya başlamadan önce performans, zamanlama ve atmosferi seste sabitlemek istiyorsanız Seed Audio’yu sahne planlama katmanı olarak kullanın.
+- Pratik iş akışı: oda tonu, ambiyans, karakter davranışı ve diyaloğu kapsayan kısa bir sahne tanımı yazın, önce tam ses performansını üretin, sonra bu tamamlanmış sesi karakter görselleri veya stillerle eşleyip en son video modeline sahneyi canlandırmasını isteyin.
+- Dikkat noktaları: üretici daha sonra herkese açık thread içinde kendi stüdyosuna private voice library bağladığını söylüyor. Bu yüzden sadece kamuya açık audio-first kalıbını koruyun; aynı özel ses yığınının veya aynı lip-sync kalitesinin genel olarak erişilebilir olduğunu varsaymayın.
+
+[![Vaka 20 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-20.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-20.mp4)
+
+[Video oynatma sayfasını aç](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-20.mp4)
+
+Tür: Tutorial | Tarih: 2026-07-20
+
+---
+
+<a id="case-21"></a>
+### Vaka 21: [Arapça diyalog desteği sınır testi](https://x.com/tawleefai/status/2079626302835884345) (yazar [@tawleefai](https://x.com/tawleefai))
+
+**desteklenmeyen dil akışlarında Seed Audio’ya bağlanmadan önce kısa bir Arapça diyalog ya da voiceover testi çalıştırın; çünkü mevcut sürüm desteklenen dillerde işe yarasa bile burada doğrudan başarısız olabilir.**
+
+- Kaynak kanıtı: kamuya açık paylaşımda yazar, Seed Audio 1.0’ı diyalog ve voiceover üretimi için denediğini, mevcut çıktının anlaşılmaz olduğunu ve Arapçanın mevcut sürümde resmi olarak desteklenmediğini söylüyor.
+- Kopyalanacak yöntem: desteklenmeyen dil değerlendirmesini, İngilizce ya da çok dilli pazarlama iddialarından türetilen bir varsayım değil, açık bir devam et / dur kararı olarak ele alın.
+- Pratik iş akışı: daha uzun bir Arapça akış kurmadan önce tek bir kısa diyalog ya da voiceover testi yapın, üretilen konuşmanın gerçekten anlaşılır olup olmadığını kontrol edin ve sonuç çöküyorsa aşağı akıştaki video veya kurgu işlerine zaman harcamadan erken durun.
+- Dikkat noktaları: herkese açık thread yalnızca tek bir tam prompt örneği ve tek bir sonuç videosu ekliyor. Bu yüzden sadece görünür sınırı ve prompt sınırını koruyun; bundan daha geniş bir Arapça benchmark ya da gizli kurulum ayrıntısı çıkarmayın.
+
+[![Vaka 21 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-21.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-21.mp4)
+
+[Video oynatma sayfasını aç](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-21.mp4)
+
+Tür: Limit | Tarih: 2026-07-21
+
+---
+
 ## İlgili depolar
 
 Şu anda doğrulanmış ayrı bir açık Seed-Audio deposu yoktur. Bakımı yapılan skill yüzeyi npm üzerindeki evolink-seed-audio.
@@ -484,7 +520,7 @@ Tür: Evaluation | Tarih: 2026-07-20
 
 Bu repo, her vaka düzeyinde herkese açık üretici ve sağlayıcı gönderilerine bağlantı verir. Kamu kaynağı her vaka başlığında yer alır.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard) [@WriterMcG](https://x.com/WriterMcG) [@tawleefai](https://x.com/tawleefai)
 
 *Kaynak bağlantısı bozulduğunda, atıf yanlış olduğunda veya bir iddia bağlantılı kaynakça desteklenmediğinde düzeltmeler memnuniyetle karşılanır.*
 

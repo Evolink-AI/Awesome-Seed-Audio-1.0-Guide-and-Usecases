@@ -24,7 +24,7 @@ Seed-Audio 1.0의 신뢰도 높은 사용 사례 저장소입니다.
 
 ## 📊 개요
 
-- **최근 X/Twitter 샘플 97개에서 Seed-Audio 1.0 사용 사례 19개를 선별했습니다.**
+- **최근 X/Twitter 샘플 99개에서 Seed-Audio 1.0 사용 사례 21개를 선별했습니다.**
 - 포함 범위: 오디오 우선 영상 워크플로, 오디오 드라마와 장면 생성, 참조 음성과 캐릭터 보이스 탐색, 도구 및 제공자 통합, 소셜 내레이션, 폴리, 비용 테스트.
 - 각 사례에는 원본 출처, 작성자 표시, 활용 요점, 증거 유형, 게시일이 포함됩니다.
 - 실제 워크플로, 강점과 한계, 제공자 경로, EvoLink 구현 방향을 확인하는 데 사용할 수 있습니다.
@@ -475,6 +475,42 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 ---
 
+<a id="case-20"></a>
+### 사례 20: [사운드스테이지 오디오 우선 퍼포먼스 레퍼런스](https://x.com/WriterMcG/status/2079351581460287890) (작성자 [@WriterMcG](https://x.com/WriterMcG))
+
+**방의 소리, 배경음, 캐릭터 행동, 대사를 Seed Audio에서 하나의 장면으로 만들고, 완성된 오디오를 캐릭터 이미지와 함께 후속 영상 모델의 퍼포먼스 레퍼런스로 다시 사용합니다.**
+
+- 출처 근거: 공개 게시물에서 작성자는 private soundstage 앱 안의 Seed Audio 섹션을 사용해 방의 상태, 배경음, 캐릭터 행동, 대사를 하나의 극적인 퍼포먼스로 설명했고, 그렇게 얻은 오디오 파일을 캐릭터 이미지와 함께 영상 생성의 연기 레퍼런스로 다시 썼다고 말합니다.
+- 복사할 점: 영상 모델이 장면을 해석하기 전에 연기, 타이밍, 분위기를 오디오 쪽에서 먼저 고정하고 싶다면 Seed Audio를 장면 설계 레이어로 사용하세요.
+- 실제 워크플로: 방의 소리, 배경음, 캐릭터 행동, 대사를 모두 포함하는 짧은 장면 설명을 작성하고 먼저 완성형 오디오 퍼포먼스를 생성한 뒤, 그 오디오를 캐릭터 이미지나 스틸과 묶어서 영상 모델에 애니메이션을 맡깁니다.
+- 주의점: 뒤이은 공개 스레드에서 작성자는 커스텀 스튜디오 안에 private voice library를 연결했다고 말합니다. 따라서 공개적으로 보존해야 할 것은 오디오 우선 워크플로뿐이며, 같은 사설 음성 스택이나 lip-sync 품질이 일반적으로 제공된다고 가정하면 안 됩니다.
+
+[![사례 20 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-20.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-20.mp4)
+
+[동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-20.mp4)
+
+유형: Tutorial | 날짜: 2026-07-20
+
+---
+
+<a id="case-21"></a>
+### 사례 21: [아랍어 대화 지원 한계 테스트](https://x.com/tawleefai/status/2079626302835884345) (작성자 [@tawleefai](https://x.com/tawleefai))
+
+**지원되지 않는 언어 파이프라인에서 Seed Audio를 전제로 잡기 전에 짧은 아랍어 대화나 voiceover 테스트를 먼저 돌리세요. 현재 버전은 지원 언어에서 괜찮아 보여도 비지원 언어에서는 바로 무너질 수 있습니다.**
+
+- 출처 근거: 공개 게시물에서 작성자는 Seed Audio 1.0을 대화와 voiceover 생성에 시험했고, 현재 출력이 알아들을 수 없는 수준이며 아랍어는 현 버전에서 공식 지원되지 않는다고 말합니다.
+- 복사할 점: 비지원 언어 평가는 영어나 다국어 마케팅 문구를 그대로 믿는 문제가 아니라, 계속 진행할지 멈출지를 결정하는 명시적 게이트로 다뤄야 합니다.
+- 실제 워크플로: 더 긴 아랍어 파이프라인을 만들기 전에 짧은 대화나 voiceover 한 번만 생성해 보고, 결과 음성이 실제로 이해 가능한지 확인한 뒤, 출력이 무너지면 영상이나 편집 후속 단계에 시간을 쓰기 전에 바로 중단합니다.
+- 주의점: 공개 스레드에 추가된 것은 정확한 prompt 예시 하나와 결과 영상 하나뿐입니다. 따라서 보이는 한계와 prompt 경계만 보존하고, 더 넓은 아랍어 벤치마크나 숨겨진 설정을 추정하지 마세요.
+
+[![사례 21 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-21.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-21.mp4)
+
+[동영상 재생 페이지 열기](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-21.mp4)
+
+유형: Limit | 날짜: 2026-07-21
+
+---
+
 ## 관련 저장소
 
 현재 별도의 공개 Seed-Audio 저장소는 검증되지 않았습니다. 유지 관리되는 skill 경로는 npm의 evolink-seed-audio.
@@ -484,7 +520,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 이 저장소는 사례 단위로 공개 크리에이터와 제공자 게시물에 연결합니다. 공개 출처는 각 사례 제목에 표시됩니다.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard) [@WriterMcG](https://x.com/WriterMcG) [@tawleefai](https://x.com/tawleefai)
 
 *출처 링크가 깨졌거나, 표시가 잘못되었거나, 주장에 근거가 부족하면 수정을 제안해 주세요.*
 

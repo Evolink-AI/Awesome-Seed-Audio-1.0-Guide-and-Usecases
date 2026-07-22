@@ -74,3 +74,13 @@
 - Added Case 19: a same-clip TTS swap quality check that keeps one finished video fixed, replaces only the audio with Seed Audio 1.0, and compares the result against rival TTS weaknesses on emotion, accent, and clone leakage.
 - Preserved the public prompt boundary by publishing only the visible comparison setup and qualitative findings; the source does not expose a reusable prompt, reference audio, or numeric benchmark.
 - Updated `data/use-cases.json`, `data/use-case-translations.json`, and `data/source-index.json` while preserving case order, source attribution, locale parity, stable anchors, and the fixed search-window metadata.
+
+## July 22, 2026
+
+- Ran the recurring exact-phrase `"seed audio"` search over the fixed 48-hour window ending at collector timestamp `2026-07-22T10:05:43.554246+00:00`.
+- Reviewed 44 in-window candidates: selected 2 high-confidence workflows, marked 4 unsure, and dropped 38 launch-only, reply-only, overlapping, or thin-context posts.
+- Added Case 20: a soundstage audio-first workflow that turns one Seed Audio scene description into a finished performance reference for downstream video generation.
+- Added Case 21: an Arabic support-limit test that shows Seed Audio 1.0 can fail on unsupported dialogue and voiceover output, with one public prompt example and one public result video preserved from the thread.
+- Uploaded the Case 20 and Case 21 poster images plus MP4 files to the repository's locked Cloudflare R2 namespace, kept the tracked local poster JPG files, and kept the MP4 files out of git.
+- Updated `data/use-cases.json`, `data/use-case-translations.json`, and `data/source-index.json` while preserving case order, source attribution, locale parity, stable anchors, and the fixed search-window evidence boundary.
+- Rebuilt English and all 10 localized README files plus GitHub Pages player pages from the updated structured data.

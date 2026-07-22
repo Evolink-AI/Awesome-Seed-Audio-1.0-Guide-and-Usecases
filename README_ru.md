@@ -24,7 +24,7 @@
 
 ## 📊 Обзор
 
-- **Из 97 принятых недавних публикаций X/Twitter выбрано 19 кейсов Seed-Audio 1.0.**
+- **Из 99 принятых недавних публикаций X/Twitter выбрано 21 кейсов Seed-Audio 1.0.**
 - Охват: Видео-процессы от аудио, Аудиодрама и генерация сцен, Референсные голоса и подбор голоса персонажа, Интеграции инструментов и провайдеров, Социальная озвучка, foley и тесты стоимости.
 - Каждый кейс содержит исходный источник, атрибуцию автора, вывод по применению, тип доказательства и дату публикации.
 - Используйте репозиторий, чтобы находить реальные рабочие процессы, сравнивать сильные стороны и ограничения, находить маршруты провайдеров и переходить к реализации через EvoLink.
@@ -475,6 +475,42 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 ---
 
+<a id="case-20"></a>
+### Кейс 20: [Референс исполнения в audio-first soundstage](https://x.com/WriterMcG/status/2079351581460287890) (автор [@WriterMcG](https://x.com/WriterMcG))
+
+**опишите комнатный тон, атмосферу, поведение персонажей и диалог как одну сцену в Seed Audio, а затем используйте готовый звук вместе с изображениями персонажей как референс исполнения для следующего видеомоделя.**
+
+- Доказательство источника: в публичном посте автор пишет, что использовал раздел Seed Audio внутри своего private soundstage app, чтобы описать комнату, атмосферу, поведение персонажей и диалог как единое драматическое исполнение, а затем применил получившийся аудиофайл вместе с изображениями персонажей как актерский референс для генерации видео.
+- Что можно перенять: используйте Seed Audio как слой планирования сцены, если хотите заранее зафиксировать исполнение, ритм и настроение в звуке до того, как видеомодель начнет интерпретировать саму сцену.
+- Практический workflow: напишите компактное описание сцены, которое охватывает комнатный тон, атмосферу, поведение персонажей и диалог, сначала сгенерируйте полное аудиоисполнение, затем свяжите этот готовый звук с изображениями персонажей или still-кадрами и только после этого передавайте сцену видеомодели на анимацию.
+- На что обратить внимание: позже в публичном треде автор уточняет, что подключил private voice library внутри собственного студийного окружения. Поэтому публично следует сохранять только сам audio-first workflow и не предполагать, что тот же частный голосовой стек или такое же качество lip-sync доступны всем.
+
+[![Кейс 20 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-20.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-20.mp4)
+
+[Открыть страницу воспроизведения видео](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-20.mp4)
+
+Тип: Tutorial | Дата: 2026-07-20
+
+---
+
+<a id="case-21"></a>
+### Кейс 21: [Тест ограничения поддержки арабских диалогов](https://x.com/tawleefai/status/2079626302835884345) (автор [@tawleefai](https://x.com/tawleefai))
+
+**перед тем как закладывать Seed Audio в пайплайн для неподдерживаемого языка, запустите короткий тест арабского диалога или voiceover, потому что текущий релиз может развалиться даже тогда, когда тот же поток приемлемо работает на поддерживаемых языках.**
+
+- Доказательство источника: в публичном посте автор пишет, что протестировал Seed Audio 1.0 для генерации диалога и voiceover, получил неразборчивый результат и отдельно отмечает, что арабский язык официально не поддерживается в текущем релизе.
+- Что можно перенять: оценку неподдерживаемого языка нужно рассматривать как явный go / no-go этап, а не как вывод из более сильных английских или многоязычных маркетинговых обещаний модели.
+- Практический workflow: прежде чем строить длинный арабский пайплайн, выполните один короткий тест диалога или voiceover, проверьте, действительно ли синтезированная речь понятна, и если результат разваливается, остановитесь сразу, не тратя время на нижележащие этапы видео и монтажа.
+- На что обратить внимание: публичный тред добавляет только один точный пример prompt и одно видео с результатом. Поэтому нужно сохранять только видимое ограничение и границу prompt, не выводя из этого более широкий арабский benchmark или скрытые детали настройки.
+
+[![Кейс 21 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-21.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-21.mp4)
+
+[Открыть страницу воспроизведения видео](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-21.mp4)
+
+Тип: Limit | Дата: 2026-07-21
+
+---
+
 ## Связанные репозитории
 
 Отдельный публичный репозиторий Seed-Audio сейчас не подтвержден. Поддерживаемая поверхность skill — evolink-seed-audio в npm.
@@ -484,7 +520,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 Этот репозиторий ссылается на публичные публикации авторов и провайдеров на уровне каждого кейса. Публичный источник указан в заголовке кейса.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard) [@WriterMcG](https://x.com/WriterMcG) [@tawleefai](https://x.com/tawleefai)
 
 *Исправления приветствуются, если ссылка сломана, атрибуция неверна или утверждение не подтверждается источником.*
 

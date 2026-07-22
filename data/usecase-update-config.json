@@ -26,8 +26,14 @@
     "anchor_prefix": "case",
     "section_anchor": "",
     "numbering_order": "document",
-    "menu_policy": "per-case",
-    "category_anchors": []
+    "menu_policy": "category",
+    "category_anchors": [
+      "audio-first-video",
+      "audio-drama-scene-generation",
+      "voice-reference-character-casting",
+      "tool-provider-integrations",
+      "social-narration-foley-cost-tests"
+    ]
   },
   "requirements": {
     "takeaway": true,

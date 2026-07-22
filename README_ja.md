@@ -24,7 +24,7 @@ Seed-Audio 1.0 の高シグナルなユースケース集です。
 
 ## 📊 概要
 
-- **最近の X/Twitter サンプル 97 件から、Seed-Audio 1.0 のユースケース 19 件を選定しました。**
+- **最近の X/Twitter サンプル 99 件から、Seed-Audio 1.0 のユースケース 21 件を選定しました。**
 - 対象領域：音声先行の動画ワークフロー, 音声ドラマとシーン生成, 参照音声とキャラクター音声探索, ツールとプロバイダー統合, SNS ナレーション、フォーリー、コスト検証。
 - 各ケースには、元ソース、作者クレジット、活用ポイント、証拠タイプ、公開日を含めています。
 - 実用ワークフロー、強みと制約、プロバイダー経路、EvoLink での実装導線を確認するために使えます。
@@ -475,6 +475,42 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 ---
 
+<a id="case-20"></a>
+### ケース 20: [サウンドステージ音声先行の演技リファレンス](https://x.com/WriterMcG/status/2079351581460287890) (作者 [@WriterMcG](https://x.com/WriterMcG))
+
+**部屋の音、環境音、キャラクターの振る舞い、台詞を Seed Audio 上で一つのシーンとしてまとめて作り、その完成音声をキャラクター画像と一緒に動画モデルの演技リファレンスとして再利用します。**
+
+- ソース証拠: 公開投稿では、作者が自分の private soundstage アプリ内の Seed Audio セクションを使い、部屋の状況、環境音、キャラクターの動き、台詞を一つの劇的な演技として記述し、その戻り音声をキャラクター画像と並べて動画生成の演技リファレンスとして使ったと説明しています。
+- コピーすること: 動画モデルがシーンを解釈し始める前に、演技、テンポ、空気感を音声側で先に固定したいときは、Seed Audio をシーン設計レイヤーとして使います。
+- 実用ワークフロー: 部屋の音、環境音、キャラクターの動き、台詞をまとめた短いシーン記述を書き、まず完成版の音声パフォーマンスを生成し、その音声をキャラクター画像やスチルと組み合わせてから動画モデルにアニメーションを任せます。
+- 注意点: 後続の公開スレッドでは、作者が自作スタジオ内で private voice library を接続したと述べています。したがって公開情報として残すべきなのは音声先行ワークフローだけであり、同じ私有音声スタックや lip-sync 品質が一般に使えるとは見なさないでください。
+
+[![ケース 20 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-20.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-20.mp4)
+
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-20.mp4)
+
+タイプ: Tutorial | 日付: 2026-07-20
+
+---
+
+<a id="case-21"></a>
+### ケース 21: [アラビア語対話サポートの制限テスト](https://x.com/tawleefai/status/2079626302835884345) (作者 [@tawleefai](https://x.com/tawleefai))
+
+**非対応言語パイプラインで Seed Audio を前提にする前に、短いアラビア語の台詞や voiceover テストを走らせてください。現行版は対応言語では使えても、非対応言語では破綻する可能性があります。**
+
+- ソース証拠: 公開投稿では、作者が Seed Audio 1.0 を対話音声と voiceover 生成で試し、現状の出力は意味をなさない文字列になり、アラビア語は現行版で公式対応していないと報告しています。
+- コピーすること: 非対応言語の評価は、英語や多言語マーケティングの強い訴求をそのまま信じるのではなく、進めるか止めるかを決める明示的なゲートとして扱ってください。
+- 実用ワークフロー: 長いアラビア語パイプラインを作る前に、まず短い台詞か voiceover を一度だけ生成し、出力された音声が本当に聞き取れるか確認し、崩れているなら動画や編集の下流工程に時間を使う前に止めます。
+- 注意点: 公開スレッドで追加されたのは一つの正確な prompt 例と一つの結果動画だけです。したがって見えている制限と prompt 境界だけを保存し、より広いアラビア語ベンチマークや非公開設定を推測しないでください。
+
+[![ケース 21 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-21.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-21.mp4)
+
+[動画再生ページを開く](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-21.mp4)
+
+タイプ: Limit | 日付: 2026-07-21
+
+---
+
 ## 関連リポジトリ
 
 現在、別の公開 Seed-Audio リポジトリは検証されていません。保守されている skill の入口は npm の evolink-seed-audio.
@@ -484,7 +520,7 @@ Endpoint: `POST https://api.evolink.ai/v1/audios/generations`
 
 このリポジトリはケース単位で公開クリエイターやプロバイダーの投稿へリンクしています。公開ソースは各ケース見出しで明記します。
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard) [@WriterMcG](https://x.com/WriterMcG) [@tawleefai](https://x.com/tawleefai)
 
 *リンク切れ、誤った帰属、またはリンク先で裏付けられていない主張があれば修正を歓迎します。*
 

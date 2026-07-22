@@ -24,7 +24,7 @@ This English source README focuses on source-linked cases with concrete workflow
 
 ## 📊 Overview
 
-- **19 selected Seed-Audio 1.0 cases from 97 accepted recent X/Twitter posts.**
+- **21 selected Seed-Audio 1.0 cases from 99 accepted recent X/Twitter posts.**
 - Covers Audio-First Video Workflows, Audio Drama And Scene Generation, Reference Voice And Character Casting, Tool And Provider Integrations, Social Narration, Foley, And Cost Tests.
 - Each case includes the original source, creator attribution, concise usage takeaway, evidence type, and publication date.
 - Use this repo to find practical workflows, compare strengths and limits, discover provider routes, and route implementation work to EvoLink.
@@ -475,6 +475,42 @@ Type: Evaluation | Date: 2026-07-20
 
 ---
 
+<a id="case-20"></a>
+### Case 20: [Soundstage Audio-First Performance Reference](https://x.com/WriterMcG/status/2079351581460287890) (by [@WriterMcG](https://x.com/WriterMcG))
+
+**describe room tone, ambient sound, character behavior, and dialogue as one Seed Audio scene, then reuse the finished audio plus character images as performance reference for the downstream video model.**
+
+- Source evidence: The public post says the creator used the Seed Audio section of a private soundstage app to describe the room, ambience, character behavior, and dialogue as one dramatic performance, then reused the returned sound file as performance reference alongside character images for video generation.
+- What to copy: Use Seed Audio as the scene-planning layer when you want the audio bed to lock performance, timing, and mood before the video model starts interpreting the scene.
+- Practical workflow: write one compact scene description that covers room tone, ambient sound, character behavior, and dialogue, generate the full performance audio first, then pair that finished audio with character images or stills before asking the video model to animate the scene.
+- Watch-outs: The thread later says the creator connected a private voice library inside a custom studio, so you should preserve only the public audio-first workflow boundary and not assume the same private voice stack or lip-sync quality is generally available.
+
+[![Case 20 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-20.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-20.mp4)
+
+[Open video playback page](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-20.mp4)
+
+Type: Tutorial | Date: 2026-07-20
+
+---
+
+<a id="case-21"></a>
+### Case 21: [Arabic Dialogue Support Limit Test](https://x.com/tawleefai/status/2079626302835884345) (by [@tawleefai](https://x.com/tawleefai))
+
+**run a short Arabic dialogue or voiceover check before committing to Seed Audio in unsupported-language pipelines, because the current release can fail even when the setup is otherwise usable for supported languages.**
+
+- Source evidence: The public post says the author tested Seed Audio 1.0 for dialogue and voiceover generation, reports that the current output is unusable gibberish, and states that Arabic is not officially supported in the current release.
+- What to copy: Treat unsupported-language evaluation as an explicit go-no-go gate, not an assumption carried over from the model’s stronger English or multilingual marketing claims.
+- Practical workflow: before building a longer Arabic pipeline, run one short dialogue or voiceover test, inspect whether the generated speech is actually intelligible, and stop early if the result collapses instead of spending time on downstream video or editing work.
+- Watch-outs: The public thread adds only one exact prompt example and one result video, so preserve the visible limitation and prompt boundary without inferring a broader Arabic benchmark or hidden setup details.
+
+[![Case 21 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-21.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-21.mp4)
+
+[Open video playback page](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-21.mp4)
+
+Type: Limit | Date: 2026-07-21
+
+---
+
 ## Related Repositories
 
 No separate public Seed-Audio repository is currently verified. The maintained supporting skill surface is evolink-seed-audio on npm.
@@ -484,7 +520,7 @@ No separate public Seed-Audio repository is currently verified. The maintained s
 
 This repository links to public creator and provider posts at the case level. Public sources are credited in each case heading.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard) [@WriterMcG](https://x.com/WriterMcG) [@tawleefai](https://x.com/tawleefai)
 
 *Corrections are welcome when a source link breaks, attribution is wrong, or a claim is not supported by the linked source.*
 

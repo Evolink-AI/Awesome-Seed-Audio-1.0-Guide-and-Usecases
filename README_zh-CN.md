@@ -24,7 +24,7 @@
 
 ## 📊 概览
 
-- **从近期 X/Twitter 样本中筛选出 19 个 Seed-Audio 1.0 使用案例，原始可用样本为 97 条。**
+- **从近期 X/Twitter 样本中筛选出 21 个 Seed-Audio 1.0 使用案例，原始可用样本为 99 条。**
 - 覆盖方向：音频优先视频工作流, 音频剧与场景生成, 参考声音与角色配音探索, 工具与服务商集成, 社交旁白、拟音与成本测试。
 - 每个案例都包含原始来源、创作者署名、使用结论、证据类型和发布日期。
 - 你可以用这个仓库查找真实工作流、比较优势和限制、发现服务商路径，并把实现工作导向 EvoLink。
@@ -475,6 +475,42 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 
 ---
 
+<a id="case-20"></a>
+### 案例 20: [音效棚的音频优先表演参考](https://x.com/WriterMcG/status/2079351581460287890) (作者 [@WriterMcG](https://x.com/WriterMcG))
+
+**把房间音、环境声、角色行为和对白当成一个 Seed Audio 场景一次生成，再把完成音频和角色图片一起作为后续视频模型的表演参考。**
+
+- 证据来源：公开帖子说明，作者在自己的 private soundstage app 里使用 Seed Audio 区块，把房间状态、环境声、角色行为和对白写成一次完整的戏剧表演，然后把生成出的音频文件与角色图片一起作为视频生成时的表演参考。
+- 可复制做法：如果你想在视频模型开始解读场景前，先用音频把表演、节奏和氛围锁住，就可以把 Seed Audio 当成场景规划层来用。
+- 实际流程：先写一段涵盖房间音、环境声、角色行为和对白的紧凑场景描述，先生成完整音频表演，再把这段完成音频和角色图片或剧照配在一起，最后再交给视频模型去动起来。
+- 注意事项：后续公开讨论里，作者补充自己把 private voice library 接到自建工作室中。因此公开可保留的是音频优先工作流本身，不应假设同一套私有声音堆栈或 lip-sync 质量能普遍复制。
+
+[![案例 20 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-20.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-20.mp4)
+
+[打开视频播放页](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-20.mp4)
+
+类型: Tutorial | 日期: 2026-07-20
+
+---
+
+<a id="case-21"></a>
+### 案例 21: [阿拉伯语对话支持限制测试](https://x.com/tawleefai/status/2079626302835884345) (作者 [@tawleefai](https://x.com/tawleefai))
+
+**在把 Seed Audio 用进未支持语言流程前，先做一次短的阿拉伯语对白或 voiceover 测试，因为当前版本即使在支持语言可用，到了未支持语言也可能直接失败。**
+
+- 证据来源：公开帖子说明，作者用 Seed Audio 1.0 测试对白和 voiceover 生成，表示当前输出像无意义的乱码，而且阿拉伯语在现行版本中并未获得官方支持。
+- 可复制做法：对未支持语言的评估应被视为一个明确的 go / no-go 关卡，而不是把模型在英文或多语营销上的强叙述直接套过来。
+- 实际流程：在搭更长的阿拉伯语流程前，先跑一次短对白或 voiceover 测试，确认生成语音是否真的可理解；如果结果一开始就崩掉，就应该及早停止，而不是把时间继续花在后面的视频或剪辑工作上。
+- 注意事项：公开讨论额外给出的只有一条精确 prompt 示例和一段结果视频，因此应只保留这个可见限制和 prompt 边界，不要外推成更广的阿拉伯语 benchmark 或隐藏设置。
+
+[![案例 21 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-21.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-21.mp4)
+
+[打开视频播放页](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-21.mp4)
+
+类型: Limit | 日期: 2026-07-21
+
+---
+
 ## 相关仓库
 
 目前没有已验证的其他公开 Seed-Audio 仓库。持续维护的 skill 入口是 npm 上的 evolink-seed-audio.
@@ -484,7 +520,7 @@ skill 包发布为 [evolink-seed-audio](https://www.npmjs.com/package/evolink-se
 
 本仓库在案例级别链接公开创作者和服务商内容。每个案例标题都会标注公开来源。
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard) [@WriterMcG](https://x.com/WriterMcG) [@tawleefai](https://x.com/tawleefai)
 
 *如果来源链接失效、署名错误，或某个说法没有得到链接来源支持，欢迎提交修正。*
 

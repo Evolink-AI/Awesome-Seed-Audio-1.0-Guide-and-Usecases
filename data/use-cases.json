@@ -2,22 +2,22 @@
   "metadata": {
     "model": "Seed-Audio 1.0",
     "provider": "ByteDance / Doubao",
-    "generated_at": "2026-07-20",
+    "generated_at": "2026-07-22",
     "basis": "Recurring exact-phrase X/Twitter search for Seed-Audio 1.0 use cases",
     "queries": [
       "\"seed audio\" since:2026-06-24 until:2026-06-30",
       "\"Seed-Audio\" since:2026-06-24 until:2026-06-30",
       "\"SeedAudio\" since:2026-06-24 until:2026-06-30"
     ],
-    "raw_post_count": 501,
-    "accepted_count": 97,
-    "selected_case_count": 19,
+    "raw_post_count": 601,
+    "accepted_count": 99,
+    "selected_case_count": 21,
     "date_span_utc": {
       "start": "2026-06-24T01:47:15+00:00",
-      "end": "2026-07-20T10:06:34+00:00"
+      "end": "2026-07-22T10:05:43+00:00"
     },
     "language_counts": {
-      "en": 60,
+      "en": 61,
       "ja": 23,
       "zh": 7,
       "zxx": 2,
@@ -25,9 +25,10 @@
       "ko": 1,
       "et": 1,
       "und": 1,
-      "fr": 1
+      "fr": 1,
+      "ar": 1
     },
-    "review_queue_count": 88,
+    "review_queue_count": 132,
     "selection_policy": "strong_evidence_public_sources_only",
     "label_audit": "docs/case-label-audit.md"
   },
@@ -841,6 +842,80 @@
         "download_url": "https://video.twimg.com/amplify_video/2079027590048960513/vid/avc1/720x1280/vh1wwExZuBJmjJoX.mp4?tag=14",
         "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-19.mp4",
         "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-19.jpg"
+      }
+    },
+    {
+      "number": 20,
+      "category": "audio-first-video",
+      "title": "Soundstage Audio-First Performance Reference",
+      "source_url": "https://x.com/WriterMcG/status/2079351581460287890",
+      "author": "WriterMcG",
+      "author_name": "BUFFALONICKEL FILMS INC.",
+      "author_url": "https://x.com/WriterMcG",
+      "type": "Tutorial",
+      "date": "2026-07-20",
+      "takeaway": "describe room tone, ambient sound, character behavior, and dialogue as one Seed Audio scene, then reuse the finished audio plus character images as performance reference for the downstream video model.",
+      "notes": "- Source evidence: The public post says the creator used the Seed Audio section of a private soundstage app to describe the room, ambience, character behavior, and dialogue as one dramatic performance, then reused the returned sound file as performance reference alongside character images for video generation.\n- What to copy: Use Seed Audio as the scene-planning layer when you want the audio bed to lock performance, timing, and mood before the video model starts interpreting the scene.\n- Practical workflow: write one compact scene description that covers room tone, ambient sound, character behavior, and dialogue, generate the full performance audio first, then pair that finished audio with character images or stills before asking the video model to animate the scene.\n- Watch-outs: The thread later says the creator connected a private voice library inside a custom studio, so you should preserve only the public audio-first workflow boundary and not assume the same private voice stack or lip-sync quality is generally available.",
+      "original_number": 20,
+      "evidence_strength": "strong",
+      "localized_titles": {
+        "zh-CN": "音效棚的音频优先表演参考",
+        "zh-TW": "音效棚的音訊優先表演參考",
+        "ja": "サウンドステージ音声先行の演技リファレンス",
+        "ko": "사운드스테이지 오디오 우선 퍼포먼스 레퍼런스",
+        "es": "Referencia de interpretación audio-first en soundstage",
+        "pt": "Referência de performance audio-first em soundstage",
+        "de": "Audio-First-Performancereferenz im Soundstage-Workflow",
+        "fr": "Référence de performance audio-first en soundstage",
+        "tr": "Soundstage için audio-first performans referansı",
+        "ru": "Референс исполнения в audio-first soundstage"
+      },
+      "media": {
+        "type": "video",
+        "thumbnail_path": "media/cases/case-20.jpg",
+        "source": "x_twitter_tweet",
+        "source_tweet_id": "2079351581460287890",
+        "source_url": "https://x.com/WriterMcG/status/2079351581460287890",
+        "download_url": "https://video.twimg.com/amplify_video/2079351558567796736/vid/avc1/1280x720/FCBrBhR_459ueAqq.mp4?tag=29",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-20.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-20.jpg"
+      }
+    },
+    {
+      "number": 21,
+      "category": "social-narration-foley-cost-tests",
+      "title": "Arabic Dialogue Support Limit Test",
+      "source_url": "https://x.com/tawleefai/status/2079626302835884345",
+      "author": "tawleefai",
+      "author_name": "توليف",
+      "author_url": "https://x.com/tawleefai",
+      "type": "Limit",
+      "date": "2026-07-21",
+      "takeaway": "run a short Arabic dialogue or voiceover check before committing to Seed Audio in unsupported-language pipelines, because the current release can fail even when the setup is otherwise usable for supported languages.",
+      "notes": "- Source evidence: The public post says the author tested Seed Audio 1.0 for dialogue and voiceover generation, reports that the current output is unusable gibberish, and states that Arabic is not officially supported in the current release.\n- What to copy: Treat unsupported-language evaluation as an explicit go-no-go gate, not an assumption carried over from the model’s stronger English or multilingual marketing claims.\n- Practical workflow: before building a longer Arabic pipeline, run one short dialogue or voiceover test, inspect whether the generated speech is actually intelligible, and stop early if the result collapses instead of spending time on downstream video or editing work.\n- Watch-outs: The public thread adds only one exact prompt example and one result video, so preserve the visible limitation and prompt boundary without inferring a broader Arabic benchmark or hidden setup details.",
+      "original_number": 21,
+      "evidence_strength": "strong",
+      "localized_titles": {
+        "zh-CN": "阿拉伯语对话支持限制测试",
+        "zh-TW": "阿拉伯語對話支援限制測試",
+        "ja": "アラビア語対話サポートの制限テスト",
+        "ko": "아랍어 대화 지원 한계 테스트",
+        "es": "Prueba del límite de soporte para diálogo en árabe",
+        "pt": "Teste do limite de suporte ao diálogo em árabe",
+        "de": "Grenztest für arabische Dialogunterstützung",
+        "fr": "Test de limite du support du dialogue arabe",
+        "tr": "Arapça diyalog desteği sınır testi",
+        "ru": "Тест ограничения поддержки арабских диалогов"
+      },
+      "media": {
+        "type": "video",
+        "thumbnail_path": "media/cases/case-21.jpg",
+        "source": "x_twitter_tweet",
+        "source_tweet_id": "2079626302835884345",
+        "source_url": "https://x.com/tawleefai/status/2079626302835884345",
+        "download_url": "https://video.twimg.com/amplify_video/2079632239579525120/vid/avc1/4094x2160/-GICMjVu_TdSal1c.mp4?tag=29",
+        "remote_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-21.mp4",
+        "poster_url": "https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-21.jpg"
       }
     }
   ]

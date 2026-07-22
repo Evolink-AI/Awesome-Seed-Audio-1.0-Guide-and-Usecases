@@ -24,7 +24,7 @@ Diese deutsche README behält Quellenlinks, Attribution und Anker bei und übers
 
 ## 📊 Überblick
 
-- **Aus 97 akzeptierten aktuellen X/Twitter-Beiträgen wurden 19 Seed-Audio 1.0 Fälle ausgewählt.**
+- **Aus 99 akzeptierten aktuellen X/Twitter-Beiträgen wurden 21 Seed-Audio 1.0 Fälle ausgewählt.**
 - Abgedeckte Bereiche: Audio-First-Video-Workflows, Audio-Drama und Szenengenerierung, Referenzstimmen und Character Casting, Tool- und Provider-Integrationen, Social Narration, Foley und Kostentests.
 - Jeder Fall enthält Originalquelle, Creator-Attribution, Nutzungserkenntnis, Evidenztyp und Veröffentlichungsdatum.
 - Nutze dieses Repository, um reale Workflows zu finden, Stärken und Grenzen zu vergleichen, Provider-Routen zu entdecken und Implementierung zu EvoLink zu führen.
@@ -475,6 +475,42 @@ Typ: Evaluation | Datum: 2026-07-20
 
 ---
 
+<a id="case-20"></a>
+### Fall 20: [Audio-First-Performancereferenz im Soundstage-Workflow](https://x.com/WriterMcG/status/2079351581460287890) (von [@WriterMcG](https://x.com/WriterMcG))
+
+**beschreibe Raumton, Atmosphäre, Figurenverhalten und Dialog als eine einzige Seed-Audio-Szene und nutze das fertige Audio zusammen mit Figurenbildern erneut als Performance-Referenz für das nachgelagerte Videomodell.**
+
+- Quellenbeleg: Der öffentliche Post sagt, dass der Creator die Seed-Audio-Sektion in seiner privaten Soundstage-App nutzte, um Raum, Atmosphäre, Figurenverhalten und Dialog als eine einzige dramatische Performance zu beschreiben, und die zurückgegebene Audiodatei anschließend zusammen mit Figurenbildern als Schauspielführung für die Videogenerierung wiederverwendete.
+- Was zu übernehmen ist: Nutze Seed Audio als Szenenplanungs-Layer, wenn du Performance, Timing und Stimmung zuerst im Audio festlegen willst, bevor das Videomodell die Szene interpretiert.
+- Praktischer Workflow: Schreibe eine kompakte Szenenbeschreibung für Raumton, Atmosphäre, Figurenverhalten und Dialog, erzeuge zuerst die vollständige Audio-Performance und kombiniere dieses fertige Audio dann mit Figurenbildern oder Stills, bevor das Videomodell die Szene animiert.
+- Worauf zu achten ist: Später sagt der Creator im Thread, dass er eine private Stimmbibliothek in ein eigenes Studio eingebunden hat. Bewahre deshalb nur das öffentliche Audio-First-Muster und unterstelle nicht, dass derselbe private Voice-Stack oder dieselbe Lip-Sync-Qualität allgemein verfügbar ist.
+
+[![Fall 20 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-20.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-20.mp4)
+
+[Video-Wiedergabeseite oeffnen](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-20.mp4)
+
+Typ: Tutorial | Datum: 2026-07-20
+
+---
+
+<a id="case-21"></a>
+### Fall 21: [Grenztest für arabische Dialogunterstützung](https://x.com/tawleefai/status/2079626302835884345) (von [@tawleefai](https://x.com/tawleefai))
+
+**führe einen kurzen arabischen Dialog- oder Voiceover-Test aus, bevor du Seed Audio in einem nicht unterstützten Sprach-Workflow fest einplanst, denn die aktuelle Version kann selbst dann scheitern, wenn der übrige Ablauf in unterstützten Sprachen brauchbar ist.**
+
+- Quellenbeleg: Der öffentliche Post sagt, dass der Autor Seed Audio 1.0 für Dialog- und Voiceover-Erzeugung getestet hat, dass die aktuelle Ausgabe unbrauchbares Kauderwelsch ist und dass Arabisch in der aktuellen Version offiziell nicht unterstützt wird.
+- Was zu übernehmen ist: Behandle die Bewertung nicht unterstützter Sprachen als explizites Go-or-No-Go-Gate und nicht als Annahme, die man aus den stärkeren englischen oder mehrsprachigen Marketingversprechen ableitet.
+- Praktischer Workflow: Bevor du einen längeren arabischen Workflow aufbaust, führe einen einzigen kurzen Dialog- oder Voiceover-Test aus, prüfe, ob die erzeugte Sprache wirklich verständlich ist, und stoppe früh, falls das Ergebnis zusammenbricht, statt Zeit in nachgelagertes Video oder Editing zu investieren.
+- Worauf zu achten ist: Der öffentliche Thread ergänzt nur ein exaktes Prompt-Beispiel und ein Ergebnisvideo. Bewahre daher nur die sichtbare Einschränkung und die sichtbare Prompt-Grenze und leite daraus keinen breiteren Arabisch-Benchmark oder versteckte Setup-Details ab.
+
+[![Fall 21 video preview](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/media/cases/case-21.jpg)](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-21.mp4)
+
+[Video-Wiedergabeseite oeffnen](https://pub-62cf7640cd0f4066b60933bd2e9b85ef.r2.dev/github-repo/Awesome-Seed-Audio-1.0-Guide-and-Usecases/videos/case-21.mp4)
+
+Typ: Limit | Datum: 2026-07-21
+
+---
+
 ## Verwandte Repositories
 
 Derzeit ist kein separates öffentliches Seed-Audio-Repository verifiziert. Die gepflegte Skill-Oberfläche ist evolink-seed-audio auf npm.
@@ -484,7 +520,7 @@ Derzeit ist kein separates öffentliches Seed-Audio-Repository verifiziert. Die 
 
 Dieses Repository verlinkt öffentliche Creator- und Provider-Beiträge auf Fallebene. Die öffentliche Quelle steht in jeder Fallüberschrift.
 
-[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard)
+[@gokayfem](https://x.com/gokayfem) [@gavinpurcell](https://x.com/gavinpurcell) [@EvoLinkAi](https://x.com/EvoLinkAi) [@tarumainfo](https://x.com/tarumainfo) [@TomLikesRobots](https://x.com/TomLikesRobots) [@JPAI_HEAVEN](https://x.com/JPAI_HEAVEN) [@higgsfield](https://x.com/higgsfield) [@genel_ai](https://x.com/genel_ai) [@deepwhitman](https://x.com/deepwhitman) [@tc50501](https://x.com/tc50501) [@TomLikesRobots](https://x.com/TomLikesRobots) [@mattworkman](https://x.com/mattworkman) [@aimikoda](https://x.com/aimikoda) [@akiyoshisan](https://x.com/akiyoshisan) [@fabianstelzer](https://x.com/fabianstelzer) [@emmanuel_2m](https://x.com/emmanuel_2m) [@maxescu](https://x.com/maxescu) [@Dani__oros](https://x.com/Dani__oros) [@takareinhard](https://x.com/takareinhard) [@WriterMcG](https://x.com/WriterMcG) [@tawleefai](https://x.com/tawleefai)
 
 *Korrekturen sind willkommen, wenn ein Link defekt ist, Attribution falsch ist oder eine Aussage nicht durch die Quelle gestützt wird.*
 
